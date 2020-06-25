@@ -1,0 +1,40 @@
+---
+title: Destroying
+---
+
+import Globals from 'gatsby-theme-carbon/src/templates/Globals';
+
+<PageDescription>
+
+Use the <Globals name="env" /> to delete itself
+
+</PageDescription>
+
+
+<InlineNotification>
+
+**Note**: An **environment administrator** performs the steps on this page. See [Plan Installation > Roles](/admin/plan-installation#roles) for the overview of the roles involved.
+
+</InlineNotification>
+
+
+Not only can the <Globals name="shortName" /> create the <Globals name="env" />, the environment can also delete itself. The environment is installed using Terraform, which stores the state of the creation in the `workspace` folder. Terraform can use that state to delete what it installed.
+
+Destroy a <Globals name="env" /> following these steps:
+
+- Run the following command to launch a [Developer Tools container](/guides/tools-image):
+    ```bash
+    ./launch.sh
+    ```
+
+- In the container, change to the `workspace` directory:
+    ```bash
+    cd workspace
+    ```
+
+- In the container, run the Terraform tool with the `destroy` option:
+    ```bash
+    terraform destroy
+    ```
+
+This will remove the development cluster and all the services that were created previously.

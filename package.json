@@ -1,0 +1,37 @@
+{
+  "name": "ibm-enterprise-runbooks",
+  "version": "1.0.0",
+  "license": "Apache-2.0",
+  "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d public",
+    "build": "gatsby build --prefix-paths",
+    "dev": "gatsby develop",
+    "dev:clean": "gatsby clean && gatsby develop",
+    "serve": "gatsby serve",
+    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
+    "start": "npm run dev",
+    "clean": "gatsby clean",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+  },
+  "dependencies": {
+    "gatsby": "^2.23.11",
+    "gatsby-image": "^2.4.9",
+    "gatsby-plugin-global-context": "^1.0.0",
+    "gatsby-plugin-google-analytics": "^2.2.4",
+    "gatsby-plugin-manifest": "^2.2.39",
+    "gatsby-plugin-offline": "^3.0.32",
+    "gatsby-source-filesystem": "^2.2.1",
+    "gatsby-theme-carbon": "^1.24.3",
+    "gatsby-transformer-json": "^2.3.0",
+    "lodash": "latest",
+    "prop-types": "^15.7.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-helmet": "^5.2.1"
+  },
+  "devDependencies": {
+    "gh-pages": "^2.2.0",
+    "prettier": "^1.19.1"
+  }
+}

@@ -1,0 +1,8 @@
+node_modules/
+.idea/
+.cache/
+*.iml
+.DS_Store
+/public/
+.tmp/
+fonts/

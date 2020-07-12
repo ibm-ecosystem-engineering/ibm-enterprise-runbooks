@@ -1,0 +1,81 @@
+- title: Introduction
+  pages:
+    - title: Overview
+      path: /overview/overview
+    - title: What are Enterprise Accounts
+      path: /overview/what-are-enterprise-accounts
+
+- title: Videos
+  pages:
+    - title: IaaS
+      path: /videos/iaas
+    - title: Security
+      path: /videos/security
+
+- title: Identify and Access
+  pages:
+    - title: Overview
+      path: /iam/overview
+    - title: Federated SignOn Active Directory
+      path: /iam/federated-sign-ad
+    - title: Security Levels
+      path: /iam/security-levels
+    - title: Best Practices
+      path: /iam/best-practices
+    - title: Activity Tracking
+      path: /iam/activity-tracking
+
+- title: Catalog
+  pages:
+    - title: Overview
+      path: /catalog/overview
+    - title: PartnerWorld Entitlements
+      path: /catalog/partner-world-entitlements
+    - title: Passport Advantage
+      path: /catalog/passport-advantage
+    - title: Access Control
+      path: /catalog/access-control
+    - title: Restricting Services
+      path: /catalog/restricting-services
+    - title: Private Catalogs
+      path: /catalog/restricting-services
+    - title: Enterprise Sandbox Tiles
+      path: /catalog/enterprise-sandbox-tiles
+    - title: Cloud-Native Toolkit Tile
+      path: /catalog/cloud-native-toolkit-tile
+
+- title: Install Run Books
+  pages:
+    - title: Overview
+      path: /install/overview
+    - title: Cloud Native with OpenShift
+      path: /install/cloud-native
+    - title: Cloud Pak for Applications
+      path: /install/applications
+    - title: Cloud Pak for Integrations
+      path: /install/integration
+    - title: Cloud Pak for MCM
+      path: /install/multi-cloud-management
+    - title: Cloud Pak for Data
+      path: /install/data
+    - title: Cloud Pak for Automation
+      path: /install/automation
+    - title: Edge Application Manager
+      path: /install/edge
+    - title: Common Operators
+      path: /install/common-operators
+
+- title: Learning Journeys
+  pages:
+    - title: Overview
+      path: /learning-journeys/overview
+    - title: Cloud-Native Foundation
+      path: /learning-journeys/cloud-natvie-foundation
+    - title: Cloud-Native Intermediate
+      path: /learning-journeys/cloud-native-intermediate
+    - title: Cloud-Native Advanced
+      path: /learning-journeys/cloud-native-advanced
+
+- title: How to contribute
+  pages:
+    - path: /contributing

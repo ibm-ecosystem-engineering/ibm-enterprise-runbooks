@@ -1,17 +1,16 @@
 import React from 'react';
-import { HomepageCallout, ResourceCard } from 'gatsby-theme-carbon';
+import { HomepageBanner,HomepageCallout, ResourceCard } from 'gatsby-theme-carbon';
 import HomepageTemplate from 'gatsby-theme-carbon/src/templates/Homepage';
 import styles from './Homepage.module.scss';
 import HomepageVideo from '../components/HomepageVideo/HomepageVideo';
+
+const BannerText = () => <h1>Enterprise<br/>Run Books</h1>;
 
 const FirstLeftText = () => <p>Run Books</p>;
 
 const FirstRightText = () => (
   <p>
-    Carbon is IBM’s <strong>open-source</strong> design system for products and
-    experiences. With the IBM Design Language as its foundation, the system
-    consists of working code, design tools and resources, human interface
-    guidelines, and a vibrant community of contributors.
+    When you are working with an IBM Cloud Enterprise Subscription account, having a collection of Run Books helps you navigate your way through a number of critical security management, catalog management and other activities to make you IBM Cloud Account ready for Developers, Data Scientist and many more.
   </p>
 );
 
@@ -40,11 +39,13 @@ const SecondRightText = () => (
 const customProps = {
   Banner: (
     <>
+      <HomepageBanner renderText={BannerText}/>
       <span className="homepage--dots" />
+      /*
       <section className="homepage--header">
         <div className="bx--grid">
           <div className="bx--row">
-            <div className="bx--col-lg-4 bx--col-md-4 bx--col-sm-2 bx--offset-lg-8 bx--offset-md-4 bx--offset-sm-2 homepage--tile-header">
+            <div className="hidden bx--col-lg-4 bx--col-md-4 bx--col-sm-2 bx--offset-lg-8 bx--offset-md-4 bx--offset-sm-2 homepage--tile-header">
               <ResourceCard
                 className={styles.callToAction}
                 subTitle="Read"
@@ -58,6 +59,7 @@ const customProps = {
           </div>
         </div>
       </section>
+        */
     </>
   ),
   FirstCallout: (

@@ -11,8 +11,6 @@ const CustomHeader = props => (
 
 
 
-
-
 );
 
 export default CustomHeader;

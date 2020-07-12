@@ -12,6 +12,25 @@
     - title: Security
       path: /videos/security
 
+- title: Enterprise Accounts
+  pages:
+    - title: Overview
+      path: /enterprise-accounts/overview
+    - title: Creation Process
+      path: /enterprise-accounts/creation-process
+    - title: Feature Codes
+      path: /enterprise-accounts/feature-codes
+    - title: Sub Accounts
+      path: /enterprise-accounts/sub-accounts
+    - title: Billing
+      path: /enterprise-accounts/billing
+    - title: Tagging
+      path: /enterprise-accounts/tagging
+    - title: Spending Limits
+      path: /enterprise-accounts/spending-limits
+    - title: Usage Reporting
+      path: /enterprise-accounts/usage-reporting
+
 - title: Identify and Access
   pages:
     - title: Overview

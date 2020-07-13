@@ -8,18 +8,17 @@ const links = [
     href: 'https://www.ibm.com/cloud',
   },
   {
-    title: 'Garage Method',
-    href: 'https://www.ibm.com/garage/method',
+    title: 'GSI Labs',
+    href: 'https://github.com/ibm-gsi-ecosystem',
   },
   {
-    title: 'Dev Tools Github Org',
-    href: 'https://github.com/ibm-garage-cloud',
+    title: 'IBM PartnerWorld',
+    href: 'https://www.ibm.com/partnerworld/public',
   },
   {
-    title: 'IBM Cloud Terraform Provider',
-    href: 'https://ibm-cloud.github.io/tf-ibm-docs/',
+    title: 'IBM Cloud Patterns',
+    href: 'https://ibm.github.io/cloud-enterprise-examples/',
   }
-
 ];
 
 // shouldOpenNewTabs: true if outbound links should open in a new tab

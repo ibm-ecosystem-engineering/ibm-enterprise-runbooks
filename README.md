@@ -1,14 +1,13 @@
-# IBM Garage Solution Engineering
+# IBM Cloud Ecosystem
 [![Build Status](https://travis-ci.org/ibm-garage-cloud/ibm-garage-developer-guide.svg?branch=master)](https://travis-ci.org/ibm-garage-cloud/ibm-garage-developer-guide)
 
-## Cloud Native Toolkit - Developer Guide
+## IBM Cloud Enterprise Run Books
 
-The developer guide has been written to help developers get familiar with how to use to the tools to manage the full
-lifecycle of cloud native development with IBM Kubernetes Service or managed Red Hat OpenShift on IBM Cloud.
+The IBM Cloud Enterprise Run Books help IBM Cloud operations teams managing Enterprise Subscription Account. A Run Book is description [here](https://en.wikipedia.org/wiki/Runbook), this is summarised with this sentence. In a computer system or network, a runbook is a compilation of routine procedures and operations that the system administrator or operator carries out. System administrators in IT departments and NOCs use runbooks as a reference. Runbooks can be in either electronic or in physical book form. Typically, a runbook contains procedures to begin, stop, supervise, and debug the system. It may also describe procedures for handling special requests and contingencies. An effective runbook allows other operators, with prerequisite expertise, to effectively manage and troubleshoot a system.   
 
-The rendered Developer Guide can be viewed here - [https://ibm-garage-cloud.github.io/ibm-garage-developer-guide/](https://ibm-garage-cloud.github.io/ibm-garage-developer-guide/)
+The rendered Run Books can be viewed here - [https://github.com/ibm-gsi-ecosystem/ibm-enterprise-runbooks](https://github.com/ibm-gsi-ecosystem/ibm-enterprise-runbooks)
 
-To update and manage the Developer Guide follow these steps.
+To update and manage the Run Books follow these steps.
 
 ### Clone the repository
 

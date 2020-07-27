@@ -25,7 +25,7 @@
     - title: Billing
       path: /enterprise-accounts/billing
     - title: Tagging
-      path: /enterprise-accounts/tagging
+      path: /enterprise-accounts/tagging-reporting
     - title: Spending Limits
       path: /enterprise-accounts/spending-limits
     - title: Usage Reporting
@@ -36,7 +36,7 @@
     - title: Overview
       path: /iam/overview
     - title: Federated SignOn Active Directory
-      path: /iam/federated-sign-ad
+      path: /iam/federated-signon-ad
     - title: Security Levels
       path: /iam/security-levels
     - title: Best Practices

@@ -72,7 +72,7 @@
     - title: Cloud Pak for Applications
       path: /install/applications
     - title: Cloud Pak for Integrations
-      path: /install/integration
+      path: /install/integrations
     - title: Cloud Pak for MCM
       path: /install/multi-cloud-management
     - title: Cloud Pak for Data

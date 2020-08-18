@@ -37,6 +37,8 @@
       path: /iam/overview
     - title: Federated SignOn Active Directory
       path: /iam/federated-signon-ad
+    - title: Creation
+      path: /iam/creation-process
     - title: Security Levels
       path: /iam/security-levels
     - title: Best Practices

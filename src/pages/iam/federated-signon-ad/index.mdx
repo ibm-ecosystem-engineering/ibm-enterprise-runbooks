@@ -11,20 +11,19 @@ import Globals from 'gatsby-theme-carbon/src/templates/Globals';
 ## Introduction
 
 As a federated user that uses a corporate or enterprise single sign-on ID, you can log in to IBM Cloud® from the command-line interface (CLI) by using either a one-time passcode or an API key.
- 
+
 IBMid has added support for IBM customers and partners to incorporate IBMid authentication to their organizations identity provider.  This allows the organizations identity provider to handle all the users leveraging IBM web applications and cloud services.  As a result, Company X can use their own login page and security controls to secure  access to IBM Cloud Apps or IBM Services.  
 
 IBM leverages the Security Assertion Markup Language 2.0 (SAML 2.0) for this capability.  SAML 2.0 is a standard version for exchanging authentication data between security domains.  It is an XML-based protocol that uses a security token containing assertions to pass information between the organizations "Identity Provider", and the IBM Rely Party (RP) - otherwise known as the Service Provider.
- 
-This section is intended to detail the steps required to onboard an IBM customer or partner to this new service, how they will perform ongoing lifecycle maintenance of such an arrangement, and how they will receive support for any issues that may arise with this federation setup. 
 
+This section is intended to detail the steps required to onboard an IBM customer or partner to this new service, how they will perform ongoing lifecycle maintenance of such an arrangement, and how they will receive support for any issues that may arise with this federation setup. 
 
 To begin this process, please send an email to:  ibmidfd@us.ibm.com and state that you'd like to federate your Company IdP with IBMId.  They will take it from there. 
 
 
  
 ## User experience
- 
+
 After an enterprise has federated with IBM, the user experience will be as follows:
 
 ![IBM Cloud or Services](images/signon.jpg)
@@ -39,8 +38,8 @@ A user (joe.CompanyX.com) opens an IBM Cloud application and must authenticate v
 
 **New Sign in to IBM page**
 
-![IBM Cloud Old Sign](images/newsign.jpg)
- 
+![IBM Cloud Old Sign](images/newsign.png)
+
 Federated users, they enter their email address and click continue, at that point a lookup is made in the background of IBMid to verify if the email address/domain is associated with the users organization.
 The user is then redirected to their organizations sign in experience. 
 
@@ -58,12 +57,12 @@ This process flow begins after an agreement has been made. 
 
 ![IBM Cloud Old Sign](images/customeribm.jpg)
 
-*Step 5(*)* you can choose to federate a few sets of users for testing and later convert the entire domain.
+**Step 5(*) in above picture** you can choose to federate a few sets of users for testing and later convert the entire domain.
 
 **Note:** This is a straightforward boarding flow, and an interaction back and forth among steps 5 to 10 may happen.
 
 ## On-boarding - basic requirements
- 
+
 For an organization to be able to onboard the enterprise federation service associated with IBMid, they must have an IBM employee as a business sponsor that can confirm and own the IBM relationship with the customer/partner. 
 Additionally, an organization must have an organizational "identity provider" which its users can be directed to by the IBMid system to authenticate through, and which supports the following baseline technical requirements:
 
@@ -82,7 +81,6 @@ SAML Assertion attribute  | Comments              | OIDC ID Token Claim
 
 *country* attribute can not be excluded, and it must be always a required value. IBM operates globally and we must comply with laws around embargo’s countries. This is one of our ways to be on compliance. 
 
-
 **Regexp for email validation**
 must match regExp  "^[A-Za-z0-9!#=/%\\&_`{}~\\-.$?|\\^\\[\\]+\"']+@[A-Za-z0-9!#=/%\\&_`{}~\\-$?|\\^\\[\\]+\"']+(\\.[A-Za-z0-9!#=/%\\&_`{}~\\-$?|\\^\\[\\]+\"']+)+$"
 must not match failRegExp  "(?i).*\\.(cu|ir|sd|sy)$" 
@@ -91,38 +89,35 @@ must not match failRegExp  "(?i).*\\.(cu|ir|sd|sy)$"
 - Any other attributes provided by the organization in the SAML assertion will be sent through to the end IBM cloud service being used by the user, but will not be persisted in the IBMid system in any way.
 - The following attributes "uid" and "groupid" will be ignored and removed from SAML assertion, please make sure your IdP does not use them. These attribute are not case sensitive.
 - The federation will be first enable in IBM Pre-Production environment. Once the federation is working fine in Pre-Production it will move to IBM Production environment.
-- Production time window change. 
-
-Production environment is updated twice a week (Tuesday and Friday at 6am EST). In case of Identity Provider signing certificate change/update, please provide the new certificate along with IdP metadata file at least 1 week prior it expiration.
+- Production time window change :
+    Production environment is updated twice a week (Tuesday and Friday at 6am EST). In case of Identity Provider signing certificate change/update, please provide the new certificate along with IdP metadata file at least 1 week prior it expiration.
 - CRL (Certificate Revocation List). In case your signing certificate has CRL, the url must be public so IBM server can reach them.
 - CA issue certificates are required to have CRL (Certificate Revocation List)
 - Self Signed certificate can not have Basic Constraints set to CA type.
-- CRL validation
+- CRL validation :
+    As part of IBM security standards we have a CRL (Certificate Revocation List) validation procedure running each 30 minutes. 
 
-As part of IBM security standards we have a CRL (Certificate Revocation List) validation procedure running each 30 minutes. 
+  When a Federation certificate is revoked, that certificate is considered as untrustworthy by the Certificate Authority. Continue to allow your federation login with revoked certificate is a security risk. 
 
-When a Federation certificate is revoked, that certificate is considered as untrustworthy by the Certificate Authority. Continue to allow your federation login with revoked certificate is a security risk. 
+  In case we receive its failure 4 consecutive times ( in a period of 2 hours) we will send you an alert notification about your CRL validation fail, in order to keep you aware that may be an issue with your current signing certificate CRL.
 
-In case we receive its failure 4 consecutive times ( in a period of 2 hours) we will send you an alert notification about your CRL validation fail, in order to keep you aware that may be an issue with your current signing certificate CRL.
-In case this issue continue for 12 hours, we will send you a second notification about this failure and your IdP can check if there is an issue with your signing certificate related to CRL.
+  In case this issue continue for 12 hours, we will send you a second notification about this failure and your IdP can check if there is an issue with your signing certificate related to CRL.
 
-You can check if your signing certificate was revoked or even added by mistake. 
+  You can check if your signing certificate was revoked or even added by mistake. As you own your signing certificate, you can:
+    - **Option A** : Request IBM to disable your federation and this will impact all federated users preventing them to authenticate with your own company credentials when accessing any IBM product .
+    - **option B** : You can decide to keep the way it is and assume the risk of using a signing certificate that has a CRL validation failure. 
+    - **option C** : You can also keep using the current Signing certificate with CRL validation failure while providing a new certificate. Please send us the new certificate at least 5 business day before you deploy it in our IdP environment, so IBM can update your federation and not cause any outage or issue for your federated users.
 
-As you own your signing certificate, you can:
-- option A) request IBM to disable your federation and this will impact all federated users preventing them to authenticate with your own company credentials when accessing any IBM product .
-- option B) you can decide to keep the way it is and assume the risk of using a signing certificate that has a CRL validation failure. 
-- option C) you can also keep using the current Signing certificate with CRL validation failure while providing a new certificate. Please send us the new certificate at least 5 business day before you deploy it in our IdP environment, so IBM can update your federation and not cause any outage or issue for your federated users.
-
-**NOTE:** IBMid does not support userid or username change. In this case the federating organization must create a new IBMid account (auto-provision or manually registration) to match the organization email domain.
+  **NOTE:** IBMid does not support userid or username change. In this case the federating organization must create a new IBMid account (auto-provision or manually registration) to match the organization email domain.
 
 
-- Add new signing CA issued certificate prior expiration of current one.
-IBMid Enterprise Federation send an email to the company contacts that we have in our list,  about 60 days prior their  Identity Provider  Certificate will expire. After this email we can exchange some information to coordinate the Signing certificate change.
-To handle the Identity provider Certificate change, once you receive the notification about the expiration of the Signing Certificate, please send an email to IBMid Enterprise Federation team: ibmidfd@us.ibm.com
-Check with your Identity Provider team if they could send us the certificate in advance, so we can validate the cert to be added as secondary. In this case, we will have both certificates in place as primary and secondary. 
-In case is not possible to add the new certificate as secondary, we may need to receive the certificate and apply the change in the exact date and time when the Identity Provider will change it in their side. IBM Enterprise Federation team needs to receive the certificate 5 days in advance if possible. 
+- Add new signing CA issued certificate prior expiration of current one:
+    IBMid Enterprise Federation send an email to the company contacts that we have in our list,  about 60 days prior their  Identity Provider  Certificate will expire. After this email we can exchange some information to coordinate the Signing certificate change.
+    To handle the Identity provider Certificate change, once you receive the notification about the expiration of the Signing Certificate, please send an email to IBMid Enterprise Federation team: ibmidfd@us.ibm.com
+    Check with your Identity Provider team if they could send us the certificate in advance, so we can validate the cert to be added as secondary. In this case, we will have both certificates in place as primary and secondary. 
+    In case is not possible to add the new certificate as secondary, we may need to receive the certificate and apply the change in the exact date and time when the Identity Provider will change it in their side. IBM Enterprise Federation team needs to receive the certificate 5 days in advance if possible. 
 
-*IBM can add a second signing certificate and it is required its Subject DN matches the current one. In case the new certificate has a different Subject DN, we have to replace the old one by new one.
+  *IBM can add a second signing certificate and it is required its Subject DN matches the current one. In case the new certificate has a different Subject DN, we have to replace the old one by new one.
 
 ## On-boarding - detailed information required 
  
@@ -132,10 +127,10 @@ The organization adopting IBMid enterprise federation must provide a list of all
 #### Changes (as needed) to pre-existing IBMid users: 
 IBM will use the email domains provided in above section to give the onboarding organization a list of users in the provided domains that may already exist in the IBMid system.  The enterprise must then analyze this list of pre-existing IBMid users, and determine how to handle any pre-existing IBMid users.  Typically one of 4 choices will need to be made for each pre-existing user:
 
-- Convert - If the pre-existing IBMid is still a valid organizational employee, then typically the organization will want IBM to convert the existing ID so that it will require federated authentication to be used.  
-- Delete - If the pre-existing IBMid no longer matches a valid organizational employee, then IBM can delete the IBMid so that there are no IBMid users impersonating members of the organization that is onboarding. 
-- Leave - Keep the original IBMid as is, as an unfederated IBMid user (the typical example of why this may be requested is to keep a few organizationals admins with access to IBMid service in a non federated fashion, so that they can test/verify that federation is/is not working at some point in time).
-- Modify - If any of the attributes of the pre-existing user ID need to change (email, name, country, etc) to align with the current organizations values, then the IBMid can be modified to align at time of on-boarding. 
+- **Convert** - If the pre-existing IBMid is still a valid organizational employee, then typically the organization will want IBM to convert the existing ID so that it will require federated authentication to be used.  
+- **Delete** - If the pre-existing IBMid no longer matches a valid organizational employee, then IBM can delete the IBMid so that there are no IBMid users impersonating members of the organization that is onboarding. 
+- **Leave** - Keep the original IBMid as is, as an unfederated IBMid user (the typical example of why this may be requested is to keep a few organizationals admins with access to IBMid service in a non federated fashion, so that they can test/verify that federation is/is not working at some point in time).
+- **Modify** - If any of the attributes of the pre-existing user ID need to change (email, name, country, etc) to align with the current organizations values, then the IBMid can be modified to align at time of on-boarding. 
 
 **NOTE:** There are older IBMids where the "username" does not equal an email address, but the contact email associated with the ID may still match the organizational email domain.  In such a case the federating organization may ask iBM to modify the IBMid username to match the email address, so that the ID can be used in a federated fashion.   This would come with a potentially negative impact that some IBM cloud apps use the email address as identifier for the user - and thus changing the username may affect the access rights of the IBMid.
 
@@ -145,18 +140,17 @@ The IBMid interface, when seeing a federated user, informs the user that they ar
 The name that will be used must be supplied in the IDP SAML metadata provided by the federating organization to IBM, within the organization section.  The "OrganizationDisplayName" is what must contain the maximum 30 character name that the organization wishes to be displayed to users, as well as the organization name that will be saved into the users IBMid record.  
  
 **Example:**
- 
+
+```
 <md:Organization>
 <md:OrganizationName xml:lang="en">IBM</md:OrganizationName>
 <md:OrganizationDisplayName xml:lang="en">IBM w3id</md:OrganizationDisplayName>
 <md:OrganizationURL xml:lang="en"/>
 </md:Organization>
- 
+```
 OrganizationDisplayName must exist in SAML metadata, and it must be less than 30 characters. 
 
-
 **NOTE:** This "organization" section in SAML metadata is part of the SAML industry spec for metadata, but is considered optional.  As such it may have to be manually added to the metadata that is generated by the organizations IDP.  
-
 
 #### The organizations’s Identity Provider (IdP) metadata:
 The organization must then provide IBM with the SAML metadata for its organization identity provider.   This can be provided either via a URL to download the metadata, or sent in XML file format directly to IBMid federation on-boarding contact. 
@@ -172,23 +166,23 @@ Once the federating organization provides its SAML metadata, and the email domai
 
 **Error message:** Contact your company administrator
 
--How to troubleshoot: Ask the user to send its SAML response assertion.
+- How to troubleshoot: Ask the user to send its SAML response assertion.
 
--How to fix the problem:
+- How to fix the problem:
     Check the NameId and emailAddress value being sent by IdP (Identity Provider), probably it is sending an email address that is not listed in federation domain. 
     In case the email address is correct, then contact IBMid Federation team and request to add this user or email domain to federation.
 
 
 **Error message:** Token exchange failed. The given SAML assertion is not valid yet.
 
--Why this error happen? This is an know issue between TFIM and ADFS. ADFS send its SAML assertion by millisecond and TFIM (IBM) check it by second, so this may cause an failure in case their internet connection is faster than usual.
+- Why this error happen? This is an know issue between TFIM and ADFS. ADFS send its SAML assertion by millisecond and TFIM (IBM) check it by second, so this may cause an failure in case their internet connection is faster than usual.
     
--How to fix the problem:
+- How to fix the problem:
  1) Make sure your ADFS/IdP server has the correct clock time.
  2) This is a work around and will allow this particular user to access after see this error right away.
     Ask the user to press F5 in the Browser and you will see it will allow the user to proceed its authentication.
  3) In case of ADFS, you will have to add "skew" parameter, so add a range validation time of its SAML response assertion.
 
-## Resources
 
-- [IBMid Enterprise Federation adoption guide for reference](https://ibm.box.com/v/IBMid-Federation-Guide)
+
+

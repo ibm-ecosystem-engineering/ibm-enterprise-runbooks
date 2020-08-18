@@ -12,5 +12,13 @@ import Globals from 'gatsby-theme-carbon/src/templates/Globals';
 
 After you set up your IBM Cloud account, you're ready to start planning how you want to organize resources and assign access to identities in your account. These best practices provide you with the basic building blocks to enable successful and secure app development in IBM Cloud. 
 
+## Resource groups
+
+Resource groups offer a way for you to organize IAM-enabled resources that are governed by IBM Cloud Identity and Access Management (IAM). You can group resources and assign access to individual service instances or entire resource groups that use IAM.
+
+The IBM Cloud account owner can add resources to any resource group, but other users must be granted access by using an IAM access policy. There are two minimum platform management roles that users must be assigned to add resources to a resource group: viewer role or higher on the resource group and editor role or higher on the resource or service.
+
+When you assign resources to a resource group, they can't be later moved to another resource group. Be sure to plan how you want to organize resources in your account before you assign them to a resource group.
+
 ## Resources
 - [Best practices for organizing resources and assigning access](https://cloud.ibm.com/docs/account?topic=account-account_setup)

@@ -20,5 +20,53 @@ The IBM Cloud account owner can add resources to any resource group, but other u
 
 When you assign resources to a resource group, they can't be later moved to another resource group. Be sure to plan how you want to organize resources in your account before you assign them to a resource group.
 
+![IBM Cloud IAM Resource Group](images/RG.png)
+
+## Platform Roles
+Govern user’s ability to do actions at the IBM Cloud Platform level
+
+**Why**
+Customers need the ability to set platform access, but withhold service actions.
+
+**Example**
+Creating, viewing, or delete instances of a service, but not developing in the service
+
+**4 Platform Roles**
+Administrator, Editor, Operator, Viewer
+
+![IBM Cloud Assign Platform Access Roles](images/Platform.png)
+
+## Service Roles
+Govern user’s ability to do actions at a service level (consume/use a service)
+
+**Example**
+Developer access for service-specific actions like using a service’s UIs, CLIs, and APIs
+
+**3 Service Roles**
+Manager, Writer, Reader
+
+![IBM Cloud Assign Service Roles](images/Service.png)
+
+## Access Groups
+Grouping of user and service IDs to which the same IAM access can be granted.
+
+**Why Access Groups?**
+You can assign a single policy to multiple users or service IDs instead of assigning the same access multiple times per individual user or service ID.
+
+**What is it not?**
+An access group is not necessarily an Azure team or AWS role. (Predefined Access Groups in roadmap)
+
+![IBM Cloud Access Group](images/AG.png)
+
+## Account Management Services
+
+Manage platform level access and resources
+
+Many of the platform level roles can be granted using an Account Management Service
+- Easier way to provide platform access
+- Ex: Billing Role, User Access Role, Support Focal
+
+![IBM Cloud Account Management Services](images/AMS.png)
+
 ## Resources
 - [Best practices for organizing resources and assigning access](https://cloud.ibm.com/docs/account?topic=account-account_setup)

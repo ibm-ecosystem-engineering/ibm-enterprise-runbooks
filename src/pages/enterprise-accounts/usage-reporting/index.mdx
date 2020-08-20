@@ -22,10 +22,73 @@ The Enterprise Usage Reports API (Beta) provides access to the usage reports for
   - An enterprise, an account group, and an account. 
   - You can query for usage reports for an entity or its immediate children in the enterprise hierarchy. 
 
-### Retrieve Enterprise usage by CLI
+  ```
+  curl -X POST "https://enterprise.cloud.ibm.com/v1/enterprises -H "Authorization: Bearer <IAM_Token>" -H 'Content-Type: application/json' -d '{
+  "source_account_id": "a1b2c32a5ea94809a9840f5e23c362d",
+  "name": "Sample Enterprise",
+  "domain": "example.com",
+  "primary_contact_iam_id": "IBMid-0123ABC"
+  }'
+  ```
 
+
+
+### Retrieve Enterprise usage by CLI
   - IBM Cloud CLI provides the command line interface for managing resources in IBM Cloud. When you install the standalone IBM Cloud CLI, you get only the CLI itself without any recommended plug-ins or tools.
+
+  - Log in, and select the enterprise account.
+   
+   ```
+   ibmcloud login
+   ```
+
   - You can get a report of usage for the enterprise, an account group, or a specific account.
+  
+  ```
+        ibmcloud enterprise 
+      NAME:
+        ibmcloud enterprise - Manage enterprise, account groups and accounts.
+
+      USAGE:
+        ibmcloud enterprise command [arguments...] [command options]
+
+      COMMANDS:
+        create                 Create an enterprise
+        update                 Update enterprise information
+        show                   Display details of the enterprise
+        account-group-create   Create an account group
+        account-group-update   Update an account group
+        account-group          Display details of account group
+        account-groups         List account groups
+        account-create         Create an account
+        account-move           Move an account under different parent
+        account-show           Display details of an account
+        accounts               List accounts
+        account-import         Import a standalone account
+        help, h                Show help
+
+      Enter 'ibmcloud enterprise help [command]' for more information about a command.
+      ```
+
+  - View enterprise information such as the name, domain, owner, and creation and update dates
+
+  ```     
+  ibmcloud enterprise show
+  ```
+
+
+  - View usage for the entire enterprise for the current month.
+
+  ```
+  ibmcloud billing enterprise-usage
+  ```
+
+  - View the usage for the account groups and accounts that are directly under the enterprise
+
+  ```   
+  ibmcloud billing enterprise-usage --children
+  ```
+
 
 ## Resources
 - [Enterprise Account Usage](https://cloud.ibm.com/docs/billing-usage?topic=billing-usage-enterprise-usage)

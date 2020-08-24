@@ -34,8 +34,7 @@ npm install -g gatsby
 ### Write content
 
 The content of the Developer Guide is authored through a hybrid of Markdown and React. The content
-itself is primarily provided using Markdown. React components are sprinkled into the Markdown to
-provide for a richer and more interactive set of components in the published guide.
+itself is primarily provided using Markdown. React components are sprinkled into the Markdown to provide for a richer and more interactive set of components in the published guide.
 
 To render the content within your local development environment, run the following:
 

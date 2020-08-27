@@ -10,14 +10,49 @@ import Globals from 'gatsby-theme-carbon/src/templates/Globals';
 
 ## Introduction
 
-The Cloud Pak for Applications provides product offerings to support modernizing existing applications and building new cloud native applications. The applications run within a Kubernetes cluster provided with the Red Hat OpenShift Container Platform. The focus provided here is on running application workloads as containers. The Cloud Pak for Applications is a bundle of multiple offerings. This diagram provides an overview of what offerings are included and what they would be used for.
+IBM Cloud Pak® for Applications is an enterprise-ready, containerized software solution for modernizing existing applications and developing new cloud-native apps that run on Red Hat OpenShift.
 
-## Prerequistes
+## Single Install Click from IBM Catalog
 
-- Refer to Knowledge Center prerequisites for details on what is required before starting an install.
+Get a Red Hat OpenShift cluster and configure it for use with the Cloud Pak. If you do not have a cluster, create one and then return to the Cloud Pak for Applications page.
 
-- Refer to the OpenShift Container Platform section for prerequisites on installing a cluster.
+### Assign a license
+The license purchased through IBM Passport Advantage appears in the list of available entitlements Click an entitlement block to select it. Click Assign.
 
-- Refer to tools installation for prerequisites for developer client install.
+![IBM Cloud License](images/License.png)
 
-Refer to Cloud Pak Install guide for step by step instructions - https://cloudpak8s.io/apps/cp4a_installation/
+### Search Cloud Pak Software
+
+Select the catalog and search for IBM Cloud Pak for application software as shown in the diagram
+
+![IBM Cloud Catalog](images/Catalog.png)
+
+### Configure your installation environment
+
+Select the Red Hat OpenShift cluster as well as Cloud Pak for Application version where you want to install
+
+![IBM Cloud Catalog](images/CP4A-Install.png)
+
+### Configure your workspace & Complete the pre-installation
+
+Select the resource group where you want to track and manage resources as well as execute the Preinstallation script. The script creates customized security context constraints and grants access to the service accounts that are required for Cloud Pak for Applications to install successfully. 
+
+![IBM Cloud Catalog](images/CP4A-Preinstall.png)
+
+### Set the deployment values
+
+Set the consoleRoutePrefix parameter. This value is used as the subdomain in the URL for the Cloud Pak for Applications landing page. 
+
+![IBM Cloud Catalog](images/DefaultValues.png)
+
+### Install the Cloud Pak
+
+Ensure that an entitlement is assigned. If not, you must get an entitlement.
+
+Confirm your agreement to the Third-Party Service Agreements by checking the box. Then, click Install.
+
+![IBM Cloud Catalog](images/Install.png)
+
+## Additional options to install Cloud Pak for Application
+
+Refer to Cloud Pak Install guide for different options - https://cloudpak8s.io/apps/cp4a_installation/

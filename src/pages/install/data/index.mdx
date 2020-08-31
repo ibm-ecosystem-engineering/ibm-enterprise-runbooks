@@ -1,11 +1,188 @@
 ---
-title: Creation Process
+title: Install Cloud Pak for Data 3.0.1 on IBM Managed Openshift 4.3 (ROKS)
 ---
 
 import Globals from 'gatsby-theme-carbon/src/templates/Globals';
 
 <PageDescription>
 
-How to setup an Enterprise Accounts ready for Subscription Credits
-
 </PageDescription>
+
+## Install Cloud Pak for Data 3.0.1 on IBM Managed Openshift 4.3 (ROKS)
+
+### Sizing Openshift Cluster for Cloud Pak for Data 3.0.1
+
+Sizing Worker Nodes based on Services that are to be installed. Refer : https://salesconfig.ibmcloudpack.com/sales/#/zen/configure
+To do the sizing
+
+Please note that if you want to install Watson AI services (Watson Assistant, Watson Discovery, Watson AIOps, Watson Language Translator, Watson Speech to Text, Watson Text to Speech) size them separately as they will need bare metal worker nodes and will not work on virtual server worker nodes.
+
+### Provision Openshift 4.3 Cluster on IBM Cloud
+
+**Note:** Make sure you have Administrator and Manager lever permission on the account where you are provisioning the cluster.
+
+Provision Openshift 4.3 Cluster from IBM Cloud console. Select Virtual Server Worker nodes based on the above sizing calculations. If you are installing Watson AI services, we will add Bare metal worker nodes post the cluster creation.
+
+Once the cluster is created, create a new worker pool which will have bare metal servers required for Watson AI Services installation.
+
+
+
+Once the cluster is ready, launch its console and on the right top corner, from copy login command, get the token to login to Openshift cluster remotely using cli
+ 
+
+Make sure you have a system with Openshift and IBM Cloud cli installed.
+https://cloud.ibm.com/docs/openshift?topic=openshift-openshift-cli#cli_oc
+https://cloud.ibm.com/docs/cli/reference/bluemix_cli/download_cli.html
+
+Execute oc login command obtained in above step from Openshift Web Console
+
+### Setting up Openshift Cluster for Cloud Pak for Data Installation
+
+1.	Create an external route of Openshift Image registry.
+Use token obtained in abive step to login from a system to OpenShift Cluster and run below commands to create an external route
+
+```
+oc create route reencrypt --service=image-registry -n openshift-image-registry
+oc annotate route image-registry --overwrite haproxy.router.openshift.io/balance=source -n openshift-image-registry
+```
+
+2.	Resize image registry storage volume
+Default size of Openshift image registry will not be sufficient to load images if you are going to install multiple Services on Cloud Pak for Data. Hence it needs to be resized to 200GB. Run below commands to do it.
+
+ibmcloud login (login into Account where your Openshift Cluster is setup)
+```
+registry_pv=`oc get pvc -n openshift-image-registry | grep "image-registry-storage" | awk '{print $3}'`
+volid=`oc describe pv $registry_pv -n openshift-image-registry | grep volumeId`
+IFS='='
+read -ra vol <<< "$volid"
+volume=${vol[1]}
+echo volume id is $volume
+ibmcloud sl file volume-modify $volume --new-size 200 --new-tier 10 –force
+```
+
+3.	Set kernel parameters (https://www.ibm.com/support/knowledgecenter/SSQNUZ_3.0.1/cpd/install/node-settings.html)
+Since we do not have ssh access to worker nodes on ROKS, we will use daemonset to perform kernel parameter settings. Create setkernelparameters.yaml file with below contents
+
+```apiVersion: tuned.openshift.io/v1
+kind: Tuned
+metadata:
+  name: cp4d-wkc-ipc
+  namespace: openshift-cluster-node-tuning-operator
+spec:
+  profile:
+  - name: cp4d-wkc-ipc
+    data: |
+      [main]
+      summary=Tune IPC Kernel parameters on OpenShift Worker Nodes running WKC Pods
+      [sysctl]
+      kernel.shmall = 33554432
+      kernel.shmmax = 68719476736
+      kernel.shmmni = 16384
+      kernel.sem = 250 1024000 100 16384
+      kernel.msgmax = 65536
+      kernel.msgmnb = 65536
+      kernel.msgmni = 32768
+      vm.max_map_count = 262144
+  recommend:
+  - match:
+    - label: node-role.kubernetes.io/worker
+    priority: 10
+    profile: cp4d-wkc-ipc
+```
+
+Run below commands to do the changes
+
+```
+oc project kube-system
+oc create -f setkernelparameters.yaml
+```
+
+4.	Change NFS mount settings
+If you are using IBM Cloud File Storage for PVC creation, we need to make sure pvcs are mounted with root permissions. 
+
+a.	Create a service account called norootsquash by running the following command:
+
+```
+oc create -f - << EOF
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: norootsquash
+  namespace: kube-system
+EOF
+```
+
+b.	Give the service account privileged security context constraints (SCC) by running the following command:
+
+``` 
+oc adm policy add-scc-to-user privileged system:serviceaccount:kube-system:norootsquash
+```
+
+c.	Create the daemonset by running the following command:
+
+```
+oc create -f - << EOF
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: norootsquash
+  namespace: kube-system
+  labels:
+    tier: management
+    app: norootsquash
+spec:
+  selector:
+    matchLabels:
+      name: norootsquash
+  template:
+    metadata:
+      labels:
+        name: norootsquash
+    spec:
+      serviceAccountName: norootsquash
+      initContainers:
+        - resources:
+            requests:
+              cpu: 0.1
+          securityContext:
+            privileged: true
+          image: alpine:3.6
+          name: unrootsquash
+          command: ["chroot", "/host", "sh", "-c"]
+          args:
+            - >
+              grep "^Domain = slnfsv4.com" /etc/idmapd.conf;
+              if [ "\$?" -ne "0" ] ; then
+                sed -i 's/.*Domain =.*/Domain = slnfsv4.com/g' /etc/idmapd.conf;
+                nfsidmap -c;
+                rpc.idmapd
+              fi;
+          volumeMounts:
+            - name: host
+              mountPath: /host
+      containers:
+        - resources:
+            requests:
+              cpu: 0.1
+          image: alpine:3.6
+          name: sleep
+          command: ["/bin/sh", "-c"]
+          args:
+            - >
+              while true; do
+                sleep 100000;
+              done
+      volumes:
+        - hostPath:
+            path: /
+            type: Directory
+          name: host
+EOF
+```
+
+### Setting Portworx Storage
+
+Watson AI services (Watson Assistant, Watson Discovery, Watson Knowledge Studio, Watson Speech to Text and Watson text to Speech) install is currently supported only with Enterprise Portworx storage. Follow the steps mentioned below to set that up for ROKS. Make sure you are logged in to IBM Cloud and Openshift using CLI (ibmcloud and oc)
+
+ 
+

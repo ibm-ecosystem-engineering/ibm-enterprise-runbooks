@@ -117,7 +117,6 @@ Execute all the scripts as user db2inst1. On the DB server, ensure that db2 is i
     ```     
     $ su db2inst1
     $ ./home/db2inst1/sqllib/db2profile
-    
     ```
      
 1. **UMS**
@@ -146,9 +145,13 @@ Execute all the scripts as user db2inst1. On the DB server, ensure that db2 is i
 
     2. Execute the script
 
+    ```
     $ ./createICNDB.sh -n ICNDB -s ICNDB -t ICNDB -u db2inst1 -a ceadmin
+    ```
+
     ( ceadmin  is a user created in LDAP when the LDIF file is imported. If you change users, use it accordingly when executing the script)
     
+
 6. **FNCM**
     1. copy [DB2](https://github.com/sachinjha/cert-kubernetes/tree/20.0.1/FNCM/configuration/DB2) folder to DB server.
     2. Execute the scripts
@@ -175,28 +178,24 @@ Execute all the scripts as user db2inst1. On the DB server, ensure that db2 is i
 
 4. Notes on the instructions in step 3.
     
-    1. Use Option 1 in Step 1.
-    
-    2. Step 1.8 will not return any images (
-    
-    3. Step 2 is not required at the moment.
-    
-    4. Step 3.5 can be ignored – jdbc folder exists under scripts folder in the github project
-    
-    5. Step 4.1
-        ```
-        1. $ ./scripts/deployOperator.sh -i cp.icr.io/cp/cp4a/icp4a-operator:20.0.1 -p ‘admin.registrykey’ -a accept
-        ```
+  1. Use Option 1 in Step 1.
+  2. Step 1.8 will not return any images (
+  3. Step 2 is not required at the moment.
+  4. Step 3.5 can be ignored – jdbc folder exists under scripts folder in the github project  
+  5. Step 4.1
+    ```
+    1. $ ./scripts/deployOperator.sh -i cp.icr.io/cp/cp4a/icp4a-operator:20.0.1 -p ‘admin.registrykey’ -a accept
+    ```
 
-    6. Step 4.3
-        1. podname=$(oc get pod | grep ibm-cp4a-operator | awk ‘{print $1}’)
-        2. NAMESPACE=automation
-        3. kubectl cp ./scripts/jdbc $NAMESPACE/$podname:/opt/ansible/share -c ansible
-        4. Verify successful copy – 
-            ```
-            1. $ oc rsh $podname ls /opt/ansible/share -c ansible
-            ```
-    7. Step 5 onwards. Nothing needs to be done at this stage. Read it for understanding, if installing for the first time
+  6. Step 4.3
+    1. podname=$(oc get pod | grep ibm-cp4a-operator | awk ‘{print $1}’)
+    2. NAMESPACE=automation
+    3. kubectl cp ./scripts/jdbc $NAMESPACE/$podname:/opt/ansible/share -c ansible
+    4. Verify successful copy – 
+    ```
+    1. $ oc rsh $podname ls /opt/ansible/share -c ansible
+    ```
+  7. Step 5 onwards. Nothing needs to be done at this stage. Read it for understanding, if installing for the first time
     
 ### 9. Create secrets , Rolebindings, PVs and PVCs for different components.
 
@@ -247,11 +246,9 @@ PWD = Root folder of cert_kubernetes project.
 10.**IAWS**
     1. Update the value of password under ibm-baw-wfs-server-db-secret in IAWS/configuration/secrets.yaml with db2 password.
 
-
    ```
     $ cd scripts.  # change to scripts folder.
     $ ./create-prerequisites.sh
-
    ```
 ### 10. Install Kafka ( if installing Business Automation Insights (BAI) )
 
@@ -265,74 +262,62 @@ Steps to install Kafka can be found [here](https://pages.github.ibm.com/CASE/clo
 4. Make sure shared_configuration, ldap_configuration are uncommented.
 5. Make sure datasource_configuration is uncommented for the component being installed.
 
+**COMMON:**
+1. shared_configuration.sc_deployment_hostname_suffix = HOSTNAME_SUFFIX  # identified in step 6.
+ldap_configuration.lc_ldap_server = TDS Server IP #from step 5.
 
-    **COMMON:**
+**UMS:**
+datasource_configuration.dc_ums_datasource.dc_ums_oauth_host = DB2 Server IP #from step 5.
+datasource_configuration.dc_ums_datasource.dc_ums_teamserver_host = DB2 Server IP #from step 5.
+ums_configuration.hostname = ums.HOSTNAME SUFFIX  # identified in step 4 in this section.
 
-    1. shared_configuration.sc_deployment_hostname_suffix = HOSTNAME_SUFFIX  # identified in step 6.
-    ldap_configuration.lc_ldap_server = TDS Server IP #from step 5.
+**ACA:**
+datasource_configuration.dc_ca_datasource.database_servername = DB2 Server IP #from step 5.
+ca_configuration.frontend_external_hostname= ca-frontend.HOSTNAME SUFFIX
+ca_configuration.backend_external_hostname= ca-backend.HOSTNAME SUFFIX
 
-    **UMS:**
+**ODM :**
+None  required for typical install with default UserId/Passwords.
 
-    datasource_configuration.dc_ums_datasource.dc_ums_oauth_host = DB2 Server IP #from step 5.
-    datasource_configuration.dc_ums_datasource.dc_ums_teamserver_host = DB2 Server IP #from step 5.
-    ums_configuration.hostname = ums.HOSTNAME SUFFIX  # identified in step 4 in this section.
+**BAS :**
+bastudio_configuration.hostname =  bastudio.HOSTNAME SUFFIX
+bastudio_configuration.database.host = DB2 Server IP # from step 5.
+bastudio_configuration.playback_server.hostname = playback.HOSTNAME SUFFIX
+bastudio_configuration.playback_server.database.host = DB2 Server IP # from step 5.
+resource_registry_configuration.hostname = resource-registry.HOSTNAME SUFFIX
+#only if creating secure routes with custom certificate issued by well know CA add the value below.
+#secret is generated by configuration done in Stpep 9.
+resource_registry_configuration.external_tls_secret: ibm-dba-bas-external-tls-secret  
 
-    **ACA:**
+**BAI:**
+No changes required. All urls are internal. 
 
-    datasource_configuration.dc_ca_datasource.database_servername = DB2 Server IP #from step 5.
-    ca_configuration.frontend_external_hostname= ca-frontend.HOSTNAME SUFFIX
-    ca_configuration.backend_external_hostname= ca-backend.HOSTNAME SUFFIX
+**ADW:**
+adw_configuration.registry.endpoint = https://resource-registry.HOSTNAME SUFFIX/v3beta
+adw_configuration.designer.externalUrl = https://adw-designer.HOSTNAME SUFFIX
+adw_configuration.runtime.externalUrl = https://adw-runtime.HOSTNAME SUFFIX
+adw_configuration.management.externalUrl = https://adw-management.HOSTNAME SUFFIX
+adw_configuration.baiElasticsearch.kibanaUrl = https://kibana-route-automation.HOSTNAME_SUFFIX/app/kibana
+adw_configuration.oidc.endpoint = https://ums.HOSTNAME_SUFFIX/oidc/endpoint/ums
 
-    **ODM :**
+**BAN**
+datasource_configuration.dc_icn_datasource.database_servername = DB2 Server IP #from step 5.
+navigator_configuration.hostname = navigator.HOSTNAME_SUFFIX
 
-    None  required for typical install with default UserId/Passwords.
+**FNCM**
+datasource_configuration.dc_os_datasources.database_servername = DB2 Server IP #from step 5.
+datasource_configuration.dc_gcd_datasource.database_servername = DB2 Server IP #from step 5.
+datasource_configuration.dc_os_datasources.database_servername = DB2 Server IP #from step 5.
+ecm_configuration.cpe.hostname = cpe-{{ meta.namespace }}.HOSTNAME_SUFFIX
+ecm_configuration.cmis.hostname = cmis-{{ meta.namespace }}.HOSTNAME_SUFFIX
+ecm_configuration.graphql.hostname = graphql-{{ meta.namespace }}.HOSTNAME_SUFFIX
 
-    **BAS :**
+**AAE**
+application_engine_configuration.[x].database.host = DB2 Server IP #from step 5.
 
-    bastudio_configuration.hostname =  bastudio.HOSTNAME SUFFIX
-    bastudio_configuration.database.host = DB2 Server IP # from step 5.
-    bastudio_configuration.playback_server.hostname = playback.HOSTNAME SUFFIX
-    bastudio_configuration.playback_server.database.host = DB2 Server IP # from step 5.
-    resource_registry_configuration.hostname = resource-registry.HOSTNAME SUFFIX
-    #only if creating secure routes with custom certificate issued by well know CA add the value below.
-    #secret is generated by configuration done in Stpep 9.
-    resource_registry_configuration.external_tls_secret: ibm-dba-bas-external-tls-secret  
-
-    **BAI:**
-
-    No changes required. All urls are internal. 
-
-    **ADW:**
-
-    adw_configuration.registry.endpoint = https://resource-registry.HOSTNAME SUFFIX/v3beta
-    adw_configuration.designer.externalUrl = https://adw-designer.HOSTNAME SUFFIX
-    adw_configuration.runtime.externalUrl = https://adw-runtime.HOSTNAME SUFFIX
-    adw_configuration.management.externalUrl = https://adw-management.HOSTNAME SUFFIX
-    adw_configuration.baiElasticsearch.kibanaUrl = https://kibana-route-automation.HOSTNAME_SUFFIX/app/kibana
-    adw_configuration.oidc.endpoint = https://ums.HOSTNAME_SUFFIX/oidc/endpoint/ums
-
-    **BAN**
-
-    datasource_configuration.dc_icn_datasource.database_servername = DB2 Server IP #from step 5.
-    navigator_configuration.hostname = navigator.HOSTNAME_SUFFIX
-
-    **FNCM**
-
-    datasource_configuration.dc_os_datasources.database_servername = DB2 Server IP #from step 5.
-    datasource_configuration.dc_gcd_datasource.database_servername = DB2 Server IP #from step 5.
-    datasource_configuration.dc_os_datasources.database_servername = DB2 Server IP #from step 5.
-    ecm_configuration.cpe.hostname = cpe-{{ meta.namespace }}.HOSTNAME_SUFFIX
-    ecm_configuration.cmis.hostname = cmis-{{ meta.namespace }}.HOSTNAME_SUFFIX
-    ecm_configuration.graphql.hostname = graphql-{{ meta.namespace }}.HOSTNAME_SUFFIX
-
-    **AAE**
-
-    application_engine_configuration.[x].database.host = DB2 Server IP #from step 5.
-
-    **IAWS**
-
-    iaws_configuration.iaws_server.hostname = workstream.HOSTNAME_SUFFIX
-    iaws_configuration.iaws_server.database.server_name = DB2 Server IP #from step 5
+**IAWS**
+iaws_configuration.iaws_server.hostname = workstream.HOSTNAME_SUFFIX
+iaws_configuration.iaws_server.database.server_name = DB2 Server IP #from step 5
 
 ### 12. Install components
 

@@ -183,6 +183,7 @@ Execute all the scripts as user db2inst1. On the DB server, ensure that db2 is i
   3. Step 2 is not required at the moment.
   4. Step 3.5 can be ignored – jdbc folder exists under scripts folder in the github project  
   5. Step 4.1
+    
     ```
     1. $ ./scripts/deployOperator.sh -i cp.icr.io/cp/cp4a/icp4a-operator:20.0.1 -p ‘admin.registrykey’ -a accept
     ```
@@ -192,9 +193,11 @@ Execute all the scripts as user db2inst1. On the DB server, ensure that db2 is i
     2. NAMESPACE=automation
     3. kubectl cp ./scripts/jdbc $NAMESPACE/$podname:/opt/ansible/share -c ansible
     4. Verify successful copy – 
+    
     ```
     1. $ oc rsh $podname ls /opt/ansible/share -c ansible
     ```
+
   7. Step 5 onwards. Nothing needs to be done at this stage. Read it for understanding, if installing for the first time
     
 ### 9. Create secrets , Rolebindings, PVs and PVCs for different components.
@@ -202,19 +205,19 @@ Execute all the scripts as user db2inst1. On the DB server, ensure that db2 is i
 PWD = Root folder of cert_kubernetes project.
     
 1.**UMS**
-    1.Update the value of keys – oauthDBPassword and tsDBPassword in UMS/configuration/secrets.yaml with password for db2inst1 set during step 5.
-    2. $ oc apply -f UMS/UMS/configuration/secrets.yaml
-    3. Update the values of keys externalLdapPassword,  ldapPassword and lc_ldap_bind_password to values set during LDAP installation in step 5.
-    4.Execute ldap-bind-secret.sh 
-       1. $ UMS/configuration/ldap-bind-secret.sh
+1.Update the value of keys – oauthDBPassword and tsDBPassword in UMS/configuration/secrets.yaml with password for db2inst1 set during step 5.
+2. $ oc apply -f UMS/UMS/configuration/secrets.yaml
+3. Update the values of keys externalLdapPassword,  ldapPassword and lc_ldap_bind_password to values set during LDAP installation in step 5.
+4.Execute ldap-bind-secret.sh 
+    1. $ UMS/configuration/ldap-bind-secret.sh
     
 2.**BACA**
-    1. Update the file ACA/configuration/label-nodes.sh  and replace worker node placeholders with actual worker nodes IPs
-    2. Update the namespace value in ACA/ha-configuration/security/create-rolebinding-npol.sh  if not deploying under “automation” namespace.
-    3. Update **NFS-SERVER** in ACA/configuration/volumes.yaml with NFS server IP configured in step 4.
+1. Update the file ACA/configuration/label-nodes.sh  and replace worker node placeholders with actual worker nodes IPs
+2. Update the namespace value in ACA/ha-configuration/security/create-rolebinding-npol.sh  if not deploying under “automation” namespace.
+3. Update **NFS-SERVER** in ACA/configuration/volumes.yaml with NFS server IP configured in step 4.
     
 3.**ODM**
-    1.No customizations required.
+1.No customizations required.
     
 4.**BAS** ( Includes Resource Registry and App Engine)
     1.Update BAS/configuration/db2/secret.yaml by replacing values of “dbPassword” and “AE_DATABASE_PWD” with password set for db2inst1 in Step 5.

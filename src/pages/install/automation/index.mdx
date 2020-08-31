@@ -16,7 +16,6 @@ The IBM Cloud Pak for Automation offers a software platform to develop, deploy, 
 
 ## Receipe Overview
 
-
 The intent of this recipe is to provide a simplified set to steps, to set up an instance for PoC or Demos with least effort. Viewer is advised to refer to the original Enterprise install steps once before going ahead with these steps.
 Ingredients
 
@@ -36,7 +35,7 @@ Ingredients
 
 #### 1. Provision Openshift Cluster.
 
-    Provision an Openshift cluster v3.11 with 4 worker nodes having 8 cores x 32 GB RAM , on IBM Cloud. If it’s provisioned by someone else, the person following the instructions, should have Admin access to the cluster.
+Provision an Openshift cluster v3.11 with 4 worker nodes having 8 cores x 32 GB RAM , on IBM Cloud. If it’s provisioned by someone else, the person following the instructions, should have Admin access to the cluster.
    
 #### 2.Provision 1 or more VMs for shared services. ( 1 would suffice )
 
@@ -122,52 +121,51 @@ $ su db2inst1
 $ . /home/db2inst1/sqllib/db2profile
 ```
      
-    1. **UMS**
-        1. copy [file](https://github.com/sachinjha/cert-kubernetes/blob/20.0.1/UMS/configuration/create-db.sh) or contents of the file and execute them on DB server.
+1. **UMS**
+    1. copy [file](https://github.com/sachinjha/cert-kubernetes/blob/20.0.1/UMS/configuration/create-db.sh) or contents of the file and execute them on DB server.
     
-    2. **BACA**
-        1. copy [DB2](https://github.com/sachinjha/cert-kubernetes/tree/20.0.1/ACA/configuration-ha/DB2) folder to DB server.
-        2. Execute the scripts CreateBaseDB.sh  and AddTenant.sh.
-        3. See [log](https://github.com/sachinjha/cert-kubernetes/tree/20.0.1/ACA/configuration-ha/db-creation-logs) files for sample values that can be used. ( mostly defaults )
-            ( bacaadmin is a user created in LDAP when the LDIF file is imported. If you change users, use it accordingly when executing the script)
+2. **BACA**
+    1. copy [DB2](https://github.com/sachinjha/cert-kubernetes/tree/20.0.1/ACA/configuration-ha/DB2) folder to DB server.
+    2. Execute the scripts CreateBaseDB.sh  and AddTenant.sh.
+    3. See [log](https://github.com/sachinjha/cert-kubernetes/tree/20.0.1/ACA/configuration-ha/db-creation-logs) files for sample values that can be used. ( mostly defaults )
+        ( bacaadmin is a user created in LDAP when the LDIF file is imported. If you change users, use it accordingly when executing the script)
 
-    3. **ODM**
-        1. Update default passwords in ODM/configuration/security/sample-webSecurity-basic-registry.xml if you don’t want to use defaults.
+3. **ODM**
+    1. Update default passwords in ODM/configuration/security/sample-webSecurity-basic-registry.xml if you don’t want to use defaults.
 
      
-    4. BAS
-        1. copy [db2](https://github.com/sachinjha/cert-kubernetes/tree/20.0.1/BAS/configuration/db2) folder to DB server.
-        2. Execute the .sql files   
-            $  db2 -tvmf bastudio.sql
-            $  db2 -tvmg appengine.sql
-        3. Compare output with [logfiles](https://github.com/sachinjha/cert-kubernetes/blob/20.0.1/BAS/configuration/db-creation-logs/db-creation.logs) in case of doubts.
+4. **BAS** 
+    1. copy [db2](https://github.com/sachinjha/cert-kubernetes/tree/20.0.1/BAS/configuration/db2) folder to DB server.
+    2. Execute the .sql files   
+        $  db2 -tvmf bastudio.sql
+        $  db2 -tvmg appengine.sql
+    3. Compare output with [logfiles](https://github.com/sachinjha/cert-kubernetes/blob/20.0.1/BAS/configuration/db-creation-logs/db-creation.logs) in case of doubts.
     
-    5. BAN
+5. **BAN**
 
-        1. copy [DB2](https://github.com/sachinjha/cert-kubernetes/tree/20.0.1/BAN/configuration/DB2) folder to DB server.
+    1. copy [DB2](https://github.com/sachinjha/cert-kubernetes/tree/20.0.1/BAN/configuration/DB2) folder to DB server.
 
-        2. Execute the script
+    2. Execute the script
 
-           $ ./createICNDB.sh -n ICNDB -s ICNDB -t ICNDB -u db2inst1 -a ceadmin
-           ( ceadmin  is a user created in LDAP when the LDIF file is imported. If you change users, use it accordingly when executing the script)
+    $ ./createICNDB.sh -n ICNDB -s ICNDB -t ICNDB -u db2inst1 -a ceadmin
+    ( ceadmin  is a user created in LDAP when the LDIF file is imported. If you change users, use it accordingly when executing the script)
     
-    6. FNCM
-        1. copy DB2 folder to DB server.
-        2. Execute the scripts
-            1. $ ./create-gcd.sh 
-            2. $ ./create-os.sh
+6. **FNCM**
+    1. copy DB2 folder to DB server.
+    2. Execute the scripts
+        1. $ ./create-gcd.sh 
+        2. $ ./create-os.sh
     
-    7. IAWS
+7. **IAWS**
 
-        1. copy DB2 folder to DB server.
+    1. copy DB2 folder to DB server.
+    2.Execute the sql files
+        $ db2 -tvmf create-db.sql
 
-        2.Execute the sql files
-            $ db2 -tvmf create-db.sql
-
-    8.  APP Engine:
-        1. copy DB2 folder to DB server.
-        2. Execute the sql files
-            1. $ db2 -tvmf appengine.sql
+8.  **APP Engine:**
+    1. copy DB2 folder to DB server.
+    2. Execute the sql files
+        1. $ db2 -tvmf appengine.sql
 
 #### 8. Install Operator
 1.$ oc new-project automation.   
@@ -201,49 +199,49 @@ $ . /home/db2inst1/sqllib/db2profile
 
 PWD = Root folder of cert_kubernetes project.
     
-    1. UMS
+    1. **UMS**
         1.Update the value of keys – oauthDBPassword and tsDBPassword in UMS/configuration/secrets.yaml with password for db2inst1 set during step 5.
         2. $ oc apply -f UMS/UMS/configuration/secrets.yaml
         3. Update the values of keys externalLdapPassword,  ldapPassword and lc_ldap_bind_password to values set during LDAP installation in step 5.
         4.Execute ldap-bind-secret.sh 
             1. $ UMS/configuration/ldap-bind-secret.sh
     
-    2.BACA
-        1.Update the file ACA/configuration/label-nodes.sh  and replace worker node placeholders with actual worker nodes IPs
+    2. **BACA**
+        1. Update the file ACA/configuration/label-nodes.sh  and replace worker node placeholders with actual worker nodes IPs
         2. Update the namespace value in ACA/ha-configuration/security/create-rolebinding-npol.sh  if not deploying under “automation” namespace.
         3. Update <NFS-SERVER> in ACA/configuration/volumes.yaml with NFS server IP configured in step 4.
     
-    3. ODM
+    3. **ODM**
         1.No customizations required.
     
-    4. BAS ( Includes Resource Registry and App Engine)
+    4. **BAS** ( Includes Resource Registry and App Engine)
         1.Update BAS/configuration/db2/secret.yaml by replacing values of “dbPassword” and “AE_DATABASE_PWD” with password set for db2inst1 in Step 5.
         2.If you are configuring secure routes (discussed in step 6) only then peform the steps below, else ignore.
             1. copy key and certificate to file BAS/configuration/tls.key and BAS/configuration/tls.crt respectively
             2. Uncomment the OPTIONAL section related to secure routes for BAS in scripts/create-prerequisites.sh
     
-    5. BAI
+    5. **BAI**
         1. Update BAI/configuration/bai-psp.yaml and replace CR_NAME with actual custom resource name.
     
-    6. ADW
+    6. **ADW**
         1. If you are configuring secure routes (discussed in step 6) then peform the steps below with key and certificate issued by well known CA, else use openssl to generate self-signed cert.( only step 2 is to be referred in the link)
         2. copy key and certificate to file ADW/configuration/tls.key and   ADW/configuration/tls.crt respectively
         3. Update server.key and server.crt in ADW/configuration/adw-secret.yaml  with base64 encoded values
         4. set server.key to –   $cat ADW/configuration/tls/tls.key | base64
         5. set server.crt to  –   $cat ADW/configuration/tls/tls.crt | base64
     
-    7. BAN
+    7. **BAN**
         1. Update the values of navigatorDBPassword, ldapPassword , externalLdapPassword in BAN/configuration/ban-secret.sh
         2. Update the value of <NFS-SERVER> in BAN/configuration/volumes.yaml with with NFS server IP configured in step 4
     
-    8.FNCM
+    8. **FNCM**
         1. Update the values of gcdDBPassword, osDBPassword , ldapPassword in FNCM/configuration/ibm-fncm-secret.sh
         2. Update the value of <NFS SERVER> in FNCM/configuration/volumes_cmis.yaml,  graphql_volume.yaml and volumes_cpe.yaml  with with NFS server IP configured in step 4
     
-    9. App Engine:
+    9. **App Engine:**
         1. Update the values of AE_DATABASE_PWD in AAE/configuration/secrets.yaml with DB2 password
     
-    10. IAWS
+    10. **IAWS**
         1. Update the value of password under ibm-baw-wfs-server-db-secret in IAWS/configuration/secrets.yaml with db2 password.
 
     ```
@@ -265,28 +263,28 @@ Steps to install Kafka can be found [here](https://pages.github.ibm.com/CASE/clo
 5. Make sure datasource_configuration is uncommented for the component being installed.
 
 
-COMMON:
+**COMMON:**
 
 1. shared_configuration.sc_deployment_hostname_suffix = <HOSTNAME_SUFFIX>  # identified in step 6.
   ldap_configuration.lc_ldap_server = <TDS Server IP> #from step 5.
 
-UMS:
+**UMS:**
 
 datasource_configuration.dc_ums_datasource.dc_ums_oauth_host = <DB2 Server IP> #from step 5.
 datasource_configuration.dc_ums_datasource.dc_ums_teamserver_host = <DB2 Server IP> #from step 5.
 ums_configuration.hostname = ums.<HOSTNAME SUFFIX>  # identified in step 4 in this section.
 
-ACA:
+**ACA:**
 
 datasource_configuration.dc_ca_datasource.database_servername = <DB2 Server IP> #from step 5.
 ca_configuration.frontend_external_hostname= ca-frontend.<HOSTNAME SUFFIX>
 ca_configuration.backend_external_hostname= ca-backend.<HOSTNAME SUFFIX>
 
-ODM :
+**ODM :**
 
 None  required for typical install with default UserId/Passwords.
 
-BAS :
+**BAS :**
 
 bastudio_configuration.hostname =  bastudio.<HOSTNAME SUFFIX>
 bastudio_configuration.database.host = <DB2 Server IP> # from step 5.
@@ -297,11 +295,11 @@ resource_registry_configuration.hostname = resource-registry.<HOSTNAME SUFFIX>
 #secret is generated by configuration done in Stpep 9.
 resource_registry_configuration.external_tls_secret: ibm-dba-bas-external-tls-secret  
 
-BAI:
+**BAI:**
 
 No changes required. All urls are internal. 
 
-ADW:
+**ADW:**
 
 adw_configuration.registry.endpoint = https://resource-registry.<HOSTNAME SUFFIX>/v3beta
 adw_configuration.designer.externalUrl = https://adw-designer.<HOSTNAME SUFFIX>
@@ -310,12 +308,12 @@ adw_configuration.management.externalUrl = https://adw-management.<HOSTNAME SUFF
 adw_configuration.baiElasticsearch.kibanaUrl = https://kibana-route-automation.<HOSTNAME_SUFFIX>/app/kibana
 adw_configuration.oidc.endpoint = https://ums.<HOSTNAME_SUFFIX>/oidc/endpoint/ums
 
-BAN
+**BAN**
 
 datasource_configuration.dc_icn_datasource.database_servername = <DB2 Server IP> #from step 5.
 navigator_configuration.hostname = navigator.<HOSTNAME_SUFFIX>
 
-FNCM
+**FNCM**
 
 datasource_configuration.dc_os_datasources.database_servername = <DB2 Server IP> #from step 5.
 datasource_configuration.dc_gcd_datasource.database_servername = <DB2 Server IP> #from step 5.
@@ -324,11 +322,11 @@ ecm_configuration.cpe.hostname = cpe-{{ meta.namespace }}.<HOSTNAME_SUFFIX>
 ecm_configuration.cmis.hostname = cmis-{{ meta.namespace }}.<HOSTNAME_SUFFIX>
 ecm_configuration.graphql.hostname = graphql-{{ meta.namespace }}.<HOSTNAME_SUFFIX>
 
-AAE
+**AAE**
 
 application_engine_configuration.[x].database.host = <DB2 Server IP> #from step 5.
 
-IAWS
+**IAWS**
 
 iaws_configuration.iaws_server.hostname = workstream.<HOSTNAME_SUFFIX>  
 iaws_configuration.iaws_server.database.server_name = <DB2 Server IP> #from step 5
@@ -348,33 +346,33 @@ oc logs -f <operator-pod> -c ansible
    
 #### 13. Post install steps
 
-    1.UMS Login
+    1. **UMS Login**
             https://ums.<HOSTNAME_SUFFIX>/ums/     umsadmin/password
         
-    2. BACA
+    2. **BACA**
         1. See the steps documented here.  for details.  High level steps outlined below.
         2. First hit the backend url ( required for every browser for the first time)  ( not required if using  routes secured by well known CA) : https://ca-backend.<HOSTNAME_SUFFIX>      
         3. Hit frontend URL : https://ca-frontend.<HOSTNAME_SUFFIX>?tid=t4900&ont=default    ( t4900 = tenant ID set  during CATenant DB creation. and default = ontology name set during CATenant DB creation).
     
-    3. BAS Login
+    3. **BAS Login**
         https://bastudio.<HOSTNAME_SUFFIX>/BAStudio    umsadmin/password
     
-    4. ODM login
+    4. **ODM login**
         https://demo-template-odm-dc-route-automation.<HOSTNAME_SUFFIX>   
         https://demo-template-odm-ds-console-route-automation.<HOSTNAME_SUFFIX>
         For userId/password check file ODM/configuration/security/sample-webSecurity-basic-registry.xml.
     
-    5. BAI
+    5. **BAI**
         Read throug the steps here. for understanding how to make Kibana and Elastic search accessible outside the cluster.
         Network policy to allow default namespace to access kibana /elastic search already exists. Only route needs to be created.
         Elasticsearch route is required for debug purspose only.
         Kibana route should be created using the hostname configured in adw_configuration. See command below.
         oc create route passthrough –namespace=automation –service=demo-template-ibm-dba-ek-kibana kibana –hostname=kibana-route-automation.<HOSTNAME_SUFFIX>
     
-    6. ADW
+    6. **ADW**
         https://adw-designer.<HOSTNAME_SUFFIX>/app    umsadmin/password
     
-    7. FNCM
+    7. **FNCM**
         1. https://cpe-automation.<HOSTNAME_SUFFIX>/P8CE/Health   ceadmin/passw0rd
             1. Check  that there are no X symbols, which would mean something couldn’t be created.
             2. If Object storage doesn’t get created, create it manually by going to https://cpe-automation.<HOSTNAME_SUFFIX>/acce
@@ -383,13 +381,13 @@ oc logs -f <operator-pod> -c ansible
             5. Check the extensions to be added [here](https://pages.github.ibm.com/CASE/cloudpak-onboard-residency/automation/install-ecm/#post-install-tasks). You can skip this step and let the next reconcillition of operator install  the extensions.
             6. Once the object store is created, let the next run of operator complete the other configuration in initialization_configuration and verification_configuration.
     
-    8. Navigator:
+    8. **Navigator:**
         1. https://navigator.<HOSTNAME_SUFFIX>/navigator   ceadmin/passw0rd
         2. Check that you can see the “ICN desktop” in the list of desktops   ( created by initialization script)
         3. https://navigator.<HOSTNAME_SUFFIX>/navigator?desktop=demo 
 
 #### 14. Troubleshooting and ReInstall tips for different components.
-1. BACA
+1. **BACA**
     1. Error from server (NotFound): error when creating “./aca-scc.yaml”: the server could not find the requested resource
         - Use oc  instead of kubectl when applying aca-scc.yaml
     2. Operator logs stuck at Run Post setup for Mongo
@@ -403,16 +401,16 @@ oc logs -f <operator-pod> -c ansible
 2. If Operator logs do not update and appear to be stuck for a long time  at other places ( not mentioned above) ,  may be due to a bug in ansbile playbook.
     - Delete operator pod
 
-3. ADW
+3. **ADW**
     1. If pods are not coming up check pod events or job events or stateful events.
     2. If events do not show any errors and pod is crashing , check pod logs.
     3. Check adw-secret has all the required values as shown in sample and server.crt and server.key are updated for your installation.
     4. If pods are running but application is unreachable check if corresponding openshift service has Endpoints set to Pod IP.  If not delete the pod. When it is recreated, Endpoints should be set in service object.
 
-4. FNCM
+4. **FNCM**
     1. If Object storage is not created as part of initialization configuration,  create it manually.  See Post Install section above
 
-5. UMS
+5. **UMS**
     1. umsadmin not able to login and UMS pod logs show this reason: The user registry operation could not be completed. More than one record exists for the umsadmin principal name in the configured user registries. 
     2. Saw this after installation of IAWS as it added this functional ID  ( Need to check once if it’s a bug or there was an error in configuration from my side. )
     3. Fix is to update the secret – ibm-dba-ums-basicregistry-secret-internal  and remove the entry for umsadmin from both the keys.

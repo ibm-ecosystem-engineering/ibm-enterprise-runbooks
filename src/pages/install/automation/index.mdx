@@ -71,7 +71,7 @@ You can perform the steps below by cloning the 2nd repo but in case you run into
     
    3. nfs-exports-configuration.txt  has the place holders for /etc/exports.
     
-   4. Replace the <W*Public> and <W*Private>  in nfs-exports-configuration.tx with Public and Private IPs of 4 worker nodes. 
+   4. Replace the W*Public and W*Private  in nfs-exports-configuration.tx with Public and Private IPs of 4 worker nodes. 
    
    5. chmod +x configure-nfs.sh
    
@@ -98,7 +98,7 @@ Use the following option if routes with self signed certificates are not a probl
     
 2. [IBM Cloud openshift routes](images/Automation-Routes.png)
 
-3. Use a suffix like  <publicIP>.nip.io
+3. Use a suffix like  publicIP.nip.io
 
 4. For example, in this case ,  suffix can be “169.44.184.38.nip.io”  and a sample hostname for UMS service, can be “ums.169.44.184.38.nip.io”
      
@@ -109,17 +109,17 @@ In case there is a need to create secure routes with certificates signed by know
 3. Generate an SSL certificate with wild card subdomain ( *.automation.org.xyz.com )  ( “Certificate manager” on IBM cloud can be used )   (Certs issued by Let’s encrypt or any well known CA will do ) .
 4. Use this pair of certificate and key, whereever applicable in the instructions below.
 
-#### 5. Create DB2 databases required for different components.
+#### 7. Create DB2 databases required for different components.
 
 Steps for components which are not of interest can be skipped. UMS should be done as UMS is required for all other components.
 
 Execute all the scripts as user db2inst1. On the DB server, ensure that db2 is in PATH  by running command below and then follow the instructions below for each of the components:
 
-```     
-$ su db2inst1
-
-$ . /home/db2inst1/sqllib/db2profile
-```
+    ```     
+    $ su db2inst1
+    $ ./home/db2inst1/sqllib/db2profile
+    
+    ```
      
 1. **UMS**
     1. copy [file](https://github.com/sachinjha/cert-kubernetes/blob/20.0.1/UMS/configuration/create-db.sh) or contents of the file and execute them on DB server.
@@ -151,19 +151,19 @@ $ . /home/db2inst1/sqllib/db2profile
     ( ceadmin  is a user created in LDAP when the LDIF file is imported. If you change users, use it accordingly when executing the script)
     
 6. **FNCM**
-    1. copy DB2 folder to DB server.
+    1. copy [DB2](https://github.com/sachinjha/cert-kubernetes/tree/20.0.1/FNCM/configuration/DB2) folder to DB server.
     2. Execute the scripts
         1. $ ./create-gcd.sh 
         2. $ ./create-os.sh
     
 7. **IAWS**
 
-    1. copy DB2 folder to DB server.
+    1. copy [DB2](https://github.com/sachinjha/cert-kubernetes/tree/20.0.1/IAWS/configuration/DB2) folder to DB server.
     2.Execute the sql files
         $ db2 -tvmf create-db.sql
 
 8.  **APP Engine:**
-    1. copy DB2 folder to DB server.
+    1. copy [DB2](https://github.com/sachinjha/cert-kubernetes/tree/20.0.1/AAE/configuration/DB2) folder to DB server.
     2. Execute the sql files
         1. $ db2 -tvmf appengine.sql
 
@@ -175,6 +175,7 @@ $ . /home/db2inst1/sqllib/db2profile
 3. Follow the instruction given [here](https://github.com/sachinjha/cert-kubernetes/blob/20.0.1/platform/roks/install.md). See notes below before executing the steps.
 
 4. Notes on the instructions in step 3.
+    
     1. Use Option 1 in Step 1.
     
     2. Step 1.8 will not return any images (
@@ -199,57 +200,57 @@ $ . /home/db2inst1/sqllib/db2profile
 
 PWD = Root folder of cert_kubernetes project.
     
-    1. **UMS**
-        1.Update the value of keys – oauthDBPassword and tsDBPassword in UMS/configuration/secrets.yaml with password for db2inst1 set during step 5.
-        2. $ oc apply -f UMS/UMS/configuration/secrets.yaml
-        3. Update the values of keys externalLdapPassword,  ldapPassword and lc_ldap_bind_password to values set during LDAP installation in step 5.
-        4.Execute ldap-bind-secret.sh 
-            1. $ UMS/configuration/ldap-bind-secret.sh
+1.**UMS**
+    1.Update the value of keys – oauthDBPassword and tsDBPassword in UMS/configuration/secrets.yaml with password for db2inst1 set during step 5.
+    2. $ oc apply -f UMS/UMS/configuration/secrets.yaml
+    3. Update the values of keys externalLdapPassword,  ldapPassword and lc_ldap_bind_password to values set during LDAP installation in step 5.
+    4.Execute ldap-bind-secret.sh 
+        1. $ UMS/configuration/ldap-bind-secret.sh
     
-    2. **BACA**
-        1. Update the file ACA/configuration/label-nodes.sh  and replace worker node placeholders with actual worker nodes IPs
-        2. Update the namespace value in ACA/ha-configuration/security/create-rolebinding-npol.sh  if not deploying under “automation” namespace.
-        3. Update <NFS-SERVER> in ACA/configuration/volumes.yaml with NFS server IP configured in step 4.
+2.**BACA**
+    1. Update the file ACA/configuration/label-nodes.sh  and replace worker node placeholders with actual worker nodes IPs
+    2. Update the namespace value in ACA/ha-configuration/security/create-rolebinding-npol.sh  if not deploying under “automation” namespace.
+    3. Update **NFS-SERVER** in ACA/configuration/volumes.yaml with NFS server IP configured in step 4.
     
-    3. **ODM**
-        1.No customizations required.
+3.**ODM**
+    1.No customizations required.
     
-    4. **BAS** ( Includes Resource Registry and App Engine)
-        1.Update BAS/configuration/db2/secret.yaml by replacing values of “dbPassword” and “AE_DATABASE_PWD” with password set for db2inst1 in Step 5.
-        2.If you are configuring secure routes (discussed in step 6) only then peform the steps below, else ignore.
-            1. copy key and certificate to file BAS/configuration/tls.key and BAS/configuration/tls.crt respectively
-            2. Uncomment the OPTIONAL section related to secure routes for BAS in scripts/create-prerequisites.sh
+4.**BAS** ( Includes Resource Registry and App Engine)
+    1.Update BAS/configuration/db2/secret.yaml by replacing values of “dbPassword” and “AE_DATABASE_PWD” with password set for db2inst1 in Step 5.
+    2.If you are configuring secure routes (discussed in step 6) only then peform the steps below, else ignore.
+        1. copy key and certificate to file BAS/configuration/tls.key and BAS/configuration/tls.crt respectively
+        2. Uncomment the OPTIONAL section related to secure routes for BAS in scripts/create-prerequisites.sh
     
-    5. **BAI**
-        1. Update BAI/configuration/bai-psp.yaml and replace CR_NAME with actual custom resource name.
+5.**BAI**
+    1. Update BAI/configuration/bai-psp.yaml and replace CR_NAME with actual custom resource name.
     
-    6. **ADW**
-        1. If you are configuring secure routes (discussed in step 6) then peform the steps below with key and certificate issued by well known CA, else use openssl to generate self-signed cert.( only step 2 is to be referred in the link)
-        2. copy key and certificate to file ADW/configuration/tls.key and   ADW/configuration/tls.crt respectively
-        3. Update server.key and server.crt in ADW/configuration/adw-secret.yaml  with base64 encoded values
-        4. set server.key to –   $cat ADW/configuration/tls/tls.key | base64
-        5. set server.crt to  –   $cat ADW/configuration/tls/tls.crt | base64
+6.**ADW**
+    1. If you are configuring secure routes (discussed in step 6) then peform the steps below with key and certificate issued by well known CA, else use [openssl to generate self-signed cert.( only step 2 is to be referred in the link)](https://www.ibm.com/support/knowledgecenter/SSMNED_5.0.0/com.ibm.apic.cmc.doc/task_apionprem_gernerate_self_signed_openSSL.html)
+    2. copy key and certificate to file ADW/configuration/tls.key and   ADW/configuration/tls.crt respectively
+    3. Update server.key and server.crt in ADW/configuration/adw-secret.yaml  with base64 encoded values
+    4. set server.key to –   $cat ADW/configuration/tls/tls.key | base64
+    5. set server.crt to  –   $cat ADW/configuration/tls/tls.crt | base64
     
-    7. **BAN**
-        1. Update the values of navigatorDBPassword, ldapPassword , externalLdapPassword in BAN/configuration/ban-secret.sh
-        2. Update the value of <NFS-SERVER> in BAN/configuration/volumes.yaml with with NFS server IP configured in step 4
+7.**BAN**
+    1. Update the values of navigatorDBPassword, ldapPassword , externalLdapPassword in BAN/configuration/ban-secret.sh
+    2. Update the value of **NFS-SERVER** in BAN/configuration/volumes.yaml with with NFS server IP configured in step 4
     
-    8. **FNCM**
-        1. Update the values of gcdDBPassword, osDBPassword , ldapPassword in FNCM/configuration/ibm-fncm-secret.sh
-        2. Update the value of <NFS SERVER> in FNCM/configuration/volumes_cmis.yaml,  graphql_volume.yaml and volumes_cpe.yaml  with with NFS server IP configured in step 4
+8.**FNCM**
+    1. Update the values of gcdDBPassword, osDBPassword , ldapPassword in FNCM/configuration/ibm-fncm-secret.sh
+    2. Update the value of **NFS SERVER** in FNCM/configuration/volumes_cmis.yaml,  graphql_volume.yaml and volumes_cpe.yaml  with with NFS server IP configured in step 4
     
-    9. **App Engine:**
-        1. Update the values of AE_DATABASE_PWD in AAE/configuration/secrets.yaml with DB2 password
+9.**App Engine:**
+    1. Update the values of AE_DATABASE_PWD in AAE/configuration/secrets.yaml with DB2 password
     
-    10. **IAWS**
-        1. Update the value of password under ibm-baw-wfs-server-db-secret in IAWS/configuration/secrets.yaml with db2 password.
+10.**IAWS**
+    1. Update the value of password under ibm-baw-wfs-server-db-secret in IAWS/configuration/secrets.yaml with db2 password.
 
-    ```
+
+   ```
     $ cd scripts.  # change to scripts folder.
-
     $ ./create-prerequisites.sh
 
-    ```
+   ```
 #### 10. Install Kafka ( if installing Business Automation Insights (BAI) )
 
 Steps to install Kafka can be found [here](https://pages.github.ibm.com/CASE/cloudpak-onboard-residency/automation/install-bai/#install-kafka).
@@ -258,133 +259,132 @@ Steps to install Kafka can be found [here](https://pages.github.ibm.com/CASE/clo
 
 1. Create a copy of descriptors/ibm_cp4a_cr_sample.yaml and make the below updates in the copy.
 2. Remove configuration for applications which are not of interest. ( for e.g.  ca_configuration is for ACA, bastudio_configuration is for BAStudio and so on. Remove or comment out components which are not of interest.   ) .
-3. Update fields below for different components ( by replacing values in <> with actual values)
+3. Update fields below for different components ( by replacing values in with actual values)
 4. Make sure shared_configuration, ldap_configuration are uncommented.
 5. Make sure datasource_configuration is uncommented for the component being installed.
 
 
-**COMMON:**
+    **COMMON:**
 
-1. shared_configuration.sc_deployment_hostname_suffix = <HOSTNAME_SUFFIX>  # identified in step 6.
-  ldap_configuration.lc_ldap_server = <TDS Server IP> #from step 5.
+    1. shared_configuration.sc_deployment_hostname_suffix = HOSTNAME_SUFFIX  # identified in step 6.
+    ldap_configuration.lc_ldap_server = TDS Server IP #from step 5.
 
-**UMS:**
+    **UMS:**
 
-datasource_configuration.dc_ums_datasource.dc_ums_oauth_host = <DB2 Server IP> #from step 5.
-datasource_configuration.dc_ums_datasource.dc_ums_teamserver_host = <DB2 Server IP> #from step 5.
-ums_configuration.hostname = ums.<HOSTNAME SUFFIX>  # identified in step 4 in this section.
+    datasource_configuration.dc_ums_datasource.dc_ums_oauth_host = DB2 Server IP #from step 5.
+    datasource_configuration.dc_ums_datasource.dc_ums_teamserver_host = DB2 Server IP #from step 5.
+    ums_configuration.hostname = ums.HOSTNAME SUFFIX  # identified in step 4 in this section.
 
-**ACA:**
+    **ACA:**
 
-datasource_configuration.dc_ca_datasource.database_servername = <DB2 Server IP> #from step 5.
-ca_configuration.frontend_external_hostname= ca-frontend.<HOSTNAME SUFFIX>
-ca_configuration.backend_external_hostname= ca-backend.<HOSTNAME SUFFIX>
+    datasource_configuration.dc_ca_datasource.database_servername = DB2 Server IP #from step 5.
+    ca_configuration.frontend_external_hostname= ca-frontend.HOSTNAME SUFFIX
+    ca_configuration.backend_external_hostname= ca-backend.HOSTNAME SUFFIX
 
-**ODM :**
+    **ODM :**
 
-None  required for typical install with default UserId/Passwords.
+    None  required for typical install with default UserId/Passwords.
 
-**BAS :**
+    **BAS :**
 
-bastudio_configuration.hostname =  bastudio.<HOSTNAME SUFFIX>
-bastudio_configuration.database.host = <DB2 Server IP> # from step 5.
-bastudio_configuration.playback_server.hostname = playback.<HOSTNAME SUFFIX>
-bastudio_configuration.playback_server.database.host = <DB2 Server IP> # from step 5.
-resource_registry_configuration.hostname = resource-registry.<HOSTNAME SUFFIX>
-#only if creating secure routes with custom certificate issued by well know CA add the value below.
-#secret is generated by configuration done in Stpep 9.
-resource_registry_configuration.external_tls_secret: ibm-dba-bas-external-tls-secret  
+    bastudio_configuration.hostname =  bastudio.HOSTNAME SUFFIX
+    bastudio_configuration.database.host = DB2 Server IP # from step 5.
+    bastudio_configuration.playback_server.hostname = playback.HOSTNAME SUFFIX
+    bastudio_configuration.playback_server.database.host = DB2 Server IP # from step 5.
+    resource_registry_configuration.hostname = resource-registry.HOSTNAME SUFFIX
+    #only if creating secure routes with custom certificate issued by well know CA add the value below.
+    #secret is generated by configuration done in Stpep 9.
+    resource_registry_configuration.external_tls_secret: ibm-dba-bas-external-tls-secret  
 
-**BAI:**
+    **BAI:**
 
-No changes required. All urls are internal. 
+    No changes required. All urls are internal. 
 
-**ADW:**
+    **ADW:**
 
-adw_configuration.registry.endpoint = https://resource-registry.<HOSTNAME SUFFIX>/v3beta
-adw_configuration.designer.externalUrl = https://adw-designer.<HOSTNAME SUFFIX>
-adw_configuration.runtime.externalUrl = https://adw-runtime.<HOSTNAME SUFFIX>
-adw_configuration.management.externalUrl = https://adw-management.<HOSTNAME SUFFIX>
-adw_configuration.baiElasticsearch.kibanaUrl = https://kibana-route-automation.<HOSTNAME_SUFFIX>/app/kibana
-adw_configuration.oidc.endpoint = https://ums.<HOSTNAME_SUFFIX>/oidc/endpoint/ums
+    adw_configuration.registry.endpoint = https://resource-registry.HOSTNAME SUFFIX/v3beta
+    adw_configuration.designer.externalUrl = https://adw-designer.HOSTNAME SUFFIX
+    adw_configuration.runtime.externalUrl = https://adw-runtime.HOSTNAME SUFFIX
+    adw_configuration.management.externalUrl = https://adw-management.HOSTNAME SUFFIX
+    adw_configuration.baiElasticsearch.kibanaUrl = https://kibana-route-automation.HOSTNAME_SUFFIX/app/kibana
+    adw_configuration.oidc.endpoint = https://ums.HOSTNAME_SUFFIX/oidc/endpoint/ums
 
-**BAN**
+    **BAN**
 
-datasource_configuration.dc_icn_datasource.database_servername = <DB2 Server IP> #from step 5.
-navigator_configuration.hostname = navigator.<HOSTNAME_SUFFIX>
+    datasource_configuration.dc_icn_datasource.database_servername = DB2 Server IP #from step 5.
+    navigator_configuration.hostname = navigator.HOSTNAME_SUFFIX
 
-**FNCM**
+    **FNCM**
 
-datasource_configuration.dc_os_datasources.database_servername = <DB2 Server IP> #from step 5.
-datasource_configuration.dc_gcd_datasource.database_servername = <DB2 Server IP> #from step 5.
-datasource_configuration.dc_os_datasources.database_servername = <DB2 Server IP> #from step 5.
-ecm_configuration.cpe.hostname = cpe-{{ meta.namespace }}.<HOSTNAME_SUFFIX>
-ecm_configuration.cmis.hostname = cmis-{{ meta.namespace }}.<HOSTNAME_SUFFIX>
-ecm_configuration.graphql.hostname = graphql-{{ meta.namespace }}.<HOSTNAME_SUFFIX>
+    datasource_configuration.dc_os_datasources.database_servername = DB2 Server IP #from step 5.
+    datasource_configuration.dc_gcd_datasource.database_servername = DB2 Server IP #from step 5.
+    datasource_configuration.dc_os_datasources.database_servername = DB2 Server IP #from step 5.
+    ecm_configuration.cpe.hostname = cpe-{{ meta.namespace }}.HOSTNAME_SUFFIX
+    ecm_configuration.cmis.hostname = cmis-{{ meta.namespace }}.HOSTNAME_SUFFIX
+    ecm_configuration.graphql.hostname = graphql-{{ meta.namespace }}.HOSTNAME_SUFFIX
 
-**AAE**
+    **AAE**
 
-application_engine_configuration.[x].database.host = <DB2 Server IP> #from step 5.
+    application_engine_configuration.[x].database.host = DB2 Server IP #from step 5.
 
-**IAWS**
+    **IAWS**
 
-iaws_configuration.iaws_server.hostname = workstream.<HOSTNAME_SUFFIX>  
-iaws_configuration.iaws_server.database.server_name = <DB2 Server IP> #from step 5
+    iaws_configuration.iaws_server.hostname = workstream.HOSTNAME_SUFFIX
+    iaws_configuration.iaws_server.database.server_name = DB2 Server IP #from step 5
 
 #### 12. Install components
 
 $ oc apply -f descriptors/ibm_cp4a_cr_sample.yaml
 
-     
 **Check Operator Logs:**
 
-oc logs -f <operator-pod> -c operator
+oc logs -f operator-pod -c operator
 
 **check Ansible Logs** ( Updated after one round of operator reconcilliation for all components is complete ..varies from 8 – 25 mins ) :
 
-oc logs -f <operator-pod> -c ansible
+oc logs -f operator-pod -c ansible
    
 #### 13. Post install steps
 
-    1. **UMS Login**
-            https://ums.<HOSTNAME_SUFFIX>/ums/     umsadmin/password
+1. **UMS Login**
+    https://ums.HOSTNAME_SUFFIX/ums/     umsadmin/password
         
-    2. **BACA**
-        1. See the steps documented here.  for details.  High level steps outlined below.
-        2. First hit the backend url ( required for every browser for the first time)  ( not required if using  routes secured by well known CA) : https://ca-backend.<HOSTNAME_SUFFIX>      
-        3. Hit frontend URL : https://ca-frontend.<HOSTNAME_SUFFIX>?tid=t4900&ont=default    ( t4900 = tenant ID set  during CATenant DB creation. and default = ontology name set during CATenant DB creation).
+2. **BACA**
+    1. See the steps documented here.  for details.  High level steps outlined below.
+    2. First hit the backend url ( required for every browser for the first time)  ( not required if using  routes secured by well known CA) : https://ca-backend.HOSTNAME_SUFFIX     
+    3. Hit frontend URL : https://ca-frontend.HOSTNAME_SUFFIX?tid=t4900&ont=default    ( t4900 = tenant ID set  during CATenant DB creation. and default = ontology name set during CATenant DB creation).
     
-    3. **BAS Login**
-        https://bastudio.<HOSTNAME_SUFFIX>/BAStudio    umsadmin/password
+3. **BAS Login**
+     https://bastudio.HOSTNAME_SUFFIX/BAStudio    umsadmin/password
     
-    4. **ODM login**
-        https://demo-template-odm-dc-route-automation.<HOSTNAME_SUFFIX>   
-        https://demo-template-odm-ds-console-route-automation.<HOSTNAME_SUFFIX>
-        For userId/password check file ODM/configuration/security/sample-webSecurity-basic-registry.xml.
+4. **ODM login**
+    https://demo-template-odm-dc-route-automation.HOSTNAME_SUFFIX  
+    https://demo-template-odm-ds-console-route-automation.HOSTNAME_SUFFIX
+    For userId/password check file ODM/configuration/security/sample-webSecurity-basic-registry.xml.
     
-    5. **BAI**
-        Read throug the steps here. for understanding how to make Kibana and Elastic search accessible outside the cluster.
-        Network policy to allow default namespace to access kibana /elastic search already exists. Only route needs to be created.
-        Elasticsearch route is required for debug purspose only.
-        Kibana route should be created using the hostname configured in adw_configuration. See command below.
-        oc create route passthrough –namespace=automation –service=demo-template-ibm-dba-ek-kibana kibana –hostname=kibana-route-automation.<HOSTNAME_SUFFIX>
+5. **BAI**
+    Read throug the steps here. for understanding how to make Kibana and Elastic search accessible outside the cluster.
+    Network policy to allow default namespace to access kibana /elastic search already exists. Only route needs to be created.
+    Elasticsearch route is required for debug purspose only.
+    Kibana route should be created using the hostname configured in adw_configuration. See command below.
+    oc create route passthrough –namespace=automation –service=demo-template-ibm-dba-ek-kibana kibana –hostname=kibana-route-automation.HOSTNAME_SUFFIX
     
-    6. **ADW**
-        https://adw-designer.<HOSTNAME_SUFFIX>/app    umsadmin/password
+6. **ADW**
+    https://adw-designer.HOSTNAME_SUFFIX/app    umsadmin/password
     
-    7. **FNCM**
-        1. https://cpe-automation.<HOSTNAME_SUFFIX>/P8CE/Health   ceadmin/passw0rd
-            1. Check  that there are no X symbols, which would mean something couldn’t be created.
-            2. If Object storage doesn’t get created, create it manually by going to https://cpe-automation.<HOSTNAME_SUFFIX>/acce
-            3. schema is db2inst1. db name is OS1DB. select the db connection from drop down.
-            4. If db connection is not found, check operator logs (ansible container) for what went wrong.
-            5. Check the extensions to be added [here](https://pages.github.ibm.com/CASE/cloudpak-onboard-residency/automation/install-ecm/#post-install-tasks). You can skip this step and let the next reconcillition of operator install  the extensions.
-            6. Once the object store is created, let the next run of operator complete the other configuration in initialization_configuration and verification_configuration.
+7. **FNCM**
+    1. https://cpe-automation.HOSTNAME_SUFFIX/P8CE/Health   ceadmin/passw0rd
+        1. Check  that there are no X symbols, which would mean something couldn’t be created.
+        2. If Object storage doesn’t get created, create it manually by going to https://cpe-automation.HOSTNAME_SUFFIX/acce
+        3. schema is db2inst1. db name is OS1DB. select the db connection from drop down.
+        4. If db connection is not found, check operator logs (ansible container) for what went wrong.
+        5. Check the extensions to be added [here](https://pages.github.ibm.com/CASE/cloudpak-onboard-residency/automation/install-ecm/#post-install-tasks). You can skip this step and let the next reconcillition of operator install  the extensions.
+        6. Once the object store is created, let the next run of operator complete the other configuration in initialization_configuration and verification_configuration.
     
-    8. **Navigator:**
-        1. https://navigator.<HOSTNAME_SUFFIX>/navigator   ceadmin/passw0rd
-        2. Check that you can see the “ICN desktop” in the list of desktops   ( created by initialization script)
-        3. https://navigator.<HOSTNAME_SUFFIX>/navigator?desktop=demo 
+8. **Navigator:**
+    1. https://navigator.HOSTNAME_SUFFIX/navigator   ceadmin/passw0rd
+    2. Check that you can see the “ICN desktop” in the list of desktops   ( created by initialization script)
+    3. https://navigator.HOSTNAME_SUFFIX/navigator?desktop=demo 
 
 #### 14. Troubleshooting and ReInstall tips for different components.
 1. **BACA**

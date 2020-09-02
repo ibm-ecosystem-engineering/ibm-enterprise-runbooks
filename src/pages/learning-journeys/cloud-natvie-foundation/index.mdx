@@ -1,12 +1,159 @@
 ---
-title: Cloud Native Foundation
+title: Agenda
+description: Developer Foundation Agenda
 ---
-import Globals from 'gatsby-theme-carbon/src/templates/Globals';
+import ActivationPage from 'gatsby-theme-carbon/src/templates/ActivationPage';
 
 <PageDescription>
 
-
+Learning tasks for developers to understand the concepts, technologies and methodologies for Cloud-Native development
 
 </PageDescription>
 
-[Refer the Cloud Native Foundation Agenda](https://ibm-gsi-ecosystem.github.io/ibm-gsi-cloudnative-journey/developer-foundation)
+Credits: This material heavily draws from [Cloud-Native bootcamp](https://cloudnative101.dev/)
+
+Before you jump straight into Cloud-Native development using this crafted enablement journey, it's important you understand the related basic concepts, technologies used and methodologies applied for Cloud-Native development
+
+Developer Foundation is broken into three areas:
+<Row>
+
+<Column colLg={4} colMd={4} noGutterMdLeft>
+<ArticleCard
+    color="dark"
+    title="Concepts"
+    subTitle="Principles of cloud, Cloud-Native development & deployment"
+    href="#concepts"
+    >
+
+![](./images/sysadmins.jpg)
+
+</ArticleCard>
+</Column>
+
+<Column colLg={4} colMd={4} noGutterMdLeft>
+<ArticleCard
+    color="dark"
+    title="Technology"
+    subTitle="Basics of Containers, Kubernetes/Openshift"
+    href="#technologies"
+    >
+
+![](./images/code2.jpg)
+
+</ArticleCard>
+</Column>
+
+<Column colLg={4} colMd={4} noGutterMdLeft>
+<ArticleCard
+    color="dark"
+    title="Methodology"
+    subTitle="IBM Garage Method"
+    href="#method"
+    >
+
+![](./images/code1.jpg)
+
+</ArticleCard>
+</Column>
+
+</Row>
+
+<InlineNotification>
+Developer Foundation uses Katacode service extensively for hands on labs. Katacoda is an interactive learning and training platform for software developers. Each student is given access to a new environment without the need to install all the required component by themselves.
+</InlineNotification>
+
+## Concepts
+### Topics Covered
+
+<Tabs>
+<Tab label="Self Paced">
+
+| Topics                          | Description         | Link        |
+| --------------------------------| ------------------  |:----------- |
+| What is Cloud-Native? | Cloud-Native Overview | [Cloud-Native](https://ibm-gsi-ecosystem.github.io/ibm-gsi-cloudnative-journey/developer-foundation/cloud-native-overview/) |
+| Cloud-Native App. Dev  | Basics of Cloud-Native App. Development | [Cloud-Native App. Dev](https://ibm-gsi-ecosystem.github.io/ibm-gsi-cloudnative-journey/developer-foundation/cloud-native-app-dev/) |
+| Continuous Integration | CI Overview | [CI](https://ibm-gsi-ecosystem.github.io/ibm-gsi-cloudnative-journey/developer-intermediate/continuous-integration/) |
+| Continuous Delivery | CD Overview | [CD](https://ibm-gsi-ecosystem.github.io/ibm-gsi-cloudnative-journey/developer-intermediate/continuous-delivery/) |
+
+</Tab>
+</Tabs>
+
+
+
+## Technologies
+### Topics Covered
+
+<Tabs>
+<Tab label="Self Paced">
+
+| Topics                          | Description         | Link        |
+| --------------------------------| ------------------  |:----------- |
+| Core Concepts | Covers Kubernetes Objects and Namespaces. | [Core Concepts](https://ibm-gsi-ecosystem.github.io/ibm-gsi-cloudnative-journey/developer-foundation/k8s-core-concepts/) |
+| Configuration | Coveres ConfigMaps, Resource Quotas, Secrets, and Service Accounts. | [Configuration](https://ibm-gsi-ecosystem.github.io/ibm-gsi-cloudnative-journey/developer-foundation/k8s-configuration/) |
+| Multi-Container Pods | Use Cases for multi container pods. | [Multi-Container Pods](https://ibm-gsi-ecosystem.github.io/ibm-gsi-cloudnative-journey/developer-foundation/k8s-multi-container-pods/) |
+| Observability | Covers probes and logging for containers. | [Observability](https://ibm-gsi-ecosystem.github.io/ibm-gsi-cloudnative-journey/developer-foundation/k8s-observability/) |
+| Pod Design | Covers Labels, Selectors, Deployments, and Jobs.| [Pod Design](https://ibm-gsi-ecosystem.github.io/ibm-gsi-cloudnative-journey/developer-foundation/k8s-pod-design/) |
+| Services & Networking | Covers Services and Ingresses.  | [Services and Networking](https://ibm-gsi-ecosystem.github.io/ibm-gsi-cloudnative-journey/developer-foundation/k8s-services-networking/) |
+| State Persistence| Covering Volumes and Persistence Volumes. | [State Persistence](https://ibm-gsi-ecosystem.github.io/ibm-gsi-cloudnative-journey/developer-foundation/k8s-state-persistence/) |
+| Troubleshooting| Ways to troubleshoot your kubernetes. | [Troubleshooting](https://ibm-gsi-ecosystem.github.io/ibm-gsi-cloudnative-journey/developer-foundation/k8s-troubleshooting/) |
+
+</Tab>
+</Tabs>
+
+### Activities
+
+<Tabs>
+<Tab label="Self Paced">
+
+| Topics                          | Description         | Link        |
+| --------------------------------| ------------------  |:----------- |
+| Pod Creation | Covers the topics in the [Core Concepts](https://ibm-gsi-ecosystem.github.io/ibm-gsi-cloudnative-journey/developer-foundation/k8s-core-concepts/) page. | [Pod Creation](https://ibm-gsi-ecosystem.github.io/ibm-gsi-cloudnative-journey/developer-foundation/activities/labs/lab1) |
+| Pod Configuration | Covers the topics in the [Configuration](https://ibm-gsi-ecosystem.github.io/ibm-gsi-cloudnative-journey/developer-foundation/k8s-configuration/) page. | [Pod Configuration](https://ibm-gsi-ecosystem.github.io/ibm-gsi-cloudnative-journey/developer-foundation/activities/labs/lab2) |
+| Multiple Containers | Covers the topics in the [Multi-Container Pods](https://ibm-gsi-ecosystem.github.io/ibm-gsi-cloudnative-journey/developer-foundation/k8s-multi-container-pods/) page.| [Multiple Containers](https://ibm-gsi-ecosystem.github.io/ibm-gsi-cloudnative-journey/developer-foundation/activities/labs/lab3) |
+| Probes | Covers the topics in the [Observability](https://ibm-gsi-ecosystem.github.io/ibm-gsi-cloudnative-journey/developer-foundation/k8s-observability/) page. | [Probes](https://ibm-gsi-ecosystem.github.io/ibm-gsi-cloudnative-journey/developer-foundation/activities/labs/lab4) |
+| Rolling Updates Lab | Covers the topics in the [Pod Design](https://ibm-gsi-ecosystem.github.io/ibm-gsi-cloudnative-journey/developer-foundation/k8s-pod-design/) page.  | [Rolling Updates](https://ibm-gsi-ecosystem.github.io/ibm-gsi-cloudnative-journey/developer-foundation/activities/labs/lab6) |
+| Cron Jobs Lab | Covers the topics in the [Pod Design Jobs](https://ibm-gsi-ecosystem.github.io/ibm-gsi-cloudnative-journey/developer-foundation/k8s-pod-design#jobs-and-cronjobs) section. | [Crons Jobs](https://ibm-gsi-ecosystem.github.io/ibm-gsi-cloudnative-journey/developer-foundation/activities/labs/lab7) |
+| Creating Services | Covers the topics in the [Services](https://ibm-gsi-ecosystem.github.io/ibm-gsi-cloudnative-journey/developer-foundation/k8s-services-networking/) page. | [Setting up Services](https://ibm-gsi-ecosystem.github.io/ibm-gsi-cloudnative-journey/developer-foundation/activities/labs/lab8) |
+| Setting up Persistent Volumes | Covers the topics in the [State Persistence](https://ibm-gsi-ecosystem.github.io/ibm-gsi-cloudnative-journey/developer-foundation/k8s-state-persistence/) page. | [Setting up Persistent Volumes](https://ibm-gsi-ecosystem.github.io/ibm-gsi-cloudnative-journey/developer-foundation/activities/labs/lab10) |
+| Debugging | Covers the topics in the [ Troubleshooting](https://ibm-gsi-ecosystem.github.io/ibm-gsi-cloudnative-journey/developer-foundation/k8s-troubleshooting/) page.  | [Debugging](https://ibm-gsi-ecosystem.github.io/ibm-gsi-cloudnative-journey/developer-foundation/activities/labs/lab5) |
+
+</Tab>
+</Tabs>
+
+### Solutions
+
+<Tabs>
+<Tab label="Self Paced">
+
+| Topics                          | Link        |
+| --------------------------------| ------------|
+| Solutions | [Solutions for Exercises](https://ibm-gsi-ecosystem.github.io/ibm-gsi-cloudnative-journey/developer-foundation/activities/labs/solutions) |
+
+</Tab>
+</Tabs>
+
+## Optional Extra Credits
+### Kubernetes
+<ActivationPage content="kubernetes" tileColor="bx--article-card--ibm">
+</ActivationPage>
+
+### Deployment Best practices
+Use the following links to help you get a deeper understanding of this a good understanding and deep dive in Cloud-Native Deployment
+<ActivationPage content="cndp">
+</ActivationPage>
+
+## Method
+### Topics Covered
+
+<Tabs>
+<Tab label="Self Paced">
+
+| Topics                          | Description         | Link        |
+| --------------------------------| ------------------  |:----------- |
+| IBM Garage Method | Garage Method  Overview | [Garage Method](https://ibm-gsi-ecosystem.github.io/ibm-gsi-cloudnative-journey/developer-foundation/garage-development/) |
+
+</Tab>
+</Tabs>
+
+## Resources
+- Presentation: [Kubernetes Basics](https://ibm-gsi-ecosystem.github.io/ibm-gsi-cloudnative-journey/slides/03-Kubernetes-Basics.pdf)

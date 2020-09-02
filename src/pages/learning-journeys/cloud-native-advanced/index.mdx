@@ -1,12 +1,96 @@
 ---
-title: Deploying an App
+title: Agenda
 ---
-
-import Globals from 'gatsby-theme-carbon/src/templates/Globals';
 
 <PageDescription>
 
+Topics for developers to understand advanced Cloud-Native concepts.
 
 </PageDescription>
 
-[Refer the Cloud Native Advanced Agenda](https://ibm-gsi-ecosystem.github.io/ibm-gsi-cloudnative-journey/developer-advanced)
+### ***Developer advanced journey is still under development***
+
+<InlineNotification>
+
+Before you proceed, make sure you have completed developer intermediate journey and have IBM Partner Sandbox invite. It is a paid IBM Cloud account with the [Developer Tools environment](https://ibm-gsi-ecosystem.github.io/getting-started/devenvsetup) already installed and ready for you to use, including both a Kubernetes cluster and an OpenShift cluster. (The environment is locked down to prevent creating any new services.) Also, before proceeding:
+
+</InlineNotification>
+
+This set of tasks focuses on the advanced Developer concepts: How to use the Developer Tools environment to perform the software delivery lifecycle (SDLC).
+
+### Learning Tasks
+
+The learning tasks help you understand the tasks in the advanced Developer Experience. Developer intermediate focuses on being able to use the environment well enough to develop and deploy a basic cloud-native application. Developer advanced focuses on using the SDLC to iteratively develop, deliver, operate, secure, and manage applications. As a team executes the key agile ceremonies using the [Garage Method](https://www.ibm.com/garage/method/cloud/), it's important for developers and architects to understand what is involved in moving software components consistently and reliably from *dev* to *test* and on to *production*.
+
+These learning tasks are more advanced than those from the developer intermediate experience, so take your time and do some research on the topic before jumping into the task.
+
+<Tabs>
+
+<Tab label="Over the Web">
+
+## Before the Workshop
+
+Please complete these tasks before attending the first session. This will help you get started quickly with the practical exercises.
+
+| Task                            | Description         | Link        | Time    |
+| --------------------------------| ------------------  |:----------- |---------|
+| Welcome Message | Welcome to Cloud-Native Workshop  | [Introduction](https://ibm-gsi-ecosystem.github.io/ibm-gsi-cloudnative-journey/getting-started/introduction) | 5 mins |
+| Prerequisites | Install the prerequisite tools  | [Setup Prerequisites](https://ibm-gsi-ecosystem.github.io/ibm-gsi-cloudnative-journey/getting-started/prereqs) | 10 mins |
+| Sandbox Access | Validate access to your Development Cluster |  [Validate](https://ibm-gsi-ecosystem.github.io/ibm-gsi-cloudnative-journey/getting-started/checksetup) | 10 min |
+| **Continous Delivery** | | | |
+| Continous Delivery (CD) | Overview | [CD](https://ibm-gsi-ecosystem.github.io/ibm-gsi-cloudnative-journey/developer-intermediate/continuous-delivery) | 15 mins |
+| CD Implementation | Application Delivery with Gitops | [Gitops](https://ibm-gsi-ecosystem.github.io/ibm-gsi-cloudnative-journey/developer-advanced/gitops) | 15 mins |
+| **Database Integration** | | | |
+| Cloudant | Integrate Backend with Cloudant Database | [Cloudant](https://ibm-gsi-ecosystem.github.io/ibm-gsi-cloudnative-journey/developer-advanced/inventory-cloudant) | 15 mins |
+| MongoDB | Integrate Backend with MongoDB Database | [MongoDB](https://ibm-gsi-ecosystem.github.io/ibm-gsi-cloudnative-journey/developer-advanced/inventory-mongodb) | 15 mins |
+| Postgres | Integrate Backend with Postgres Database | [Postgres](https://ibm-gsi-ecosystem.github.io/ibm-gsi-cloudnative-journey/developer-advanced/inventory-postgres) | 15 mins |
+| **Authentication** | | | |
+| App ID | Secure the solution with App ID  | [App ID](https://ibm-gsi-ecosystem.github.io/ibm-gsi-cloudnative-journey/developer-advanced/inventory-appid/) | 15 mins |
+| **API Consumption** | | | |
+| API | Consume API from client applications  | [API Consumption](https://ibm-gsi-ecosystem.github.io/ibm-gsi-cloudnative-journey/developer-advanced/inventory-api/) | 15 mins |
+| Mobile App | Mobile App consuming API's  | [Mobile App](https://ibm-gsi-ecosystem.github.io/ibm-gsi-cloudnative-journey/developer-advanced/inventory-mobile-app/) | 15 mins |
+| **Advanced Monitoring and Logging** | | | |
+| Monitoring | Advanced Monitoring with Sysdig | [Advanced Monitoring](https://ibm-gsi-ecosystem.github.io/ibm-gsi-cloudnative-journey/developer-advanced/monitoring/) | 30 mins |
+| Log Management | Advanced Log Management with LogDNA | [Advanced Log Management](https://ibm-gsi-ecosystem.github.io/ibm-gsi-cloudnative-journey/developer-advanced/log-management/) | 30 mins |
+| **DevSecOps** | | | |
+| DevSecOps | DevSecOps Overview | [DevSecOps](developer-advanced/devsecops) | 15 mins |
+| Advanced Container Security | DevSecOps with Aqua CSP | [Container Security](developer-advanced/devsecops-aquasec-csp) | 20 mins |
+| Advanced Container Security | DevSecOps with Twistlock | [Container Security](developer-advanced/devsecops-twistlock) | 20 mins |
+| Add security to CI/CD | DevSecOps with Trivy | [Incorporate CI/CD](developer-advanced/devsecops-trivy) | 30 mins |
+| **Operators** | | | |
+| Operator Overview | Operators are a method of packaging, deploying, and managing a Kubernetes application |[Operator](https://ibm-gsi-ecosystem.github.io/ibm-gsi-cloudnative-journey/developer-advanced/operator/) | 15 min |
+| Operator Labs | Developing operator step by step |[Operator Labs](https://ibm-gsi-ecosystem.github.io/ibm-gsi-cloudnative-journey/developer-advanced/operator/lab) | 45 min |
+| **Advanced Application Modernization** | | | |
+| Collect Data from Legacy App | | | |
+| Analyze with TA | | | |
+| Modernize the app | | | |
+| **Advanced Microservices Techniques** | | | |
+| Servimesh & KNative | | | |
+| Modify inventory application with service mesh | | | |
+| Kiali, jaeger | | | |
+| Events with Kafka | | | |
+| Contract testing | | | |
+| OpenAPI and Swagger Editor | | | |
+</Tab>
+
+<Tab label="Self Paced">
+</Tab>
+
+<Tab label="In Person">
+</Tab>
+
+</Tabs>
+
+Once you have completed these tasks, you will have completed the learning requirements for both the intermediate and the advanced Experience. For intermediate journey, you created your first app and CI pipeline, and then extended that into a 3-tier polyglot solution. For advanced journey, you worked with your application's logs, monitored your app, and moved your code from *dev* to *test*.
+
+What is very clear is that the Developer Tools environment--an application architecture that combines a Red Hat OpenShift or Kubernetes cluster with powerful cloud services, packaged with a development environment with a CI/CD pipeline incorporating best-of-breed open source tools--gives you a powerful development platform that enables you to build any form of cloud-native application. These skills form the foundation not only to develop applications for Kubernetes and OpenShift, but to develop applications that leverage the IBM Cloud Paks as well.
+
+### Review Learning Tasks
+
+Working with colleagues review your learning tasks. The Partner Ecosystem team is looking for feedback from three perspectives:
+
+- **What went well?**
+- **What needs improvement?**
+- **Next steps?**
+
+Developers will begin the learning journey with different skill levels and familiarity with this material, but will complete the Cloud-Native enablement with a more detailed understanding of how to build solutions for the IBM Cloud. Each student's **Next Steps** will help identify that person's skill gaps to ensure they cover the topics needed to complete the learning journey successfully.

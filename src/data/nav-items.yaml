@@ -65,7 +65,7 @@
     - title: Cloud-Native Toolkit Tile
       path: /catalog/cloud-native-toolkit-tile
 
-- title: Install Run Books
+- title: Install 
   pages:
     - title: Overview
       path: /install/overview
@@ -83,8 +83,8 @@
       path: /install/automation
     - title: Edge Application Manager
       path: /install/edge
-    - title: Common Operators
-      path: /install/common-operators
+    - title: Redhat Maketplace
+      path: /install/rhm
 
 - title: Learning Journeys
   pages:

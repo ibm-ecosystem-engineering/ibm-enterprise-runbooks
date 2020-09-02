@@ -1,0 +1,40 @@
+Welcome to the:
+
+
+IBM Partner Enterprise Sandbox - Cloud-Native Learning Journey
+IBM Cloud Red Hat OpenShift and Cloud Pak Sandbox
+ 
+Congratulations, you have been successfully added to the IBM Partner Cloud-Native Sandbox which has been enabled for active learning with IBM RedHat OpenShift , Cloud Pak for Applications and Cloud Pak for Integration
+ 
+This development environment is configured in the exact same way clients will configure their development teams on the IBM Cloud. Below you will find details about your assigned IBM Partner Enterprise Sandbox. Each sandbox can consist of up to 200+ partner developers and architects.
+ 
+IBM Partner Enterprise Sandbox Registration Details
+Cloud : https://cloud.ibm.com/
+Account : <Id> - GSI Labs - <SI>
+Location: <TBD>
+Sandbox Team : n..
+GitHub Organization : https://github.com/<si-name>-sandbox-team-n..
+Resource Group : sandbox-team-n..
+
+
+Note: Verify your cluster resources (with resource group selected), the following
+sandbox-n..-ocp43 [ Redhat Openshift Cluster 4.X]
+ 
+The enablement has been crafted to be used as self-paced material or within a Partner managed Journey. Support is being offered through a Slack Channel. Read the introduction and agenda to get more detail of what you will learn. 
+ 
+Partner Cloud-Native Learning Journey Content : https://ibm-gsi-ecosystem.github.io/ibm-gsi-cloudnative-journey/
+Introduction Cloud-Native Learning Journey : https://ibm-gsi-ecosystem.github.io/ibm-gsi-cloudnative-journey/getting-started/introduction
+Access the Learning Journey Developer Intermediate agenda : https://ibm-gsi-ecosystem.github.io/ibm-gsi-cloudnative-journey/enablement/developer-intermediate
+ 
+To ensure you have been added correctly, please follow the directions in this page to validate your access using the details above: Welcome to your Partner Enterprise Sandbox :https://ibm-gsi-ecosystem.github.io/ibm-gsi-cloudnative-journey/getting-started/checksetup
+ 
+You will be working live inside a fully functional Red Hat OpenShift cluster on the IBM Cloud. Please make sure you have read the Partner Sandbox Etiquette : https://ibm-gsi-ecosystem.github.io/ibm-gsi-cloudnative-journey/getting-started/checksetup#etiquette rules before starting the self-paced learning tasks.
+ 
+Please use the  #cloud-native-<si-name> (<slack-channel> https://ibm-cloud.slack.com/archives/G0134BMRW4W) Slack channel for any questions about access to your IBM Partner Enterprise Sandbox development environment or questions and support for the self-paced material. 
+ 
+We are very excited to be using the IBM Partner Enterprise Sandbox for delivering enablement and we hope you have fun and spend time engaging with you fellow developer colleagues and with the IBM technical experts.
+ 
+Thank you,
+ 
+Cloud-Native Squad
+IBM Partner Ecosystem 

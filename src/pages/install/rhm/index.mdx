@@ -31,7 +31,6 @@ Refer the step by step [instructions](https://marketplace.redhat.com/en-us/docum
 
 ![Redhat Marketplace Cluster](/images/rhmclusters.png)
 
-
 ## Red Hat Marketplace Operator
 
 When users purchase software and install operators and applications, Red Hat Marketplace Operator watches for and gets configuration changes and resource updates from Red Hat Marketplace. Once the Operator has the information, it updates your cluster.
@@ -62,33 +61,38 @@ The Red Hat Marketplace offers a wide variety of products across 12 categories. 
 
 Create a project and name it cp4i in your IBM Cloud ROKS cluster.
 
-Go to the Marketplace catalog and search for Cloud Pak for Integration. Select the correct tile and click on Free trial to start your 30-day trial, as shown in Figure.
+### Buy software
 
+Go to the Marketplace catalog and search for Cloud Pak for Integration. Select the correct tile and click on Free trial to start your 30-day trial, as shown in figure below
 
 ![OpenShift Operator Install ](/images/cp4ipurchase.png)
 
-Click ‘Free trial’ for a 30-day trial.
-
-Go to Workspace > click the My Software, which is shown in Figure 
+Go to Workspace > click the My Software, which is shown in figure below
 
 ![OpenShift Operator Install ](/images/cp4isoftware.png)
 
-Go to Workspace > My Software and click the Install Operator icon, which is shown in Figure 
+### Install the software
+
+Go to Workspace > My Software and click the Install Operator icon, which is shown in figure below
 
 ![OpenShift Operator Install ](/images/cp4iinstall.png)
 
 ### Install the Cloud Pak for Integration Operator for your free trial
 
-Select the IBM Cloud ROKS cluster from the list of target clusters, then pick the namespace scope where you want to install the Operator, as shown in Figure 5.
+Select the IBM Cloud ROKS cluster from the list of target clusters, then pick the namespace scope where you want to install the Operator, as shown in figure below
 
 ![OpenShift Operator Install ](/images/cp4ioperatorconfig.png)
 
-Log in to the cluster to verify that the Operator installed successfully, as shown in Figure.
+### Verify the operator installation
+
+Log in to the cluster to verify that the Operator installed successfully, as shown in figure below
 
 ![OpenShift Operator Install ](/images/cp4iverify.png)
 
-You can install OpenShift Operators directly from the cluster. Red Hat Marketplace Operators become available in the OperatorHub after you install the Marketplace Operator. To install a product directly from IBM Cloud ROKS, log in to the cluster, go to Operators > OperatorHub, search, and install. Figure shows the dialog to install Cloud Pak for Integration
+### OperatorHub - OpenShift Console
+
+You can install OpenShift Operators directly from the cluster. Red Hat Marketplace Operators become available in the OperatorHub after you install the Marketplace Operator. To install a product directly from IBM Cloud ROKS, log in to the cluster, go to Operators > OperatorHub, search, and install. Below figure shows the dialog to install Cloud Pak for Integration
 
 ![OpenShift Operator Install ](/images/cp4iinstalled.png)
 
-Note that Marketplace should appear as a filter parameter under Product type in the OpertorHub’s search options.
+**Note** that Marketplace should appear as a filter parameter under Product type in the OpertorHub’s search options.

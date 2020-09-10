@@ -1,0 +1,69 @@
+---
+title: Edge Node 
+---
+
+import Globals from 'gatsby-theme-carbon/src/templates/Globals';
+
+<PageDescription>
+
+</PageDescription>
+
+## Overview
+
+The certified lightweight Kubernetes distribution built for IoT & Edge computing
+
+##  Install a lightweight k3s cluster on a VPC Node
+
+### Create a VPC vpc-edge:
+
+Use IBM Cloud Virtual Private Cloud to create your own space in IBM Cloud. A virtual private cloud (VPC) is a secure, isolated virtual network that combines the security of a private cloud with the availability and scalability of IBM's public cloud.
+
+![IBM Cloud VPC Edge](images/newvpc.png)
+
+![IBM Cloud VPC Subnet](images/newvpcsubnet.png)
+
+![IBM Cloud VPC IP Range](images/iprange.png)
+
+### Create a edge-node1 vm within the VPC:
+
+![IBM Cloud VPC Edge](images/newvpcvs.png)
+
+![IBM Cloud VPC Subnet](images/vpcos.png)
+
+![IBM Cloud VPC IP Range](images/vpcvolume.png)
+
+### Login with the ssh key. 
+
+If you need to give others access to vm for others, add public key to the authorized_keys in the vm.
+
+## Install k3s:
+
+```
+curl -sfL https://get.k3s.io | sh -
+```
+Execute kubectl get nodes to verify if k3s is running.
+
+### Installing agent on k3s:
+https://www.ibm.com/support/knowledgecenter/SSFKVV_4.1/devices/installing/preparing_edge_cluster.html
+
+## Install a edge node with just docker
+
+I) Create a VM on VPC (Refer to procedure above)
+2) install docker on ubuntu vm
+
+```
+apt-get update
+apt-get install docker.io
+```
+
+```
+systemctl restart docker
+```
+
+3) Check to see if docker is running
+```
+docker images
+```
+
+### Installing agent on docker:
+https://www.ibm.com/support/knowledgecenter/SSFKVV_4.1/devices/installing/registration.html

@@ -83,6 +83,8 @@
       path: /install/automation
     - title: Edge Application Manager
       path: /install/edge
+    - title: Edge Node
+      path: /install/edgenode
     - title: Redhat Maketplace
       path: /install/rhm
 

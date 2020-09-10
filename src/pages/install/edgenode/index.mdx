@@ -12,9 +12,9 @@ import Globals from 'gatsby-theme-carbon/src/templates/Globals';
 
 The certified lightweight Kubernetes distribution built for IoT & Edge computing
 
-##  Install a lightweight k3s cluster on a VPC Node
+## 1.  Install a lightweight k3s cluster on a VPC Node
 
-### Create a VPC vpc-edge:
+### (A) Create a VPC vpc-edge:
 
 Use IBM Cloud Virtual Private Cloud to create your own space in IBM Cloud. A virtual private cloud (VPC) is a secure, isolated virtual network that combines the security of a private cloud with the availability and scalability of IBM's public cloud.
 
@@ -44,7 +44,7 @@ You can create and configure an IBM Cloud™ Virtual Private Cloud (VPC) by usin
 
 You are ready to connect to your instance. 
 
-### Create a edge-node1 virtual machine (virtual server) within the VPC:
+### (B) Create a edge-node1 virtual machine (virtual server) within the VPC:
 
 IBM Cloud Virtual Servers for Virtual Private Cloud give you access to all of the benefits of IBM Cloud VPC, including network isolation, security, and flexibility.
 
@@ -74,11 +74,11 @@ You can reserve and associate a floating IP address to your instance so you can 
 
 You are ready to connect to your instance. 
 
-### Login with the ssh key. 
+### (C) Login with the ssh key. 
 
 - If you need to give others access to vm for others, add public key to the authorized_keys in the vm.
 
-## Install k3s:
+## 2. Install k3s:
 
 ```
 curl -sfL https://get.k3s.io | sh -
@@ -88,7 +88,7 @@ Execute kubectl get nodes to verify if k3s is running.
 ### Installing agent on k3s:
 https://www.ibm.com/support/knowledgecenter/SSFKVV_4.1/devices/installing/preparing_edge_cluster.html
 
-## Install a edge node with just docker
+## 3. Install a edge node with just docker
 
 I) Create a VM on VPC (Refer to procedure above)
 2) install docker on ubuntu vm

@@ -1,5 +1,5 @@
 ---
-name: Bug report
+name: Enterprise Account - Bug report
 about: Create a report to help us improve
 title: ''
 labels: ''

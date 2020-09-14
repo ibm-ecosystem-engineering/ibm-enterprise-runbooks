@@ -1,0 +1,68 @@
+---
+title: Red Hat Advanced Cluster Management for Kubernetes - End-to-end visibility and control for your Kubernetes clusters
+
+---
+
+import Globals from 'gatsby-theme-carbon/src/templates/Globals';
+
+<PageDescription>
+
+
+</PageDescription>
+
+## Overview 
+Red Hat Advanced Cluster Management for Kubernetes controls clusters and applications from a single console, with built-in security policies. Extend the value of Red Hat OpenShift® by deploying apps, managing multiple clusters, and enforcing policies across multiple clusters at scale. 
+
+## Register Openshift Cluster with Redhat Marketplace
+
+To register a cluster, Red Hat Marketplace provides a command that installs the Red Hat Marketplace Operator and updates your global cluster pull secret.
+
+Refer the step by step [instructions](https://marketplace.redhat.com/en-us/documentation/clusters#register-openshift-cluster-with-red-hat-marketplace). As a result, you registered your cluster as well as installed Redhat Marketplace Opertor.
+
+![Redhat Marketplace Cluster](/images/rhmclusters.png)
+
+## Red Hat Advanced Cluster Management for Kubernetes
+
+The Red Hat Marketplace offers a wide variety of products across 12 categories. As an example, let’s say that you want to try out Redhat Advanced Cluster Management.
+
+![OpenShift Operator Install ](/images/rhacmsearch.png)
+
+Create a project and name it "rh-acm-demo" in your IBM Cloud ROKS cluster.
+
+### Buy the software
+
+Go to the Marketplace catalog and search for Red Hat Advanced Cluster Management for Kubernetes. Select the correct tile and click on Free trial to start your 30-day trial, as shown in figure below
+
+![OpenShift Operator Install ](/images/rhacmbuy.png)
+
+Go to Workspace > click the My Software, which is shown in figure below
+
+![OpenShift Operator Install ](/images/mysoftware.png)
+
+### Install the software
+
+Go to Workspace > My Software and click the Install Operator icon, which is shown in figure below
+
+![OpenShift Operator Install ](/images/InstallOperator.png)
+
+### Install the Red Hat Advanced Cluster Management for your free trial
+
+Select the IBM Cloud ROKS cluster from the list of target clusters, then pick the namespace scope where you want to install the Operator, as shown in figure below
+
+![OpenShift Operator Install ](/images/selectns.png)
+
+### Verify the operator installation
+Click the My Software / Red Hat Advanced Cluster and select the Operators Tab
+
+![OpenShift Operator Install ](/images/rhacmverify.png)
+
+Log in to the cluster to verify that the Operator installed successfully, as shown in figure belowrhc
+
+![OpenShift Operator Install ](/images/clusterverify.png)
+
+### OperatorHub - OpenShift Console
+
+You can install OpenShift Operators directly from the cluster. Red Hat Marketplace Operators become available in the OperatorHub after you install the Marketplace Operator. To install a product directly from IBM Cloud ROKS, log in to the cluster, go to Operators > OperatorHub, search, and install. Below figure shows the dialog to install  
+
+![OpenShift Operator Install ](/images/rhacminstalled.png)
+

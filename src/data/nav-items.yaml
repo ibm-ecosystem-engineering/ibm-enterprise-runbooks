@@ -87,6 +87,8 @@
       path: /install/edgenode
     - title: Redhat Maketplace
       path: /install/rhm
+    - title: Redhat Advanced Cluster Management
+      path: /install/rhacm
 
 - title: Learning Journeys
   pages:

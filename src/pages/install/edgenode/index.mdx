@@ -79,17 +79,34 @@ You are ready to connect to your instance.
 
 - If you need to give others access to vm for others, add public key to the authorized_keys in the vm.
 
+<Tabs>
+
+<Tab label="k3">
+
 ## 2. Install k3s:
+
+The following instructions guide you through the process of installing the open source project, k3s, which is a lightweight, easy to install Kubernetes distribution geared towards resource-constrained environments and low touch operations on your edge device and registering it with IBM Edge Application Manager IEAM.
 
 ```
 curl -sfL https://get.k3s.io | sh -
 ```
-Execute kubectl get nodes to verify if k3s is running.
+Execute 
+```
+kubectl get nodes 
+```
+to verify if k3s is running.
 
 ### Installing agent on k3s:
 https://www.ibm.com/support/knowledgecenter/SSFKVV_4.1/devices/installing/preparing_edge_cluster.html
 
+</Tab>
+
+
+<Tab label="k3">
+
 ## 3. Install a edge node with just docker
+
+The following instructions guide you through the process of installing the docker on your edge device and registering it with IBM Edge Application Manager IEAM.
 
  - 1.  Create a VM on VPC (Refer to procedure above)
  - 2.  Install docker on ubuntu vm
@@ -110,3 +127,6 @@ docker images
 
 ### Installing agent on docker:
 https://www.ibm.com/support/knowledgecenter/SSFKVV_4.1/devices/installing/registration.html
+
+</Tab>
+</Tabs>

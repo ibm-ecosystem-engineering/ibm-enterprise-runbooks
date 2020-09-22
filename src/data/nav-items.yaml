@@ -89,6 +89,8 @@
       path: /install/rhm
     - title: Redhat Advanced Cluster Management
       path: /install/rhacm
+    - title: Mainframe Modernization
+      path: /install/mainframe
 
 - title: Learning Journeys
   pages:

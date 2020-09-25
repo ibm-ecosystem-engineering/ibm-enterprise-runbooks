@@ -4,3 +4,193 @@ title: IBM Cloud GSI EnterpriseSandbox - Private Catalog tiles
 
 import Globals from 'gatsby-theme-carbon/src/templates/Globals';
 
+
+The below IAM objects are recommented for any Sandboxes that are created in IBM Cloud.
+
+```
+    Resource Group
+    Access Group
+    Assign Users to Access Group
+    Assign Access Policies to Access Group
+```
+
+This project provides the below private catalog tiles which would create the required IAM objects for the Sandboxes.
+
+```
+    Resource Group
+    Access Group and Access Policies
+    Assign Users to Access Group
+```
+
+![IBM Cloud Enterprise Account Tiles](images/00-tiles.png)
+
+## 1. View Private Catalog Tiles. 
+
+Here are the steps to view the Private Catalog tiles.
+
+1. Click on `Catalog` in ibm cloud web console.
+
+2. Choose the `Sandbox-Catalog` menu. 
+
+3. It shows the 3 tiles that we created.
+
+Note: To know how to create private catalog, you can refer https://github.ibm.com/gsi-labs/ibm-gsi-learning-private-catalog
+
+
+## 2. Run Tiles
+
+Here are the steps to run the tiles.
+
+### 1. Run Tile - Resource Group
+
+1. Click on `Resource Group` tile listed in the `Sandbox-Catalog` private catalog 
+
+2. It shows the tile details page. Default values are displayed. You can modify the values. 
+
+![IBM Cloud Enterprise Account Tile Details ](images/03-tiledetails-1.png)
+
+![IBM Cloud Enterprise Account Tile Details ](images/03-tiledetails-2.png)
+
+
+3. Click on `Install` link. 
+
+It creates the resource groups.
+
+### 2. Install your clusters.
+
+Install the required clusters.
+
+### 3. Run Tile - Access Group and Access Policies
+
+1. Click on `Access Group and Access Policies` tile listed in the `Sandbox-Catalog` private catalog 
+
+2. It shows the tile details page. Default values are displayed. You can modify the values. 
+
+Make sure you give same Resource-Groups that you have entered in the previous step.
+
+![IBM Cloud Enterprise Account Tile Details ](images/03-tiledetails-3.png)
+
+![IBM Cloud Enterprise Account Tile Details ](images/03-tiledetails-4.png)
+
+3. Click on `Install` link. 
+
+It creates the access groups and assign access polcies.
+
+### 4. Run Tile - Assign User to Access Group
+
+1. Click on `Assign User to Access Group` tile listed in the `Sandbox-Catalog` private catalog 
+
+2. It shows the tile details page. Default values are displayed. You can modify the values. 
+
+Make sure you give same Access-Groups that you have entered in the previous step.
+
+![IBM Cloud Enterprise Account Tile Details ](images/03-tiledetails-5.png)
+
+![IBM Cloud Enterprise Account Tile Details ](images/03-tiledetails-6.png)
+
+3. Click on `Install` link. 
+
+It assigns users to the access groups.
+
+
+# 3. IAM Objects
+
+The below diagram describes the various objects created by these tiles.
+
+![IBM Cloud Enterprise Account Sandbox ](images/01-sandbox-arch.png)
+
+
+Here is the list of objects created by default.
+
+### Resource Groups
+
+The below resource groups are cretaed. 
+
+```
+    appdev-cloudnative
+    cloud-management
+    business-data
+    business-automation
+```
+
+IBM Cloud IAM screen with the created resource groups
+
+![IBM Cloud Enterprise Account Resource Group ](images/02-iam-resource-group.png)
+
+### Access Groups
+
+The below access Groups are cretaed. 
+
+```
+    CLOUDMANAGEMENT-ADMINS
+    APPDEV-ADMINS
+    APPDEV-ENVIRONMENT-ADMINS
+    APPDEV-USERS
+    INTEGRATION-ADMINS
+    DATA-ADMINS
+    AUTOMATION-ADMINS
+```
+
+IBM Cloud IAM screen with the created access groups
+
+![IBM Cloud Enterprise Account Access Group ](images/02-iam-access-groups.png)
+
+### Access Policies
+
+The below access Policies are cretaed. 
+
+For all ADMIN groups 
+
+```
+-   Resource Group  - 40
+-   Resource Group  - 10
+-   Kubernetes - 45
+-   Container Registery - 64
+```
+
+For all USERS groups
+
+```
+-   Resource Group - 32
+-   Resource Group - 10
+-   Kubernetes - 73
+-   Kubernetes - 73 with IKS instance
+-   Kubernetes - 73 with OCP instance
+-   Container Registery - 41
+-   Cloudant - 94
+-   COS - 197
+-   SysDig - 37
+-   LogDNA - 69
+-   AppID - 259
+```
+IBM Cloud IAM screen with the created access Policies
+
+![IBM Cloud Enterprise Account Access Group Policies ](images/02-iam-access-groups-policy-admin.png)
+
+The figures above shows the default access policies added to the access group `CLOUDMANAGEMENT-ADMINS`.
+
+![IBM Cloud Enterprise Account Access Group Policy with users ](images/02-iam-access-groups-policy-users.png")
+
+The figures above shows the default access policies added to the access group `APPDEV-USERS`.
+
+### Clusters
+
+By default 5 clusters are installed, one for each cloud pak.
+```
+    Cloud Pak for Application
+    Cloud Pak for Integration
+    Cloud Pak for Multicloud Management
+    Cloud Pak for Automation
+    Cloud Pak for Data
+```
+
+</details>
+
+# 4. References
+
+#### How to create Private Catalog tiles.
+
+How to create private catalog and tiles are detailed in the below docmentation.
+
+https://github.ibm.com/gsi-labs/ibm-gsi-learning-private-catalog
+

@@ -91,6 +91,8 @@
       path: /install/rhacm
     - title: Mainframe Modernization
       path: /install/mainframe
+    - title: IBM Cloud Satellite
+      path: /install/satellite
 
 - title: Learning Journeys
   pages:

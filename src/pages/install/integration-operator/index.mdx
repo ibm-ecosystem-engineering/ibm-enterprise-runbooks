@@ -27,10 +27,10 @@ import Globals from 'gatsby-theme-carbon/src/templates/Globals';
   <AnchorLink>Appendix B</AnchorLink>
 </AnchorLinks>
 
-# Installing Cloud Pak for Integration
+## Installing Cloud Pak for Integration
 The IBM Cloud Pak for Integration (CP4I) is delivered as operators that are installed and managed using the Operator Lifecycle Manager (OLM) within Red Hat OpenShift. To install CP4I, you will verify that the OLM Catalog Sources for IBM components have been added, you will then install the operators using OLM, create the CP4I custom resources, and finally deploy some of the capabilities and runtimes.
 
-<ins>**Note**</ins>: The versions for your installed operators, capabilities, and runtimes may not match what is shown in the screenshots below. This is the result of this CI/CD world we live in that we just have to adapt to.    
+**Note**: The versions for your installed operators, capabilities, and runtimes may not match what is shown in the screenshots below. This is the result of this CI/CD world we live in that we just have to adapt to.    
 
 ### Environment
 - Template: https://ibm.biz/cp4i-env
@@ -42,7 +42,7 @@ The IBM Cloud Pak for Integration (CP4I) is delivered as operators that are inst
 
 1. From your web browser use the ![home.png](images/home.png) icon to open the OpenShift console.
 
-   <ins>**Warning**</ins>: If you get a `PR_END_OF_FILE_ERROR` error in the browser it is most likely indicative of an OpenShift certificate expiration issue. To fix the problem follow the steps in `Appendix A` below, wait a few minutes and then retry the above operation.
+   **Warning**: If you get a `PR_END_OF_FILE_ERROR` error in the browser it is most likely indicative of an OpenShift certificate expiration issue. To fix the problem follow the steps in `Appendix A` below, wait a few minutes and then retry the above operation.
 
 2. The login credentials should already be saved in the browser. If not use `ibmadmin` as Username and `engageibm` as Password (make sure to select the `htpasswd` authentication method).
 
@@ -85,7 +85,7 @@ You can use the quick approach and install all of the CP4I operators at once by 
    - IBM Event Streams
    - IBM Aspera HSTS
 
-   <ins>**Warning**</ins>: If the `IBM Operator for Redis` operator remains indefinitely in an `Installing` state you can simply ignore the message. This will only affect the deployment of the `Aspera` capability. However, if you really want to fix the problem refer to `Appendix B`. 
+   **Warning**: If the `IBM Operator for Redis` operator remains indefinitely in an `Installing` state you can simply ignore the message. This will only affect the deployment of the `Aspera` capability. However, if you really want to fix the problem refer to `Appendix B`. 
 
    When complete the result should look something like the following with `Succeeded` as status across all namespaces:
    
@@ -130,7 +130,7 @@ We will deploy the Platform Navigator (PN) inside of a pre-configured namespace.
    
       ![cp4i-pn-ui.png](images/cp4i-pn-ui.png)
       
-      <ins>**Important**</ins>: Before you proceed to the next section make sure all pods in the `ibm-common-services` namespace are up and running as some of the capabilities and runtimes you will deploy below will depend on those services being operational.
+      **Important**: Before you proceed to the next section make sure all pods in the `ibm-common-services` namespace are up and running as some of the capabilities and runtimes you will deploy below will depend on those services being operational.
 
 ### Deploy Platform Capabilities and Runtimes
 
@@ -353,7 +353,7 @@ You will now use the PN to deploy further integration capabilities. Capabilities
       | License acceptance (optional)             |                  On |
       | License use (optional)                    |          production |
 
-      <ins>**Note**</ins>: The reason for selecting the `production` license use is because that's the only licensing option permitted for the gateway component in CP4I.
+      **Note**: The reason for selecting the `production` license use is because that's the only licensing option permitted for the gateway component in CP4I.
 
       ![cp4i-pn-capability-create-apic-config.png](images/cp4i-pn-capability-create-apic-config.png)
       

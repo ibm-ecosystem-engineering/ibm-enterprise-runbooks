@@ -70,7 +70,7 @@
     - title: Cloud-Native Toolkit Tile
       path: /catalog/cloud-native-toolkit-tile
 
-- title: Install 
+- title: Hybrid Software Install 
   pages:
     - title: Overview
       path: /install/overview
@@ -95,6 +95,15 @@
     - title: IBM Cloud Satellite
       path: /install/satellite
 
+- title: RedHat
+  pages:
+    - title: Redhat Maketplace
+      path: /redhat/rhm
+    - title: Redhat Advanced Cluster Management
+      path: /redhat/rhacm
+    - title: Cloud Pak for Integration - Installation 
+      path: /redhat/cp4i
+
 - title: Learning Journeys
   pages:
     - title: Overview
@@ -105,15 +114,6 @@
       path: /learning-journeys/cloud-native-intermediate
     - title: Cloud-Native Advanced
       path: /learning-journeys/cloud-native-advanced
-
-- title: RedHat
-  pages:
-    - title: Redhat Maketplace
-      path: /redhat/rhm
-    - title: Redhat Advanced Cluster Management
-      path: /redhat/rhacm
-    - title: Cloud Pak for Integration - Installation 
-      path: /redhat/cp4i
 
 - title: Code Patterns
   pages:

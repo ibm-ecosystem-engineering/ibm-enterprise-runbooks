@@ -44,7 +44,7 @@
     - title: Cloud-Native Toolkit Tile
       path: /catalog/cloud-native-toolkit-tile
 
-- title: Install Run Books
+- title: Hybrid Software Install
   pages:
     - title: Overview
       path: /install/overview

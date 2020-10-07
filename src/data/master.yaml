@@ -65,6 +65,13 @@
     - title: Common Operators
       path: /install/common-operators
 
+- title: RedHat
+  pages:
+    - title: Redhat Maketplace
+      path: /redhat/rhm
+    - title: Redhat Advanced Cluster Management
+      path: /redhat/rhacm
+
 - title: Learning Journeys
   pages:
     - title: Overview

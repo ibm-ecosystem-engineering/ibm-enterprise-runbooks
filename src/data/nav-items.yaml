@@ -103,6 +103,8 @@
       path: /redhat/rhacm
     - title: Cloud Pak for Integration - Installation 
       path: /redhat/cp4i
+    - title: Virtualization 
+      path: /redhat/virtualization
 
 - title: Learning Journeys
   pages:

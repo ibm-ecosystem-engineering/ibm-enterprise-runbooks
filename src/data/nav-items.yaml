@@ -5,6 +5,11 @@
     - title: What are Enterprise Accounts
       path: /overview/what-are-enterprise-accounts
 
+- title: What's New
+  pages:
+    - title: What's New 
+      path: /whats-new/
+
 - title: Videos
   pages:
     - title: IaaS

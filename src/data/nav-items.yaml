@@ -104,9 +104,9 @@
 - title: RedHat
   pages:
     - title: Redhat Maketplace
-      path: /install/rhm
+      path: /redhat/rhm
     - title: Redhat Advanced Cluster Management
-      path: /install/rhacm
+      path: /redhat/rhacm
 
 - title: Code Patterns
   pages:

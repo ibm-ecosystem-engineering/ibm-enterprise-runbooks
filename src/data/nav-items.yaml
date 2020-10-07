@@ -97,7 +97,7 @@
 
 - title: RedHat
   pages:
-    - title: Maketplace
+    - title: Marketplace
       path: /redhat/rhm
     - title: Advanced Cluster Management
       path: /redhat/rhacm

@@ -67,9 +67,9 @@
 
 - title: RedHat
   pages:
-    - title: Redhat Maketplace
+    - title: Marketplace
       path: /redhat/rhm
-    - title: Redhat Advanced Cluster Management
+    - title: Advanced Cluster Management
       path: /redhat/rhacm
     - title: Cloud Pak for Integration - Installation 
       path: /redhat/cp4i

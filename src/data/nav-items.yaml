@@ -78,8 +78,10 @@
       path: /install/cloud-native
     - title: Cloud Pak for Applications
       path: /install/applications
-    - title: Cloud Pak for Integrations
+    - title: CP4 Integration - Single Click
       path: /install/integrations
+    - title: CP4 Integration - Operator
+      path: /install/integration-operator
     - title: Cloud Pak for MCM
       path: /install/multi-cloud-management
     - title: Cloud Pak for Data
@@ -101,7 +103,7 @@
       path: /redhat/rhm
     - title: Advanced Cluster Management
       path: /redhat/rhacm
-    - title: Cloud Pak for Integration - Installation 
+    - title: Cloud Pak for Integration  
       path: /redhat/cp4i
     - title: Virtualization 
       path: /redhat/virtualization

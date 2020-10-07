@@ -79,7 +79,7 @@
     - title: Cloud Pak for Applications
       path: /install/applications
     - title: CP4 Integration - Single Click
-      path: /install/integrations
+      path: /install/integration
     - title: CP4 Integration - Operator
       path: /install/integration-operator
     - title: Cloud Pak for MCM

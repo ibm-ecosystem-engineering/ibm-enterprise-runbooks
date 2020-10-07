@@ -11,7 +11,6 @@ import Globals from 'gatsby-theme-carbon/src/templates/Globals';
 
 <AnchorLinks>
   <AnchorLink>Installing Cloud Pak for Integration</AnchorLink>
-  <AnchorLink>Environment</AnchorLink>
   <AnchorLink>OLM Catalog Sources</AnchorLink>
   <AnchorLink>Install the CP4I Operators and their dependencies</AnchorLink>
   <AnchorLink>Create an instance of the Platform Navigator</AnchorLink>
@@ -25,15 +24,9 @@ The IBM Cloud Pak for Integration (CP4I) is delivered as operators that are inst
 
 **Note**: The versions for your installed operators, capabilities, and runtimes may not match what is shown in the screenshots below. This is the result of this CI/CD world we live in that we just have to adapt to.    
 
-### Environment
-- Template: https://ibm.biz/cp4i-env
-- Desktop Login: ibmuser/engageibm
-- OpenShift Console URL: https://console-openshift-console.apps.demo.ibmdte.net/
-- OpenShift Credentials: ibmadmin/engageibm [auth: htpasswd]
-
 ### OLM Catalog Sources
 
-1. From your web browser use the ![home.png](images/home.png) icon to open the OpenShift console.
+1. From your web browser use the Home icon to open the OpenShift console.
 
 **Warning**: If you get a `PR_END_OF_FILE_ERROR` error in the browser it is most likely indicative of an OpenShift certificate expiration issue. To fix the problem follow the steps in `Appendix A` below, wait a few minutes and then retry the above operation.
 

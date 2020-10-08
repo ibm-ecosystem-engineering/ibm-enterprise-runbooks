@@ -26,7 +26,7 @@ a private catalog tile. This is the recommended approach for using this asset mu
 This asset enables the easy transition of a default cluster into a cluster that supports
 Cloud-Native CI/CD development tools.
 
-### A. Create the catalog
+### **A. Create the catalog**
 
 <br></br>
 
@@ -40,7 +40,7 @@ Cloud-Native CI/CD development tools.
     - **resource group:** click **Update** to change the default resource group for the catalog
 5. Click **Create** to complete the catalog creation
 
-### B. Register the <Globals name="shortName" /> tiles in the catalog
+### **B. Register the <Globals name="shortName" /> tiles in the catalog**
 
 <br></br>
 
@@ -65,7 +65,7 @@ Cloud-Native CI/CD development tools.
     ./create-catalog-offering.sh {API_KEY} "Team Catalog"
     ```
 
-### C. Apply the tile
+### **C. Apply the tile**
 
 <br />
 
@@ -118,7 +118,7 @@ IBM Cloud Private Catalog Tile. The progress can be reviewed from the
 
 <Tab label="Iteration Zero">
 
-### A. Download the Iteration Zero scripts
+### **A. Download the Iteration Zero scripts**
 
 <br />
 
@@ -128,7 +128,7 @@ IBM Cloud Private Catalog Tile. The progress can be reviewed from the
     git clone git@github.com:ibm-garage-cloud/ibm-garage-iteration-zero.git
     ```
 
-### B. Configure the credentials
+### **B. Configure the credentials**
 
 <br />
 
@@ -149,7 +149,7 @@ IBM Cloud Private Catalog Tile. The progress can be reviewed from the
 
     **Note:** The API key should have been set up during [plan installation](/getting-started-0/plan-installation/ibm-cloud).
 
-### C. Configure the environment variables
+### **C. Configure the environment variables**
 
 <br />
 
@@ -179,7 +179,7 @@ the following table to determine which values should be used:
 
 Update `environment-ibmcloud.tfvars` with the appropriate values for your installation.
 
-### D. (Optional) Customize the installed components
+### **D. (Optional) Customize the installed components**
 
 <br />
 
@@ -200,7 +200,7 @@ catalog and can be added as stages to the directory as well. Since this is Terra
 any other Terraform scripts and modules can be added to the `terraform/stages` directory
 as desired.
 
-### E. Run the installation
+### **E. Run the installation**
 
 <br />
 
@@ -255,12 +255,12 @@ as desired.
 
 </Tabs>
 
-## Post-installation steps
+## **Post-installation steps**
 
 Once the Terraform has completed, walk through the [post installation steps](https://cloudnativetoolkit.dev/getting-started-day-0/post-installation/) to
 explore and verify the environment.
 
-## Troubleshooting
+## **Troubleshooting**
 
 If you find that the Terraform provisioning has failed, for Private Catalog delete the workspace and for Iteration Zero  try re-running the `runTerraform.sh` script again.
 The state will be saved and Terraform will try and apply the configuration to match the desired end state.

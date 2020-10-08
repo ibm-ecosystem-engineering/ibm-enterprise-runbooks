@@ -10,24 +10,24 @@ import Globals from 'gatsby-theme-carbon/src/templates/Globals';
 
 </PageDescription>
 
-### 1. Finalize the schedule & mode of delivery for the workshop
+### **1. Finalize the schedule & mode of delivery for the workshop**
 - Webex: 4 days x 2.5hours
 - Self Paced
 - In Person: 1 day x 8.5 hours
 
-### 2. Identify primary mentor for the journey
+### **2. Identify primary mentor for the journey**
 
-### 3.  Collect the data required for the sessions from the participants
+### **3.  Collect the data required for the sessions from the participants**
 [Participant Data Collection Sheet](Participant_Data_Sheet.xlsx)
 
-### 4.  Github setup:
+### **4.  Github setup**
 - Create a github organization: **SI-Name**-sandbox-team-n..
 - Add all participants as members of the organization.
 
-### 5. Slack Channel Setup
+### **5. Slack Channel Setup**
 Set up a new slack channel (**SI-Name**-cloudnative) and add all participants
 
-### 6. IBM Cloud Setup:
+### **6. IBM Cloud Setup**
 - Create resource group **sandbox-team-n..** under the SI Account to be used for the worksop
 
 - Create access groups **SANDBOX-TEAM-N..-ADMIN** and **SANDBOX-TEAM-N..-USER** and make all users part of the SANDBOX-TEAM-ONE-USER group.
@@ -39,10 +39,10 @@ Set up a new slack channel (**SI-Name**-cloudnative) and add all participants
 ```
 - Board all users by adding them to access group SANDBOX-TEAM-N..-USER 
 
-### 7. Cluster Setup:
+### **7. Cluster Setup**
 - Setup a redhat openshift cluster (sandbox-ocp43-n..) in London datacenter with 3 worker nodes (16 cores x 32 GB)
 
-### 8. Cloud-Native Toolkit Setup:
+### **8. Cloud-Native Toolkit Setup**
 a) Install Cloud-Native toolkit onto the OCP Cluster (Follow instructions outlined in https://cloudnativetoolkit.dev/admin/installation-existing)
 
 - [Install Tekton tasks](https://github.com/IBM/ibm-garage-tekton-tasks/tree/master)
@@ -63,7 +63,7 @@ c) Customize redhat openshit to include shortcuts to all tools
 
 d) Finish the sysdig dashboard setip
 
-### 10. Smoke test 
+### **10. Smoke test**
 Test access control.
 Add personal id to SANDBOX-ONE-USER access group.
 Log into IBM Cloud as the personal id and run the following test cases:
@@ -78,9 +78,9 @@ Log into IBM Cloud as the personal id and run the following test cases:
 - Run pipelines of some starter kits and make sure they work.
 - Check links from openshift and dashboard.
 
-### 11.  Setup completed inventory solution with continous delivery (argocd)
+### **11. Setup completed inventory solution with continous delivery (argocd)**
 
-### 12. Install CP4A on the openshift cluster
+### **12. Install CP4A on the openshift cluster**
 - Run schematics to install CP4A on openshift.
 - Add Transformation Advisor (TA) link to the dashboard and openshift shortcut.
 ```bash
@@ -88,7 +88,7 @@ igc tool-config --name ta --url url-for-ta
 ```
 - Add shortcut to TA from openshift.
 
-### 13. Database setup for Application Modernization
+### **13. Database setup for Application Modernization**
 - Create the Db2 Service from the IBM Cloud Catalogue.For Testing and demo purpose use Lite plan. For the workshop with developers hands-on, set it up with paid plan(Flex Plan).
 ![CreateDB2](/images/05SandBoxRunBook.png)
 - Provide the name for the service as "PlantsDB" and create the service.  Please note the service is also provisioned in the same region as the Openshift cluster to avoid latency.
@@ -99,12 +99,12 @@ igc tool-config --name ta --url url-for-ta
 - Execute the Insert scripts to populate data for the Plants application (Refer Populate-PlantsDB.sql in the box folder).
 - Navigate to the **'connectioninfo'** tab and select the option 'without-sso'. Capture the Connection Details as well which is needed for the application
 
-### 14.  Email the Participants
+### **14. Email the Participants**
 Send an email to all participants inviting them to the sandbox journeys.
 [Email Template](emailtemplate.txt)
 
-### 15.  Skill Collection Matrix, Games
+### **15. Skill Collection Matrix, Games**
 Setup menti templates for collecting skills of participants, fun games
 
-### 16.  Feedback Collection
+### **16. Feedback Collection**
 Setup funreto template for collecting feedback (What went right, what can be improved, Any other feedback)

@@ -8,13 +8,13 @@ import Globals from 'gatsby-theme-carbon/src/templates/Globals';
 
 </PageDescription>
 
-## Automation overview
+## **Automation overview**
 
 Digital business automation (DBA) allows an organization to improve its operations by streamlining the way people participate in business processes and workflows, automate repeatable decisions, and provide business users with the ability to edit and change the business logic involved in these business processes. DBA projects also aim to make documents easy to store and retrieve, digitize document content, such as with optical character recognition (OCR), and automate data entries with software robots, also referred to as robotic process automation.
 
 The IBM Cloud Pak for Automation offers a software platform to develop, deploy, run and manage your digital business automation projects, using the capabilities shown in the following digram: 
 
-## Receipe Overview
+## **Receipe Overview**
 
 The intent of this recipe is to provide a simplified set to steps, to set up an instance for PoC or Demos with least effort. Viewer is advised to refer to the original Enterprise install steps once before going ahead with these steps.
 Ingredients
@@ -31,17 +31,17 @@ Ingredients
 
 6. workstation with oc, kubectl, git  installed for executing the steps during install.
 
-## Step-by-step
+## **Step-by-step**
 
-### 1. Provision Openshift Cluster.
+### **1. Provision Openshift Cluster**
 
 Provision an Openshift cluster v3.11 with 4 worker nodes having 8 cores x 32 GB RAM , on IBM Cloud. If it’s provisioned by someone else, the person following the instructions, should have Admin access to the cluster.
    
-### 2.Provision 1 or more VMs for shared services. ( 1 would suffice )
+### **2.Provision 1 or more VMs for shared services. ( 1 would suffice)**
 
 Some of the install instructions related to DB2 and TDS (Tivoli Directory Server , which is now called – IBM Security Directory server )   require use of RPM so one of the supported linux distros is recommended. Steps have been tested with RHEL 7.x.  ( 4 cores x 16 GB RAM) . 4 x 8 should also suffice.
 
-### 3. Clone the github repository for helper scripts.
+### **3. Clone the github repository for helper scripts**
 
 1.The original (official)  documentation can be found here:  https://github.com/icp4a/cert-kubernetes/tree/20.0.1
 
@@ -50,7 +50,7 @@ Some of the install instructions related to DB2 and TDS (Tivoli Directory Server
 You can perform the steps below by cloning the 2nd repo but in case you run into issues, it may be good to check the original repository once for any updates due to bug fixes.
 
      
-### 4.Setup NFS services
+### **4.Setup NFS services**
 1. The storage capacity in default disk attached to VMs may not be sufficient. (Default is 25GB and max is 100GB). It’s recommended to add an additional disk (File Storage – 750 GB or more)  from IBM cloud console and use that for NFS.
         
 2. Once you have added disk run – ‘fdisk -l’ to view the disks attached. See image below for example. here /dev/xvdc is the additional device.
@@ -79,7 +79,7 @@ You can perform the steps below by cloning the 2nd repo but in case you run into
    
     7. Verify that  nfs status is green and  /etc/exports is updated with configuration
  
-### 5. Setup other shared Services - LDAP and DB2
+### **5. Setup other shared Services - LDAP and DB2**
 
 Follow the steps on this [page](https://cloudpak8s.io/automation/shared-services/) for installing DB2 and LDAP and [helm](https://github.com/sachinjha/cert-kubernetes/blob/20.0.1/install-helm.md). **( instructions are for Linux only)**.
 
@@ -89,7 +89,7 @@ helm is required for installing kafka, which is a prerequisiste for BAI. If not 
 
 Some troubleshooting options for DB2 install can be found [here](https://github.com/sachinjha/cert-kubernetes/blob/20.0.1/shared-services/db2.md).
 
-### 6. Identify the suffix for Openshift routes and secure routes.
+### **6. Identify the suffix for Openshift routes and secure routes**
 
 Use the following option if routes with self signed certificates are not a problem.
 
@@ -108,7 +108,7 @@ In case there is a need to create secure routes with certificates signed by know
 3. Generate an SSL certificate with wild card subdomain ( *.automation.org.xyz.com )  ( “Certificate manager” on IBM cloud can be used )   (Certs issued by Let’s encrypt or any well known CA will do ) .
 4. Use this pair of certificate and key, whereever applicable in the instructions below.
 
-### 7. Create DB2 databases required for different components.
+### **7. Create DB2 databases required for different components**
 
 Steps for components which are not of interest can be skipped. UMS should be done as UMS is required for all other components.
 
@@ -169,7 +169,7 @@ Execute all the scripts as user db2inst1. On the DB server, ensure that db2 is i
     2. Execute the sql files
         1. $ db2 -tvmf appengine.sql
 
-### 8. Install Operator
+### **8. Install Operator**
 1.$ oc new-project automation.   
 
 2. if you use a different name for the project, you may have to edit multiple files in the next step, where namespaces may be hard coded.

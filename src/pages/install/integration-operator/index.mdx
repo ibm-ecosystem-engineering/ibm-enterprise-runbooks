@@ -21,7 +21,7 @@ The IBM Cloud Pak for Integration (CP4I) is delivered as operators that are inst
 
 **Note**: The versions for your installed operators, capabilities, and runtimes may not match what is shown in the screenshots below. This is the result of this CI/CD world we live in that we just have to adapt to.    
 
-### OLM Catalog Sources
+## OLM Catalog Sources
 
 1. From your web browser use the Home icon to open the OpenShift console.
 
@@ -36,7 +36,7 @@ The IBM Cloud Pak for Integration (CP4I) is delivered as operators that are inst
 
 ![operator-pods.png](images/operator-pods.png)
 
-### Install the CP4I Operators and their dependencies
+## Install the CP4I Operators and their dependencies
 
 You can use the quick approach and install all of the CP4I operators at once by using the `IBM Cloud Pak for Integration` operator, or install them one by one by selecting only the capabilities and runtimes you want in your cluster. We will choose the latter approach in this lab.
 
@@ -70,7 +70,7 @@ When complete the result should look something like the following with `Succeede
    
 ![cp4i-operators-installed.png](images/cp4i-operators-installed.png)
    
-### Create an instance of the Platform Navigator
+## Create an instance of the Platform Navigator
 
 We will deploy the Platform Navigator (PN) inside of a pre-configured namespace. We will use an online installation method to pull the necessary images from the `IBM Entitled Registry` using a pre-defined `entitlement key`.
 
@@ -112,11 +112,11 @@ If you are prompted for a login and password after entering the above `oc` comma
       
 **Important**: Before you proceed to the next section make sure all pods in the `ibm-common-services` namespace are up and running as some of the capabilities and runtimes you will deploy below will depend on those services being operational.
 
-### Deploy Platform Capabilities and Runtimes
+## Deploy Platform Capabilities and Runtimes
 
 You will now use the PN to deploy further integration capabilities. Capabilities provide tools for designing and managing integration instances like App Connect Dasboard, App Connect Designer, API Connect, Operations Dashboard or Asset Repository. Runtimes and instances are the runtime components of your integration solution like Aspera High speed transfer server, DataPower Gateway, Event Streams Kafka cluster or MQ Queue manager.
 
-#### App Connect Designer
+### (A) App Connect Designer
 
 1. From the Platform Navigator UI home screen, click on `Create capability`.
       
@@ -146,7 +146,7 @@ After a few minutes the capability should be deployed and be ready to use. If no
    
 ![cp4i-pn-capability-create-des-ready.png](images/cp4i-pn-capability-create-des-ready.png)
       
-#### App Connect Dashboard
+### (B) App Connect Dashboard
 
 1. From the Platform Navigator UI home screen, click on `Create capability` just like in the previous section.
       
@@ -172,7 +172,7 @@ After a few minutes the capability should be deployed and be ready to use. If no
    
 ![cp4i-pn-capability-create-db-ready.png](images/cp4i-pn-capability-create-db-ready.png)
 
-#### Operations Dashboard
+### (C) Operations Dashboard
 
 1. From the Platform Navigator UI home screen, click on `Create capability` just like in the previous section.
       
@@ -201,7 +201,7 @@ After a few minutes the capability should be deployed and be ready to use. If no
    
 ![cp4i-pn-capability-create-od-ready.png](images/cp4i-pn-capability-create-od-ready.png)
 
-#### Asset Repository
+### (D) Asset Repository
 
 1. From the Platform Navigator UI home screen, click on `Create capability` just like in the previous section.
       
@@ -229,7 +229,7 @@ After a few minutes the capability should be deployed and be ready to use. If no
    
 ![cp4i-pn-capability-create-repo-ready.png](images/cp4i-pn-capability-create-repo-ready.png)
 
-#### Queue Manager
+### (E) Queue Manager
 
 1. From the Platform Navigator UI home screen, click on the `Runtimes` tab and then `Create instance`.
       
@@ -283,7 +283,7 @@ After a few minutes the capability should be deployed and be ready to use. If no
    
 ![cp4i-pn-runtime-create-qm-ready.png](images/cp4i-pn-runtime-create-qm-ready.png)
 
-#### Event Streams
+### (F) Event Streams
 
 1. From the Platform Navigator UI home screen, click on `Create instance` just like in the previous section.
       
@@ -312,7 +312,7 @@ After a few minutes the capability should be deployed and be ready to use. If no
       
 ![cp4i-pn-runtime-create-es-ready.png](images/cp4i-pn-runtime-create-es-ready.png)
 
-#### API Connect
+### (G) API Connect
 
 1. From the Platform Navigator UI home screen, click on the `Capabilities` tab and then `Create capability`.
       
@@ -341,7 +341,7 @@ After several minutes the capability should be deployed and be ready to use. If 
    
 ![cp4i-pn-capability-create-apic-ready.png](images/cp4i-pn-capability-create-apic-ready.png)
       
-### Appendix A
+## Appendix A
 
 1. From your desktop, double click on the `Terminal` icon to open a command window.
 
@@ -380,7 +380,7 @@ After several minutes the capability should be deployed and be ready to use. If 
    [root@dns ~]# exit
    ```
 
-### Appendix B
+## Appendix B
 
 1. The `IBM Operator for Redis` operator may fail to install because of a memory resource constraint. If you see something like the following in the list of installed operators:
 

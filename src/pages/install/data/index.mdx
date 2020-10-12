@@ -10,6 +10,29 @@ import Globals from 'gatsby-theme-carbon/src/templates/Globals';
 
 ## Install Cloud Pak for Data 3.0.1 on IBM Managed Openshift 4.3
 
+<AnchorLinks>
+  <AnchorLink>Sizing Openshift Cluster for Cloud Pak for Data 3.0.1</AnchorLink>
+  <AnchorLink>Provision Openshift 4.3 Cluster on IBM Cloud</AnchorLink>
+  <AnchorLink>Setting up Openshift Cluster for Cloud Pak for Data Installation</AnchorLink>
+  <AnchorLink>Setting Portworx Storage</AnchorLink>
+  <AnchorLink>Download Installation files</AnchorLink>
+  <AnchorLink>Installing Control Plane</AnchorLink>
+  <AnchorLink>Installing Data Virtualization</AnchorLink>
+  <AnchorLink>Installing Watson Studio</AnchorLink>
+  <AnchorLink>Installing Watson Machine Learning</AnchorLink>
+  <AnchorLink>Installing Watson Openscale</AnchorLink>
+  <AnchorLink>Installing Cognos Dashboards</AnchorLink>
+  <AnchorLink>Installing Watson Knowledge Catalog</AnchorLink>
+  <AnchorLink>Installing DataStage Enterprise</AnchorLink>
+  <AnchorLink>Installing Regulatory Accelerator</AnchorLink>
+  <AnchorLink>Installing DB2 Warehouse</AnchorLink>
+  <AnchorLink>Installing DB2 Advanced Edition</AnchorLink>
+  <AnchorLink>Installing Cognos Analytics</AnchorLink>
+  <AnchorLink>Installing Watson Assistant</AnchorLink>
+  <AnchorLink>Installing Watson Discovery</AnchorLink>
+  <AnchorLink>Installing Watson Knowledge Studio</AnchorLink>
+</AnchorLinks>
+
 ### Sizing Openshift Cluster for Cloud Pak for Data 3.0.1
 
 Sizing Worker Nodes based on Services that are to be installed. Refer : https://salesconfig.ibmcloudpack.com/sales/#/zen/configure
@@ -131,58 +154,58 @@ Execute oc login command obtained in above step from Openshift Web Console
     apiVersion: apps/v1
     kind: DaemonSet
     metadata:
-        name: norootsquash
-        namespace: kube-system
-        labels:
+      name: norootsquash
+      namespace: kube-system
+      labels:
         tier: management
         app: norootsquash
     spec:
-        selector:
+      selector:
         matchLabels:
-            name: norootsquash
-        template:
+          name: norootsquash
+      template:
         metadata:
-            labels:
+          labels:
             name: norootsquash
         spec:
-            serviceAccountName: norootsquash
-            initContainers:
+          serviceAccountName: norootsquash
+          initContainers:
             - resources:
                 requests:
-                    cpu: 0.1
-                securityContext:
+                  cpu: 0.1
+              securityContext:
                 privileged: true
-                image: alpine:3.6
-                name: unrootsquash
-                command: ["chroot", "/host", "sh", "-c"]
-                args:
+              image: alpine:3.6
+              name: unrootsquash
+              command: ["chroot", "/host", "sh", "-c"]
+              args:
                 - >
-                    grep "^Domain = slnfsv4.com" /etc/idmapd.conf;
-                    if [ "\$?" -ne "0" ] ; then
+                  grep "^Domain = slnfsv4.com" /etc/idmapd.conf;
+                  if [ "\$?" -ne "0" ] ; then
                     sed -i 's/.*Domain =.*/Domain = slnfsv4.com/g' /etc/idmapd.conf;
                     nfsidmap -c;
                     rpc.idmapd
-                    fi;
-                volumeMounts:
+                  fi;
+              volumeMounts:
                 - name: host
-                    mountPath: /host
-            containers:
+                  mountPath: /host
+          containers:
             - resources:
                 requests:
-                    cpu: 0.1
-                image: alpine:3.6
-                name: sleep
-                command: ["/bin/sh", "-c"]
-                args:
+                  cpu: 0.1
+              image: alpine:3.6
+              name: sleep
+              command: ["/bin/sh", "-c"]
+              args:
                 - >
-                    while true; do
+                  while true; do
                     sleep 100000;
-                    done
-            volumes:
+                  done
+          volumes:
             - hostPath:
                 path: /
                 type: Directory
-                name: host
+              name: host
     EOF
     ```
 

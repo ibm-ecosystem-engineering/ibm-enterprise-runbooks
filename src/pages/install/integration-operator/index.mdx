@@ -15,6 +15,10 @@ title: CP4 Integration - Operator Based Install
   <AnchorLink>Appendix B</AnchorLink>
 </AnchorLinks>
 
+<Tabs>
+
+<Tab label="Installing Cloud Pak for Integration" open="true">
+
 ## **Installing Cloud Pak for Integration**
 The IBM Cloud Pak for Integration (CP4I) is delivered as operators that are installed and managed using the Operator Lifecycle Manager (OLM) within Red Hat OpenShift. To install CP4I, you will verify that the OLM Catalog Sources for IBM components have been added, you will then install the operators using OLM, create the CP4I custom resources, and finally deploy some of the capabilities and runtimes.
 
@@ -66,6 +70,10 @@ The OLM will now go out and pull the operator and its dependencies (if any) from
    When complete the result should look something like the following with `Succeeded` as status across all namespaces:
    
    ![cp4i-operators-installed.png](images/cp4i-operators-installed.png)
+
+</Tab>
+
+<Tab label="Create an instance of the Platform Navigator">
    
 ## **Create an instance of the Platform Navigator**
 
@@ -107,6 +115,10 @@ We will deploy the Platform Navigator (PN) inside of a pre-configured namespace.
    ![cp4i-pn-ui.png](images/cp4i-pn-ui.png)
       
    **Important**: Before you proceed to the next section make sure all pods in the `ibm-common-services` namespace are up and running as some of the capabilities and runtimes you will deploy below will depend on those services being operational.
+
+</Tab>
+
+<Tab label="Deploy Platform Capabilities and Runtimes">
 
 ## **Deploy Platform Capabilities and Runtimes**
 
@@ -336,7 +348,11 @@ You will now use the PN to deploy further integration capabilities. Capabilities
    After several minutes the capability should be deployed and be ready to use. If not check the logs and events within the OpenShift console or use the `oc describe` and `oc logs` commands on the failing pods within the given namespace.
    
    ![cp4i-pn-capability-create-apic-ready.png](images/cp4i-pn-capability-create-apic-ready.png)
-      
+
+</Tab>
+
+<Tab label="Appendix">
+
 ## **Appendix A**
 
 1. From your desktop, double click on the `Terminal` icon to open a command window.
@@ -398,3 +414,4 @@ You will now use the PN to deploy further integration capabilities. Capabilities
 
    ![cp4i-operator-redis-success.png](images/cp4i-operator-redis-success.png)
 
+</Tab>

@@ -1,0 +1,8 @@
+# IBM Cloud API key allowed to create resource group, VPC, VSI, SSH key
+ibmcloud_api_key=""
+# a prefix for all resource names
+basename="blog-openvpn"
+# where to deploy the resources
+region="us-south"
+# name of an existing VPC SSH key to inject in all VSI - can be left empty
+vpc_ssh_key_name=""

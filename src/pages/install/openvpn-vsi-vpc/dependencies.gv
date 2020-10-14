@@ -1,0 +1,41 @@
+digraph G {
+  graph [labeljust=l]
+  bgcolor="#FFFFFF"
+  
+  compound=true
+  rankdir=BT
+  ranksep=0.8
+  ratio=0.8
+  pad=0.3
+  // splines="polyline"
+  fontname = "helvetica"
+
+  node [
+    fontname = "helvetica"
+    fontsize=12
+    fontcolor="#646365"
+    width=1.1
+    shape = "box"
+  ]
+  edge [
+    fontname = "helvetica"
+    fontsize=8
+    fontcolor="#646365"
+    color="#000000"
+    arrowhead="vee"
+    style="dotted"
+  ]
+
+  resource_group
+  ssh_key
+  vpc
+  bastion
+  instance
+
+  vpc, ssh_key -> resource_group
+  instance -> vpc, ssh_key
+  bastion -> vpc, ssh_key
+
+  ansible -> instance
+  ansible -> bastion
+}

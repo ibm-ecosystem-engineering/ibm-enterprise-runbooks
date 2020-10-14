@@ -9,7 +9,7 @@ import Globals from 'gatsby-theme-carbon/src/templates/Globals';
 
 </PageDescription>
 
-### Use OpenVPN to access virtual server instances running in a virtual private cloud
+## **Use OpenVPN to access virtual server instances running in a virtual private cloud**
 
 Virtual Private Cloud (VPC) come with an additional layer of security as your workload can be completely hidden from the public Internet. But there are times when you will want to get into this private network. A common practice is to use a bastion host to jump into your VPC from your local machine as example. Another option is to install a VPN software inside your VPC to extend the secure VPC network to your local network.
 
@@ -17,10 +17,9 @@ OpenVPN is a popular VPN software solution that can be easily installed on a ser
 
 This repo shows how to deploy OpenVPN inside a VPC using Terraform and Ansible.
 
-|                                        |                             |
-|  ![architecture.png](architecture.png) | ![openvpn.png](openvpn.png) |
-|                                        |                             |     
-### Deploy all resources
+![openvpn.png](vpc-vsi.png) 
+ 
+### **Deploy all resources**
 
 1. Copy `terraform.tfvars.template` to `terraform.tfvars`:
 ```sh
@@ -54,7 +53,7 @@ You can also try with your own environment. Prereqs are: tfswitch, terraform, an
    terraform apply
 ```
 
-### Install OpenVPN on the bastion
+### **Install OpenVPN on the bastion**
 
 1. Change to ansible directory:
 
@@ -77,7 +76,7 @@ You can also try with your own environment. Prereqs are: tfswitch, terraform, an
    ansible-playbook -i inventory playbook-openvpn.yml
 ```
 
-### Connect to OpenVPN
+### **Connect to OpenVPN**
 
 To connect to the VPN, use _OpenVPN Connects_ with the configuration generated in `ansible/client-config/mymachine`:
 - https://openvpn.net/client-connect-vpn-for-windows/
@@ -90,7 +89,7 @@ or from a command line
 
 To view routes on macOS, use `netstat -nr`. On Linux and Windows `netstat -ar`.
 
-### Test the OpenVPN connection
+### **Test the OpenVPN connection**
 
 From the Docker container, ping one VPC server instance directly from your local machine:
 ```
@@ -109,7 +108,7 @@ or a service private endpoint:
 
 If you stop the VPN connection, all these ping would fail.
 
-### Destroy all configuration
+### **Destroy all configuration**
 
 1. To destroy the environment, from the Docker container use:
 ```sh

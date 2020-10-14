@@ -54,10 +54,7 @@ http://localhost:8000/
 
 This repository has been configured to build and publish the changes automatically via travis-ci. There are two builds currently configured:
 
-- `dev` branch is automatically published to the `gh-pages` branch in [https://github.com/ibm-garage-cloud/ibm-garage-developer-guide-staging](https://github.com/ibm-garage-cloud/ibm-garage-developer-guide-staging) and is visible as a staging site here - [https://ibm-garage-cloud.github.io/ibm-garage-developer-guide-staging/](https://ibm-garage-cloud.github.io/ibm-garage-developer-guide-staging/)
-- `master` branch is automatically published to the `gh-pages` branch in this repository which is visible here - [https://ibm-garage-cloud.github.io/ibm-garage-developer-guide/](https://ibm-garage-cloud.github.io/ibm-garage-developer-guide/)
-
-The status of the travis-ci build can be seen here - https://travis-ci.org/github/ibm-garage-cloud/ibm-garage-developer-guide
+- `master` branch is automatically published to the `gh-pages` branch in this repository which is visible here - [https://ibm-gsi-ecosystem.github.io/ibm-enterprise-runbooks/](https://ibm-gsi-ecosystem.github.io/ibm-enterprise-runbooks/)
 
 **Note:** There is a time delay between when deploy process completes and when the
 content is available on the published site.

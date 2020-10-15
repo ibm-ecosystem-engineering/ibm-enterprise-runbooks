@@ -56,10 +56,6 @@
       path: /install/integration
     - title: Cloud Pak for Integrations - Operator
       path: /install/integration-operator
-    - title: CP4 Integration - AWS
-      path: /install/integration-aws
-    - title: CP4 Integration - Azure
-      path: /install/integration-azure
     - title: Cloud Pak for MCM
       path: /install/multi-cloud-management
     - title: Cloud Pak for Data
@@ -70,6 +66,20 @@
       path: /install/edge
     - title: Common Operators
       path: /install/common-operators
+
+- title: IBM Cloud Install 
+  pages:
+    - title: IBM Cloud Satellite
+      path: /ibmcloud/satellite
+    - title: OpenVPN Access VSI - VPC
+      path: /ibmcloud/openvpn-vsi-vpc
+
+- title: Cloud Pak Install - Non IBM Cloud 
+  pages:
+    - title: CP4 Integration - AWS
+      path: /install/integration-aws
+    - title: CP4 Integration - Azure
+      path: /install/integration-azure
 
 - title: RedHat
   pages:

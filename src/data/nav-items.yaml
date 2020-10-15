@@ -82,10 +82,6 @@
       path: /install/integration
     - title: CP4 Integration - Operator
       path: /install/integration-operator
-    - title: CP4 Integration - AWS
-      path: /install/integration-aws
-    - title: CP4 Integration - Azure
-      path: /install/integration-azure
     - title: Cloud Pak for MCM
       path: /install/multi-cloud-management
     - title: Cloud Pak for Data
@@ -98,10 +94,20 @@
       path: /install/edgenode
     - title: Mainframe Modernization
       path: /install/mainframe
+
+- title: IBM Cloud Install 
+  pages:
     - title: IBM Cloud Satellite
-      path: /install/satellite
+      path: /ibmcloud/satellite
     - title: OpenVPN Access VSI - VPC
-      path: /install/openvpn-vsi-vpc
+      path: /ibmcloud/openvpn-vsi-vpc
+
+- title: Cloud Pak Install - Non IBM Cloud 
+  pages:
+    - title: CP4 Integration - AWS
+      path: /install/integration-aws
+    - title: CP4 Integration - Azure
+      path: /install/integration-azure
 
 - title: RedHat
   pages:

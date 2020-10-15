@@ -120,11 +120,6 @@
     - title: Virtualization 
       path: /redhat/virtualization
 
-- title: Financial Service Cloud
-  pages:
-    - title: Overview
-      path: /fscloud/overview
-
 - title: Learning Journeys
   pages:
     - title: Overview

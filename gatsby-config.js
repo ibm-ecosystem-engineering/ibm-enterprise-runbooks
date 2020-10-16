@@ -2,7 +2,7 @@ const pathPrefix = process.env.TRAVIS_BRANCH === 'master' ? '/' : (process.env.P
 
 module.exports = {
   siteMetadata: {
-    title: 'IBM Partner Enterprise Run Books',
+    title: 'IBM Cloud Enterprise Run Books',
     description: 'IBM Cloud Enterprise Sandbox Run Books',
     keywords: 'ibm,cloud,runbooks',
   },
@@ -34,7 +34,20 @@ module.exports = {
         trackingId: "UA-155887541-3",
         head: true
       },
+    },
+    {
+      resolve: "gatsby-transformer-remark",
+      options: {
+        plugins: [
+        {
+          resolve: "gatsby-remark-embed-youtube",
+          options: {
+            width: 800,
+            height: 400
+          }
+        }
+        ]
+      }
     }
-
   ]
 };

@@ -29,6 +29,7 @@ Most notably, this project depends on the following:
 
 ```bash
 npm install -g gatsby
+yarn add gatsby-remark-embed-youtube
 ```
 
 ### Write content

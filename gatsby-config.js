@@ -38,28 +38,17 @@ module.exports = {
       resolve: `gatsby-transformer-remark`,
       options: {
           plugins: [
-              `gatsby-remark-autolink-headers`,
-              `gatsby-remark-copy-linked-files`,
-              `gatsby-remark-smartypants`,
+              `gatsby-remark-embed-youtube`,
+              `gatsby-remark-responsive-iframe`,
               {
                   // Using gatsby-remark-embed-video before gatsby-remark-images & gatsby-remark-responsive-iframe plugins.
-                  resolve: `gatsby-remark-embed-video`,
+                  resolve: `gatsby-remark-embed-youtube`,
                   options: {
                       maxWidth: 800,
                       ratio: 1.77,
                       height: 400,
                       related: false,
                       noIframerder: true,
-                  },
-              },
-              {
-                  resolve: `gatsby-remark-prismjs`,
-                  options: {
-                      classPrefix: 'language-',
-                      inlineCodeMarker: null,
-                      aliases: { bash: 'zsh' },
-                      showLineNumbers: false,
-                      noInlineHighlight: false,
                   },
               },
               {

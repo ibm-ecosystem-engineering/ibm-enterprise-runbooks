@@ -21,6 +21,7 @@
     "gatsby-plugin-google-analytics": "^2.2.4",
     "gatsby-plugin-manifest": "^2.2.39",
     "gatsby-plugin-offline": "^3.0.32",
+    "gatsby-remark-embed-video": "^3.0.10",
     "gatsby-source-filesystem": "^2.2.1",
     "gatsby-theme-carbon": "^1.26.9",
     "gatsby-transformer-json": "^2.3.0",

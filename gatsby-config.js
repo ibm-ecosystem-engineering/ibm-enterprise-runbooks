@@ -9,6 +9,20 @@ module.exports = {
   pathPrefix: "/ibm-enterprise-runbooks",
   plugins: [
     {
+      resolve: "gatsby-transformer-remark",
+      options: {
+        plugins: [
+        {
+          resolve: "gatsby-remark-embed-youtube",
+          options: {
+            width: 800,
+            height: 400
+          }
+        }
+        ]
+      }
+    },
+    {
       resolve: 'gatsby-theme-carbon',
       options: {
         isSearchEnabled: true,
@@ -27,27 +41,12 @@ module.exports = {
         path: './src/data'
       },
     },
-
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         trackingId: "UA-155887541-3",
         head: true
       },
-    },
-    {
-      resolve: "gatsby-transformer-remark",
-      options: {
-        plugins: [
-        {
-          resolve: "gatsby-remark-embed-youtube",
-          options: {
-            width: 800,
-            height: 400
-          }
-        }
-        ]
-      }
     }
   ]
 };

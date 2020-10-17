@@ -41,7 +41,7 @@ const customProps = {
     <>
       <HomepageBanner renderText={BannerText}/>
       <span className="homepage--dots" />
-      /*
+      /** 
       <section className="homepage--header">
         <div className="bx--grid">
           <div className="bx--row">

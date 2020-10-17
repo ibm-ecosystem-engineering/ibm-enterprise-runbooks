@@ -7,10 +7,8 @@
 
 - title: Videos
   pages:
-    - title: IaaS
-      path: /videos/iaas
-    - title: Security
-      path: /videos/security
+    - title: Cloud 
+      path: /videos/cloud
 
 - title: Identify and Access
   pages:

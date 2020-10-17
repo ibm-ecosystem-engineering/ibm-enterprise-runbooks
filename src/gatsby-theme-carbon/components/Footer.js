@@ -13,7 +13,7 @@ const Content = () => (
             <br /> an issue on{' '}
             <a
                 style={{ textDecoration: 'underline' }}
-                href="https://github.com/ibm-garage-cloud/planning/issues/new/choose">
+                href="https://github.com/ibm-gsi-ecosystem/ibm-enterprise-runbooks/issues">
                 GitHub.
             </a>
         </p>

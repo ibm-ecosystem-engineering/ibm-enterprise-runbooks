@@ -19,7 +19,7 @@ function getArticles(data) {
         //Create the parent and add the children
         articles.push(
 
-            <Column colMd={3} colLg={3} noGutterMdLeft>
+            <Column colMd={4} colLg={4} noGutterMdLeft>
                 <ArticleCard
                     title={article.title}
                     author={article.author}
@@ -43,33 +43,12 @@ export default ({content}) => {
     {
       allDataJson {
         nodes {
-          cnd {
+          ea {
             title
             subtitle
             author
             href
             color
-          }
-          cndp {
-            title
-            subtitle
-            author
-            href
-            color
-          }
-          gmd {
-            title
-            subtitle
-            author
-            href
-            color
-          }
-          argocd {
-            color
-            href
-            language
-            subtitle
-            title
           }
         }
       }

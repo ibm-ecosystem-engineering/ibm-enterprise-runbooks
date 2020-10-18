@@ -26,7 +26,7 @@
     {"title":"Service Mesh Workshop with Istio", "subtitle":"Service to Service communication","author":"Link","href":"https://learn.openshift.com/servicemesh/","color":"red"},
     {"title":"Building Operators on OpenShift", "subtitle":"The core to OpenShift 4.x","author":"Link","href":"https://learn.openshift.com/operatorframework/","color":"red"}
   ],
-  "cndp" : [
+  "backup" : [
     {"title":"Containers", "subtitle":"Package a Linux program for portability","author":"Web","href":"https://www.ibm.com/cloud/garage/practices/run/tool_ibm_container/","color":"dark"},
     {"title":"Container Class", "subtitle":"Package a Linux program for portability","author":"Web","href":"https://www.ibm.com/cloud/garage/content/course/containers-and-docker/","color":"dark"},
     {"title":"Kubernetes 101 Class", "subtitle": "Deploy applications across a cluster of hosts", "author":"KataCoda","href":"https://www.ibm.com/cloud/garage/content/course/kubernetes-101/","color":"dark"},
@@ -72,7 +72,7 @@
     {"title":"IBM Cloud Services", "subtitle":"Code snippets to help with the integration of IBM Cloud Services","language":"Java/Typescript","href":"https://github.com/ibm-garage-cloud/template-ibmcloud-services","color":"grey"}
 
   ],
-  "cloud" : [
+  "cndp" : [
     {"title":"IBM Cloud Foundation Skills Series - Introduction", "subtitle":"Youtube","author":"Link","href":"https://youtu.be/nX2-aS7As30","color":"blue"},
     {"title":"IBM Cloud Foundation Skills Series - An Introduction to Containers, Kubernetes and OpenShift", "subtitle":"Youtube","author":"Link","href":"https://youtu.be/U1rQeNMn4_c","color":"blue"},
     {"title":"IBM Cloud Foundation Skills Series - Creating API Keys", "subtitle":"Youtube","author":"Link","href":"https://youtu.be/t9BvnXpYVos","color":"blue"},

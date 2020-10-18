@@ -14,8 +14,6 @@
   pages:
     - title: Cloud 
       path: /videos/cloud
-    - title: IAAS 
-      path: /videos/iaas
 
 - title: Enterprise Accounts
   pages:

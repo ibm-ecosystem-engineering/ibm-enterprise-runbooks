@@ -68,7 +68,7 @@ export default ({content}) => {
             href
             color
           }
-          argocd {
+          infrastructure {
             color
             href
             language

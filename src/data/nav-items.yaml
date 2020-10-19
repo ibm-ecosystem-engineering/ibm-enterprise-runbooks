@@ -13,7 +13,7 @@
 - title: Videos
   pages:
     - title: Overview 
-      path: /videos/cloud
+      path: /videos/overview
     - title: Foundation 
       path: /videos/foundation
     - title: Infrastructure 

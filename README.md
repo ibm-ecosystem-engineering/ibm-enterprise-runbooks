@@ -29,7 +29,6 @@ Most notably, this project depends on the following:
 
 ```bash
 npm install -g gatsby
-npm i gatsby-remark-embed-video
 ```
 
 ### Write content

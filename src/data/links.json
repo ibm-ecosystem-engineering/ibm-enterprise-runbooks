@@ -70,10 +70,6 @@
     {"title":"Migrating Cloud Foundry Services to IAM", "subtitle":"IBM Cloud Foundation Skills Series","author":"Youtube","language":"14min","href":"https://youtu.be/EVB3LdYQTMM","color":"blue"},
     {"title":"IBM Cloud Skill Series - Virtual Machine Basics, Section Introduction", "subtitle":"Youtube","author":"Link","language":"2min","href":"https://youtu.be/HgTHOt5l_-s","color":"blue"},
     {"title":"IBM Cloud Foundation Skills Series - Bare Metal Servers", "subtitle":"Youtube","author":"Link","language":"8min","href":"https://youtu.be/vDRm7JqBy3k","color":"blue"}
-  "infra" : [
-    {"title":"Migrating Cloud Foundry Services to IAM", "subtitle":"IBM Cloud Foundation Skills Series","author":"Youtube","language":"14min","href":"https://youtu.be/EVB3LdYQTMM","color":"blue"},
-    {"title":"IBM Cloud Skill Series - Virtual Machine Basics, Section Introduction", "subtitle":"Youtube","author":"Link","language":"2min","href":"https://youtu.be/HgTHOt5l_-s","color":"blue"},
-    {"title":"IBM Cloud Foundation Skills Series - Bare Metal Servers", "subtitle":"Youtube","author":"Link","language":"8min","href":"https://youtu.be/vDRm7JqBy3k","color":"blue"}
   ],
   "foundation" : [
     {"title":"IBM Cloud Foundation Skills Series - Introduction", "subtitle":"Youtube","author":"Link","href":"https://youtu.be/nX2-aS7As30","color":"blue"},

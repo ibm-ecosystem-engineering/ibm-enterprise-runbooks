@@ -4,11 +4,19 @@
       path: /overview/overview
     - title: What are Enterprise Accounts
       path: /overview/what-are-enterprise-accounts
-
+      
 - title: Videos
   pages:
-    - title: Cloud 
+    - title: Overview 
       path: /videos/cloud
+    - title: Foundation 
+      path: /videos/foundation
+    - title: Infrastructure 
+      path: /videos/infrastructure
+    - title: Cloud Pak 
+      path: /videos/cp
+    - title: Global Network 
+      path: /videos/network
 
 - title: Identify and Access
   pages:

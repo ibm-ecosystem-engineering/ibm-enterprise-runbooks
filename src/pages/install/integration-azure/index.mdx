@@ -37,7 +37,7 @@ Recipe describes the procedure to install IBM Cloud Pak for Integration v2020.2.
       
    Verify the default limits of your Azure account as this may prevent you from provisioning an OCP cluster of a required size. Follow the steps in the link to increase   your Azure account limits.
    
-   **1.2 [Configuring a public DNS zone in Azure:](https://docs.openshift.com/container-platform/4.4/installing/installing_azure/installing-azure-account.html#installation-azure-network-config_installing-azure-account):**
+   **1.2 [Configuring a public DNS zone in Azure](https://docs.openshift.com/container-platform/4.4/installing/installing_azure/installing-azure-account.html#installation-azure-network-config_installing-azure-account):**
       
    Configure a [DNS Zone](https://docs.openshift.com/container-platform/4.4/installing/installing_azure/installing-azure-account.l#installation-azure-network-config_installing-azure-account) and ensure you [delegate](https://docs.microsoft.com/en-us/azure/dns/-delegate-domain-azure-dns#delegate-the-domain) it to registrar. You can use Azure App service Domain or external internet domain registrar like GoDaddy. This is   critical step as the OpenShift installer tries to connect to OpenShift cluster using the DNS names that are created dynamically. Installation will fail if the     hostnames are not resolved automatically.
    
@@ -76,6 +76,9 @@ Recipe describes the procedure to install IBM Cloud Pak for Integration v2020.2.
    Make a note the service principal that was created in this step. You will need it for the installation.
    
 ### **2. Download RedHat pull secret, OCP installer and cli tools**
+   
+   **2.1 Red Hat pull secret**
+   
    To perform the OpenShift installation you would require a RedHat pull secret. You can download it from the following website. You will need to register if you do not have a    login already.
    
    https://cloud.redhat.com/openshift/install/azure/installer-provisioned
@@ -83,7 +86,9 @@ Recipe describes the procedure to install IBM Cloud Pak for Integration v2020.2.
    ______________________________________________________________________________________________________________
    ![Pull secret](images/oc_pull_secret.png)
    ______________________________________________________________________________________________________________
-   **Download installation files:**
+   
+   **2.2 Download installation files**
+
    For this installation, I chose a specific version of OCP (v 4.4.17). CP4I v2020.2.1 requires OCP v4.4.13 or later. For prerequisties, refer to the Knowledge Center’s    [System Requirements](https://www.ibm.com/support/knowledgecenter/en/SSGT7J_20.2/install/sysreqs.html?_ga=2.252106761.1894172416.1603114441-164786860.1603114441) page.
    
    Download the required installer and client version from following site.
@@ -108,16 +113,18 @@ Recipe describes the procedure to install IBM Cloud Pak for Integration v2020.2.
    ```
    ![oc cli installer](images/oc_cli_installer-1.png)
 
-### **3. Installing OpenShift with installer
+### **3. Installing OpenShift with installer**
 
    Generate ssh private keys and adding to the agent
    
    This is required to debug installation and disaster recovery of the cluster. Refer to section 1.4.3 in the link for more information.
+   
    **Create an ssh key:**
    ```
    ssh-keygen -t rsa -b 4096 -N '' \
        -f ~/.ssh/ocp_id_rsa
    ```
+   
    **Start ssh agent and add ssh private key to it**
    ```
    eval "$(ssh-agent -s)"

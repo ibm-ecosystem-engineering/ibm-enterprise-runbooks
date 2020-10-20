@@ -6,6 +6,8 @@ import _ from 'lodash';
 // Create a Helper Method
 function getArticles(data) {
 
+    console.log(data)
+
     if (_.isUndefined(data))
         return [];
 
@@ -13,6 +15,8 @@ function getArticles(data) {
 
     // Outer loop to create parent
     data.forEach(function(article,index){
+
+        console.log(article)
 
         const subtitle = article.subtitle ? article.subtitle : "";
 

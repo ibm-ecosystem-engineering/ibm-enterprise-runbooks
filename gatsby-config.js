@@ -33,27 +33,6 @@ module.exports = {
         trackingId: "UA-155887541-3",
         head: true
       },
-    },
-    {
-      resolve: `gatsby-transformer-remark`,
-      options: {
-          plugins: [
-              `gatsby-remark-embed-youtube`,
-              `gatsby-remark-responsive-iframe`,
-              {
-                  // Using gatsby-remark-embed-video before gatsby-remark-images & gatsby-remark-responsive-iframe plugins.
-                  resolve: `gatsby-remark-embed-youtube`,
-                  options: {
-                      maxWidth: 800,
-                      ratio: 1.77,
-                      height: 400,
-                      related: false,
-                      noIframerder: true,
-                  },
-              },
-          ],
-      },
-  }
-  
+    }
   ]
 };

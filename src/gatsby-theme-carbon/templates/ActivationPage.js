@@ -68,13 +68,7 @@ export default ({content}) => {
             href
             color
           }
-          infrastructure {
-            color
-            href
-            language
-            subtitle
-            title
-          }
+          
         }
       }
     }

@@ -43,6 +43,7 @@ npm run build
 npm run dev
 ```
 
+**Test Local**
 View your locally rendered content:
 
 ```

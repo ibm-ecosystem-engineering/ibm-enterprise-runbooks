@@ -127,6 +127,8 @@
       path: /redhat/virtualization
     - title: High Availability 
       path: /redhat/high-availability
+    - title: Backup-Restore 
+      path: /redhat/backup-restore
 
 
 - title: Learning Journeys

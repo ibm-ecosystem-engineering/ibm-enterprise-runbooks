@@ -1,0 +1,206 @@
+---
+title: Backup and Restore
+---
+
+import Globals from 'gatsby-theme-carbon/src/templates/Globals';
+
+<PageDescription>
+
+
+</PageDescription>
+
+
+## **OpenShift Backup and Restore**
+
+As an administrator, you might need to follow one or more of the following procedures in order to return your cluster to a working state after several disaster situations, that that might occur with their OpenShift Container Platform cluster.
+Velero gives you tools to back up and restore your OpenShift cluster resources and persistent volumes. Velero lets you:
+- Take backups of your cluster and restore in case of loss.
+- Migrate cluster resources to other clusters.
+- Replicate your production cluster to development and testing clusters.
+
+In this example we are going to demonstrate Velero with Minio as object storage.
+
+### Clone the Velero repository
+
+```
+git clone https://github.com/vmware-tanzu/velero.git
+```
+
+### Install MinIO
+```
+cd velero
+oc apply -f examples/minio/00-minio-deployment.yaml
+```
+
+And you should see the output like this:
+```
+namespace/velero created
+deployment.apps/minio created
+service/minio created
+job.batch/minio-setup created
+```
+### Expose MinIO
+
+Now, we need to expose the MinIO service outside the cluster, so that the velero CLI can interact with it. In OpenShift, this is pretty simple:
+```
+oc project velero
+oc expose svc minio
+```
+You should see the following output:
+```
+route.route.openshift.io/minio exposed
+```
+
+You can get the information about the route by running the following command:
+```
+oc get route minio
+```
+You should be able to open the URL listed there and log in using user: minio and password: minio123
+Install Velero CLI
+
+Next, we need to install the Velero CLI in the local machine. For Mac, run the following command:
+```
+brew install velero
+```
+
+### Create credential file
+
+Next, we need to create the Minio credential file. So create a file named credentials-velero with the following content:
+
+```
+[default]
+aws_access_key_id = minio
+aws_secret_access_key = minio123
+```
+### Install Velero
+
+We are finally ready to install Velero. Run the following command:
+```
+velero install \
+    --provider aws \
+    --plugins velero/velero-plugin-for-aws:v1.0.0 \
+    --bucket velero \
+    --secret-file ./credentials-velero \
+    --use-volume-snapshots=false \
+    --backup-location-config region=minio,s3ForcePathStyle="true",s3Url=http://minio.velero.svc:9000
+```
+
+And you should see the following output:
+```
+CustomResourceDefinition/backups.velero.io: attempting to create resource
+CustomResourceDefinition/backups.velero.io: already exists, proceeding
+CustomResourceDefinition/backups.velero.io: created
+CustomResourceDefinition/backupstoragelocations.velero.io: attempting to create resource
+CustomResourceDefinition/backupstoragelocations.velero.io: already exists, proceeding
+CustomResourceDefinition/backupstoragelocations.velero.io: created
+CustomResourceDefinition/deletebackuprequests.velero.io: attempting to create resource
+CustomResourceDefinition/deletebackuprequests.velero.io: already exists, proceeding
+CustomResourceDefinition/deletebackuprequests.velero.io: created
+CustomResourceDefinition/downloadrequests.velero.io: attempting to create resource
+CustomResourceDefinition/downloadrequests.velero.io: already exists, proceeding
+CustomResourceDefinition/downloadrequests.velero.io: created
+CustomResourceDefinition/podvolumebackups.velero.io: attempting to create resource
+CustomResourceDefinition/podvolumebackups.velero.io: already exists, proceeding
+CustomResourceDefinition/podvolumebackups.velero.io: created
+CustomResourceDefinition/podvolumerestores.velero.io: attempting to create resource
+CustomResourceDefinition/podvolumerestores.velero.io: already exists, proceeding
+CustomResourceDefinition/podvolumerestores.velero.io: created
+CustomResourceDefinition/resticrepositories.velero.io: attempting to create resource
+CustomResourceDefinition/resticrepositories.velero.io: already exists, proceeding
+CustomResourceDefinition/resticrepositories.velero.io: created
+CustomResourceDefinition/restores.velero.io: attempting to create resource
+CustomResourceDefinition/restores.velero.io: already exists, proceeding
+CustomResourceDefinition/restores.velero.io: created
+CustomResourceDefinition/schedules.velero.io: attempting to create resource
+CustomResourceDefinition/schedules.velero.io: already exists, proceeding
+CustomResourceDefinition/schedules.velero.io: created
+CustomResourceDefinition/serverstatusrequests.velero.io: attempting to create resource
+CustomResourceDefinition/serverstatusrequests.velero.io: already exists, proceeding
+CustomResourceDefinition/serverstatusrequests.velero.io: created
+CustomResourceDefinition/volumesnapshotlocations.velero.io: attempting to create resource
+CustomResourceDefinition/volumesnapshotlocations.velero.io: already exists, proceeding
+CustomResourceDefinition/volumesnapshotlocations.velero.io: created
+Waiting for resources to be ready in cluster...
+Namespace/velero: attempting to create resource
+Namespace/velero: already exists, proceeding
+Namespace/velero: created
+ClusterRoleBinding/velero: attempting to create resource
+ClusterRoleBinding/velero: already exists, proceeding
+ClusterRoleBinding/velero: created
+ServiceAccount/velero: attempting to create resource
+ServiceAccount/velero: created
+Secret/cloud-credentials: attempting to create resource
+Secret/cloud-credentials: created
+BackupStorageLocation/default: attempting to create resource
+BackupStorageLocation/default: created
+Deployment/velero: attempting to create resource
+Deployment/velero: created
+Velero is installed! ⛵ Use 'kubectl logs deployment/velero -n velero' to view the status.
+```
+
+Now, we need to test it.
+Create some Kubernetes resources
+
+To test the backup procedure, let’s first create some Kubernetes resources. It doesn’t matter which resource, so I will stick to a simple one: ConfigMap. Run the following script to create an OpenShift project and many ConfigMaps:
+```
+oc new-project test-backup
+for i in {1..20}; do echo Creating ConfigMap $i; oc create configmap cm-$i --from-literal="key=$i"; done
+```
+The lines above create a new project and 20 ConfigMaps. Run the following command to confirm:
+```
+oc get configmap
+```
+
+### Back up OpenShift
+
+Now, we can test the backup procedure. For simplicity, we are going to back up only the test-backup project, but the same concept applies to any (or all) projects. Run the following command:
+```
+velero backup create my-backup --include-namespaces test-backup
+```
+and you will see the following output:
+```
+Backup request "my-backup" submitted successfully.
+Run `velero backup describe my-backup` or `velero backup logs my-backup` for more details.
+```
+After a few seconds, you can check the backup has completed:
+```
+velero backup describe my-backup
+```
+now delete these configmaps: 
+```
+oc delete configmap cm-{1..20}
+```
+You can validate by running the following command:
+```
+oc get configmap
+```
+It should return no configmap:
+```
+o resources found in test-backup namespace
+```
+
+### Restoring the environment
+
+Let’s now restore the backup that Velero created:
+```
+velero restore create --from-backup my-backup
+```
+you will see the following output:
+```
+Restore request "my-backup-20201022164948" submitted successfully.
+Run `velero restore describe my-backup-20201022164948` or `velero restore logs my-backup-20201022164948` for more details.
+```
+Now, we can check the result:
+```
+oc get cm
+```
+And you should see the 20 ConfigMaps restored.
+
+Refrences:
+https://medium.com/ibm-garage/how-to-install-velero-in-an-openshift-environment-f7484fabbbe4
+
+
+
+
+
+

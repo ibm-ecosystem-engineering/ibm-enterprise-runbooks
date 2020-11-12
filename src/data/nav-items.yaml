@@ -127,6 +127,10 @@
       path: /redhat/cp4i
     - title: Virtualization 
       path: /redhat/virtualization
+    - title: Backup-Restore
+      path: /redhat/backup-restore
+    - title: High Availability 
+      path: /redhat/high-availability
 
 - title: Learning Journeys
   pages:

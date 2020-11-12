@@ -7,20 +7,20 @@
 
 - title: What's New
   pages:
-    - title: What's New
+    - title: What's New 
       path: /whats-new/
 
 - title: Videos
   pages:
-    - title: Overview
+    - title: Overview 
       path: /videos/overview
-    - title: Foundation
+    - title: Foundation 
       path: /videos/foundation
-    - title: Infrastructure
+    - title: Infrastructure 
       path: /videos/infrastructure
-    - title: Cloud Pak
+    - title: Cloud Pak 
       path: /videos/cp
-    - title: Global Network
+    - title: Global Network 
       path: /videos/network
 
 - title: Enterprise Accounts
@@ -76,7 +76,7 @@
     - title: Cloud-Native Toolkit Tile
       path: /catalog/cloud-native-toolkit-tile
 
-- title: Hybrid Software Install
+- title: Hybrid Software Install 
   pages:
     - title: Overview
       path: /install/overview
@@ -101,14 +101,16 @@
     - title: Mainframe Modernization
       path: /install/mainframe
 
-- title: IBM Cloud Install
+- title: IBM Cloud Install 
   pages:
     - title: IBM Cloud Satellite
       path: /ibmcloud/satellite
     - title: OpenVPN Access VSI - VPC
       path: /ibmcloud/openvpn-vsi-vpc
+    - title: KMS integration with ROKS
+      path: /ibmcloud/kms-roks
 
-- title: Cloud Pak Install - Non IBM Cloud
+- title: Cloud Pak Install - Non IBM Cloud 
   pages:
     - title: CP4 Integration - AWS
       path: /install/integration-aws
@@ -121,14 +123,10 @@
       path: /redhat/rhm
     - title: Advanced Cluster Management
       path: /redhat/rhacm
-    - title: Cloud Pak for Integration
+    - title: Cloud Pak for Integration  
       path: /redhat/cp4i
-    - title: Virtualization
+    - title: Virtualization 
       path: /redhat/virtualization
-    - title: Backup-Restore
-      path: /redhat/backup-restore
-    - title: High Availability 
-      path: /redhat/high-availability
 
 - title: Learning Journeys
   pages:

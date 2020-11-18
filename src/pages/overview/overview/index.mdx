@@ -38,26 +38,3 @@ Typically a Cloud System Admin (such as a [squad leader](https://www.ibm.com/gar
 The installation is performed using [Terraform](https://cloud.ibm.com/docs/terraform), driven by scripts with a [modular configuration](https://github.com/ibm-garage-cloud/garage-terraform-modules) so unneeded tools can be easily disabled or new tools added. The combination of tools selected are proven in the industry to deliver real value for modern cloud-native development.
 
 [Red Hat Open Innovation Labs CI/CD components](https://github.com/rht-labs/labs-ci-cd) embodies a very similar approach to how they deliver success with OpenShift.
-
-### **Environment components**
-
-After installation, the <Globals name="env" /> consists of the following components and developer tools:
-- A development cluster
-- A set of backend services
-- A set of continuous delivery tools
-
-This diagram illustrates the <Globals name="env" />:
-
-![Provisioned environment](../images/catalyst-provisioned-environment.png)
-
-The diagram shows the components in the environment: the cluster, the deployment target environments, the cloud services, and the tools.
-
-#### **Development cluster**
-
-The heart of the <Globals key="env" /> is a cluster:
-
-- An [<Globals key="iks" />](https://www.ibm.com/cloud/container-service)
-or [<Globals key="roks" />](https://www.ibm.com/cloud/openshift) 3-node cluster
-- Cluster namespace that encapsulates the tooling installed in the cluster: *tools*
-- Cluster namespaces for deployment target environments: *dev*, *test*, and *staging*
-

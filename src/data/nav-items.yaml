@@ -46,8 +46,6 @@
       path: /iam/federated-signon-ad
     - title: Creation Process
       path: /iam/creation-process
-    - title: Security Levels
-      path: /iam/security-levels
     - title: Best Practices
       path: /iam/best-practices
     - title: Activity Tracking
@@ -63,8 +61,6 @@
       path: /catalog/passport-advantage
     - title: Access Control
       path: /catalog/access-control
-    - title: Restricting Services
-      path: /catalog/restricting-services
     - title: Private Catalogs
       path: /catalog/private-catalogs
     - title: Enterprise Sandbox Tiles

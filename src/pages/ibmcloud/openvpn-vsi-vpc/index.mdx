@@ -9,6 +9,9 @@ import Globals from 'gatsby-theme-carbon/src/templates/Globals';
 
 </PageDescription>
 
+<Tabs>
+<Tab label="Terraform Setup">
+
 ## **Use OpenVPN to access virtual server instances running in a virtual private cloud**
 
 Virtual Private Cloud (VPC) come with an additional layer of security as your workload can be completely hidden from the public Internet. But there are times when you will want to get into this private network. A common practice is to use a bastion host to jump into your VPC from your local machine as example. Another option is to install a VPN software inside your VPC to extend the secure VPC network to your local network.
@@ -21,96 +24,414 @@ This repo shows how to deploy OpenVPN inside a VPC using Terraform and Ansible.
  
 ### **Deploy all resources**
 
-1. Copy `terraform.tfvars.template` to `terraform.tfvars`:
-```sh
-   cp terraform.tfvars.template terraform.tfvars
-```
-2. Edit `terraform.tfvars` to match your environment.
+   1. Copy `terraform.tfvars.template` to `terraform.tfvars`.
 
-3. Use the [following Docker image](https://github.com/l2fprod/ibmcloud-ci) to run the deployment scripts. It has all required tools preinstalled.
+      ```sh
+         cp terraform.tfvars.template terraform.tfvars
+      ```
+   2. Edit `terraform.tfvars` to match your environment.
 
-* On Linux terminal:
-```
-   docker run -it --volume $PWD:/root/mnt/home --workdir /root/mnt/home l2fprod/ibmcloud-ci
-```
+   3. Use the [following Docker image](https://github.com/l2fprod/ibmcloud-ci) to run the deployment scripts. It has all required tools preinstalled.
 
-* On Windows command prompt:
-```
-   docker run -it --volume %CD%:/root/mnt/home --workdir /root/mnt/home l2fprod/ibmcloud-ci
-```
+      * On Linux terminal:
+         ```
+            docker run -it --volume $PWD:/root/mnt/home --workdir /root/mnt/home l2fprod/ibmcloud-ci
+         ```
 
-You can also try with your own environment. Prereqs are: tfswitch, terraform, ansible, ssh.
+      * On Windows command prompt:
+         ```
+            docker run -it --volume %CD%:/root/mnt/home --workdir /root/mnt/home l2fprod/ibmcloud-ci
+         ```
 
-4. Run `tfswitch` to point to the right Terraform version for this solution:
-```
-   tfswitch
-```
+      You can also try with your own environment. Prereqs are: tfswitch, terraform, ansible, ssh.
 
-5. Deploy all resources:
+   4. Run `tfswitch` to point to the right Terraform version for this solution:
+   ```
+      tfswitch
+   ```
 
-```sh
-   terraform init
-   terraform apply
-```
+   5. Deploy all resources:
+
+   ```sh
+      terraform init
+      terraform apply
+   ```
 
 ### **Install OpenVPN on the bastion**
 
-1. Change to ansible directory:
 
-```
-   cd ansible
-```
+   1. Change to ansible directory:
 
-2. Install ansible dependencies
-```
-   ansible-galaxy install -r requirements.yml
-```
+   ```
+      cd ansible
+   ```
 
-3. To confirm ansible configuration, ping all hosts
-```
-   ansible all -m ping -i inventory -v
-```
+   2. Install ansible dependencies
+   ```
+      ansible-galaxy install -r requirements.yml
+   ```
 
-4. Install OpenVPN on the bastion
-```
-   ansible-playbook -i inventory playbook-openvpn.yml
-```
+   3. To confirm ansible configuration, ping all hosts
+   ```
+      ansible all -m ping -i inventory -v
+   ```
+
+   4. Install OpenVPN on the bastion
+   ```
+      ansible-playbook -i inventory playbook-openvpn.yml
+   ```
 
 ### **Connect to OpenVPN**
 
-To connect to the VPN, use _OpenVPN Connects_ with the configuration generated in `ansible/client-config/mymachine`:
-- https://openvpn.net/client-connect-vpn-for-windows/
-- https://openvpn.net/client-connect-vpn-for-mac-os/
+ To connect to the VPN, use _OpenVPN Connects_ with the configuration generated in `ansible/client-config/mymachine`.
 
-or from a command line
-```
+   - https://openvpn.net/client-connect-vpn-for-windows/
+      
+   - https://openvpn.net/client-connect-vpn-for-mac-os/
+
+    or from a command line
+    
+  ```
    openvpn --setenv FORWARD_COMPATIBLE 1 --daemon --config ./client-config/mymachine/*-bastion.ovpn
-```
+  ```
 
-To view routes on macOS, use `netstat -nr`. On Linux and Windows `netstat -ar`.
+   To view routes on macOS, use `netstat -nr`. On Linux and Windows `netstat -ar`.
+
 
 ### **Test the OpenVPN connection**
 
-From the Docker container, ping one VPC server instance directly from your local machine:
-```
-   ping $(terraform output -json | jq -r '.instance_ips.value[0]')
-```
+  - From the Docker container, ping one VPC server instance directly from your local machine.
 
-or a COS direct endpoint:
-```
-   ping s3.direct.us.cloud-object-storage.appdomain.cloud
-```
+  ```
+  ping $(terraform output -json | jq -r '.instance_ips.value[0]')
+  ```
 
-or a service private endpoint:
-```
-   ping api.private.us-south.speech-to-text.watson.cloud.ibm.com
-```
+   or a COS direct endpoint:
 
-If you stop the VPN connection, all these ping would fail.
+   ```
+      ping s3.direct.us.cloud-object-storage.appdomain.cloud
+   ```
+
+ or a service private endpoint:
+
+   ```
+      ping api.private.us-south.speech-to-text.watson.cloud.ibm.com
+   ```
+
+   If you stop the VPN connection, all these ping would fail.
 
 ### **Destroy all configuration**
 
-1. To destroy the environment, from the Docker container use:
-```sh
-   terraform destroy
-```
+   1. To destroy the environment, from the Docker container use:
+
+      ```sh
+         terraform destroy
+      ```
+
+
+</Tab>
+<Tab label="Manual Setup">
+
+### **Solution Architecture:**
+
+![Solution Architecture](/images/solution-architecture.png)
+
+### **Solution Assumption:** 
+
+- It is assumed that the IBM Cloud VPC Network is pre-configured.
+
+- It is assumed that the Transit Gateway has been configured with required connectivity
+between VPC infrastructure and Classic Infrastructure.
+
+- A CentOS server is provisioned with 4vCPU / 8GB Memory & 100GB Disk for
+configuring OpenVPN server. Hostname for this server is “nativeipvpnserver”.
+
+- We will be a leveraging two VPC one each from Dallas and Sydney multi-zone region.
+
+- Dallas VPC name “daltestvpc” & Sydeny VPC Name “demovpc1”.
+
+- Each zone in Dallas have been auto configured with following Subnet.
+
+    * AZ Dallas1 - 10.240.0.0/18.
+    * AZ Dallas2 - 10.240.64.0/18.
+    * AZ Dallas3 - 10.240.128.0/18.
+
+- Each zone in Sydney have been auto configured with following Subnet.
+
+    * AZ Sydney1 - 10.245.0.0/18.
+    * AZ Sydne2 - 10.245.64.0/18.
+    * AZ Sydney3 - 10.245.128.0/18.
+
+- A RedHat server have been configured under each AZ for validating network connectivity from user desktop to resources in each AZ.
+
+- A RedHat OS server have been configured under classic infrastructure in Dallas region for network connectivity validation.
+
+- There are two roles have been assumed for the exercise **Cloud Administrator** and **DevOps User**.
+
+- **Cloud Administrator** will be responsible for implementing OpenVPN Solution and **DevOps user** responsible for managing Applications which is running behind OpenVPN infrastructure.
+
+### **High-Level Implementation Steps:**
+
+   1. OpenVPN Solution Implementation.
+   2. IBM Cloud Security Group Configuration for OpenVPN Infrastructure.
+   3. Add new VPN User in OpenVPN server.
+   4. OpenVPN Client Setup & Connectivity Validation.
+
+### **OpenVPN Solution Implementation(Role : Cloud Administrator):**
+
+ We will be using a CentOS VSI instance as OpenVPN server for this exercise.
+
+***Step 1:***
+
+ Login to **to-be** OpenVPN server **nativeipvpnserver**.
+
+***Step 2:***
+
+ Run `yum update -y` command to Update OS packages.
+
+   ```
+   yum update -y
+   ```
+
+***Step 3:***
+
+ Find out IP Address of OpenVPN server **nativeipvpnserver**. **ip a** gives interface private IP address for OpenVPN Server host.
+
+ ![ipa](/images/ipa.png)
+
+***Step 4:***
+
+ The OpenVPN Server host Public IP (Floating IP) address needs to be find from IBM Cloud Console.
+
+ ![nativeipvpnserver](/images/nativeipvpnserver.png)
+
+***Step 5:***
+
+ OpenVPN server “nativeipvpnserver” Private IP address (10.240.0.4) directly attached to server host and server is behind NAT (Floating IP) with public IP address (52.116.138.238).
+
+***Step 6:***
+
+ Download OpenVPN server Management (Install/Config/Manage) script from following location `wget https://raw.githubusercontent.com/Angristan/openvpn- install/master/openvpn-install.sh -O centos7-vpn.sh` & change the permission of downloaded script “chmod +x centos7-vpn.sh
+
+ ![vpnscript](/images/vpnscript.png)
+
+***Step 7:***
+
+ Begin OpenVPN server installation by running “centos7-vpn.sh” script.
+
+ ![hostname](/images/hostname.png)
+
+***Step 8:***
+
+ Accent default private IP interface of OpenVPN server “nativeipvpnserver” where OpenVPN services will be listening.
+
+ ![openvpnservice](/images/openvpnservice.png)
+
+***Step 9:***
+
+ Accept NAT ip address which will act as public gateway IP for OpenVPN server.
+
+ ![openvpnservice](/images/openvpnservice1.png)
+
+***Step 10:***
+
+Disable IPv6 support.
+
+![disableipv6](/images/disableipv6.png)
+
+***Step 11:***
+
+Configure OpenVPN service port number & I would prefer running OpenVPN service with default port number.
+
+![openvpnportno](/images/openvpnportno.png)
+
+***Step 12:***
+
+ Configure OpenVPN server port number.
+
+ ![openvpnportno1](/images/openvpnportno1.png)
+
+***Step 13:***
+
+ Configure DNS server settings for OpenVPN server.
+
+ ![dns](/images/dns.png)
+
+***Step 14:***
+
+ Disable compression & recommended to disable this configuration. Press “Enter” to complete OpenVPN Server installation .
+
+ ![serverinstallation](/images/serverinstallation.png)
+
+***Step 15:***
+
+ Configure your first OpenVPN client (Key file) & enter the name of the client. For this exercise I have chosen my first VPN user as “demovpnuser01” and press enter.
+
+ ![demovpnuser01](/images/demovpnuser01.png)
+
+***Step 16:***
+
+ Set a password phrase for VPN Client Key & OpenVPN keys stored under /root/demovpnuser01.ovpn.
+
+ ![vpnclient](/images/vpnclient.png)
+
+***Step 17:***
+
+ Enable OpenVPN server service.
+
+ ```
+ systemctl enable openvpn-server@server.service
+ ```
+
+***Step 18:***
+
+ Start OpenVPN service.
+
+ ```
+ systemctl start openvpn-server@server.service
+ ```
+
+***Step 19:***
+
+ Validate OpenVPN service status.
+
+ ![statuscheck](/images/statuscheck.png)
+
+ Now, we have successfully completed OpenVPN server installation.
+
+### **IBM Cloud Security Group Configuration for OpenVPN VSI (Role : Cloud Administrator):**
+
+
+***Step 1:***
+
+ Create IBM Cloud security group with following Inbound / Outbound traffic
+
+   * Inbound on port number 1194.
+   * Outbound Traffic `All`
+
+***Step 2:***
+
+ Login to IBM Cloud & `Create` new security group `openvpnsg`.
+
+ ![security-group](/images/security-group.png)
+
+***Step 3:***
+
+ Add new Inbound rule with OpenVPN Service port number 1194 as below.
+
+ ![createsecuritygroup](/images/createsecuritygroup.png)
+
+***Step 4:***
+
+ Create Outbound rule as blow.
+
+ ![outbound](/images/outbound.png)
+
+***Step 5:***
+
+ Allocate security `openvpnsg` to OpenVPN VSI hosts `nativeipvpnserver` network interface.
+
+ ![openvpnsg](/images/openvpnsg.png)
+
+ Now Security group have been successfully created and assigned to OpenVPN VSI hosts `nativeipvpnserver`.
+
+### **Add new VPN User in OpenVPN server (Role : Cloud Administrator):**
+
+ In this section we will show you how to add a new users/Client to OpenVPN server.
+
+***Step 1:***
+
+ Login to OpenVPN server VSI instance and execute **centos7-vpn.sh** script which was downloaded during **OpenVPN Server Setup** phase.
+
+ ![serversetup1](/images/serversetup1.png)
+
+***Step 2:***
+
+ From the menu select Option-1 to add new user and press enter.
+
+ ![serversetup2](/images/serversetup2.png)
+
+***Step 3:***
+
+ Enter the name of the client (user name) for new OpenVPN client key. In this example I am creating a user call `demouser02` & protect this Client key with a password.
+
+ ![serversetup3](/images/serversetup3.png)
+
+***Step 4:***
+
+ New client key `demouser02.ovpn` have been successfully created and stored under /root directory.
+
+ ![serversetup4](/images/serversetup4.png)
+
+***Step 5:***
+
+ This OVPN file needs to be shared with user for authenticating with VPN server for accessing resources in VPC and Classic infrastructure.
+
+
+### **Install OpenVPN Client & Authenticate to OpenVPN Server in IBM Cloud (Role : DevOps):**
+
+***Step 1:***
+
+ Install OpnVPN client in user desktop. [OpenVPN client can be found](https://tunnelblick.net/).
+
+***Step 2:***
+
+ Start OpenVPN Client (Tunnelblick). 
+
+ ![Tunnelblick](/images/Tunnelblick.png)
+
+ **Note:** I am testing this from my MacBook
+
+***Step 3:***
+
+ The OpenVPN Client window looks like below. 
+
+ ![clientwindow](/images/clientwindow.png)
+
+
+***Step 4:***
+
+ Add VPN key from your desktop to OpenVPN client by `drag-drop` under `Configurations` tab. As soon as user drop the VPN key file under configuration tab, user will be prompted to share this key with `All users` or `Only Me` option. 
+
+ ![configurationwindow](/images/configurationwindow.png)
+
+***Step 5:***
+
+ Once the OVPN key is successfully added to OpenSec VPN client and user should be getting following confirmation screen.
+
+ ![configurationwindow1](/images/configurationwindow1.png)
+
+***Step 6:***
+
+ VPN client is ready to authenticate with OpenVPN server. Select `Connect` button from above screen. Once VPN Client authenticate with OpenVPN server then the user should be able to see `Connected Success` message screen as below.
+
+ ![configurationwindow2](/images/configurationwindow2.png)
+
+***Step 7:***
+
+ Now user is successfully connected to OpenVPN server in IBM Cloud and user should be able to access the Server resources under VPC & Classic Infrastructure over Private IP. Lets quick validate the connectivity from DevOps user laptop
+
+***Step 8:***
+
+ Below are the list of server available under various Subnets in VPC “daltestvpc” in Dallas MZR.
+
+ ![daltestvpc](/images/daltestvpc.png)
+
+***Step 9:***
+
+ Lets Ping the IP Address of the servers in Dallas VPC.
+
+ ![daltestvpc1](/images/daltestvpc1.png)
+
+***Step 10:***
+
+ Bello are the list of Devices available under Classic Infra Network & lets quickly validate network connectivity to this thru VPN tunnel using **ping** command..
+
+ ![daltestvpc2](/images/daltestvpc2.png)
+
+
+  We have successfully Setup OpenVPN infrastructure for Accessing VPC & Classic Infrastructure resources.
+
+</Tab>
+</Tabs>
+

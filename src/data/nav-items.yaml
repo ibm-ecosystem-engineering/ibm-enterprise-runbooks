@@ -99,8 +99,6 @@
       path: /ibmcloud/satellite
     - title: OpenVPN Access VSI - VPC
       path: /ibmcloud/openvpn-vsi-vpc
-    - title: OpenVPN Access VPC-Setup
-      path: /ibmcloud/openvpn-vsi-vpc-setup 
     - title: KMS integration with ROKS
       path: /ibmcloud/kms-roks
 

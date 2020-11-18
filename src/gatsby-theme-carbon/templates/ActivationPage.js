@@ -23,7 +23,7 @@ function getArticles(data) {
         //Create the parent and add the children
         articles.push(
 
-            <Column colMd={5} colLg={3} noGutterMdLeft>
+            <Column colMd={4} colLg={4} noGutterMdLeft>
                 <ArticleCard
                     title={article.title}
                     author={article.author}

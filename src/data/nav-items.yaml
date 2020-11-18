@@ -38,7 +38,7 @@
     - title: Usage Reporting
       path: /enterprise-accounts/usage-reporting
 
-- title: Identify and Access
+- title: Identity and Access
   pages:
     - title: Overview
       path: /iam/overview

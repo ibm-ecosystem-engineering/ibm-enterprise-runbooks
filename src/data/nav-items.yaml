@@ -10,10 +10,16 @@
     - title: What's New 
       path: /whats-new/
 
+- title: Team
+  pages:
+    - title: Team 
+      path: /team/overview
+
 - title: Videos
   pages:
     - title: IBM Cloud Foundation 
       path: /videos/overview
+
 
 - title: Enterprise Accounts
   pages:

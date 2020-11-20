@@ -41,7 +41,7 @@ Velero requires the storage destination to store backup, in the below document w
 
 <Tab label="IBM Cloud Object Store" open="true">
 
-In this example we are going to demonstrate Velero with Minio as object storage.
+In this example we are going to demonstrate Velero with IBM Cloud Object Storage as object storage.
 
 ### Clone the Velero repository
 
@@ -59,11 +59,11 @@ Next, we need to create the Minio credential file. So create a file named creden
 aws_access_key_id = <access-key-id>
 aws_secret_access_key = <secret-access-key>
 ```
-### Create an IBM Cloud Object Storage Service Instance
+### Create an IBM Cloud Object Storage(COS) Service Instance
 
-If you don’t have a COS instance, you can create a new one, according to the detailed instructions in Creating a new resource instance.
+If you don’t have a COS instance, you can create a new one.
 
-The next step is to create a bucket for your backups. Velero will use the same bucket to store K8S configuration data as well as Volume backups. See instructions in Create a bucket to store your data. We are naming the bucket backup-ocp and will use this name later to configure Ark backup location. You will need to choose another name for your bucket as IBM COS bucket names are globally unique. Choose “Cross Region” Resiliency so it is easy to restore anywhere.
+The next step is to create a bucket for your backups. Velero will use the same bucket to store K8S configuration data as well as Volume backups. See instructions in Create a bucket to store your data. We are naming the bucket backup-ocp and will use this name later to configure velero backup location. You will need to choose another name for your bucket as IBM COS bucket names are globally unique. Choose “Cross Region” Resiliency so it is easy to restore anywhere.
 
 ### Create a custom bucket with following configuration:
 
@@ -75,9 +75,9 @@ Your Velero service will write its backup into the bucket, so it requires the �
 Velero uses an AWS S3 compatible API. Which means it authenticates using a signature created from a pair of access and secret keys — a set of HMAC credentials. You can create these HMAC credentials by specifying {“HMAC”:true} as an optional inline parameter. See step 3 in the Service credentials guide.
 
 ![Create Credentials](/images/create-credentials.png)
-
+<li></li>
 After successfully creating a Service credential, you can view the JSON definition of the credential. Under the cos_hmac_keys entry there are access_key_id and secret_access_key. We will use them later.
-
+<li></li>
 
 ![Credentials ](/images/credentials.png)
 
@@ -404,10 +404,10 @@ And you should see the 20 ConfigMaps restored.
 
 
 Refrences:
-https://medium.com/ibm-garage/how-to-install-velero-in-an-openshift-environment-f7484fabbbe4
-https://medium.com/@mlrborowski/using-ark-and-restic-to-provide-dr-for-ibm-kubernetes-service-cae53cfe532
-https://velero.io/docs/v1.5/contributions/ibm-config/#docs
-https://blog.kubernauts.io/backup-and-restore-of-kubernetes-applications-using-heptios-velero-with-restic-and-rook-ceph-as-2e8df15b1487
+- https://medium.com/ibm-garage/how-to-install-velero-in-an-openshift-environment-f7484fabbbe4
+- https://medium.com/@mlrborowski/using-ark-and-restic-to-provide-dr-for-ibm-kubernetes-service-cae53cfe532
+- https://velero.io/docs/v1.5/contributions/ibm-config/#docs
+- https://blog.kubernauts.io/backup-and-restore-of-kubernetes-applications-using-heptios-velero-with-restic-and-rook-ceph-as-2e8df15b1487
 
 
 

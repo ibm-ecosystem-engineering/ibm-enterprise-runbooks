@@ -75,9 +75,9 @@ Your Velero service will write its backup into the bucket, so it requires the �
 Velero uses an AWS S3 compatible API. Which means it authenticates using a signature created from a pair of access and secret keys — a set of HMAC credentials. You can create these HMAC credentials by specifying {“HMAC”:true} as an optional inline parameter. See step 3 in the Service credentials guide.
 
 ![Create Credentials](/images/create-credentials.png)
-<li></li>
+
 After successfully creating a Service credential, you can view the JSON definition of the credential. Under the cos_hmac_keys entry there are access_key_id and secret_access_key. We will use them later.
-<li></li>
+
 
 ![Credentials ](/images/credentials.png)
 

@@ -10,13 +10,209 @@ import Globals from 'gatsby-theme-carbon/src/templates/Globals';
 </PageDescription>
 
 
+
+
 ## **OpenShift Backup and Restore**
 
-As an administrator, you might need to follow one or more of the following procedures in order to return your cluster to a working state after several disaster situations, that that might occur with their OpenShift Container Platform cluster.
-Velero gives you tools to back up and restore your OpenShift cluster resources and persistent volumes. Velero lets you:
+As an administrator, you might need to follow one or more of the following procedures in order to return your cluster to a working state after several disaster situations, that that might occur with their OpenShift Container Platform cluster such as:
+- Someone accidentally deleted a namespace
+- Kubernetes API upgrade failed and you need to revert back
+- Network went down.
+- Cluster goes into an unrecoverable state
+- Latest application push introduced a critical bug that wiped a persistent volume and you lost the data.
+- Rare case of a natural disaster making your cluster inaccessible.
+
+Velero gives you tools to back up and restore your OpenShift cluster resources and persistent volumes.You can run Velero with a cloud provider or on-premises. Velero lets you:
 - Take backups of your cluster and restore in case of loss.
 - Migrate cluster resources to other clusters.
 - Replicate your production cluster to development and testing clusters.
+
+Velero consists of:
+
+- A server that runs on your cluster
+- A command-line client that runs locally
+
+Velero requires the storage destination to store backup, in the below document we are describing two storage destinations:
+- IBM Cloud Object Storage
+- Minio  
+
+
+<Tabs>
+
+<Tab label="IBM Cloud Object Store" open="true">
+
+In this example we are going to demonstrate Velero with IBM Cloud Object Storage as object storage.
+
+### Clone the Velero repository
+
+```
+git clone https://github.com/vmware-tanzu/velero.git
+
+```
+
+### Create credential file
+
+Next, we need to create the Minio credential file. So create a file named credentials-velero with the following content:
+
+```
+[default]
+aws_access_key_id = <access-key-id>
+aws_secret_access_key = <secret-access-key>
+```
+### Create an IBM Cloud Object Storage(COS) Service Instance
+
+If you don’t have a COS instance, you can create a new one.
+
+The next step is to create a bucket for your backups. Velero will use the same bucket to store K8S configuration data as well as Volume backups. See instructions in Create a bucket to store your data. We are naming the bucket backup-ocp and will use this name later to configure velero backup location. You will need to choose another name for your bucket as IBM COS bucket names are globally unique. Choose “Cross Region” Resiliency so it is easy to restore anywhere.
+
+### Create a custom bucket with following configuration:
+
+![Bucket Details](/images/bucket-details.png)
+
+The last step in the COS configuration is to define a service that can store data in the bucket. The process of creating service credentials is described in Service credentials. Several comments:
+Your Velero service will write its backup into the bucket, so it requires the “Writer” access role.
+
+Velero uses an AWS S3 compatible API. Which means it authenticates using a signature created from a pair of access and secret keys — a set of HMAC credentials. You can create these HMAC credentials by specifying {“HMAC”:true} as an optional inline parameter. See step 3 in the Service credentials guide.
+
+![Create Credentials](/images/create-credentials.png)
+
+After successfully creating a Service credential, you can view the JSON definition of the credential. Under the cos_hmac_keys entry there are access_key_id and secret_access_key. We will use them later.
+
+
+![Credentials ](/images/credentials.png)
+
+
+Now you can copy s3 URL(Direct) from the region you created bucket, we will use this url while installing velero
+
+![S3 URL](/images/s3-url.png)
+
+create a project velero in openshift
+```
+oc new-project velero
+```
+
+### Install Velero
+
+We are finally ready to install Velero. Run the following command:
+```
+velero install \
+    --provider aws \
+    --plugins velero/velero-plugin-for-aws:v1.0.0 \
+    --bucket backup-ocp \
+    --secret-file ./credentials-velero \
+    --use-volume-snapshots=true \
+    --backup-location-config region=us-geo,s3ForcePathStyle="true",s3Url=http://s3.direct.us.cloud-object-storage.appdomain.cloud
+```
+
+And you should see the following output:
+
+```
+CustomResourceDefinition/backups.velero.io: attempting to create resource
+CustomResourceDefinition/backups.velero.io: already exists, proceeding
+CustomResourceDefinition/backups.velero.io: created
+CustomResourceDefinition/backupstoragelocations.velero.io: attempting to create resource
+CustomResourceDefinition/backupstoragelocations.velero.io: already exists, proceeding
+CustomResourceDefinition/backupstoragelocations.velero.io: created
+CustomResourceDefinition/deletebackuprequests.velero.io: attempting to create resource
+CustomResourceDefinition/deletebackuprequests.velero.io: already exists, proceeding
+CustomResourceDefinition/deletebackuprequests.velero.io: created
+CustomResourceDefinition/downloadrequests.velero.io: attempting to create resource
+CustomResourceDefinition/downloadrequests.velero.io: already exists, proceeding
+CustomResourceDefinition/downloadrequests.velero.io: created
+CustomResourceDefinition/podvolumebackups.velero.io: attempting to create resource
+CustomResourceDefinition/podvolumebackups.velero.io: already exists, proceeding
+CustomResourceDefinition/podvolumebackups.velero.io: created
+CustomResourceDefinition/podvolumerestores.velero.io: attempting to create resource
+CustomResourceDefinition/podvolumerestores.velero.io: already exists, proceeding
+CustomResourceDefinition/podvolumerestores.velero.io: created
+CustomResourceDefinition/resticrepositories.velero.io: attempting to create resource
+CustomResourceDefinition/resticrepositories.velero.io: already exists, proceeding
+CustomResourceDefinition/resticrepositories.velero.io: created
+CustomResourceDefinition/restores.velero.io: attempting to create resource
+CustomResourceDefinition/restores.velero.io: already exists, proceeding
+CustomResourceDefinition/restores.velero.io: created
+CustomResourceDefinition/schedules.velero.io: attempting to create resource
+CustomResourceDefinition/schedules.velero.io: already exists, proceeding
+CustomResourceDefinition/schedules.velero.io: created
+CustomResourceDefinition/serverstatusrequests.velero.io: attempting to create resource
+CustomResourceDefinition/serverstatusrequests.velero.io: already exists, proceeding
+CustomResourceDefinition/serverstatusrequests.velero.io: created
+CustomResourceDefinition/volumesnapshotlocations.velero.io: attempting to create resource
+CustomResourceDefinition/volumesnapshotlocations.velero.io: already exists, proceeding
+CustomResourceDefinition/volumesnapshotlocations.velero.io: created
+Waiting for resources to be ready in cluster...
+Namespace/velero: attempting to create resource
+Namespace/velero: already exists, proceeding
+Namespace/velero: created
+ClusterRoleBinding/velero: attempting to create resource
+ClusterRoleBinding/velero: already exists, proceeding
+ClusterRoleBinding/velero: created
+ServiceAccount/velero: attempting to create resource
+ServiceAccount/velero: created
+Secret/cloud-credentials: attempting to create resource
+Secret/cloud-credentials: created
+BackupStorageLocation/default: attempting to create resource
+BackupStorageLocation/default: created
+VolumeSnapshotLocation/default: attempting to create resource
+VolumeSnapshotLocation/default: created
+Deployment/velero: attempting to create resource
+Deployment/velero: created
+Velero is installed! ⛵ Use 'kubectl logs deployment/velero -n velero' to view the status.
+```
+Now, we need to test it. Create some Kubernetes resources
+
+To test the backup procedure, let’s first create some Kubernetes resources. It doesn’t matter which resource, so I will stick to a simple one: ConfigMap. Run the following script to create an OpenShift project and many ConfigMaps:
+
+```
+oc new-project test-backup
+for i in {1..20}; do echo Creating ConfigMap $i; oc create configmap cm-$i --from-literal="key=$i"; done
+```
+The lines above create a new project and 20 ConfigMaps. Run the following command to confirm
+
+### Back up OpenShift
+
+Now, we can test the backup procedure. For simplicity, we are going to back up only the test-backup project, but the same concept applies to any (or all) projects. Run the following command:
+```
+velero backup create my-backup --include-namespaces test-backup
+```
+You will get following output:
+```
+Backup request "my-backup" submitted successfully.
+Run `velero backup describe my-backup` or `velero backup logs my-backup0` for more details.
+```
+After a few seconds, you can check the backup has completed:
+
+```
+oc get backup -n velero my-backup -o jsonpath='{.status.phase}'
+```
+Now delete these configmaps: 
+```
+oc delete configmap cm-{1..20}
+```
+
+### Restoring the environment
+
+Let’s now restore the backup that Velero created:
+```
+velero restore create --from-backup my-backup
+```
+You will get following output:
+```
+Restore request "my-backup-20201106170117" submitted successfully.
+Run `velero restore describe my-backup-20201106170117` or `velero restore logs my-backup-20201106170117` for more details.
+```
+You can validate by running the following command:
+```
+oc get configmap
+```
+It should return no configmap:
+```
+o resources found in test-backup namespace
+```
+
+</Tab>
+
+<Tab label="Minio" open="false">
 
 In this example we are going to demonstrate Velero with Minio as object storage.
 
@@ -24,6 +220,11 @@ In this example we are going to demonstrate Velero with Minio as object storage.
 
 ```
 git clone https://github.com/vmware-tanzu/velero.git
+```
+### create a project velero in openshift
+
+```
+oc new-project velero
 ```
 
 ### Install MinIO
@@ -182,6 +383,7 @@ o resources found in test-backup namespace
 ### Restoring the environment
 
 Let’s now restore the backup that Velero created:
+
 ```
 velero restore create --from-backup my-backup
 ```
@@ -196,8 +398,18 @@ oc get cm
 ```
 And you should see the 20 ConfigMaps restored.
 
+</Tab>
+</Tabs>
+
+
+
 Refrences:
-https://medium.com/ibm-garage/how-to-install-velero-in-an-openshift-environment-f7484fabbbe4
+- https://medium.com/ibm-garage/how-to-install-velero-in-an-openshift-environment-f7484fabbbe4
+- https://medium.com/@mlrborowski/using-ark-and-restic-to-provide-dr-for-ibm-kubernetes-service-cae53cfe532
+- https://velero.io/docs/v1.5/contributions/ibm-config/#docs
+- https://blog.kubernauts.io/backup-and-restore-of-kubernetes-applications-using-heptios-velero-with-restic-and-rook-ceph-as-2e8df15b1487
+
+
 
 
 

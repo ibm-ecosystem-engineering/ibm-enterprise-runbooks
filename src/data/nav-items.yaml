@@ -104,6 +104,8 @@
 
 - title: Cloud Pak Install - Non IBM Cloud 
   pages:
+    - title: CP4 Integration - AWS
+      path: /install/integration-aws
     - title: CP4 Integration - Azure
       path: /install/integration-azure
 

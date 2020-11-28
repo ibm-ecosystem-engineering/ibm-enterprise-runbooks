@@ -1,24 +1,22 @@
 ---
-title: CP4I - Amazon Web Services(AWS)
+title: CP4 Integration - AWS
 ---
 
 import Globals from 'gatsby-theme-carbon/src/templates/Globals';
 
 <PageDescription>
+Install CP4I on Amazon Web Services
 </PageDescription>
-<Tabs>
-<Tab label="Install CP4I on Amazon Web Services" open="true">
 
-## **Recipe Overview**
+## **Overview**
 
-Recipe describes the procedure to install IBM Cloud Pak for Integration v2020.3.1 with OCP 4.5.20 on AWS using Installer Provisioned Infrastructure (IPI) method. If you are looking for a simplified one-click installation procedure, consider [AWS Quick start for CP4I](https://community.ibm.com/community/user/middleware/blogs/matt-roberts1/2020/11/12/aws-quickstart).
+IBM Cloud Pak for Integration v2020.3.1 can be installed on AWS using Installer Provisioned Infrastructure (IPI) method or [AWS Quick start for CP4I](https://community.ibm.com/community/user/middleware/blogs/matt-roberts1/2020/11/12/aws-quickstart). While AWS Quick start provides a simplified one-click installation procedure, IPI provides full customization of OCP and CP4I installation which is preferred by advanced users.
 
 Here are a few basic differences between IPI and AWS quickstart methods.
-1. IPI provides full flexibility to users to configure the OpenShift cluster. While AWS quickstart requires only the essential configuration parameters to keep the installation experience simple.
-2. IPI lets you choose the OpenShift version, while AWS quickstart is only available with OCP v4.4.22 at the moment. For this recipe, we have chosen OCP v4.5.20.
-3. IPI lets CP4I worker nodes to double up as OpenShift Container storage cluster nodes, while AWS Quickstart requires you to provision separate storage worker nodes. Although latter is a best practice it is not necessary for POCs or demo environments.
-4. With IPI only the OpenShift cluster is installed. This lets the user manually configure the CP4I installation. 
-
+1. IPI provides full flexibility to administrators to configure the OpenShift cluster. While AWS quickstart is aimed at providing a simplified installation experience by asking users to input only essential configuration parameters with a form based UI.
+2. IPI lets administrators choose the OpenShift version, while AWS quickstart is only available with OCP v4.4.22 at the moment. For this recipe, we have chosen OCP v4.5.20 for IPI.
+3. IPI lets CP4I worker nodes to double up as OpenShift Container storage cluster nodes, while AWS Quickstart requires you to provision separate storage worker nodes. Although latter is a best practice it is not mandatory for POCs or demo environments.
+4. With IPI, only the OpenShift cluster is installed. An administrator can fully customize the CP4I installation - Common services and platform navigator. AWS Quick start installs CP4I with a standard configuration and offers installation of example instances of capabilities and runtimes.
 
 ### **Ingredients**
 
@@ -71,17 +69,19 @@ Here are a few basic differences between IPI and AWS quickstart methods.
    
    Here are the commands we've executed to download and prep for the installation on my MacOS bastion node. You can choose to install from a workstation/VM of your choice – ubuntu, mac or windows using linux shell. 
    
-   ```
-   mkdir ocp-4.5.20
-   cd ocp-4.5.20
-   wget https://mirror.openshift.com/pub/openshift-v4/x86_64/clients/ocp/4.5.20/openshift-client-linux-4.5.20.tar.gz
-   wget https://mirror.openshift.com/pub/openshift-v4/x86_64/clients/ocp/4.5.20/openshift-install-linux-4.5.20.tar.gz
-   tar -xvf openshift-install-linux-4.5.20.tar.gz
-   tar -xvf openshift-client-linux-4.5.20.tar.gz
-   sudo mv kubectl /usr/local/bin/kubectl
-   sudo mv oc /usr/local/bin/oc
-   ```
+    ```
+    mkdir ocp-4.5.20
+    cd ocp-4.5.20
+    wget https://mirror.openshift.com/pub/openshift-v4/x86_64/clients/ocp/4.5.20/openshift-client-linux-4.5.20.tar.gz
+    wget https://mirror.openshift.com/pub/openshift-v4/x86_64/clients/ocp/4.5.20/openshift-install-linux-4.5.20.tar.gz
+    tar -xvf openshift-install-linux-4.5.20.tar.gz
+    tar -xvf openshift-client-linux-4.5.20.tar.gz
+    sudo mv kubectl /usr/local/bin/kubectl
+    sudo mv oc /usr/local/bin/oc
+    ```
+
    Verify if OpenShift installer, oc and kubectl tools are in place. 
+
    ```
    oc version --client
    kubectl version --client
@@ -293,9 +293,9 @@ Here are a few basic differences between IPI and AWS quickstart methods.
    6. Installed Cloud Pak for Integration v2020.3.1.
    7. Installed Common services, Operations Dashboard, API Connect, App Connect, MQ, Asset Repository and Event Streams.
 
-</Tab>
 
-<Tab label="References">
+
+### **7.  References**
 
 **IBM**
    - https://community.ibm.com/community/user/middleware/blogs/matt-roberts1/2020/11/12/aws-quickstart
@@ -315,6 +315,3 @@ Here are a few basic differences between IPI and AWS quickstart methods.
    - https://docs.openshift.com/container-platform/4.5/installing/installing_aws/installing-aws-account.html#installation-aws-iam-user_installing-aws-account
    - https://docs.openshift.com/container-platform/4.5/installing/installing_aws/installing-aws-account.html#installation-aws-limits_installing-aws-account
    - https://access.redhat.com/documentation/en-us/red_hat_openshift_container_storage/4.5/html/deploying_openshift_container_storage_using_amazon_web_services/index
-
-</Tab>
-</Tabs>

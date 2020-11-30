@@ -24,35 +24,30 @@ import _ from 'lodash';
 const { prefix } = settings;
 
 const withStateManagerProps = () => ({
-    className: 'some-class',
-    passiveModal:  false,
+    className: 'video-modal',
+    passiveModal:  true,
     danger:  false,
     alert:  false,
-    shouldSubmitOnEnter: false,
+    shouldSubmitOnEnter: true,
     hasScrollingContent:false,
-    modalHeading:  'Modal heading',
+    modalHeading:  'Video',
     modalLabel:  'Label',
     modalAriaLabel:  'A label to be read by screen readers on the modal root node',
-    primaryButtonText:  'Primary Button',
-    secondaryButtonText: 'Secondary Button',
+    secondaryButtonText: 'Close',
     selectorPrimaryFocus: '[data-modal-primary-focus]',
     size: 'lg',
     iconDescription:  'Close',
-    onBlur: onBlur,
     onClick:onClick,
-    onFocus: onFocus,
     onRequestClose: onRequestClose,
     onRequestSubmit: onRequestSubmit,
     onSecondarySubmit: onSecondarySubmit,
     videoURL: ""
 });
 
-function  onBlur(event) { console.log(event) }
-function  onClick(event) { console.log(event) }
-function  onFocus(event) { console.log(event) }
-function  onRequestClose(event) { console.log(event) }
-function  onRequestSubmit(event) { console.log(event) }
-function  onSecondarySubmit(event) { console.log(event) }
+function  onClick(event) { console.log("click",event) }
+function  onRequestClose(event) { console.log("requestClose",event) }
+function  onRequestSubmit(event) { console.log("requestSubmit",event) }
+function  onSecondarySubmit(event) { console.log("submit",event) }
 
 /**
  * Simple state manager for modals.
@@ -76,9 +71,9 @@ const ModalStateManager = ({
 };
 
 // Create a Helper Method
-function getVideos(data,tileColor,rest) {
+function getVideos(data,tileColor,state) {
 
-    if (_.isUndefined(rest))
+    if (_.isUndefined(state))
         return [];
 
     if (_.isNull(data))
@@ -86,17 +81,20 @@ function getVideos(data,tileColor,rest) {
 
     let articles = []
 
-    function tileClick(rest, article) {
-        //alert(JSON.stringify(rest)+ " " +JSON.stringify(article));
-        rest.open = true;
+    function tileClick(article, open) {
+
+        console.log("title clicked");
+
+        console.log(JSON.stringify(article));
+        console.log(JSON.stringify(state));
+
+        open(true);
     }
 
     // Outer loop to create parent
     data.forEach(function(article,index){
 
         const subtitle = article.subtitle ? article.subtitle : "";
-
-        let rest = {onClick: tileClick(article,rest)}
 
         //Create the parent and add the children
         articles.push(
@@ -109,7 +107,7 @@ function getVideos(data,tileColor,rest) {
                     subTitle = {subtitle}
                     color={article.color}
                     actionIcon="arrowRight"
-                    {...rest}
+                    onClick={(e) => tileClick(article,state)}
                 >
                 </ArticleCard>
             </Column>
@@ -152,7 +150,9 @@ export default ({content,tileColor}) => {
         <>
             <ModalStateManager
                 renderLauncher={({ setOpen }) => (
-                    <Button onClick={() => setOpen(true)}>Launch modal</Button>
+                    <Row>
+                        {getVideos(data.allDataJson.nodes[1][content],tileColor,setOpen)}
+                    </Row>
                 )}>
                 {({ open, setOpen }) => (
                     <Modal
@@ -162,15 +162,7 @@ export default ({content,tileColor}) => {
                         onRequestClose={() => setOpen(false)}>
                         {
                             <>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
-                                    id accumsan augue. Phasellus consequat augue vitae tellus
-                                    tincidunt posuere. Curabitur justo urna, consectetur vel elit
-                                    iaculis, ultrices condimentum risus. Nulla facilisi. Etiam
-                                    venenatis molestie tellus. Quisque consectetur non risus eu
-                                    rutrum.{' '}
-                                </p>
-                                <iframe width="560" height="315" src={rest.videoURL}
+                                <iframe width="100%" height="315" src="https://www.youtube.com/embed/EVB3LdYQTMM"
                                         frameBorder="0"
                                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                         allowFullScreen></iframe>
@@ -180,9 +172,7 @@ export default ({content,tileColor}) => {
                 )}
             </ModalStateManager>
 
-            <Row>
-                {getVideos(data.allDataJson.nodes[1][content],tileColor,rest)}
-            </Row>
+
         </>
     )
 }

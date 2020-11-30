@@ -12,14 +12,21 @@
 
 - title: The Team
   pages:
-    - title: The Team 
+    - title: The Team
       path: /team/
 
 - title: Videos
   pages:
-    - title: IBM Cloud Foundation 
+    - title: Overview
       path: /videos/overview
-
+    - title: Foundation
+      path: /videos/foundation
+    - title: Infrastructure
+      path: /videos/infrastructure
+    - title: Cloud Pak
+      path: /videos/cp
+    - title: Global Network
+      path: /videos/network
 
 - title: Enterprise Accounts
   pages:

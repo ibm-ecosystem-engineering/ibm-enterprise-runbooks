@@ -72,6 +72,8 @@
   pages:
     - title: Overview
       path: /install/overview
+    - title: Automation for Cloud Pak Sandbox Setup
+      path: /install/cloud-pak-sandbox
     - title: Cloud Native with OpenShift
       path: /install/cloud-native
     - title: Cloud Pak for Applications

@@ -12,16 +12,10 @@ import {ArticleCard,Row,Column} from "gatsby-theme-carbon";
 import ReactDOM from 'react-dom';
 
 import {
-    Modal,
-    Button,
-    TextInput,
+    Modal
 } from "carbon-components-react";
 
-import { settings } from 'carbon-components';
-
 import _ from 'lodash';
-
-const { prefix } = settings;
 
 const withStateManagerProps = () => ({
     className: 'video-modal',
@@ -40,11 +34,23 @@ const withStateManagerProps = () => ({
     onClick:onClick,
     onRequestClose: onRequestClose,
     onRequestSubmit: onRequestSubmit,
-    onSecondarySubmit: onSecondarySubmit,
-    videoURL: ""
+    onSecondarySubmit: onSecondarySubmit
 });
 
-function  onClick(event) { console.log("click",event) }
+function  onClick(event) {
+
+    console.log("click",event);
+
+}
+function tileClose(setOpen) {
+
+    let state = ReactDOM.unmountComponentAtNode(document.getElementById("videoContainer"));
+    console.log(state);
+
+    setOpen(false);
+
+}
+
 function  onRequestClose(event) { console.log("requestClose",event) }
 function  onRequestSubmit(event) { console.log("requestSubmit",event) }
 function  onSecondarySubmit(event) { console.log("submit",event) }
@@ -80,37 +86,60 @@ function getVideos(data,tileColor,state) {
         return [];
 
     let articles = []
-
     function tileClick(article, open) {
 
-        console.log("title clicked");
-
+        console.log("tile clicked");
         console.log(JSON.stringify(article));
-        console.log(JSON.stringify(state));
+
+        if(!_.has(article,"snippet.resourceId.videoId")) {
+            console.log("no video ID");
+            return;
+        }
+
+        let embedURL =  "https://www.youtube.com/embed/"+article.snippet.resourceId.videoId;
+
+        const vel = <>
+            <iframe
+                className="videotile"
+                src={embedURL}
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen>
+
+            </iframe>
+            </>
+
+        ReactDOM.render(vel, document.getElementById("videoContainer"))
 
         open(true);
     }
 
+
     // Outer loop to create parent
     data.forEach(function(article,index){
 
-        const subtitle = article.subtitle ? article.subtitle : "";
+        const subtitle = article.snippet.description ? article.snippet.description : "";
+        const title = (index+1)+". "+article.snippet.title
 
         //Create the parent and add the children
         articles.push(
 
-            <Column colMd={4} colLg={4} noGutterMdLeft >
-                <ArticleCard
-                    className={tileColor}
-                    title={article.title}
-                    author={article.author}
-                    subTitle = {subtitle}
-                    color={article.color}
-                    actionIcon="arrowRight"
-                    onClick={(e) => tileClick(article,state)}
-                >
-                </ArticleCard>
-            </Column>
+<Column colMd={4} colLg={4} noGutterMdLeft >
+    <ArticleCard
+        className={tileColor}
+        title={title}
+        author={article.author}
+        subTitle = {subtitle}
+        color="blue"
+        actionIcon="arrowRight"
+        onClick={(e) => tileClick(article,state)}
+
+    >
+
+        <img src={article.snippet.thumbnails.high.url} alt={article.snippet.title}></img>
+
+    </ArticleCard>
+</Column>
         );
     });
 
@@ -126,25 +155,37 @@ export default ({content,tileColor}) => {
         {
             allDataJson {
                 nodes {
-                    infra {
-                        author
-                        color
-                        href
-                        language
-                        subtitle
-                        title
-                    }
                     foundation {
-                        author
-                        color
-                        href
-                        language
-                        subtitle
-                        title
+                        snippet {
+                            publishedAt
+                            channelId
+                            title
+                            description
+                            channelTitle
+                            playlistId
+                            position
+                            resourceId {
+                                kind
+                                videoId
+                            }
+                            thumbnails {
+                                high {
+                                    url
+                                    width
+                                    height
+                                }
+                            }
+                        }
+                        contentDetails {
+                            videoId
+                            videoPublishedAt
+                        }
+
                     }
                 }
             }
         }
+
     `)
     return (
         <>
@@ -159,19 +200,17 @@ export default ({content,tileColor}) => {
                         {...rest}
                         size={size || undefined}
                         open={open}
-                        onRequestClose={() => setOpen(false)}>
+                        onRequestClose={() => tileClose(setOpen)}>
                         {
                             <>
-                                <iframe width="100%" height="315" src="https://www.youtube.com/embed/EVB3LdYQTMM"
-                                        frameBorder="0"
-                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                        allowFullScreen></iframe>
+                                <div id="videoContainer" className="modalContainer" >
+
+                                </div>
                             </>
                         }
                     </Modal>
                 )}
             </ModalStateManager>
-
 
         </>
     )

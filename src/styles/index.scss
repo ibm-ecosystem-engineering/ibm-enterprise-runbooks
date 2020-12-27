@@ -25,8 +25,17 @@ h1[id*='page-title'] {
   h1[id*='page-title'] {
     font-size: 1.5em;
   }
+
+
+
+
 }
 
+@media (min-width: 42rem) {
+  .bx--modal-container--lg .bx--modal-header, .bx--modal-container--lg .bx--modal-content, .bx--modal-container--lg .bx--modal-content__regular-content {
+    padding-right: 0;
+  }
+}
 
 h3[class*='Markdown-module--h3'] {
   margin-top: 1em;
@@ -44,8 +53,6 @@ div[class*='Code-module--sidebar'] {
 div[class*='Code-module--path']  {
   margin-left:15px;
 }
-
-
 
 h3 {
   margin-top: 1em;
@@ -111,6 +118,18 @@ div[class*='Banner-module--grid']{
   display: none;
 }
 
+div[class*='bx--modal-container']{
+  display: contents;
+}
+
+div[id*='bx--modal-body--modal']{
+  padding-right: 0;
+}
+
+iframe[class*='videotile']{
+  width:1120px;
+  height:630px;
+}
 
 section[class*='Tabs-module--panel']{
   margin-left: 0rem;
@@ -143,6 +162,12 @@ section[class*='Tabs-module--panel']{
 .bx--article-card--ibm .bx--article-card__subtitle {
   color: var(--cds-text-04, #ffffff);
 }
+
+.bx--article-card--ibm .bx--article-card__title {
+  color: #f1c21b;
+}
+
+
 
 .bx--article-card--redhat .bx--tile {
   background-color: #e00;

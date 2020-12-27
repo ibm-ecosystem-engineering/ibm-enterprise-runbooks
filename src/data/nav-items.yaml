@@ -1,19 +1,14 @@
+- title: What's New
+  pages:
+    - title: What's New
+      path: /whats-new
+
 - title: Introduction
   pages:
     - title: Overview
       path: /overview/overview
     - title: What are Enterprise Accounts
       path: /overview/what-are-enterprise-accounts
-
-- title: What's New
-  pages:
-    - title: What's New
-      path: /whats-new/
-
-- title: The Team
-  pages:
-    - title: The Team
-      path: /team/
 
 - title: Videos
   pages:
@@ -138,6 +133,13 @@
     - title: Cloud-Native Advanced
       path: /learning-journeys/cloud-native-advanced
 
+- title: The Team
+  pages:
+    - title: The Team
+      path: /team
+
 - title: How to contribute
   pages:
     - path: /contributing
+
+

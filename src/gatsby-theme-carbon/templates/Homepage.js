@@ -10,7 +10,7 @@ const FirstLeftText = () => <p>Enterprise Run Books</p>;
 
 const FirstRightText = () => (
   <p>
-    IBM Cloud Enterprise Run Books are a collection of best practices created by IBM teams to help Clients and Partners get the most from their Enterprise subscription accounts
+    IBM Cloud Enterprise Run Books are a collection of best practices created by IBM teams to help Clients and Partners get the most from their IBM Cloud Enterprise subscription accounts
   </p>
 );
 

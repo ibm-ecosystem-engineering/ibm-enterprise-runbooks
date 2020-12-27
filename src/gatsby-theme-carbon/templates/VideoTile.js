@@ -176,10 +176,7 @@ export default ({content,tileColor}) => {
                                 }
                             }
                         }
-                        contentDetails {
-                            videoId
-                            videoPublishedAt
-                        }
+                        
 
                     }
                 }

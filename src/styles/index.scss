@@ -17,6 +17,19 @@ div[class*='page-header'] {
   --height: 9rem;
 }
 
+#calltoaction .bx--tile {
+  min-height:7em;
+  z-index: 1;
+}
+.homepage--header .bx--row {
+  margin-left : -9em;
+}
+
+.homepage--header h1 {
+  position: absolute;
+  top: 50px;
+}
+
 h1[id*='page-title'] {
   font-size: 2em;
 }

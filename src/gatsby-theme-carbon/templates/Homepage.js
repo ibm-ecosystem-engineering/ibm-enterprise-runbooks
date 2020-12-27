@@ -41,25 +41,32 @@ const customProps = {
   Banner: (
     <>
       <HomepageBanner renderText={BannerText}/>
-      <span className="homepage--dots" />
 
-      <section className="homepage--header">
+        <span className="homepage--dots" />
+
+        <section className="homepage--header">
+
         <div className="bx--grid">
-          <div className="bx--row">
-            <div className="hidden bx--col-lg-4 bx--col-md-4 bx--col-sm-2 bx--offset-lg-8 bx--offset-md-4 bx--offset-sm-2 homepage--tile-header">
-              <ResourceCard
-                className={styles.callToAction}
-                subTitle="Watch"
-                title="Cloud Videos"
-                href="/videos/overview"
-                color="dark"
-                actionIcon="arrowRight"
-              />
-            </div>
-            <HomepageVideo />
+          <h1>Enterprise Run Books</h1>
+
+          <div className="bx--row bx--row-video">
+              <div id="calltoaction">
+                  <ResourceCard
+                      className={styles.callToAction}
+                      subTitle="Watch"
+                      title="Cloud Videos"
+                      href="videos/foundation"
+                      color="dark"
+                      actionIcon="arrowRight"
+                  />
+              </div>
+              <HomepageVideo />
           </div>
+
         </div>
       </section>
+
+
     </>
   ),
   FirstCallout: (

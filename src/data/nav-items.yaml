@@ -1,3 +1,8 @@
+- title: What's New
+  pages:
+    - title: What's New
+      path: /whats-new
+
 - title: Introduction
   pages:
     - title: Overview
@@ -5,21 +10,12 @@
     - title: What are Enterprise Accounts
       path: /overview/what-are-enterprise-accounts
 
-- title: What's New
-  pages:
-    - title: What's New 
-      path: /whats-new/
-
-- title: The Team
-  pages:
-    - title: The Team 
-      path: /team/
-
 - title: Videos
   pages:
-    - title: IBM Cloud Foundation 
+    - title: Overview
       path: /videos/overview
-
+    - title: Foundation
+      path: /videos/foundation
 
 - title: Enterprise Accounts
   pages:
@@ -68,7 +64,7 @@
     - title: Cloud-Native Toolkit Tile
       path: /catalog/cloud-native-toolkit-tile
 
-- title: Hybrid Software Install 
+- title: Hybrid Software Install
   pages:
     - title: Overview
       path: /install/overview
@@ -95,7 +91,7 @@
     - title: Mainframe Modernization
       path: /install/mainframe
 
-- title: IBM Cloud Install 
+- title: IBM Cloud Install
   pages:
     - title: IBM Cloud Satellite
       path: /ibmcloud/satellite
@@ -104,7 +100,7 @@
     - title: KMS integration with ROKS
       path: /ibmcloud/kms-roks
 
-- title: Cloud Pak Install - Non IBM Cloud 
+- title: Cloud Pak Install - Non IBM Cloud
   pages:
     - title: CP4 Integration - AWS
       path: /install/integration-aws
@@ -117,13 +113,13 @@
       path: /redhat/rhm
     - title: Advanced Cluster Management
       path: /redhat/rhacm
-    - title: Cloud Pak for Integration  
+    - title: Cloud Pak for Integration
       path: /redhat/cp4i
-    - title: Virtualization 
+    - title: Virtualization
       path: /redhat/virtualization
     - title: Backup-Restore
       path: /redhat/backup-restore
-    - title: High Availability 
+    - title: High Availability
       path: /redhat/high-availability
 
 - title: Learning Journeys
@@ -137,6 +133,13 @@
     - title: Cloud-Native Advanced
       path: /learning-journeys/cloud-native-advanced
 
+- title: The Team
+  pages:
+    - title: The Team
+      path: /team
+
 - title: How to contribute
   pages:
     - path: /contributing
+
+

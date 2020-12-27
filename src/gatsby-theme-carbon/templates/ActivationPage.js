@@ -68,13 +68,7 @@ export default ({content}) => {
             href
             color
           }
-          argocd {
-            color
-            href
-            language
-            subtitle
-            title
-          }
+          
         }
       }
     }

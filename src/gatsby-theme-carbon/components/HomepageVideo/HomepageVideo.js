@@ -4,7 +4,7 @@ import ToggleIcon from './ToggleIcon';
 
 import mp4 from './runbooks.mp4';
 
-import poster from './poster.jpg';
+import poster from './poster.png';
 
 const HomepageVideo = () => {
   const videoRef = useRef();

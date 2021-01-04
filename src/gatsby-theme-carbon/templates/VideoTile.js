@@ -155,29 +155,33 @@ export default ({content,tileColor}) => {
         {
             allDataJson {
                 nodes {
-                    foundation {
+                    intros {
                         snippet {
-                            publishedAt
-                            channelId
                             title
                             description
-                            channelTitle
-                            playlistId
-                            position
                             resourceId {
-                                kind
                                 videoId
                             }
                             thumbnails {
                                 high {
                                     url
-                                    width
-                                    height
                                 }
                             }
                         }
-                        
-
+                    }
+                    foundation {
+                        snippet {
+                            title
+                            description
+                            resourceId {
+                                videoId
+                            }
+                            thumbnails {
+                                high {
+                                    url
+                                }
+                            }
+                        }
                     }
                 }
             }

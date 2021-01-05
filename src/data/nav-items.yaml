@@ -16,6 +16,20 @@
       path: /videos/overview
     - title: Foundation
       path: /videos/foundation
+    - title: Account
+      path: /videos/account
+    - title: IAM 
+      path: /videos/iam
+    - title: Virtual Machine 
+      path: /videos/vm
+    - title: Storage 
+      path: /videos/storage
+    - title: Load Balancer
+      path: /videos/loadbalancer
+    - title: VPC & VSI
+      path: /videos/vpc
+    - title: IKS 
+      path: /videos/iks
 
 - title: Enterprise Accounts
   pages:

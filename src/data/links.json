@@ -66,7 +66,126 @@
     {"title":"Typescript Microservice", "subtitle":"Node.js TypeScript Microservice offering OpenAPI endpoints","language":"TypeScript","href":"https://github.com/ibm-garage-cloud/template-node-typescript","color":"light"},
     {"title":"Spring Boot Microservice", "subtitle":"Spring Boot Java Microservices","language":"Java","href":"https://github.com/ibm-garage-cloud/template-java-spring","color":"light"}
   ],
-  "foundation": [
+  "intros" : [
+
+      {
+        "kind": "youtube#playlistItem",
+        "etag": "We2yHhvnkSemUSJAUGPSPzo_kIo",
+        "id": "UExtZXNPZ1l0M25LQ2ZzWHF4LUE1azFiUDd0MTQ2VTRyei4wNEU1MTI4NkZEMzVBN0JF",
+        "snippet": {
+          "publishedAt": "2020-06-15T11:35:05Z",
+          "channelId": "UCwXEjUyETY0ft0RPlQYOKMA",
+          "title": "IBM Cloud Foundation Skills Series - Introduction (2020)",
+          "description": "Hi and welcome to the IBM Cloud Foundation Skills Series! \n\nThis is a renewed introduction to the IBM Cloud Foundation Skills Series, recorded in 2020.",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/nX2-aS7As30/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/nX2-aS7As30/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/nX2-aS7As30/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            },
+            "standard": {
+              "url": "https://i.ytimg.com/vi/nX2-aS7As30/sddefault.jpg",
+              "width": 640,
+              "height": 480
+            },
+            "maxres": {
+              "url": "https://i.ytimg.com/vi/nX2-aS7As30/maxresdefault.jpg",
+              "width": 1280,
+              "height": 720
+            }
+          },
+          "channelTitle": "James Belton",
+          "playlistId": "PLmesOgYt3nKCfsXqx-A5k1bP7t146U4rz",
+          "position": 0,
+          "resourceId": {
+            "kind": "youtube#video",
+            "videoId": "nX2-aS7As30"
+          }
+        }
+      },
+      {
+        "kind": "youtube#playlistItem",
+        "etag": "yoVAjhnocQRXyqOQnuU4YHnpBWo",
+        "id": "UExtZXNPZ1l0M25LQ2ZzWHF4LUE1azFiUDd0MTQ2VTRyei4wMTYxQzVBRDI1NEVDQUZE",
+        "snippet": {
+          "publishedAt": "2020-06-29T10:49:34Z",
+          "channelId": "UCwXEjUyETY0ft0RPlQYOKMA",
+          "title": "IBM Cloud Foundation Skills Series - HLO Pt1",
+          "description": "Updated in June 2020, this video provides a high level overview of the Compute, Containers and Networking services available in the IBM Cloud catalog.",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/MTZ31jkT_I4/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/MTZ31jkT_I4/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/MTZ31jkT_I4/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            }
+          },
+          "channelTitle": "James Belton",
+          "playlistId": "PLmesOgYt3nKCfsXqx-A5k1bP7t146U4rz",
+          "position": 1,
+          "resourceId": {
+            "kind": "youtube#video",
+            "videoId": "MTZ31jkT_I4"
+          }
+        }
+      },
+      {
+        "kind": "youtube#playlistItem",
+        "etag": "0vFdVKmIJarxXiJyEYV7fwzB0ZM",
+        "id": "UExtZXNPZ1l0M25LQ2ZzWHF4LUE1azFiUDd0MTQ2VTRyei4zMUEyMkQwOTk0NTg4MDgw",
+        "snippet": {
+          "publishedAt": "2020-06-29T10:52:02Z",
+          "channelId": "UCwXEjUyETY0ft0RPlQYOKMA",
+          "title": "IBM Cloud Foundation Skills Series - HLO Pt2",
+          "description": "Updated in June 2020, this video provides a high level overview of the Storage, AI, Analytics and Blockchain services available in the IBM Cloud catalog.",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/LTGLeGHctfw/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/LTGLeGHctfw/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/LTGLeGHctfw/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            }
+          },
+          "channelTitle": "James Belton",
+          "playlistId": "PLmesOgYt3nKCfsXqx-A5k1bP7t146U4rz",
+          "position": 2,
+          "resourceId": {
+            "kind": "youtube#video",
+            "videoId": "LTGLeGHctfw"
+          }
+        }
+      }
+    ],
+
+   "foundation": [
 
        {
           "kind": "youtube#playlistItem",

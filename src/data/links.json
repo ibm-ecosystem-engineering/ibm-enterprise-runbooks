@@ -364,7 +364,6 @@
      }
     ],
   "intros" : [
-
       {
         "kind": "youtube#playlistItem",
         "etag": "We2yHhvnkSemUSJAUGPSPzo_kIo",
@@ -479,11 +478,189 @@
             "videoId": "LTGLeGHctfw"
           }
         }
-      }
+      },
+      {
+        "kind": "youtube#playlistItem",
+        "etag": "F_CPmeoLvhZsPPz0yOuhl9w2iSg",
+        "id": "UExtZXNPZ1l0M25LQ2ZzWHF4LUE1azFiUDd0MTQ2VTRyei42QzdBMzlBQzQzRjQ0QkQy",
+        "snippet": {
+          "publishedAt": "2020-06-29T10:55:02Z",
+          "channelId": "UCwXEjUyETY0ft0RPlQYOKMA",
+          "title": "IBM Cloud Foundation Skills Series - HLO Pt3",
+          "description": "Updated in June 2020, this video provides a high level overview of the Database, Developer Tools, Logging and Integration services available in the IBM Cloud catalog.",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/pVszqgZQIH0/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/pVszqgZQIH0/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/pVszqgZQIH0/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            },
+            "standard": {
+              "url": "https://i.ytimg.com/vi/pVszqgZQIH0/sddefault.jpg",
+              "width": 640,
+              "height": 480
+            },
+            "maxres": {
+              "url": "https://i.ytimg.com/vi/pVszqgZQIH0/maxresdefault.jpg",
+              "width": 1280,
+              "height": 720
+            }
+          },
+          "channelTitle": "James Belton",
+          "playlistId": "PLmesOgYt3nKCfsXqx-A5k1bP7t146U4rz",
+          "position": 3,
+          "resourceId": {
+            "kind": "youtube#video",
+            "videoId": "pVszqgZQIH0"
+          }
+        }
+      },
+      {
+        "kind": "youtube#playlistItem",
+        "etag": "e0ONye3mQLDH0-CVOlz71vXXdmo",
+        "id": "UExtZXNPZ1l0M25LQ2ZzWHF4LUE1azFiUDd0MTQ2VTRyei41OURENDc2NEM1MDI5Mjky",
+        "snippet": {
+          "publishedAt": "2020-06-29T10:59:24Z",
+          "channelId": "UCwXEjUyETY0ft0RPlQYOKMA",
+          "title": "IBM Cloud Foundation Skills Series - HLO Pt4",
+          "description": "Updated in June 2020, this video provides a high level overview of the Internet of Things, Security and Mobile services available in the IBM Cloud catalog.",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/5oorUK1iuWc/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/5oorUK1iuWc/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/5oorUK1iuWc/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            },
+            "standard": {
+              "url": "https://i.ytimg.com/vi/5oorUK1iuWc/sddefault.jpg",
+              "width": 640,
+              "height": 480
+            },
+            "maxres": {
+              "url": "https://i.ytimg.com/vi/5oorUK1iuWc/maxresdefault.jpg",
+              "width": 1280,
+              "height": 720
+            }
+          },
+          "channelTitle": "James Belton",
+          "playlistId": "PLmesOgYt3nKCfsXqx-A5k1bP7t146U4rz",
+          "position": 4,
+          "resourceId": {
+            "kind": "youtube#video",
+            "videoId": "5oorUK1iuWc"
+          }
+        }
+      },
+      {
+        "kind": "youtube#playlistItem",
+        "etag": "v5Xe8wqzV9_oHmpO3QBFeqcY1eU",
+        "id": "UExtZXNPZ1l0M25LQ2ZzWHF4LUE1azFiUDd0MTQ2VTRyei4wRjhFM0MxMTU1MEUzQ0VB",
+        "snippet": {
+          "publishedAt": "2020-06-29T11:02:43Z",
+          "channelId": "UCwXEjUyETY0ft0RPlQYOKMA",
+          "title": "IBM Cloud Foundation Skills Series - HLO Pt5",
+          "description": "Updated in June 2020, this video provides a high level overview of the Software services available in the IBM Cloud catalog.",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/RD3JtUl9OZA/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/RD3JtUl9OZA/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/RD3JtUl9OZA/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            },
+            "standard": {
+              "url": "https://i.ytimg.com/vi/RD3JtUl9OZA/sddefault.jpg",
+              "width": 640,
+              "height": 480
+            },
+            "maxres": {
+              "url": "https://i.ytimg.com/vi/RD3JtUl9OZA/maxresdefault.jpg",
+              "width": 1280,
+              "height": 720
+            }
+          },
+          "channelTitle": "James Belton",
+          "playlistId": "PLmesOgYt3nKCfsXqx-A5k1bP7t146U4rz",
+          "position": 5,
+          "resourceId": {
+            "kind": "youtube#video",
+            "videoId": "RD3JtUl9OZA"
+          }
+        }
+      },
+      {
+        "kind": "youtube#playlistItem",
+        "etag": "THvbVdjh5jjyZEKmBwUGwDXoim8",
+        "id": "UExtZXNPZ1l0M25LQ2ZzWHF4LUE1azFiUDd0MTQ2VTRyei5CNTZFOTNGQzZEODg1RUQx",
+        "snippet": {
+          "publishedAt": "2020-06-29T11:06:08Z",
+          "channelId": "UCwXEjUyETY0ft0RPlQYOKMA",
+          "title": "IBM Cloud Foundation Skills Series -  HLO Wrap-Up",
+          "description": "Updated in June 2020, this video provides a wrap-up for the preceding five videos detailing the services available in the IBM Cloud catalog.",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/yaFhGns-hhI/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/yaFhGns-hhI/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/yaFhGns-hhI/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            },
+            "standard": {
+              "url": "https://i.ytimg.com/vi/yaFhGns-hhI/sddefault.jpg",
+              "width": 640,
+              "height": 480
+            },
+            "maxres": {
+              "url": "https://i.ytimg.com/vi/yaFhGns-hhI/maxresdefault.jpg",
+              "width": 1280,
+              "height": 720
+            }
+          },
+          "channelTitle": "James Belton",
+          "playlistId": "PLmesOgYt3nKCfsXqx-A5k1bP7t146U4rz",
+          "position": 6,
+          "resourceId": {
+            "kind": "youtube#video",
+            "videoId": "yaFhGns-hhI"
+          }
+        }
+      } 
     ],
-
    "master": [
-
        {
           "kind": "youtube#playlistItem",
           "etag": "We2yHhvnkSemUSJAUGPSPzo_kIo",

@@ -169,6 +169,34 @@ export default ({content,tileColor}) => {
                             }
                         }
                     }
+                    account {
+                        snippet {
+                            title
+                            description
+                            resourceId {
+                                videoId
+                            }
+                            thumbnails {
+                                high {
+                                    url
+                                }
+                            }
+                        }
+                    }
+                    iam {
+                        snippet {
+                            title
+                            description
+                            resourceId {
+                                videoId
+                            }
+                            thumbnails {
+                                high {
+                                    url
+                                }
+                            }
+                        }
+                    }
                     foundation {
                         snippet {
                             title

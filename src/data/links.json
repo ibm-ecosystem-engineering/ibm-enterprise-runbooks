@@ -1424,6 +1424,527 @@
     }
   ],
   "vpc" :[
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "_7NhblESbVYTTrJDUdyZFngmiV8",
+      "id": "UExtZXNPZ1l0M25LQ2ZzWHF4LUE1azFiUDd0MTQ2VTRyei5GNDg1Njc1QzZERjlFRjE5",
+      "snippet": {
+        "publishedAt": "2019-06-25T09:38:34Z",
+        "channelId": "UCwXEjUyETY0ft0RPlQYOKMA",
+        "title": "IBM Cloud Foundation Skills Series - Introduction to Virtual Private Cloud",
+        "description": "In this video, I introduce Virtual Private Cloud, describing what VPC is and it's component parts.",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/1ilaNiTUBpg/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/1ilaNiTUBpg/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/1ilaNiTUBpg/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/1ilaNiTUBpg/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/1ilaNiTUBpg/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "James Belton",
+        "playlistId": "PLmesOgYt3nKCfsXqx-A5k1bP7t146U4rz",
+        "position": 43,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "1ilaNiTUBpg"
+        }
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "q3VgMCqoQ_y8CFPOEJV-GLAz6ew",
+      "id": "UExtZXNPZ1l0M25LQ2ZzWHF4LUE1azFiUDd0MTQ2VTRyei4zQzFBN0RGNzNFREFCMjBE",
+      "snippet": {
+        "publishedAt": "2019-06-25T11:34:27Z",
+        "channelId": "UCwXEjUyETY0ft0RPlQYOKMA",
+        "title": "IBM Cloud Foundation Skills Series - Create a VPC",
+        "description": "In this video, I'll show you how to create a VPC with its first subnet, ACL and Security Group. \n\nIf you're interested in some reading, you can also take a look at https://github.com/jamesbeltonIBM/VPC-Infrastructre-on-IBMCloud",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/Lid3ZowIVzM/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/Lid3ZowIVzM/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/Lid3ZowIVzM/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "James Belton",
+        "playlistId": "PLmesOgYt3nKCfsXqx-A5k1bP7t146U4rz",
+        "position": 44,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "Lid3ZowIVzM"
+        }
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "p8-_TXvpCKn4U-N-y3qVu34AJIA",
+      "id": "UExtZXNPZ1l0M25LQ2ZzWHF4LUE1azFiUDd0MTQ2VTRyei45NkVENTkxRDdCQUFBMDY4",
+      "snippet": {
+        "publishedAt": "2019-06-25T13:37:29Z",
+        "channelId": "UCwXEjUyETY0ft0RPlQYOKMA",
+        "title": "IBM Cloud Foundation Skills Series - Create an SSH Key",
+        "description": "In this lab, I show how to create SSH Keys for use with virtual server instances in VPC in IBM Cloud.",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/ssDzzVsVCjQ/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/ssDzzVsVCjQ/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/ssDzzVsVCjQ/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/ssDzzVsVCjQ/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/ssDzzVsVCjQ/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "James Belton",
+        "playlistId": "PLmesOgYt3nKCfsXqx-A5k1bP7t146U4rz",
+        "position": 45,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "ssDzzVsVCjQ"
+        }
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "5PCNalDv66ubUBeX4T1FIaXzfKE",
+      "id": "UExtZXNPZ1l0M25LQ2ZzWHF4LUE1azFiUDd0MTQ2VTRyei5DNkMwRUI2MkI4QkI4NDFG",
+      "snippet": {
+        "publishedAt": "2019-06-26T08:52:15Z",
+        "channelId": "UCwXEjUyETY0ft0RPlQYOKMA",
+        "title": "IBM Cloud Foundation Skills Series - Create a Second VPC Subnet",
+        "description": "Continuing to build out a simple VPC, this short lab shows you how to create a second subnet, in a different Zone.",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/PbhDtgQLMm4/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/PbhDtgQLMm4/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/PbhDtgQLMm4/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "James Belton",
+        "playlistId": "PLmesOgYt3nKCfsXqx-A5k1bP7t146U4rz",
+        "position": 46,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "PbhDtgQLMm4"
+        }
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "iSKOMzTOf_jFNdY7mlhJmwbZvus",
+      "id": "UExtZXNPZ1l0M25LQ2ZzWHF4LUE1azFiUDd0MTQ2VTRyei5DRUQwODMxQzUyRTlGRkY3",
+      "snippet": {
+        "publishedAt": "2019-07-08T10:18:53Z",
+        "channelId": "UCwXEjUyETY0ft0RPlQYOKMA",
+        "title": "IBM Cloud Foundation Skills Series - ACLs and Security Groups Overview",
+        "description": "In this lecture video, I introduce Access Control Lists and Security Groups, which are both methods to control network traffic in your VPC and act like virtual firewalls.",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/080NsvzQx4s/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/080NsvzQx4s/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/080NsvzQx4s/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "James Belton",
+        "playlistId": "PLmesOgYt3nKCfsXqx-A5k1bP7t146U4rz",
+        "position": 47,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "080NsvzQx4s"
+        }
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "DExF_it4MSzXtCxYevlJ7A23ALQ",
+      "id": "UExtZXNPZ1l0M25LQ2ZzWHF4LUE1azFiUDd0MTQ2VTRyei4yQUJFNUVCMzVDNjcxRTlF",
+      "snippet": {
+        "publishedAt": "2019-09-20T10:04:19Z",
+        "channelId": "UCwXEjUyETY0ft0RPlQYOKMA",
+        "title": "IBM Cloud Foundation Skill Series - Creating ACLs and Security Groups Lab",
+        "description": "In this video, I show you how to create new ACLs and Security Groups for your VPC and add rules to each.",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/V_RDoryW36A/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/V_RDoryW36A/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/V_RDoryW36A/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "James Belton",
+        "playlistId": "PLmesOgYt3nKCfsXqx-A5k1bP7t146U4rz",
+        "position": 48,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "V_RDoryW36A"
+        }
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "NLyeMRAOGdIbOzNsVAa8pVdZjnk",
+      "id": "UExtZXNPZ1l0M25LQ2ZzWHF4LUE1azFiUDd0MTQ2VTRyei40QzRDOEU0QUYwNUIxN0M1",
+      "snippet": {
+        "publishedAt": "2019-12-19T13:28:34Z",
+        "channelId": "UCwXEjUyETY0ft0RPlQYOKMA",
+        "title": "IBM Cloud Foundation Skills Series - Creating VSIs in VPC",
+        "description": "Now you have your VPC, this video covers creating virtual server instances.\nHere we'll create two servers, update them both with yum, install the httpd server on them and put a basic website on both. With the second server, I'll show you how to automate the yum update and httpd install at server build.",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/3zvhxzizgKg/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/3zvhxzizgKg/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/3zvhxzizgKg/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/3zvhxzizgKg/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/3zvhxzizgKg/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "James Belton",
+        "playlistId": "PLmesOgYt3nKCfsXqx-A5k1bP7t146U4rz",
+        "position": 49,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "3zvhxzizgKg"
+        }
+      }
+    },
+
+{
+  "kind": "youtube#playlistItem",
+  "etag": "ogC_xdVAX0_l-qUh5taZXcknTeU",
+  "id": "UExtZXNPZ1l0M25LQ2ZzWHF4LUE1azFiUDd0MTQ2VTRyei41RTNBREYwMkI5QzU3RkY2",
+  "snippet": {
+    "publishedAt": "2019-12-19T17:34:08Z",
+    "channelId": "UCwXEjUyETY0ft0RPlQYOKMA",
+    "title": "IBM Cloud Foundation Skill Series - VPC Load Balancer as a Service",
+    "description": "In this video, I show you how to create and configure a Load Balancer, with health checks, under VPC in IBM Cloud, so that you can make a web site or other service highly available across different zones within a VPC.",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/3rQz8c9htco/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/3rQz8c9htco/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/3rQz8c9htco/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      }
+    },
+    "channelTitle": "James Belton",
+    "playlistId": "PLmesOgYt3nKCfsXqx-A5k1bP7t146U4rz",
+    "position": 50,
+    "resourceId": {
+      "kind": "youtube#video",
+      "videoId": "3rQz8c9htco"
+    }
+  }
+},
+{
+  "kind": "youtube#playlistItem",
+  "etag": "2x5YnkJyUGF3HMrb72Lw6dzIUbw",
+  "id": "UExtZXNPZ1l0M25LQ2ZzWHF4LUE1azFiUDd0MTQ2VTRyei44QzVGQUU2QjE2NDgxM0M4",
+  "snippet": {
+    "publishedAt": "2020-01-10T14:44:04Z",
+    "channelId": "UCwXEjUyETY0ft0RPlQYOKMA",
+    "title": "IBM Cloud Foundation Skills Series - VPC Gen2 Overview",
+    "description": "In this short video, I introduce VPC Gen2 and talk a little on where it differs to Gen1.",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/Sav9GVseyMc/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/Sav9GVseyMc/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/Sav9GVseyMc/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      }
+    },
+    "channelTitle": "James Belton",
+    "playlistId": "PLmesOgYt3nKCfsXqx-A5k1bP7t146U4rz",
+    "position": 51,
+    "resourceId": {
+      "kind": "youtube#video",
+      "videoId": "Sav9GVseyMc"
+    }
+  }
+},
+{
+  "kind": "youtube#playlistItem",
+  "etag": "gBOGvuxr4WOfKOb2wmUgnmBj16A",
+  "id": "UExtZXNPZ1l0M25LQ2ZzWHF4LUE1azFiUDd0MTQ2VTRyei5ENjI1QUI0MDI5NEQzODFE",
+  "snippet": {
+    "publishedAt": "2020-01-10T12:01:21Z",
+    "channelId": "UCwXEjUyETY0ft0RPlQYOKMA",
+    "title": "IBM Cloud Foundation Skill Series - Building a Gen2 VPC",
+    "description": "In this video, I go through the steps to build out a Gen2 VPC which can support a highly available, load balanced website. utilising two zones in the Dallas Multi Zone Region.",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/E9wWmn4-hZY/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/E9wWmn4-hZY/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/E9wWmn4-hZY/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      }
+    },
+    "channelTitle": "James Belton",
+    "playlistId": "PLmesOgYt3nKCfsXqx-A5k1bP7t146U4rz",
+    "position": 52,
+    "resourceId": {
+      "kind": "youtube#video",
+      "videoId": "E9wWmn4-hZY"
+    }
+  }
+},
+{
+  "kind": "youtube#playlistItem",
+  "etag": "RFMrROVHUxquQWW8lsrnZ6m7JeA",
+  "id": "UExtZXNPZ1l0M25LQ2ZzWHF4LUE1azFiUDd0MTQ2VTRyei40MDNEMzA0QTBFRThFMzBE",
+  "snippet": {
+    "publishedAt": "2020-09-18T10:05:17Z",
+    "channelId": "UCwXEjUyETY0ft0RPlQYOKMA",
+    "title": "IBM Cloud Foundation Skill Series - Create a VPC VSI from a Template",
+    "description": "In this video, I show you the steps needed to create a virtual server instance using a template within IBM Virtual Private Cloud (gen2).",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/3CXz_pBYU0s/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/3CXz_pBYU0s/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/3CXz_pBYU0s/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      }
+    },
+    "channelTitle": "James Belton",
+    "playlistId": "PLmesOgYt3nKCfsXqx-A5k1bP7t146U4rz",
+    "position": 53,
+    "resourceId": {
+      "kind": "youtube#video",
+      "videoId": "3CXz_pBYU0s"
+    }
+  }
+},
+{
+  "kind": "youtube#playlistItem",
+  "etag": "LkMvcwnXuGqzhUHwPtAw_1Xfhf4",
+  "id": "UExtZXNPZ1l0M25LQ2ZzWHF4LUE1azFiUDd0MTQ2VTRyei43QzNCNkZENzIyMDY2MjZB",
+  "snippet": {
+    "publishedAt": "2020-11-11T12:48:17Z",
+    "channelId": "UCwXEjUyETY0ft0RPlQYOKMA",
+    "title": "IBM Cloud Foundation Skills Series - VPC Autoscaler Introduction",
+    "description": "In this video, I introduce the Virtual Private Cloud Autoscaler - what it's for and what you need to know to start automatically scaling your VPC VSIs.",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/UbJhFjLXQpo/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/UbJhFjLXQpo/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/UbJhFjLXQpo/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      }
+    },
+    "channelTitle": "James Belton",
+    "playlistId": "PLmesOgYt3nKCfsXqx-A5k1bP7t146U4rz",
+    "position": 54,
+    "resourceId": {
+      "kind": "youtube#video",
+      "videoId": "UbJhFjLXQpo"
+    }
+  }
+},
+{
+  "kind": "youtube#playlistItem",
+  "etag": "yE7HnYurO4W3Tp_xzVfo31isLlA",
+  "id": "UExtZXNPZ1l0M25LQ2ZzWHF4LUE1azFiUDd0MTQ2VTRyei5EQkE3RTJCQTJEQkFBQTcz",
+  "snippet": {
+    "publishedAt": "2020-11-13T19:21:42Z",
+    "channelId": "UCwXEjUyETY0ft0RPlQYOKMA",
+    "title": "IBM Cloud Foundation Skills Series - VPC Autoscaling Lab",
+    "description": "In this video, I jump into the the IBM Cloud Console and show you how to create and configure the components needed for successful autoscaling in Virtual Private Cloud - the load balancer, instance template and instance group.",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/0feslXcDzSE/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/0feslXcDzSE/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/0feslXcDzSE/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      }
+    },
+    "channelTitle": "James Belton",
+    "playlistId": "PLmesOgYt3nKCfsXqx-A5k1bP7t146U4rz",
+    "position": 55,
+    "resourceId": {
+      "kind": "youtube#video",
+      "videoId": "0feslXcDzSE"
+    }
+  }
+},
+{
+  "kind": "youtube#playlistItem",
+  "etag": "4iDfs4ayBgLeKufTvB1b_yxxUpM",
+  "id": "UExtZXNPZ1l0M25LQ2ZzWHF4LUE1azFiUDd0MTQ2VTRyei42MjYzMTMyQjA0QURCN0JF",
+  "snippet": {
+    "publishedAt": "2020-09-02T12:04:59Z",
+    "channelId": "UCwXEjUyETY0ft0RPlQYOKMA",
+    "title": "IBM Cloud Foundation Skills Series - Creating API Keys",
+    "description": "In this video, I give a quick overview of the two main types of API Key in IBM Cloud before going on to show you how to create and manage them in both the Console and using the ibmcloud  CLI tool.",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/t9BvnXpYVos/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/t9BvnXpYVos/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/t9BvnXpYVos/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      }
+    },
+    "channelTitle": "James Belton",
+    "playlistId": "PLmesOgYt3nKCfsXqx-A5k1bP7t146U4rz",
+    "position": 56,
+    "resourceId": {
+      "kind": "youtube#video",
+      "videoId": "t9BvnXpYVos"
+    }
+  }
+}
 
   ],
   "iks" :[

@@ -267,6 +267,20 @@ export default ({content,tileColor}) => {
                             }
                         }
                     }
+                    vpc {
+                        snippet {
+                            title
+                            description
+                            resourceId {
+                                videoId
+                            }
+                            thumbnails {
+                                high {
+                                    url
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }

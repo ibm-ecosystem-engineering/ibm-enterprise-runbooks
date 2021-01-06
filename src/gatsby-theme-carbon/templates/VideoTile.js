@@ -183,6 +183,20 @@ export default ({content,tileColor}) => {
                             }
                         }
                     }
+                    iks {
+                        snippet {
+                            title
+                            description
+                            resourceId {
+                                videoId
+                            }
+                            thumbnails {
+                                high {
+                                    url
+                                }
+                            }
+                        }
+                    }
                     iam {
                         snippet {
                             title
@@ -198,6 +212,48 @@ export default ({content,tileColor}) => {
                         }
                     }
                     foundation {
+                        snippet {
+                            title
+                            description
+                            resourceId {
+                                videoId
+                            }
+                            thumbnails {
+                                high {
+                                    url
+                                }
+                            }
+                        }
+                    }
+                    vm {
+                        snippet {
+                            title
+                            description
+                            resourceId {
+                                videoId
+                            }
+                            thumbnails {
+                                high {
+                                    url
+                                }
+                            }
+                        }
+                    }
+                    storage {
+                        snippet {
+                            title
+                            description
+                            resourceId {
+                                videoId
+                            }
+                            thumbnails {
+                                high {
+                                    url
+                                }
+                            }
+                        }
+                    }
+                    loadbalancer {
                         snippet {
                             title
                             description

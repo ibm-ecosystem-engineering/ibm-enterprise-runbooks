@@ -351,19 +351,1312 @@
     }
   ],
   "vm" : [
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "Yp-laUjrcPm3B6JFLBGutGQk494",
+      "id": "UExtZXNPZ1l0M25LQ2ZzWHF4LUE1azFiUDd0MTQ2VTRyei4xMzgwMzBERjQ4NjEzNUE5",
+      "snippet": {
+        "publishedAt": "2020-04-28T08:59:57Z",
+        "channelId": "UCwXEjUyETY0ft0RPlQYOKMA",
+        "title": "IBM Cloud Foundation Skills Series - Introduction to VMware on IBM Cloud",
+        "description": "In this video, I introduce at a high level the VMware services which are available on IBM Cloud, as well as talk a little about use cases.",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/yC9Ex6wcgUI/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/yC9Ex6wcgUI/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/yC9Ex6wcgUI/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "James Belton",
+        "playlistId": "PLmesOgYt3nKCfsXqx-A5k1bP7t146U4rz",
+        "position": 57,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "yC9Ex6wcgUI"
+        }
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "9Be5cKGFF-tca0IfV8z_yVEQk0E",
+      "id": "UExtZXNPZ1l0M25LQ2ZzWHF4LUE1azFiUDd0MTQ2VTRyei4zMEQ1MEIyRTFGNzhDQzFB",
+      "snippet": {
+        "publishedAt": "2020-04-28T12:13:23Z",
+        "channelId": "UCwXEjUyETY0ft0RPlQYOKMA",
+        "title": "IBM Cloud Foundation Skills Series - VMware Dedicated Offerings",
+        "description": "In this video we explore the VMware Dedicated offerings in IBM Cloud as well as how to provision them, along with an explanation of the different options.",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/hSsJUKyd1DM/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/hSsJUKyd1DM/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/hSsJUKyd1DM/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "James Belton",
+        "playlistId": "PLmesOgYt3nKCfsXqx-A5k1bP7t146U4rz",
+        "position": 58,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "hSsJUKyd1DM"
+        }
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "2lT2szAIcrPObnLdWDocaMptGp8",
+      "id": "UExtZXNPZ1l0M25LQ2ZzWHF4LUE1azFiUDd0MTQ2VTRyei42Qzk5MkEzQjVFQjYwRDA4",
+      "snippet": {
+        "publishedAt": "2020-04-28T14:16:04Z",
+        "channelId": "UCwXEjUyETY0ft0RPlQYOKMA",
+        "title": "VMWare vCentre Onboarding on the IBM Cloud",
+        "description": "This is a getting started video for those who have just created a VMWare vCentre service on the IBM Cloud and need some help connecting and with some VMWare basics, such as creating a VM, working with templates, working with snapshots and more.",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/BbtQ1UWhxT4/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/BbtQ1UWhxT4/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/BbtQ1UWhxT4/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "James Belton",
+        "playlistId": "PLmesOgYt3nKCfsXqx-A5k1bP7t146U4rz",
+        "position": 59,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "BbtQ1UWhxT4"
+        }
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "AHFnMfMpJH5L_OF5hXqk07zcnfM",
+      "id": "UExtZXNPZ1l0M25LQ2ZzWHF4LUE1azFiUDd0MTQ2VTRyei41NTZEOThBNThFOUVGQkVB",
+      "snippet": {
+        "publishedAt": "2020-04-28T16:09:10Z",
+        "channelId": "UCwXEjUyETY0ft0RPlQYOKMA",
+        "title": "IBM Cloud Foundation Skills Series - VMware Solutions Shared",
+        "description": "In this video, we explore IBM Cloud's VMware Solutions Shared service.",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/iDWOGtHKuMY/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/iDWOGtHKuMY/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/iDWOGtHKuMY/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "James Belton",
+        "playlistId": "PLmesOgYt3nKCfsXqx-A5k1bP7t146U4rz",
+        "position": 60,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "iDWOGtHKuMY"
+        }
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "sYVmtw-nxNuAcPRL4Xbaf0WUDIg",
+      "id": "UExtZXNPZ1l0M25LQ2ZzWHF4LUE1azFiUDd0MTQ2VTRyei4zMDg5MkQ5MEVDMEM1NTg2",
+      "snippet": {
+        "publishedAt": "2018-11-22T14:35:53Z",
+        "channelId": "UCwXEjUyETY0ft0RPlQYOKMA",
+        "title": "IBM Cloud Skill Series - Virtual Machine Basics, Section Introduction",
+        "description": "This is the introduction video for the Virtual Machine basics section.",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/HgTHOt5l_-s/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/HgTHOt5l_-s/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/HgTHOt5l_-s/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/HgTHOt5l_-s/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/HgTHOt5l_-s/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "James Belton",
+        "playlistId": "PLmesOgYt3nKCfsXqx-A5k1bP7t146U4rz",
+        "position": 18,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "HgTHOt5l_-s"
+        }
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "0HfR-1DSjXZQTeSw1IEt5mvZHD0",
+      "id": "UExtZXNPZ1l0M25LQ2ZzWHF4LUE1azFiUDd0MTQ2VTRyei41Mzk2QTAxMTkzNDk4MDhF",
+      "snippet": {
+        "publishedAt": "2018-11-23T12:27:46Z",
+        "channelId": "UCwXEjUyETY0ft0RPlQYOKMA",
+        "title": "IBM Cloud Foundation Skills Series - Bare Metal Servers",
+        "description": "This video provides an introduction to Bare Metals servers - what they are, how they compare to VMs, use cases and provisioning.",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/vDRm7JqBy3k/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/vDRm7JqBy3k/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/vDRm7JqBy3k/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/vDRm7JqBy3k/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/vDRm7JqBy3k/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "James Belton",
+        "playlistId": "PLmesOgYt3nKCfsXqx-A5k1bP7t146U4rz",
+        "position": 19,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "vDRm7JqBy3k"
+        }
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "UThXZzsMVJrvlGsmgmhMCSLc2Fo",
+      "id": "UExtZXNPZ1l0M25LQ2ZzWHF4LUE1azFiUDd0MTQ2VTRyei5EQUE1NTFDRjcwMDg0NEMz",
+      "snippet": {
+        "publishedAt": "2018-11-27T11:37:37Z",
+        "channelId": "UCwXEjUyETY0ft0RPlQYOKMA",
+        "title": "IBM Cloud Foundation Skills Series - What are the Different Types of Virtual Server?",
+        "description": "This video explains what the different types of Virtual Server are that you can provision in the IBM Cloud and what kind of use cases they suit.",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/ARUefnCR9xw/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/ARUefnCR9xw/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/ARUefnCR9xw/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/ARUefnCR9xw/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/ARUefnCR9xw/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "James Belton",
+        "playlistId": "PLmesOgYt3nKCfsXqx-A5k1bP7t146U4rz",
+        "position": 20,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "ARUefnCR9xw"
+        }
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "x0t-HeHqOhyh4eXhl8WPuvZa9_M",
+      "id": "UExtZXNPZ1l0M25LQ2ZzWHF4LUE1azFiUDd0MTQ2VTRyei5ENDU4Q0M4RDExNzM1Mjcy",
+      "snippet": {
+        "publishedAt": "2018-12-05T18:18:48Z",
+        "channelId": "UCwXEjUyETY0ft0RPlQYOKMA",
+        "title": "IBM Cloud Foundation Skills Series - Provisioning a Virtual Server",
+        "description": "In this video, I show you the steps to provision a public virtual machine in the IBM Cloud.",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/QiY3j2a57hY/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/QiY3j2a57hY/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/QiY3j2a57hY/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/QiY3j2a57hY/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/QiY3j2a57hY/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "James Belton",
+        "playlistId": "PLmesOgYt3nKCfsXqx-A5k1bP7t146U4rz",
+        "position": 21,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "QiY3j2a57hY"
+        }
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "vl5xLmYDAC-pZp0xlGBlYHlKkwg",
+      "id": "UExtZXNPZ1l0M25LQ2ZzWHF4LUE1azFiUDd0MTQ2VTRyei45RTgxNDRBMzUwRjQ0MDhC",
+      "snippet": {
+        "publishedAt": "2018-12-05T18:18:48Z",
+        "channelId": "UCwXEjUyETY0ft0RPlQYOKMA",
+        "title": "IBM Cloud Foundation Skills Series - VirtualServer: First Login",
+        "description": "This lab video is a continuation of Creating a Virtual Server. Here, I'll show you how to connect to your server using ssl, make updates to the operating system and install mySQL and an httpd server. I'll also show you how to de-provision your server.",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/Vy8-NsoW5Ic/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/Vy8-NsoW5Ic/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/Vy8-NsoW5Ic/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/Vy8-NsoW5Ic/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/Vy8-NsoW5Ic/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "James Belton",
+        "playlistId": "PLmesOgYt3nKCfsXqx-A5k1bP7t146U4rz",
+        "position": 22,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "Vy8-NsoW5Ic"
+        }
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "NBaNas9zLOxE_oocXRZ1dPmqbR4",
+      "id": "UExtZXNPZ1l0M25LQ2ZzWHF4LUE1azFiUDd0MTQ2VTRyei42RTNCOEMxREI3Q0VDMjU2",
+      "snippet": {
+        "publishedAt": "2020-11-10T15:04:53Z",
+        "channelId": "UCwXEjUyETY0ft0RPlQYOKMA",
+        "title": "IBM Cloud Foundation Skills Series - First Windows Server Login",
+        "description": "If you've wondered how to connect to a Windows server in the IBM Cloud, In this video, I show you how easy it is, using Microsoft Remote Desktop.",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/t1ChJNZbboo/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/t1ChJNZbboo/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/t1ChJNZbboo/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/t1ChJNZbboo/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/t1ChJNZbboo/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "James Belton",
+        "playlistId": "PLmesOgYt3nKCfsXqx-A5k1bP7t146U4rz",
+        "position": 23,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "t1ChJNZbboo"
+        }
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "cvHIkFKGUdu9lpnQYnd4BvhOl8A",
+      "id": "UExtZXNPZ1l0M25LQ2ZzWHF4LUE1azFiUDd0MTQ2VTRyei4yMDhBMkNBNjRDMjQxQTg1",
+      "snippet": {
+        "publishedAt": "2018-12-10T09:44:23Z",
+        "channelId": "UCwXEjUyETY0ft0RPlQYOKMA",
+        "title": "IBM Cloud Foundation Skills Series - Security Groups",
+        "description": "This lecture video provides an overview of IBM Cloud Security Groups, a way to add security to your virtual server instance through virtual firewalls at zero cost.",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/osjLxf2c_6U/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/osjLxf2c_6U/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/osjLxf2c_6U/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "James Belton",
+        "playlistId": "PLmesOgYt3nKCfsXqx-A5k1bP7t146U4rz",
+        "position": 24,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "osjLxf2c_6U"
+        }
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "FovmtNfskOu9q8Lb-hP49rLbyb4",
+      "id": "UExtZXNPZ1l0M25LQ2ZzWHF4LUE1azFiUDd0MTQ2VTRyei5GM0Q3M0MzMzY5NTJFNTdE",
+      "snippet": {
+        "publishedAt": "2018-12-10T14:37:38Z",
+        "channelId": "UCwXEjUyETY0ft0RPlQYOKMA",
+        "title": "IBM Cloud Foundation Skills Series - Security Groups Lab",
+        "description": "In this lab, I take you into the IBM Cloud to show you Security Groups, including how to create one, add, delete and modify rules as well as add virtual servers to them. I also demonstrate setting up a jump server configuration.",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/WjkAoUbyEWg/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/WjkAoUbyEWg/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/WjkAoUbyEWg/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "James Belton",
+        "playlistId": "PLmesOgYt3nKCfsXqx-A5k1bP7t146U4rz",
+        "position": 25,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "WjkAoUbyEWg"
+        }
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "1uviAWpcfHoD_ujPuHgmc4LKMVs",
+      "id": "UExtZXNPZ1l0M25LQ2ZzWHF4LUE1azFiUDd0MTQ2VTRyei4zRjM0MkVCRTg0MkYyQTM0",
+      "snippet": {
+        "publishedAt": "2018-12-13T12:15:36Z",
+        "channelId": "UCwXEjUyETY0ft0RPlQYOKMA",
+        "title": "IBM Cloud Foundation Skills Series - Provisioning Scripts",
+        "description": "Provisioning Scripts can be used to automatically run additional tasks when creating virtual server instances in the IBM Cloud; from running yum updates, through installing software such as httpd, they are a quick and easy way to enhance and create more useful, uniform server builds.",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/Yj-jA9lo_d8/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/Yj-jA9lo_d8/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/Yj-jA9lo_d8/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/Yj-jA9lo_d8/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/Yj-jA9lo_d8/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "James Belton",
+        "playlistId": "PLmesOgYt3nKCfsXqx-A5k1bP7t146U4rz",
+        "position": 26,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "Yj-jA9lo_d8"
+        }
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "dpmbUUgNw82Domiccz7_ZdZgte8",
+      "id": "UExtZXNPZ1l0M25LQ2ZzWHF4LUE1azFiUDd0MTQ2VTRyei45NzUwQkI1M0UxNThBMkU0",
+      "snippet": {
+        "publishedAt": "2018-12-13T16:59:55Z",
+        "channelId": "UCwXEjUyETY0ft0RPlQYOKMA",
+        "title": "IBM Cloud Foundation Skills Series - Changing Your Server Config",
+        "description": "In this video, I show you how to add vCPUs, RAM and attached storage to your provisioned Virtual Server.",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/2Y3qpD9Tch0/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/2Y3qpD9Tch0/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/2Y3qpD9Tch0/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/2Y3qpD9Tch0/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/2Y3qpD9Tch0/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "James Belton",
+        "playlistId": "PLmesOgYt3nKCfsXqx-A5k1bP7t146U4rz",
+        "position": 27,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "2Y3qpD9Tch0"
+        }
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "kxbWfBkRdQEjfQwjvF7YrE7963A",
+      "id": "UExtZXNPZ1l0M25LQ2ZzWHF4LUE1azFiUDd0MTQ2VTRyei5CMEQ2Mjk5NTc3NDZFRUNB",
+      "snippet": {
+        "publishedAt": "2019-03-07T13:25:40Z",
+        "channelId": "UCwXEjUyETY0ft0RPlQYOKMA",
+        "title": "IBM Cloud Foundation Skills Series - Placement Groups",
+        "description": "Placement Groups allow you to create a greater degree of high availability for Virtual Server Instances in a single data centre in the IBM Cloud. Check out this video to learn more.",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/dIZtSVH9nmY/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/dIZtSVH9nmY/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/dIZtSVH9nmY/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "James Belton",
+        "playlistId": "PLmesOgYt3nKCfsXqx-A5k1bP7t146U4rz",
+        "position": 28,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "dIZtSVH9nmY"
+        }
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "55eFrRpuI60DVFUv_50JrHpLW5Y",
+      "id": "UExtZXNPZ1l0M25LQ2ZzWHF4LUE1azFiUDd0MTQ2VTRyei43NDhFRTgwOTRERTU4Rjg3",
+      "snippet": {
+        "publishedAt": "2019-02-14T09:01:17Z",
+        "channelId": "UCwXEjUyETY0ft0RPlQYOKMA",
+        "title": "IBM Cloud Foundation Skills Series - VSI Templates Introduction",
+        "description": "In this short video, I introduce the concept of creating templates for virtual server instances. If you have a VSI that you need multiple copies of, create a template rather than build each one by hand.",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/VeuQks_NFg4/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/VeuQks_NFg4/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/VeuQks_NFg4/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/VeuQks_NFg4/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/VeuQks_NFg4/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "James Belton",
+        "playlistId": "PLmesOgYt3nKCfsXqx-A5k1bP7t146U4rz",
+        "position": 29,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "VeuQks_NFg4"
+        }
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "JBrvIRQuf4NRMbQeVNPVNCMUdWI",
+      "id": "UExtZXNPZ1l0M25LQ2ZzWHF4LUE1azFiUDd0MTQ2VTRyei41QUZGQTY5OTE4QTREQUU4",
+      "snippet": {
+        "publishedAt": "2019-02-14T11:19:33Z",
+        "channelId": "UCwXEjUyETY0ft0RPlQYOKMA",
+        "title": "IBM Cloud Foundation Skills Series - Virtual Server Templates Lab",
+        "description": "In this lab, I demonstrate how to create a template image from a virtual machine in IBM Cloud and then how to use that template to create a new server.",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/Y3jS1M6nyp0/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/Y3jS1M6nyp0/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/Y3jS1M6nyp0/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/Y3jS1M6nyp0/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/Y3jS1M6nyp0/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "James Belton",
+        "playlistId": "PLmesOgYt3nKCfsXqx-A5k1bP7t146U4rz",
+        "position": 30,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "Y3jS1M6nyp0"
+        }
+      }
+    }
+
 
   ],
   "storage" : [
-
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "MRrvGar8yQRxQiganygmp1z7_Gc",
+      "id": "UExtZXNPZ1l0M25LQ2ZzWHF4LUE1azFiUDd0MTQ2VTRyei5DNzE1RjZEMUZCMjA0RDBB",
+      "snippet": {
+        "publishedAt": "2019-01-03T11:11:45Z",
+        "channelId": "UCwXEjUyETY0ft0RPlQYOKMA",
+        "title": "Introduction to Storage Types",
+        "description": "This short lecture introduces the different types of storage available in IBM Cloud, namely File Storage, Block Storage and Object Storage - what they are and when to use them. See later videos for more details on each type.",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/v_T-3CA79wc/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/v_T-3CA79wc/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/v_T-3CA79wc/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "James Belton",
+        "playlistId": "PLmesOgYt3nKCfsXqx-A5k1bP7t146U4rz",
+        "position": 31,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "v_T-3CA79wc"
+        }
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "hkjW5Ba1UHLM005S0bnDbce9vgI",
+      "id": "UExtZXNPZ1l0M25LQ2ZzWHF4LUE1azFiUDd0MTQ2VTRyei43MTI1NDIwOTMwQjIxMzNG",
+      "snippet": {
+        "publishedAt": "2019-01-09T13:27:19Z",
+        "channelId": "UCwXEjUyETY0ft0RPlQYOKMA",
+        "title": "IBM Cloud Foundation Skills Series - File Storage Deeper Dive",
+        "description": "In this lecture, I describe in more detail the features of Files Storage in the IBM Cloud",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/ZHSrUZf2e10/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/ZHSrUZf2e10/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/ZHSrUZf2e10/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "James Belton",
+        "playlistId": "PLmesOgYt3nKCfsXqx-A5k1bP7t146U4rz",
+        "position": 32,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "ZHSrUZf2e10"
+        }
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "d-XtBbUsb8kQw5ZyIAbCZzyAPOo",
+      "id": "UExtZXNPZ1l0M25LQ2ZzWHF4LUE1azFiUDd0MTQ2VTRyei5DQ0MyQ0Y4Mzg0M0VGOEYw",
+      "snippet": {
+        "publishedAt": "2019-01-10T13:34:35Z",
+        "channelId": "UCwXEjUyETY0ft0RPlQYOKMA",
+        "title": "IBM Cloud Foundation Skills Series - File Storage Lab",
+        "description": "This video is a comprehensive lab, which demonstrates how to provision File Storage, how to authorise and mount storage to hosts, how to set up and take snapshots as well as recover them and how to change your File Storage configuration post provisioning.",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/UY-hTTuTPpc/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/UY-hTTuTPpc/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/UY-hTTuTPpc/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "James Belton",
+        "playlistId": "PLmesOgYt3nKCfsXqx-A5k1bP7t146U4rz",
+        "position": 33,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "UY-hTTuTPpc"
+        }
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "_KcsBNuFkDJRjhWx8BMp2b5LSdk",
+      "id": "UExtZXNPZ1l0M25LQ2ZzWHF4LUE1azFiUDd0MTQ2VTRyei5DMkU4NTY1QUFGQTYwMDE3",
+      "snippet": {
+        "publishedAt": "2019-02-12T15:01:56Z",
+        "channelId": "UCwXEjUyETY0ft0RPlQYOKMA",
+        "title": "IBM Cloud Foundation Skills Series - Block Storage Deeper Dive",
+        "description": "In this video lecture, we take a closer look at the Block Storage service on IBM Cloud.",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/PBYGdk3KDz4/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/PBYGdk3KDz4/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/PBYGdk3KDz4/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "James Belton",
+        "playlistId": "PLmesOgYt3nKCfsXqx-A5k1bP7t146U4rz",
+        "position": 34,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "PBYGdk3KDz4"
+        }
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "ZBkAHvDJWub7-096ZMSytat47Ho",
+      "id": "UExtZXNPZ1l0M25LQ2ZzWHF4LUE1azFiUDd0MTQ2VTRyei44Mjc5REFBRUE2MTdFRDU0",
+      "snippet": {
+        "publishedAt": "2019-02-13T16:31:23Z",
+        "channelId": "UCwXEjUyETY0ft0RPlQYOKMA",
+        "title": "IBM Cloud Foundation Skills Series - Block Storage Lab",
+        "description": "In this Lab, I take you through the process of ordering block storage, setting up automatic and manual snapshots as well as the steps for mounting the storage onto a Linux (CentOS7) virtual machine.",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/g_q35LqxnmM/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/g_q35LqxnmM/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/g_q35LqxnmM/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "James Belton",
+        "playlistId": "PLmesOgYt3nKCfsXqx-A5k1bP7t146U4rz",
+        "position": 35,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "g_q35LqxnmM"
+        }
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "LbCTqMzQRxTTW24dSejftqnQ8nI",
+      "id": "UExtZXNPZ1l0M25LQ2ZzWHF4LUE1azFiUDd0MTQ2VTRyei41QTY1Q0UxMTVCODczNThE",
+      "snippet": {
+        "publishedAt": "2018-11-30T10:40:18Z",
+        "channelId": "UCwXEjUyETY0ft0RPlQYOKMA",
+        "title": "IBM Cloud Foundation Skills Series - Introduction to Cloud Object Storage",
+        "description": "In this video, we introduce you to IBM Cloud Object Storage - what it is, when to use it, the different types and resilience.",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/2WPsC6AgAJY/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/2WPsC6AgAJY/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/2WPsC6AgAJY/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/2WPsC6AgAJY/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/2WPsC6AgAJY/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "James Belton",
+        "playlistId": "PLmesOgYt3nKCfsXqx-A5k1bP7t146U4rz",
+        "position": 36,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "2WPsC6AgAJY"
+        }
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "ZmEPKm5nWlybo-MBmZjrFpFCqGA",
+      "id": "UExtZXNPZ1l0M25LQ2ZzWHF4LUE1azFiUDd0MTQ2VTRyei4yMUQyQTQzMjRDNzMyQTMy",
+      "snippet": {
+        "publishedAt": "2018-11-30T11:20:32Z",
+        "channelId": "UCwXEjUyETY0ft0RPlQYOKMA",
+        "title": "IBM Cloud Foundation Skills Series - Getting Started with Cloud Object Storage",
+        "description": "In this video, John demonstrates some of the basics of IBM Cloud Object Storage including how to create an instance of COS, create buckets, set resilience levels and upload and download content.",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/VEoj69V6Rfg/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/VEoj69V6Rfg/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/VEoj69V6Rfg/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/VEoj69V6Rfg/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/VEoj69V6Rfg/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "James Belton",
+        "playlistId": "PLmesOgYt3nKCfsXqx-A5k1bP7t146U4rz",
+        "position": 37,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "VEoj69V6Rfg"
+        }
+      }
+    }
   ],
   "loadbalancer": [
-
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "gkv0VjGsbmIli6WWaivU6QMJK4w",
+      "id": "UExtZXNPZ1l0M25LQ2ZzWHF4LUE1azFiUDd0MTQ2VTRyei42MTI4Njc2QjM1RjU1MjlG",
+      "snippet": {
+        "publishedAt": "2019-03-08T14:59:07Z",
+        "channelId": "UCwXEjUyETY0ft0RPlQYOKMA",
+        "title": "IBM Cloud Foundation Skill Series - Intro To Load Balancers",
+        "description": "This short video introduces the concept of load balancers - what they are for and what Load Balancer options are available in IBM Cloud.",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/zbv21fJZsWc/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/zbv21fJZsWc/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/zbv21fJZsWc/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "James Belton",
+        "playlistId": "PLmesOgYt3nKCfsXqx-A5k1bP7t146U4rz",
+        "position": 38,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "zbv21fJZsWc"
+        }
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "vK68amTsDBCRgf-KLNjiy2V0y2M",
+      "id": "UExtZXNPZ1l0M25LQ2ZzWHF4LUE1azFiUDd0MTQ2VTRyei45RjNFMDhGQ0Q2RkFCQTc1",
+      "snippet": {
+        "publishedAt": "2019-03-11T14:05:14Z",
+        "channelId": "UCwXEjUyETY0ft0RPlQYOKMA",
+        "title": "IBM Cloud Foundation Skills Series - Load Balancer Lab",
+        "description": "In this video, I show you how to create and use an IBM Cloud Load Balancer as part of a simple, yet secure, web site deployment.",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/oZnRBf783Gw/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/oZnRBf783Gw/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/oZnRBf783Gw/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "James Belton",
+        "playlistId": "PLmesOgYt3nKCfsXqx-A5k1bP7t146U4rz",
+        "position": 39,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "oZnRBf783Gw"
+        }
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "QfcmC24GUhj0gDusEfMvQzSVCXQ",
+      "id": "UExtZXNPZ1l0M25LQ2ZzWHF4LUE1azFiUDd0MTQ2VTRyei4yQjZFRkExQjFGODk3RUFD",
+      "snippet": {
+        "publishedAt": "2019-09-15T17:38:58Z",
+        "channelId": "UCwXEjUyETY0ft0RPlQYOKMA",
+        "title": "IBM Cloud Foundation Skills Series - Cloud Internet Services",
+        "description": "Cloud Internet Services (CIS) is a service built on Cloudflare, designed to both protect and enhance the performance of the websites you deploy on IBM Cloud. In this video, I introduce the components of CIS, how to provision it and a quick run through of the screens used to configure it.",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/2KFrJP04Ud0/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/2KFrJP04Ud0/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/2KFrJP04Ud0/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "James Belton",
+        "playlistId": "PLmesOgYt3nKCfsXqx-A5k1bP7t146U4rz",
+        "position": 40,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "2KFrJP04Ud0"
+        }
+      }
+    }
   ],
   "vpc" :[
 
   ],
   "iks" :[
-
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "_O534Ed10wW8G975mzgfXovJ-C0",
+      "id": "UExtZXNPZ1l0M25LQ2ZzWHF4LUE1azFiUDd0MTQ2VTRyei43NERCMDIzQzFBMERCMEE3",
+      "snippet": {
+        "publishedAt": "2020-05-12T15:24:17Z",
+        "channelId": "UCwXEjUyETY0ft0RPlQYOKMA",
+        "title": "IBM Cloud Foundation Skills Series - An Introduction to Containers, Kubernetes and OpenShift",
+        "description": "In this video, I introduce the concepts of containers and why they are such a hot topic in IT right now. I then move on to explain what Docker, Kubernetes and OpenShift are, and go a bit deeper into the differences between the latter two.",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/U1rQeNMn4_c/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/U1rQeNMn4_c/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/U1rQeNMn4_c/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/U1rQeNMn4_c/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/U1rQeNMn4_c/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "James Belton",
+        "playlistId": "PLmesOgYt3nKCfsXqx-A5k1bP7t146U4rz",
+        "position": 61,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "U1rQeNMn4_c"
+        }
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "Dc4S1Tjj3fqPE26MeTa1Iu1qy3U",
+      "id": "UExtZXNPZ1l0M25LQ2ZzWHF4LUE1azFiUDd0MTQ2VTRyei4yQzk4QTA5QjkzMTFFOEI1",
+      "snippet": {
+        "publishedAt": "2020-12-15T10:04:35Z",
+        "channelId": "UCwXEjUyETY0ft0RPlQYOKMA",
+        "title": "IBM Cloud Foundations Skills Series - Introduction to Kubernetes Service",
+        "description": "In this video, I introduce The IBM Cloud Kubernetes Service - what is is, what are it's benefits, a little bit of architecture, what it runs on and deployment options for high availability.",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/LnnhCT7dJLM/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/LnnhCT7dJLM/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/LnnhCT7dJLM/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "James Belton",
+        "playlistId": "PLmesOgYt3nKCfsXqx-A5k1bP7t146U4rz",
+        "position": 62,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "LnnhCT7dJLM"
+        }
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "Dk6uC8CV_81a4j6ID08Bs1Wn4l4",
+      "id": "UExtZXNPZ1l0M25LQ2ZzWHF4LUE1azFiUDd0MTQ2VTRyei45NDlDQUFFOThDMTAxQjUw",
+      "snippet": {
+        "publishedAt": "2020-12-15T23:34:26Z",
+        "channelId": "UCwXEjUyETY0ft0RPlQYOKMA",
+        "title": "IBM Cloud Foundation Skills Series - Create a Kubernetes Cluster",
+        "description": "In this video, I demonstrate how to create an IBM Cloud Kunernetes instance via The IBM Cloud Dashboard. I go through the various options, before creating a free cluster.",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/MPPAitYizkk/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/MPPAitYizkk/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/MPPAitYizkk/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "James Belton",
+        "playlistId": "PLmesOgYt3nKCfsXqx-A5k1bP7t146U4rz",
+        "position": 63,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "MPPAitYizkk"
+        }
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "BBhGNQ66Jij0ML6YwfYIHTuc-Io",
+      "id": "UExtZXNPZ1l0M25LQ2ZzWHF4LUE1azFiUDd0MTQ2VTRyei4xN0Y2QjVBOEI2MzQ5OUM5",
+      "snippet": {
+        "publishedAt": "2020-12-18T13:32:29Z",
+        "channelId": "UCwXEjUyETY0ft0RPlQYOKMA",
+        "title": "IBM Cloud Foundation Skills Series - The Container Registry",
+        "description": "In this video, I explain what the IBM Cloud Container Registry service is and why it's used - it's an important piece of the overall IBM Cloud container offering and something that we'll be using in subsequent videos as we get Docker-based containers running on the Kubernetes service.",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/KeaKmW599NM/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/KeaKmW599NM/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/KeaKmW599NM/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "James Belton",
+        "playlistId": "PLmesOgYt3nKCfsXqx-A5k1bP7t146U4rz",
+        "position": 64,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "KeaKmW599NM"
+        }
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "TW0o5vdzoKGUWINVhKJxJUgb30w",
+      "id": "UExtZXNPZ1l0M25LQ2ZzWHF4LUE1azFiUDd0MTQ2VTRyei5FQUY2Qzk4RUFDN0ZFRkZF",
+      "snippet": {
+        "publishedAt": "2020-12-22T12:25:23Z",
+        "channelId": "UCwXEjUyETY0ft0RPlQYOKMA",
+        "title": "IBM Cloud Foundations Skills Series - Tooling Prereqs",
+        "description": "This short video describes the command line tools that I'll be using in the next three or four videos, so if you want to follow along with those, download and install them.\n\nIf you don't want to follow the videos but still want to create a Docker container, upload it to a Container Registry and expose it via IBM Cloud Kubernetes Service, then you can just follow my guide on GitHub: https://github.com/jamesbeltonIBM/kubes-my-health",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/EeIgA3WHO6c/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/EeIgA3WHO6c/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/EeIgA3WHO6c/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "James Belton",
+        "playlistId": "PLmesOgYt3nKCfsXqx-A5k1bP7t146U4rz",
+        "position": 65,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "EeIgA3WHO6c"
+        }
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "3pdBLvRqYrqRNdOstKEf1g9upcE",
+      "id": "UExtZXNPZ1l0M25LQ2ZzWHF4LUE1azFiUDd0MTQ2VTRyei5CMEVBRUJERkUyNTBENTkz",
+      "snippet": {
+        "publishedAt": "2020-12-22T14:34:15Z",
+        "channelId": "UCwXEjUyETY0ft0RPlQYOKMA",
+        "title": "IBM Cloud Foundation Skills Series - Deploy app to Kubernetes Part 1",
+        "description": "This is video one of three.\nIn this part, we download the Example Health app code from GitHub, run it locally using node.js, then build a Docker container from the code and run the container locally.",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/NAa0j_u77ck/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/NAa0j_u77ck/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/NAa0j_u77ck/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/NAa0j_u77ck/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/NAa0j_u77ck/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "James Belton",
+        "playlistId": "PLmesOgYt3nKCfsXqx-A5k1bP7t146U4rz",
+        "position": 66,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "NAa0j_u77ck"
+        }
+      }
+    }
   ],
   "foundation" : [
       {
@@ -658,6 +1951,146 @@
           "resourceId": {
             "kind": "youtube#video",
             "videoId": "yaFhGns-hhI"
+          }
+        }
+      },
+      {
+        "kind": "youtube#playlistItem",
+        "etag": "GhFUfvxaI2GqFKA1CfaOHY_wnM8",
+        "id": "UExtZXNPZ1l0M25LQ2ZzWHF4LUE1azFiUDd0MTQ2VTRyei45ODRDNTg0QjA4NkFBNkQy",
+        "snippet": {
+          "publishedAt": "2018-11-21T09:41:21Z",
+          "channelId": "UCwXEjUyETY0ft0RPlQYOKMA",
+          "title": "IBM Cloud Foundation Skills Series - Using the IBM Cloud Catalog",
+          "description": "This video provides a more in-depth tour of the IBM Cloud catalog, showing how to search for services, find documentation, understand service plans and provision.",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/t5PZ3RtjCUM/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/t5PZ3RtjCUM/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/t5PZ3RtjCUM/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            }
+          },
+          "channelTitle": "James Belton",
+          "playlistId": "PLmesOgYt3nKCfsXqx-A5k1bP7t146U4rz",
+          "position": 13,
+          "resourceId": {
+            "kind": "youtube#video",
+            "videoId": "t5PZ3RtjCUM"
+          }
+        }
+      },
+      {
+        "kind": "youtube#playlistItem",
+        "etag": "k72u43GuJofG1VNP-pdWlxJ6KR4",
+        "id": "UExtZXNPZ1l0M25LQ2ZzWHF4LUE1azFiUDd0MTQ2VTRyei5CQkEwRDA0MDkwNUM2MDY1",
+        "snippet": {
+          "publishedAt": "2020-05-26T13:37:45Z",
+          "channelId": "UCwXEjUyETY0ft0RPlQYOKMA",
+          "title": "IBM Cloud Foundation Skills Series - Cost Estimator Tool",
+          "description": "In this short video, I explain what the Cost Estimator Tool is and how to use it to create simple estimates for services within IBM Cloud.",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/Hkb9_UwyAV8/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/Hkb9_UwyAV8/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/Hkb9_UwyAV8/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            }
+          },
+          "channelTitle": "James Belton",
+          "playlistId": "PLmesOgYt3nKCfsXqx-A5k1bP7t146U4rz",
+          "position": 14,
+          "resourceId": {
+            "kind": "youtube#video",
+            "videoId": "Hkb9_UwyAV8"
+          }
+        }
+      },
+      {
+        "kind": "youtube#playlistItem",
+        "etag": "Ze7ADekarIQLpWRokYb0QaPWIkU",
+        "id": "UExtZXNPZ1l0M25LQ2ZzWHF4LUE1azFiUDd0MTQ2VTRyei5BRjJDODk5REM0NjkzMUIy",
+        "snippet": {
+          "publishedAt": "2019-04-05T08:52:06Z",
+          "channelId": "UCwXEjUyETY0ft0RPlQYOKMA",
+          "title": "IBM Cloud Foundation Skills Series - Setting up Email Notifications",
+          "description": "In this video, we look at email notifications and how to configure the console so that you get the ones you want to receive.",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/4It_Dy2t92s/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/4It_Dy2t92s/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/4It_Dy2t92s/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            }
+          },
+          "channelTitle": "James Belton",
+          "playlistId": "PLmesOgYt3nKCfsXqx-A5k1bP7t146U4rz",
+          "position": 15,
+          "resourceId": {
+            "kind": "youtube#video",
+            "videoId": "4It_Dy2t92s"
+          }
+        }
+      },
+      {
+        "kind": "youtube#playlistItem",
+        "etag": "H-2f3lrLmq7gUzVIVxLfGcjm60I",
+        "id": "UExtZXNPZ1l0M25LQ2ZzWHF4LUE1azFiUDd0MTQ2VTRyei4zRDBDOEZDOUM0MDY5NEEz",
+        "snippet": {
+          "publishedAt": "2019-02-15T08:47:20Z",
+          "channelId": "UCwXEjUyETY0ft0RPlQYOKMA",
+          "title": "IBM Cloud Foundation Skills Series - Tags",
+          "description": "Tags are great way to keep track of your resources. In this video, I give an introduction to Tags in the IBM Cloud - what they are for, how to create them and how to search them.",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/Y6U_OG0L3eI/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/Y6U_OG0L3eI/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/Y6U_OG0L3eI/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            }
+          },
+          "channelTitle": "James Belton",
+          "playlistId": "PLmesOgYt3nKCfsXqx-A5k1bP7t146U4rz",
+          "position": 16,
+          "resourceId": {
+            "kind": "youtube#video",
+            "videoId": "Y6U_OG0L3eI"
           }
         }
       }

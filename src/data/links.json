@@ -2614,6 +2614,76 @@
             "videoId": "Y6U_OG0L3eI"
           }
         }
+      },
+      {
+        "kind": "youtube#playlistItem",
+        "etag": "Np10i6ALBNK-yXQ38AIC9A6d2u4",
+        "id": "UExtZXNPZ1l0M25LQ2ZzWHF4LUE1azFiUDd0MTQ2VTRyei40QTA3NTU2RkM1QzlCMzYx",
+        "snippet": {
+          "publishedAt": "2019-04-01T10:49:09Z",
+          "channelId": "UCwXEjUyETY0ft0RPlQYOKMA",
+          "title": "IBM Cloud Foundation Skills Series -  Introduction To Databases",
+          "description": "In this video, we start to explore the different types of databases that are on offer in the IBM Cloud and where you can create them, be it on infrastructure you provision or run as a service.",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/_AZUwxfQRRA/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/_AZUwxfQRRA/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/_AZUwxfQRRA/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            }
+          },
+          "channelTitle": "James Belton",
+          "playlistId": "PLmesOgYt3nKCfsXqx-A5k1bP7t146U4rz",
+          "position": 41,
+          "resourceId": {
+            "kind": "youtube#video",
+            "videoId": "_AZUwxfQRRA"
+          }
+        }
+      },
+      {
+        "kind": "youtube#playlistItem",
+        "etag": "LkplEfvRhmxmRmVosE5kOjy6bUE",
+        "id": "UExtZXNPZ1l0M25LQ2ZzWHF4LUE1azFiUDd0MTQ2VTRyei4xOTEzQzhBQzU3MDNDNjcz",
+        "snippet": {
+          "publishedAt": "2019-06-17T13:26:00Z",
+          "channelId": "UCwXEjUyETY0ft0RPlQYOKMA",
+          "title": "IBM Cloud Foundation Skills Series - Db2",
+          "description": "This video shows you how to create a DB2 service instance on IBM Cloud and how to start using it, either through the IBM Cloud tools or via CLPPlus from your local computer",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/IUhX17saCJ0/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/IUhX17saCJ0/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/IUhX17saCJ0/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            }
+          },
+          "channelTitle": "James Belton",
+          "playlistId": "PLmesOgYt3nKCfsXqx-A5k1bP7t146U4rz",
+          "position": 42,
+          "resourceId": {
+            "kind": "youtube#video",
+            "videoId": "IUhX17saCJ0"
+          }
+        }
       }
     ],
    "intros": [

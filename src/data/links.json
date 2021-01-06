@@ -1909,43 +1909,7 @@
       "videoId": "0feslXcDzSE"
     }
   }
-},
-{
-  "kind": "youtube#playlistItem",
-  "etag": "4iDfs4ayBgLeKufTvB1b_yxxUpM",
-  "id": "UExtZXNPZ1l0M25LQ2ZzWHF4LUE1azFiUDd0MTQ2VTRyei42MjYzMTMyQjA0QURCN0JF",
-  "snippet": {
-    "publishedAt": "2020-09-02T12:04:59Z",
-    "channelId": "UCwXEjUyETY0ft0RPlQYOKMA",
-    "title": "IBM Cloud Foundation Skills Series - Creating API Keys",
-    "description": "In this video, I give a quick overview of the two main types of API Key in IBM Cloud before going on to show you how to create and manage them in both the Console and using the ibmcloud  CLI tool.",
-    "thumbnails": {
-      "default": {
-        "url": "https://i.ytimg.com/vi/t9BvnXpYVos/default.jpg",
-        "width": 120,
-        "height": 90
-      },
-      "medium": {
-        "url": "https://i.ytimg.com/vi/t9BvnXpYVos/mqdefault.jpg",
-        "width": 320,
-        "height": 180
-      },
-      "high": {
-        "url": "https://i.ytimg.com/vi/t9BvnXpYVos/hqdefault.jpg",
-        "width": 480,
-        "height": 360
-      }
-    },
-    "channelTitle": "James Belton",
-    "playlistId": "PLmesOgYt3nKCfsXqx-A5k1bP7t146U4rz",
-    "position": 56,
-    "resourceId": {
-      "kind": "youtube#video",
-      "videoId": "t9BvnXpYVos"
-    }
-  }
 }
-
   ],
   "iks" :[
     {
@@ -2682,6 +2646,41 @@
           "resourceId": {
             "kind": "youtube#video",
             "videoId": "IUhX17saCJ0"
+          }
+        }
+      },
+      {
+        "kind": "youtube#playlistItem",
+        "etag": "4iDfs4ayBgLeKufTvB1b_yxxUpM",
+        "id": "UExtZXNPZ1l0M25LQ2ZzWHF4LUE1azFiUDd0MTQ2VTRyei42MjYzMTMyQjA0QURCN0JF",
+        "snippet": {
+          "publishedAt": "2020-09-02T12:04:59Z",
+          "channelId": "UCwXEjUyETY0ft0RPlQYOKMA",
+          "title": "IBM Cloud Foundation Skills Series - Creating API Keys",
+          "description": "In this video, I give a quick overview of the two main types of API Key in IBM Cloud before going on to show you how to create and manage them in both the Console and using the ibmcloud  CLI tool.",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/t9BvnXpYVos/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/t9BvnXpYVos/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/t9BvnXpYVos/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            }
+          },
+          "channelTitle": "James Belton",
+          "playlistId": "PLmesOgYt3nKCfsXqx-A5k1bP7t146U4rz",
+          "position": 56,
+          "resourceId": {
+            "kind": "youtube#video",
+            "videoId": "t9BvnXpYVos"
           }
         }
       }
@@ -4880,41 +4879,6 @@
         "resourceId": {
           "kind": "youtube#video",
           "videoId": "0feslXcDzSE"
-        }
-      }
-    },
-    {
-      "kind": "youtube#playlistItem",
-      "etag": "4iDfs4ayBgLeKufTvB1b_yxxUpM",
-      "id": "UExtZXNPZ1l0M25LQ2ZzWHF4LUE1azFiUDd0MTQ2VTRyei42MjYzMTMyQjA0QURCN0JF",
-      "snippet": {
-        "publishedAt": "2020-09-02T12:04:59Z",
-        "channelId": "UCwXEjUyETY0ft0RPlQYOKMA",
-        "title": "IBM Cloud Foundation Skills Series - Creating API Keys",
-        "description": "In this video, I give a quick overview of the two main types of API Key in IBM Cloud before going on to show you how to create and manage them in both the Console and using the ibmcloud  CLI tool.",
-        "thumbnails": {
-          "default": {
-            "url": "https://i.ytimg.com/vi/t9BvnXpYVos/default.jpg",
-            "width": 120,
-            "height": 90
-          },
-          "medium": {
-            "url": "https://i.ytimg.com/vi/t9BvnXpYVos/mqdefault.jpg",
-            "width": 320,
-            "height": 180
-          },
-          "high": {
-            "url": "https://i.ytimg.com/vi/t9BvnXpYVos/hqdefault.jpg",
-            "width": 480,
-            "height": 360
-          }
-        },
-        "channelTitle": "James Belton",
-        "playlistId": "PLmesOgYt3nKCfsXqx-A5k1bP7t146U4rz",
-        "position": 56,
-        "resourceId": {
-          "kind": "youtube#video",
-          "videoId": "t9BvnXpYVos"
         }
       }
     },

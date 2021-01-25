@@ -102,6 +102,10 @@
       path: /install/edge
     - title: Edge Node
       path: /install/edgenode
+    - title: LDAP Connection/Configuration
+      path: /install/ldap-config
+    - title: LDAP Server/Console
+      path: /install/ldap-install
     - title: Mainframe Modernization
       path: /install/mainframe
 

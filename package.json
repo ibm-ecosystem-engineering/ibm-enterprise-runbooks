@@ -12,7 +12,8 @@
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "npm run dev",
     "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
+    "url-link-test": "docker run --rm -it  linkchecker/linkchecker --no-status https://ibm-gsi-ecosystem.github.io/ibm-enterprise-runbooks/ && exit 1"
   },
   "dependencies": {
     "gatsby": "^2.24.80",

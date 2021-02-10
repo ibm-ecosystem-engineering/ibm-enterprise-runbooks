@@ -48,8 +48,8 @@ OpenLDAP is an open-source implementation of LDAP, both server and client.
 
 **Values.Yaml**
 ldap:
-  org: GSI 
-  domain : gsi.com
+org: GSI 
+domain : gsi.com
 
 
 Here is the script to install the OpenLDAP Server via Helm Chart
@@ -74,16 +74,16 @@ There are several options [Secret, IBM Storage , Cloud Object Storage, Certifica
 
 For the ldap, create 3 Config maps and load the certificates on each correspondingly as shown below:-
 
-![Config Maps - Certificate](images/ConfigMaps.png)
+- **GSI-cert**
+    Create the child named "GSI.pem" under the data section and load the GSI.pem contents
 
-- **falconbanc-cert**
-    Create the child named "falcon_banc.pem" under the data section and load the FalconBanc.pem contents
+- **GSI-keys**
+    Create the child named "GSI.key" under the data section and load the GSI.key content
 
-- **falconbanc-keys**
-    Create the child named "falcon_banc.key" under the data section and load the FalconBanc.key content
-
-- **falconbanc-root-cert**
+- **GSI-root-cert**
     Create the child named "letsencryptauthorityx3-root.pem" under the data section and load the letsencryptauthorityx3-root.pem contents
+
+![Config Maps - Certificate](images/ConfigMaps.png)
 
 Here is the script to install the LDAPConsole (phpLDAPadmin) via Helm Chart
 
@@ -92,9 +92,8 @@ Here is the script to install the LDAPConsole (phpLDAPadmin) via Helm Chart
 
 **Values.Yaml**
 LDAP:
-  hostinternal: ldap://cluster.local:389
-  hostexternal: ldapui.gsi.com
-
+hostinternal: ldap://cluster.local:389
+hostexternal: ldapui.gsi.com
 
 ```
 helm install ldapconsole ldapconsole/  --set LDAP.host=<Host IPAddress> --values ldapconsole/values.yaml
@@ -102,8 +101,8 @@ helm install ldapconsole ldapconsole/  --set LDAP.host=<Host IPAddress> --values
 
 **Note:** Restart the pod if it crashloopback
 
-## Configuring Users and Groups
-1. With a web browser log into the phpLDAPAdmin page, the address is http://localhost:9580/phpldapadmin
+## Adding Users and Groups to OpenLDAP via UI
+1. With a web browser log into the phpLDAPAdmin page, the address is http://<host>:<port>/phpldapadmin
 - Click on the top level element the tree (dc=gsi, dc=org).
 - Create a child entry of type organizational unit called users, and confirm.
  

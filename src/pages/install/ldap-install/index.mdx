@@ -119,8 +119,8 @@ helm install ldapconsole ldapconsole/  --set LDAP.host=<Host IPAddress> --values
 4. Press Create Object and confirm.
  - Create a child entry of groups with a Default type.  Select the Object Class groupOfUniqueNames, and Proceed.
  - Select cn as the RDN type, and enter the group name users.  
- - You must add at least one actual user to this group, choose your user id.  The uniqueMember must be of the form;
-    uid=<username>, ou=<username>, dc=gsi, dc=org.
+ - You must add at least one actual user to this group, choose your user id.  
+ - The uniqueMember must be of the form : uid=username, ou=username, dc=gsi, dc=org
  - Press Create and Commit.
  
 5. Now you can add the remaining users, click the modify group members link.

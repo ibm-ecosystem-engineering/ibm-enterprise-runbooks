@@ -46,11 +46,11 @@ OpenLDAP is an open-source implementation of LDAP, both server and client.
 - Checkout the HELM Chart from Git repository The url - https://github.com/ibm-gsi-ecosystem/common-svs-charts
 - Visit the openldap/values.yaml to modify the parameters such as "org" and "domain" values based on your requirements.
 
-```
+**Values.Yaml**
 ldap:
   org: GSI 
   domain : gsi.com
-```
+
 
 Here is the script to install the OpenLDAP Server via Helm Chart
 
@@ -90,11 +90,11 @@ Here is the script to install the LDAPConsole (phpLDAPadmin) via Helm Chart
 - Checkout the HELM Chart from Git repository The url - https://github.com/ibm-gsi-ecosystem/common-svs-charts
 - Visit the openldap/values.yaml to modify the parameters such as "hostinternal" and "hostexternal" values based on your requirements.
 
-```
+**Values.Yaml**
 LDAP:
   hostinternal: ldap://cluster.local:389
   hostexternal: ldapui.gsi.com
-```
+
 
 ```
 helm install ldapconsole ldapconsole/  --set LDAP.host=<Host IPAddress> --values ldapconsole/values.yaml
@@ -104,24 +104,23 @@ helm install ldapconsole ldapconsole/  --set LDAP.host=<Host IPAddress> --values
 
 ## Configuring Users and Groups
 1. With a web browser log into the phpLDAPAdmin page, the address is http://localhost:9580/phpldapadmin
- 
- - Click on the top level element the tree (dc=gsi, dc=org).
- - Create a child entry of type organizational unit called users, and confirm.
+- Click on the top level element the tree (dc=gsi, dc=org).
+- Create a child entry of type organizational unit called users, and confirm.
  
 2. Create a child entry of users, of Default type.  
- - Select inetOrgPerson, organizationalPerson, and person as object classes.
- - Press Proceed.  Then select User Name (uid) for the RDN, and enter in the username for the cn and sn fields.  Create one for yourself first, you’ll do this same procedure for all users.
- - Scroll down and set the Password field, and the User Name fields with the value of your username.
- - Press Create and Commit the changes
+- Select inetOrgPerson, organizationalPerson, and person as object classes.
+- Press Proceed.  Then select User Name (uid) for the RDN, and enter in the username for the cn and sn fields.  Create one for yourself first, you’ll do this same procedure for all users.
+- Scroll down and set the Password field, and the User Name fields with the value of your username.
+- Press Create and Commit the changes
  
 3. Continue to create as many users as you want.  After you have created the users, you need to create at least one group.  Create a child entry off the top node of type Organisational Unit, call it groups.
  
 4. Press Create Object and confirm.
- - Create a child entry of groups with a Default type.  Select the Object Class groupOfUniqueNames, and Proceed.
- - Select cn as the RDN type, and enter the group name users.  
- - You must add at least one actual user to this group, choose your user id.  
- - The uniqueMember must be of the form : uid=username, ou=username, dc=gsi, dc=org
- - Press Create and Commit.
+- Create a child entry of groups with a Default type.  Select the Object Class groupOfUniqueNames, and Proceed.
+- Select cn as the RDN type, and enter the group name users.  
+- You must add at least one actual user to this group, choose your user id.  
+- The uniqueMember must be of the form : uid=username, ou=username, dc=gsi, dc=org
+- Press Create and Commit.
  
 5. Now you can add the remaining users, click the modify group members link.
  

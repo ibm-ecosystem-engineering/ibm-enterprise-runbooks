@@ -43,14 +43,12 @@ LDAP was originally a protocol, Lightweight Directory Access Protocol, and is no
 
 OpenLDAP is an open-source implementation of LDAP, both server and client.
 
-- Checkout the HELM Chart from Git repository The url - https://github.com/ibm-gsi-ecosystem/common-svs-charts
+- Checkout the HELM Chart from Git repository https://github.com/ibm-gsi-ecosystem/common-svs-charts
 - Visit the openldap/values.yaml to modify the parameters such as "org" and "domain" values based on your requirements.
 
 **Values.Yaml**
-ldap:
-org: GSI 
-domain : gsi.com
-
+- org: GSI 
+- domain : gsi.com
 
 Here is the script to install the OpenLDAP Server via Helm Chart
 
@@ -72,7 +70,9 @@ Its hierarchical tree-viewer and advanced search functionality make it intuitive
 
 There are several options [Secret, IBM Storage , Cloud Object Storage, Certificate Manager etc] to load the certificate which is available in OpenShift. 
 
-For the ldap, create 3 Config maps and load the certificates on each correspondingly as shown below:-
+For the ldap, create 3 Config maps and load the certificates on each correspondingly as shown reference below:-
+
+![Config Maps - Certificate](images/ConfigMaps.png)
 
 - **GSI-cert**
     Create the child named "GSI.pem" under the data section and load the GSI.pem contents
@@ -83,18 +83,14 @@ For the ldap, create 3 Config maps and load the certificates on each correspondi
 - **GSI-root-cert**
     Create the child named "letsencryptauthorityx3-root.pem" under the data section and load the letsencryptauthorityx3-root.pem contents
 
-
-![Config Maps - Certificate](images/ConfigMaps.png)
-
 Here is the script to install the LDAPConsole (phpLDAPadmin) via Helm Chart
 
 - Checkout the HELM Chart from Git repository The url - https://github.com/ibm-gsi-ecosystem/common-svs-charts
 - Visit the openldap/values.yaml to modify the parameters such as "hostinternal" and "hostexternal" values based on your requirements.
 
 **Values.Yaml**
-LDAP:
-hostinternal: ldap://cluster.local:389
-hostexternal: ldapui.gsi.com
+- hostinternal: ldap://cluster.local:389
+- hostexternal: ldapui.gsi.com
 
 ```
 helm install ldapconsole ldapconsole/  --set LDAP.host=<Host IPAddress> --values ldapconsole/values.yaml
@@ -104,23 +100,23 @@ helm install ldapconsole ldapconsole/  --set LDAP.host=<Host IPAddress> --values
 
 ## Adding Users and Groups to OpenLDAP via UI
 1. With a web browser log into the phpLDAPAdmin page, the address is http://host:port/phpldapadmin
-- Click on the top level element the tree (dc=gsi, dc=org).
-- Create a child entry of type organizational unit called users, and confirm.
+Click on the top level element the tree (dc=gsi, dc=org).
+Create a child entry of type organizational unit called users, and confirm.
  
 2. Create a child entry of users, of Default type.  
-- Select inetOrgPerson, organizationalPerson, and person as object classes.
-- Press Proceed.  Then select User Name (uid) for the RDN, and enter in the username for the cn and sn fields.  Create one for yourself first, you’ll do this same procedure for all users.
-- Scroll down and set the Password field, and the User Name fields with the value of your username.
-- Press Create and Commit the changes
+Select inetOrgPerson, organizationalPerson, and person as object classes.Press Proceed.  
+Then select User Name (uid) for the RDN, and enter in the username for the cn and sn fields.  Create one for yourself first, you’ll do this same procedure for all users.
+Scroll down and set the Password field, and the User Name fields with the value of your username.
+Press Create and Commit the changes
  
-3. Continue to create as many users as you want.  After you have created the users, you need to create at least one group.  Create a child entry off the top node of type Organisational Unit, call it groups.
- 
-4. Press Create Object and confirm.
-- Create a child entry of groups with a Default type.  Select the Object Class groupOfUniqueNames, and Proceed.
-- Select cn as the RDN type, and enter the group name users.  
-- You must add at least one actual user to this group, choose your user id.  
-- The uniqueMember must be of the form : uid=username, ou=username, dc=gsi, dc=org
-- Press Create and Commit.
+3. Continue to create as many users as you want. 
+4. After you have created the users, you need to create at least one group. 
+5. Create a child entry off the top node of type Organisational Unit, call it groups. Press Create Object and confirm.
+-Create a child entry of groups with a Default type.  Select the Object Class groupOfUniqueNames, and Proceed.
+-Select cn as the RDN type, and enter the group name users.  
+-You must add at least one actual user to this group, choose your user id.  
+-The uniqueMember must be of the form : uid=username, ou=username, dc=gsi, dc=org
+-Press Create and Commit.
  
 5. Now you can add the remaining users, click the modify group members link.
  

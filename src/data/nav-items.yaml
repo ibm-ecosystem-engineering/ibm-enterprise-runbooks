@@ -96,6 +96,8 @@
       path: /install/multi-cloud-management
     - title: Cloud Pak for Data
       path: /install/data
+    - title: Cloud Pak for Data Portworx setup
+      path: /install/portworx-for-data
     - title: Cloud Pak for Automation
       path: /install/automation
     - title: Edge Application Manager

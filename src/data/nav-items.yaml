@@ -94,8 +94,10 @@
       path: /install/integration-operator
     - title: Cloud Pak for MCM
       path: /install/multi-cloud-management
-    - title: Cloud Pak for Data
+    - title: Cloud Pak for Data 3.0
       path: /install/data
+    - title: CP4 Data 3.5 Portworx setup
+      path: /install/portworx-for-data
     - title: Cloud Pak for Automation
       path: /install/automation
     - title: Edge Application Manager

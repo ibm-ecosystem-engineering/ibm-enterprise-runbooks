@@ -62,117 +62,117 @@ For example:
 
 a. Install or migrate to Helm version 3 on cluster
 
-    For reference, instructions to install Helm v3 are [here](https://cloud.ibm.com/docs/openshift?topic=openshift-helm#install_v3).
+For reference, instructions to install Helm v3 are [here](https://cloud.ibm.com/docs/openshift?topic=openshift-helm#install_v3).
 
 b. Install IBM Cloud Block Storage Attacher Plug-in
 
-    For reference, full documentation on IBM Cloud Block Storage Attacher Plug-in is [here](https://cloud.ibm.com/docs/openshift?topic=openshift-utilities#block_storage_attacher).
+For reference, full documentation on IBM Cloud Block Storage Attacher Plug-in is [here](https://cloud.ibm.com/docs/openshift?topic=openshift-utilities#block_storage_attacher).
 
-    Issue these commands:
+Issue these commands:
 
-       oc project kube-system
-       helm repo update
-       helm install block-attacher iks-charts/ibm-block-storage-attacher
-       oc get pod -n kube-system -o wide | grep attacher
-       oc get storageclasses | grep attacher
+    oc project kube-system
+    helm repo update
+    helm install block-attacher iks-charts/ibm-block-storage-attacher
+    oc get pod -n kube-system -o wide | grep attacher
+    oc get storageclasses | grep attacher
 
 c. Attach newly created block storage to worker nodes
 
-    For reference, full documentation on how to attach raw block storage to worker nodes is [here](https://cloud.ibm.com/docs/openshift?topic=openshift-utilities#attach_block).
+For reference, full documentation on how to attach raw block storage to worker nodes is [here](https://cloud.ibm.com/docs/openshift?topic=openshift-utilities#attach_block).
 
-    List storage volumes
+List storage volumes
 
-        ibmcloud sl block volume-list
+    ibmcloud sl block volume-list
 
-    Issue these two commands for each storage volume to get necessary information to create PVs below:
+Issue these two commands for each storage volume to get necessary information to create PVs below:
 
-        ibmcloud sl block access-list <volume_id>
-        ibmcloud sl block volume-detail <volume_id>
+    ibmcloud sl block access-list <volume_id>
+    ibmcloud sl block volume-detail <volume_id>
 
-    Create a PV to attach each storage block to a worker:
+Create a PV to attach each storage block to a worker:
 
-       cat <<EOF | oc create -f -
-       apiVersion: v1
-       kind: PersistentVolume
-       metadata:
-       name: <pv_name>
-       annotations:
-         ibm.io/iqn: "<IQN_hostname>"
-         ibm.io/username: "<username>"
-         ibm.io/password: "<password>"
-         ibm.io/targetip: "<targetIP>"
-         ibm.io/lunid: "<lunID>"
-         ibm.io/nodeip: "<private_worker_IP>"
-         ibm.io/volID: "<volume_ID>"
-       spec:
-       capacity:
-         storage: <size>
-       accessModes:
-         - ReadWriteOnce
-       hostPath:
-         path: /
-       storageClassName: ibmc-block-attacher
-       EOF
+    cat <<EOF | oc create -f -
+    apiVersion: v1
+    kind: PersistentVolume
+    metadata:
+    name: <pv_name>
+    annotations:
+      ibm.io/iqn: "<IQN_hostname>"
+      ibm.io/username: "<username>"
+      ibm.io/password: "<password>"
+      ibm.io/targetip: "<targetIP>"
+      ibm.io/lunid: "<lunID>"
+      ibm.io/nodeip: "<private_worker_IP>"
+      ibm.io/volID: "<volume_ID>"
+    spec:
+    capacity:
+      storage: <size>
+    accessModes:
+      - ReadWriteOnce
+    hostPath:
+      path: /
+    storageClassName: ibmc-block-attacher
+    EOF
 
-    For example:
+For example:
 
-       cat <<EOF | oc create -f -
-       apiVersion: v1
-       kind: PersistentVolume
-       metadata:
-       name: px-pv-240
-       annotations:
-         ibm.io/iqn: "iqn.2021-02.com.ibm:ibm02su2270065-i168011233"
-         ibm.io/username: "IBM02SU2270065-I168011233"
-         ibm.io/password: "xxxxxxxxxxxxx"
-         ibm.io/targetip: "161.26.110.196"
-         ibm.io/lunid: "0"
-         ibm.io/nodeip: "10.185.227.240"
-         ibm.io/volID: "214099980"
-       spec:
-       capacity:
-         storage: 600Gi
-       accessModes:
-         - ReadWriteOnce
-       hostPath:
-         path: /
-       storageClassName: ibmc-block-attacher
-       EOF
+    cat <<EOF | oc create -f -
+    apiVersion: v1
+    kind: PersistentVolume
+    metadata:
+    name: px-pv-240
+    annotations:
+      ibm.io/iqn: "iqn.2021-02.com.ibm:ibm02su2270065-i168011233"
+      ibm.io/username: "IBM02SU2270065-I168011233"
+      ibm.io/password: "xxxxxxxxxxxxx"
+      ibm.io/targetip: "161.26.110.196"
+      ibm.io/lunid: "0"
+      ibm.io/nodeip: "10.185.227.240"
+      ibm.io/volID: "214099980"
+    spec:
+    capacity:
+      storage: 600Gi
+    accessModes:
+      - ReadWriteOnce
+    hostPath:
+      path: /
+    storageClassName: ibmc-block-attacher
+    EOF
 
-    To list and describe pv:
+To list and describe pv:
 
-       oc get pv
-       oc describe pv <pv_name>
+    oc get pv
+    oc describe pv <pv_name>
 
-    If attached correctly, you will see `ibm.io/attachstatus: attached`
+If attached correctly, you will see `ibm.io/attachstatus: attached`
 
-       Name:            px-pv-238
-       Labels:          <none>
-       Annotations:     ibm.io/attachstatus: attached
-                        ibm.io/dm: /dev/dm-1
-                        ibm.io/iqn: iqn.2021-02.com.ibm:ibm02su2270065-i168011229
-                        ibm.io/lunid: 1
-                        ibm.io/mpath: 3600a09803830566f4724516532536b52
-                        ibm.io/nodeip: 10.185.227.238
-                        ibm.io/password: eRdwGTYSBbCZh444
-                        ibm.io/targetip: 161.26.110.204
-                        ibm.io/username: IBM02SU2270065-I168011229
-                        ibm.io/volID: 214100004
-       Finalizers:      [kubernetes.io/pv-protection]
-       StorageClass:    ibmc-block-attacher
-       Status:          Available
-       Claim:           
-       Reclaim Policy:  Retain
-       Access Modes:    RWO
-       VolumeMode:      Filesystem
-       Capacity:        600Gi
-       Node Affinity:   <none>
-       Message:         
-       Source:
-           Type:          HostPath (bare host directory volume)
-           Path:          /
-           HostPathType:  
-       Events:            <none>
+    Name:            px-pv-238
+    Labels:          <none>
+    Annotations:     ibm.io/attachstatus: attached
+                     ibm.io/dm: /dev/dm-1
+                     ibm.io/iqn: iqn.2021-02.com.ibm:ibm02su2270065-i168011229
+                     ibm.io/lunid: 1
+                     ibm.io/mpath: 3600a09803830566f4724516532536b52
+                     ibm.io/nodeip: 10.185.227.238
+                     ibm.io/password: eRdwGTYSBbCZh444
+                     ibm.io/targetip: 161.26.110.204
+                     ibm.io/username: IBM02SU2270065-I168011229
+                     ibm.io/volID: 214100004
+    Finalizers:      [kubernetes.io/pv-protection]
+    StorageClass:    ibmc-block-attacher
+    Status:          Available
+    Claim:           
+    Reclaim Policy:  Retain
+    Access Modes:    RWO
+    VolumeMode:      Filesystem
+    Capacity:        600Gi
+    Node Affinity:   <none>
+    Message:         
+    Source:
+        Type:          HostPath (bare host directory volume)
+        Path:          /
+        HostPathType:  
+    Events:            <none>
 
 [Proceed to step 4](#4.-install-portworx-on-cluster)
 

@@ -10,9 +10,20 @@ import Globals from 'gatsby-theme-carbon/src/templates/Globals';
 
 ## **Overview**
 
-The certified lightweight Kubernetes distribution built for IoT & Edge computing
+The deployment of IEAM includes the management hub that runs in an instance of OpenShift Container Platform installed in your data center. The management hub is where the management of all of your remote edge nodes (edge devices and edge clusters) occurs.
 
-## **1.  Install a lightweight k3s cluster on a VPC Node**
+The following diagram depicts the high-level topology for a typical edge computing setup:
+
+![IBM Edge Computing](images/Edge.png)
+
+### **Install Edge Nodes**
+
+Edge computing places enterprise applications closer to where the data is created, and where actions need to be taken. For more information about installing the required software for IBM Edge Application Manager for nodes, see:
+
+- [Edge devices](https://www.ibm.com/support/knowledgecenter/SSFKVV_4.2/installing/edge_devices.html)
+- [Edge clusters](https://www.ibm.com/support/knowledgecenter/SSFKVV_4.2/installing/edge_clusters.html)
+
+## **1.  Install a lightweight k3s cluster or edge on a VPC Node**
 
 ### **(A) Create a VPC vpc-edge**
 
@@ -82,3 +93,11 @@ You are ready to connect to your instance.
 ### **(C) Login with the ssh key**
 
 - If you need to give others access to vm for others, add public key to the authorized_keys in the vm.
+
+### **(D) Install Agent on Edge Node Device or Cluster
+
+- Follow instructions to install the Edge Device automated agent [installation and registration](https://www.ibm.com/support/knowledgecenter/SSFKVV_4.2/installing/automated_install.html)
+
+- Follow instructions to install the Edge Cluster automated agent [installation and registration](https://www.ibm.com/support/knowledgecenter/SSFKVV_4.2/installing/edge_cluster_agent.html)
+
+

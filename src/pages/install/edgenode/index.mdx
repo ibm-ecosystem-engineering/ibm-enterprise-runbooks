@@ -25,21 +25,21 @@ You can create and configure an IBM Cloud™ Virtual Private Cloud (VPC) by usin
 - Create a generation 2 virtual server instance. 
 - Create a VPC and subnet to define the network. When you create your subnet, attach a public gateway if you want to allow all resources in the subnet to communicate with the public internet.
 
-![IBM Cloud VPC Edge](images/newvpc.png)
-
+![IBM Cloud VPC Edge](images/vpc.png)
+![IBM Cloud VPC Edge](images/vpclocation.png)
 
 #### **2. Create Subnet**
 
 - To limit the subnet's inbound and outbound traffic, you can configure an access control list (ACL). By default, all traffic is allowed.
 
 
-![IBM Cloud VPC Subnet](images/newvpcsubnet.png)
+![IBM Cloud VPC Subnet](images/vpcsubnet.png)
 
 #### **3. Reserve IP**
 
 - If you want your instance to be reachable from the internet, reserve and associate a floating IP address.
 
-![IBM Cloud VPC IP Range](images/iprange.png)
+![IBM Cloud VPC IP Range](images/vpcip.png)
 
 #### **4. Next Steps**
 
@@ -51,87 +51,36 @@ IBM Cloud Virtual Servers for Virtual Private Cloud give you access to all of th
 
 - You can create IBM Cloud™ Virtual Servers for Virtual Private Cloud from the Virtual server instances page in IBM Cloud console.
 
-#### **1. Creating Virtual Server (VS) instance**
+#### **1. Creating Virtual Server (VSI) instance**
 
 In IBM Cloud console External link icon, navigate to Menu icon Menu icon > VPC Infrastructure > Compute > Virtual server instances.
 
 Click New instance and enter the following information as shown in the diagram:
 
-![IBM Cloud VPC Edge](images/newvpcvs.png)
+![IBM Cloud VSI Edge](images/vsi.png)
+
+![IBM Cloud VSI subnet](images/vsisubnet.png)
 
 #### **2. Stock Images**
 
 When you provision IBM Cloud Virtual Servers for Virtual Private Cloud, you can select from the supported stock images or a custom image that you import from IBM Cloud Object Storage. The image that you select determines the operating system that is provisioned for your instance. 
 
-![IBM Cloud VPC Subnet](images/vpcos.png)
+![IBM Cloud VSI OS](images/vsios.png)
 
 #### **3. Reserving a floating IP address**
 
 You can reserve and associate a floating IP address to your instance so you can connect to it from an internet location.
 
-![IBM Cloud VPC IP Range](images/vpcvolume.png)
+![IBM Cloud VSI Bootvolume](images/vsibootvolume.png)
+
+![IBM Cloud VSI Networking](images/vsinetworking.png)
 
 #### **4. Next Steps**
 
 You are ready to connect to your instance. 
 
+![IBM Cloud VSI List](images/vsilist.png)
+
 ### **(C) Login with the ssh key**
 
 - If you need to give others access to vm for others, add public key to the authorized_keys in the vm.
-
-## **Install a edge node with just K3s or docker**
-
-The following instructions guide you through the process of installing the open source project, K3s or Docker on your edge device and registering it with IBM Edge Application Manager IEAM.
-
-<Tabs>
-
-<Tab label="K3s">
-
-## Install a edge node with just K3s
-
-The following instructions guide you through the process of installing the open source project, k3s, which is a lightweight, easy to install Kubernetes distribution geared towards resource-constrained environments and low touch operations on your edge device and registering it with IBM Edge Application Manager IEAM.
-
-```
-curl -sfL https://get.k3s.io | sh -
-```
-
-Execute CLI to verify if k3s is running.
-
-```
-kubectl get nodes 
-```
-
-### Installing agent on k3s:
-https://www.ibm.com/support/knowledgecenter/SSFKVV_4.1/devices/installing/preparing_edge_cluster.html
-
-</Tab>
-
-
-<Tab label="Docker">
-
-## Install a edge node with just docker
-
-The following instructions guide you through the process of installing the docker on your edge device and registering it with IBM Edge Application Manager IEAM.
-
- - Create a VM on VPC (Refer to procedure above)
- - Install docker on ubuntu vm
-
-```
-apt-get update
-apt-get install docker.io
-```
-
-```
-systemctl restart docker
-```
-
- - Check to see if docker is running
-```
-docker images
-```
-
-### Installing agent on docker:
-https://www.ibm.com/support/knowledgecenter/SSFKVV_4.1/devices/installing/registration.html
-
-</Tab>
-</Tabs>

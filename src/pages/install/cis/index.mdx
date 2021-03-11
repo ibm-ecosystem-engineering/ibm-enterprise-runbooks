@@ -1,0 +1,80 @@
+---
+title: Cloud Internet Services 
+---
+
+import Globals from 'gatsby-theme-carbon/src/templates/Globals';
+
+<PageDescription>
+
+</PageDescription>
+
+## Overview
+
+IBM Cloud Internet Services (CIS), powered by Cloudflare, provides a fast, highly performant, reliable, and secure internet service for customers running their business on IBM Cloud.
+
+IBM CIS gets you started quickly by establishing defaults for you, which you can change easily using the UI or API.
+
+## Process Overview
+
+You can start using CIS for your internet traffic with just a few steps.
+
+- Create the CIS from your IBM Cloud Catalog.
+- Add the domain that you want to manage.
+- Configure your DNS information with the name servers provided.
+- Order the SSL Certificates via IBM Certificate Manager
+- Configure DNS Records and add Page rule to route traffic.
+
+### Create the Cloud Internet Services
+
+- Launch the Catalog and search for Cloud Internet Services
+- Select the Enterprise Usage plan
+- Provide the service name "openfn-cis" and select the resource group where you want to be organized in the account
+- Click Create
+
+### Add Domain in Cloud Internet Services
+
+- Open the CIS Service from the IBM Cloud Dashboard
+- Select Overview and Click "+" next to the domain section on right hand side
+- Provide the domain name, DNS Records in the "Setup your domain section"
+- Update the 2 nameservers what CIS provided in the "Domain Purchase Site" where you bought domain. It will forward your request to CIS
+- Wait for 1 hour to process and you will see the "Added Domain" become active with Green Icon
+
+### Create the Certificate Manager
+
+- Launch the Catalog and search for Certificate Manager
+- Select the location where you want service to be provisioned
+- Provide the Service name and select the resource group where you want service to be organized in the account
+- Click Create
+
+### Order the Certificates for domain
+
+- Open the CM from the IBM Cloud Dashboard
+- Click Order. As part of the ordering process, Certificate Manager validates that you own the domains that are listed in your certificate order by interacting with your DNS provider.
+- Click IBM CIS and continue
+- Select the Domain which you added to CIS in the previous steps
+- Checkbox the Add Domain , Add WildCard from the Certificate Domain
+- Select the Common name as "*.openfn.co" so it applies to all subdomain within domain
+- Click Order
+
+### Configure DNS for endpoint
+
+- Click Reliability and select DNS
+- Configure the DNS Records. Manage your DNS records and control whether to proxy traffic through Cloud Internet Services. Proxied traffic can leverage WAF, DDoS, and Caching capabilities.
+- Add DNS Records by Select "CNAME" from type, "subdomain-name" for "Name" and "application endpoint" for the "IPV4 address"
+- Click Add
+- You repeat above process for the number of DNS Records which you want for your application
+
+### Configure Page Rules 
+
+- Customize your Cloud Internet Services configuration on a page-by-page basis. Using specific domain paths you can enable, disable, or modify the behavior of CIS functions to optimize your application.
+- Click Create Rule
+- Provide the URL Match like "ldap.openfn.co"
+- Provide the Host Override Value with the "application endpoint" 
+- Click Create
+- You repeat above process for the number of PageRules based on the DNS Records which you created.
+
+You are successfully created the Cloud internet services, certificate manager and added domain.
+
+## Resources
+- [Cloud Internet Services Docs] (https://cloud.ibm.com/docs/cis?topic=cis-getting-started)
+- [Certificate Manager] (https://cloud.ibm.com/docs/certificate-manager?topic=certificate-manager-getting-started)

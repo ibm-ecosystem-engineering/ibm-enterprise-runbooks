@@ -100,6 +100,8 @@
       path: /install/portworx-for-data
     - title: Cloud Pak for Automation
       path: /install/automation
+    - title: Cloud Internet Services
+      path: /install/cis
     - title: Edge Application Manager
       path: /install/edge
     - title: Edge Node

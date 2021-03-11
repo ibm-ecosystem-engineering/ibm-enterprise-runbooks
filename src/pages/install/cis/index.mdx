@@ -23,17 +23,18 @@ You can start using CIS for your internet traffic with just a few steps.
 - Create the CIS from your IBM Cloud Catalog.
 - Add the domain that you want to manage.
 - Configure your DNS information with the name servers provided.
+- Create the Certificate Manager (CM)
 - Order the SSL Certificates via IBM Certificate Manager
 - Configure DNS Records and add Page rule to route traffic.
 
-### Create the Cloud Internet Services
+### (1) Create the Cloud Internet Services
 
 - Launch the Catalog and search for Cloud Internet Services
 - Select the Enterprise Usage plan
 - Provide the service name "openfn-cis" and select the resource group where you want to be organized in the account
 - Click Create
 
-### Add Domain in Cloud Internet Services
+### (2) Add Domain in Cloud Internet Services
 
 - Open the CIS Service from the IBM Cloud Dashboard
 - Select Overview and Click "+" next to the domain section on right hand side
@@ -41,7 +42,7 @@ You can start using CIS for your internet traffic with just a few steps.
 - Update the 2 nameservers what CIS provided in the "Domain Purchase Site" where you bought domain. It will forward your request to CIS
 - Wait for 1 hour to process and you will see the "Added Domain" become active with Green Icon
 
-### Create the Certificate Manager
+### (3) Create the Certificate Manager
 
 - Launch the Catalog and search for Certificate Manager
 - Select the location where you want service to be provisioned
@@ -49,7 +50,7 @@ You can start using CIS for your internet traffic with just a few steps.
 - Click Create
 
 
-### Order the Certificates for domain
+### (4) Order the Certificates for domain
 
 - Open the CM from the IBM Cloud Dashboard
 - Click Order. As part of the ordering process, Certificate Manager validates that you own the domains that are listed in your certificate order by interacting with your DNS provider.
@@ -61,7 +62,7 @@ You can start using CIS for your internet traffic with just a few steps.
 
 ![CM Overview](./images/CM.png)
 
-### Configure DNS for endpoint
+### (5) Configure DNS for endpoint
 
 - Click Reliability and select DNS
 - Configure the DNS Records. Manage your DNS records and control whether to proxy traffic through Cloud Internet Services. Proxied traffic can leverage WAF, DDoS, and Caching capabilities.
@@ -71,7 +72,7 @@ You can start using CIS for your internet traffic with just a few steps.
 
 ![CIS DNS Records](./images/DNSRecord.png)
 
-### Configure Page Rules 
+### (6) Configure Page Rules 
 
 - Customize your Cloud Internet Services configuration on a page-by-page basis. Using specific domain paths you can enable, disable, or modify the behavior of CIS functions to optimize your application.
 - Click Create Rule

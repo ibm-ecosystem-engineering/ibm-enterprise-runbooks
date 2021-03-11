@@ -26,6 +26,8 @@ You can start using CIS for your internet traffic with just a few steps.
 - Order the SSL Certificates via IBM Certificate Manager
 - Configure DNS Records and add Page rule to route traffic.
 
+![CIS Overview](./images/Overview.png)
+
 ### Create the Cloud Internet Services
 
 - Launch the Catalog and search for Cloud Internet Services
@@ -48,6 +50,7 @@ You can start using CIS for your internet traffic with just a few steps.
 - Provide the Service name and select the resource group where you want service to be organized in the account
 - Click Create
 
+
 ### Order the Certificates for domain
 
 - Open the CM from the IBM Cloud Dashboard
@@ -58,6 +61,8 @@ You can start using CIS for your internet traffic with just a few steps.
 - Select the Common name as "*.openfn.co" so it applies to all subdomain within domain
 - Click Order
 
+![CM Overview](./images/CM.png)
+
 ### Configure DNS for endpoint
 
 - Click Reliability and select DNS
@@ -65,6 +70,8 @@ You can start using CIS for your internet traffic with just a few steps.
 - Add DNS Records by Select "CNAME" from type, "subdomain-name" for "Name" and "application endpoint" for the "IPV4 address"
 - Click Add
 - You repeat above process for the number of DNS Records which you want for your application
+
+![CIS DNS Records](./images/DNSRecord.png)
 
 ### Configure Page Rules 
 
@@ -76,6 +83,7 @@ You can start using CIS for your internet traffic with just a few steps.
 - You repeat above process for the number of PageRules based on the DNS Records which you created.
 
 You are successfully created the Cloud internet services, certificate manager and added domain.
+![CIS Pagerule](./images/Pagerrule.png)
 
 ## Resources
 - [Cloud Internet Services Docs](https://cloud.ibm.com/docs/cis?topic=cis-getting-started)

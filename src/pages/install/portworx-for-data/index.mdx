@@ -180,6 +180,8 @@ If attached correctly, you will see `ibm.io/attachstatus: attached`
 
 #### Provision VPC block storage
 
+- [Refer VPC CLI for more details] (https://cloud.ibm.com/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference)
+
 Create 1 VPC block storage volume for each worker (minimum of 3):
 
     ibmcloud is volume-create <volume-name> 10iops-tier <vpc zone> --capacity <size>

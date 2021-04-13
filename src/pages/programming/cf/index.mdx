@@ -6,11 +6,12 @@ title: IBM Cloud Functions and IBM Event Streams
 import Globals from 'gatsby-theme-carbon/src/templates/Globals';
 
 <PageDescription>
+</PageDescription>
 
 Simple tutorial for reading IBM Event Streams (using Kafka) messages with IBM 
 Cloud Functions Python runtime.
 
-## Prerequisites
+## **Prerequisites**
 
 - An [IBM Cloud](https://cloud.ibm.com) account.
 - [IBM Cloud CLI](https://cloud.ibm.com/docs/cli?topic=cli-getting-started).
@@ -18,7 +19,7 @@ Cloud Functions Python runtime.
 - Cloud Foundry Organization (in this tutorial, I'll use `noe.samaille`).
 - Cloud Foundry Space (in this tutorial, I'll use is `test`).
 
-## Log in to IBM Cloud using CLI
+## **Log in to IBM Cloud using CLI**
 
 - Log in locally to your IBM Cloud account using the CLI:
     ```
@@ -37,7 +38,7 @@ Cloud Functions Python runtime.
     ibmcloud target --cf
     ```
 
-## Create you action
+## **Create you action**
 
 Create an [IBM Cloud Functions Action](https://cloud.ibm.com/functions/actions) called `process-message`, that uses the **Python** runtime:
 
@@ -62,7 +63,7 @@ def main(dict):
     return { 'messages': messages }
 ```
 
-## Provision IBM Event Streams
+## **Provision IBM Event Streams**
 
 - Provision an [IBM Event Streams](https://cloud.ibm.com/catalog/services/event-streams) instance. In this tutorial I'll call IBM Event Streams service instance `my-event-streams`:
 
@@ -76,7 +77,7 @@ def main(dict):
 
 ![fn-action](images/es-creds.png)
 
-## Binding the `/whisk.system/messaging` package to your Event Streams instance
+## **Binding the `/whisk.system/messaging` package to your Event Streams instance**
 
 More information in the [documentation](https://cloud.ibm.com/docs/openwhisk?topic=openwhisk-pkg_event_streams#event_streams_binding):
 
@@ -113,7 +114,7 @@ More information in the [documentation](https://cloud.ibm.com/docs/openwhisk?top
     ibmcloud fn trigger create MyMessageHubTrigger -f /noe.samaille_test/MyEventStreamBind/MyEventStreamBind/messageHubFeed -p topic hello-world
     ```
 
-## Connect your action to the trigger
+## **Connect your action to the trigger**
 
 On [IBM Cloud Functions Triggers](https://cloud.ibm.com/functions/triggers), click your newly created trigger `MyMessageHubTrigger`, then in **Connected Actions** click **Add** and select your existing `process-message` action.
 
@@ -173,8 +174,3 @@ Activation: 'process-message' (76e9ac7d375e49c7a9ac7d375e69c729)
 ]
 ... output ommited ...
 ```
-
-</PageDescription>
-
-## **Overview**
-

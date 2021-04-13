@@ -33,7 +33,7 @@
     "gatsby-transformer-json": "^2.3.0",
     "gatsby-transformer-remark": "^2.8.42",
     "carbon-components": "^10.23.2",
-    "@carbon/icons-react": "^10.20.0",
+    "@carbon/icons-react": "^10.24.0",
     "lodash": "latest",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",

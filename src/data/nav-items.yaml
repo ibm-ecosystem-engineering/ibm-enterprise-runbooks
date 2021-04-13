@@ -78,6 +78,11 @@
     - title: Cloud-Native Toolkit Tile
       path: /catalog/cloud-native-toolkit-tile
 
+- title: Programming
+  pages:
+    - title: Cloud Functions & Event Stream
+      path: /programming/cf
+
 - title: Hybrid Software Install
   pages:
     - title: Overview

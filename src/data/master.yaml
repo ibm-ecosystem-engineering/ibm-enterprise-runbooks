@@ -84,6 +84,8 @@
       path: /ibmcloud/satellite
     - title: OpenVPN Access VSI - VPC
       path: /ibmcloud/openvpn-vsi-vpc
+    - title: VPC VPE with COS
+      path: /ibmcloud/vpc-vpe
 
 - title: Cloud Pak Install - Non IBM Cloud 
   pages:

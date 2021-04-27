@@ -122,6 +122,8 @@
       path: /ibmcloud/kms-roks
     - title: VPC VPE with COS
       path: /ibmcloud/vpc-vpe
+    - title: VPC Block Storage 
+      path: /ibmcloud/vpc-blockstorage
     - title: Hyper Protect Services
       path: /ibmcloud/hyper-protect-services
 

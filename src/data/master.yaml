@@ -86,6 +86,8 @@
       path: /ibmcloud/openvpn-vsi-vpc
     - title: VPC VPE with COS
       path: /ibmcloud/vpc-vpe
+    - title: Hyper Protect Services
+      path: /ibmcloud/hyper-protect-services
 
 - title: Cloud Pak Install - Non IBM Cloud 
   pages:

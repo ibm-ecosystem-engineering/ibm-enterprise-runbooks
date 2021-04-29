@@ -19,375 +19,215 @@ based on IBM Cloud. With this service, you can take the ownership of the cloud H
 
 Hyper Protect Crypto Services integrates with Key Protect application programming interface (API) to generate and manage keys. The Keep Your Own Key (KYOK) function is also enabled to provide access to cloud-based cryptographic HSMs. You can access the network addressable HSMs by making standard PKCS #11 API calls or Enterprise PKCS #11 over gRPC (GREP11) API calls to perform cryptographic operations.
 
-You can provision Hyper protect Crypto Services using IBM cloud catelog or using terraform script mentioned below:
+You can provision Hyper protect Crypto Services using IBM cloud catelog or using terraform script:
+
+![hpcs-1](images/hpcs-1.png)
+![hpcs-2](images/hpcs-2.png)
+
+[Provisioning Hyper protect Crypto service from the IBM Cloud console and IBM Cloud CLI ](https://cloud.ibm.com/docs/hs-crypto?topic=hs-crypto-provision)
+
+or
+
 [Terraform module to provision Hyper protect Crypto service](https://github.com/cloud-native-toolkit/terraform-ibm-hpcs)
+
+```
+git clone https://github.com/cloud-native-toolkit/terraform-ibm-hpcs.git
+cd terraform-ibm-hpcs
+```
+
+```
+docker run -it --rm -v ${PWD}:/terraform quay.io/ibmgaragecloud/cli-tools:v0.12.0-lite
+```
+
+```
+cd /terraform
+terraform init
+```
+
+```
+terraform plan
+```
+
+```
+terraform apply
+```
 
 ## **Post install steps**
 
-Once a Hyper Protect Crypto Service has been provisioned, it must be initialized before it can be used. Currently, the initialization process must be performed manually. The following steps must be followed to complete the initialization 
+Once a Hyper Protect Crypto Service(HPCS) has been provisioned, it must be initialized before it can be used. Currently, the initialization process must be performed manually. 
+There are three ways to initialize HPCS:
+1) Use Smart card - For the highest level of security, choose this option. It uses smart cards to store signature keys and master key parts. Signature keys and master key parts never appear in the clear outside the smart card.
+2) Use recovery crypto unit - If one or more recovery crypto units are allocated for your service instance, you can choose this option. A random master key value is automatically generated in a recovery crypto unit and never appears in the clear outside of the HSMs.
+3) Use key part files - Initialize your service instance by using master key parts that you create and store in files on your local workstation. In this case, the workstation key files serve as a backup copy of your master key value.
+
+We are explaining step 2 in this tutorial. The following steps must be followed to complete the initialization 
 
 ## Key Ceremony
 
-![Key Ceremony](images/Key-Initialization.png)
-
-## Here are the steps to initialize(Key ceremony) of HPCS
+## Prerequisite 
 
 ## Install TKE CLI plun-in
-### ibmcloud plugin install tke
+```
+ibmcloud plugin install tke
+```
 
 Set the environment variable CLOUDTKEFILES on your workstation to specify the directory where you want to save the master key part files and signature key files. The signature keys are used to sign TKE administrative commands.
 
 On the Linux® operating system or MacOS, add the following line to the .bash_profile file:
+```
+export CLOUDTKEFILES=[local-directory]
+```
+## Here is the command to initialize(Key ceremony) HPCS using recovery crypto unit
 
-### export CLOUDTKEFILES=[local-directory]
+```
+ibmcloud tke auto-init
+```
+Output
+```
+A common set of administrators will be loaded in all crypto units assigned to the service instance, the signature thresholds will be set the same, and a random master key value will be generated in one crypto unit and exported to the other crypto units.
 
-## To display the service instances and crypto units in the target resource group under the current user account, use the following command:
-### ibmcloud tke cryptounits
+Press enter to continue or Ctrl-c to exit.
+> 
 
-API endpoint:     https://cloud.ibm.com
-Region:           us-south
-User:             john.smith@in.abc.com
-Account:          Cloud-Native Squad (0f0adc9ace07413f96e2214f4bc0c40b)
-Resource group:   appdev-cloud-native
 
-SERVICE INSTANCE: 4dd3b774-ddce-4b20-bb12-fd01d84fb92f
-CRYPTO UNIT NUM   SELECTED   TYPE          LOCATION   
-1                 false      OPERATIONAL   [us-south].[AZ2-CS5].[02].[06]   
-2                 false      OPERATIONAL   [us-south].[AZ3-CS9].[01].[15]   
-3                 false      RECOVERY      [us-south].[AZ3-CS9].[01].[14]   
-4                 false      RECOVERY      [us-east].[AZ1-CS1].[01].[07]   
+ENTER SIGNATURE THRESHOLD VALUES
 
-Note: all operational crypto units in a service instance must be configured the same.
-Use 'ibmcloud tke cryptounit-compare' to check how crypto units are configured.
+Enter the number of signatures to be required on commands sent to the service instance.
+This must be a number between 1 and 8.
+To enforce dual control, this must be at least 2:
+> 1
 
-## To add extra crypto units to the selected crypto unit list, use the following command:
-### ibmcloud tke cryptounit-add
+Enter the number of signatures to be required on commands to remove an administrator.
+This must be a number between 1 and 8.
+To enforce dual control, this must be at least 2:
+> 1
 
-API endpoint:     https://cloud.ibm.com
-Region:           us-south
-User:             john.smith@in.abc.com
-Account:          Cloud-Native Squad (0f0adc9ace07413f96e2214f4bc0c40b)
-Resource group:   appdev-cloud-native
 
-SERVICE INSTANCE: 4dd3b774-ddce-4b20-bb12-fd01d84fb92f
-CRYPTO UNIT NUM   SELECTED   TYPE          LOCATION   
-1                 false      OPERATIONAL   [us-south].[AZ2-CS5].[02].[06]   
-2                 false      OPERATIONAL   [us-south].[AZ3-CS9].[01].[15]   
-3                 false      RECOVERY      [us-south].[AZ3-CS9].[01].[14]   
-4                 false      RECOVERY      [us-east].[AZ1-CS1].[01].[07]   
+ENTER NUMBER OF ADMINISTRATORS TO INSTALL
 
-Note: all operational crypto units in a service instance must be configured the same.
-Use 'ibmcloud tke cryptounit-compare' to check how crypto units are configured.
+To initialize and maintain your crypto units, administrators must be installed.
+Each administrator has an associated signature key.
+Signature keys are stored in files protected by a password.
+To use the signature key, you must supply the password.
 
-Enter a list of CRYPTO UNIT NUM to add, separated by spaces:
-> 1 2
+To enforce dual control, each signature key file should be assigned to a different user and only that user should know the password.
+
+You can install up to eight administrators in a crypto unit.
+To set a signature threshold value of 1 and a revocation signature threshold of 1, you must install at least 1 administrator.
+
+Enter the number of administrators you want to install:
+> 1
+
+No signature key files were found on this workstation.
+One signature key file will be created.
+
+Creating signature key file 1 of 1...
+
+Enter an administrator name to be associated with the signature key:
+> admin1
+Enter a password to protect the signature key:
+> 
+Re-enter the password to confirm:
+> 
+
+Installing 1 of 1 administrators...
+Setting signature thresholds...
+Generating a random master key value...
+Transferring the master key value to 1 of 3 crypto units...
+Transferring the master key value to 2 of 3 crypto units...
+Transferring the master key value to 3 of 3 crypto units...
+
 OK
+The selected service instance has been initialized.
+To see what administrators are installed and what signature threshold and master key register values are set, use the 'ibmcloud tke cryptounit-compare' command.
 
-API endpoint:     https://cloud.ibm.com
-Region:           us-south
-User:             john.smith@in.abc.com
-Account:          Cloud-Native Squad (0f0adc9ace07413f96e2214f4bc0c40b)
-Resource group:   appdev-cloud-native
+```
+Verify initialization
 
-SERVICE INSTANCE: 4dd3b774-ddce-4b20-bb12-fd01d84fb92f
-CRYPTO UNIT NUM   SELECTED   TYPE          LOCATION   
-1                 true       OPERATIONAL   [us-south].[AZ2-CS5].[02].[06]   
-2                 true       OPERATIONAL   [us-south].[AZ3-CS9].[01].[15]   
-3                 false      RECOVERY      [us-south].[AZ3-CS9].[01].[14]   
-4                 false      RECOVERY      [us-east].[AZ1-CS1].[01].[07]   
-
-Note: all operational crypto units in a service instance must be configured the same.
-Use 'ibmcloud tke cryptounit-compare' to check how crypto units are configured.
-
-
-## To add extra crypto units to the selected crypto unit list, use the following command:
-### ibmcloud tke cryptounit-add
-
-API endpoint:     https://cloud.ibm.com
-Region:           us-south
-User:             john.smith@in.abc.com
-Account:          Cloud-Native Squad (0f0adc9ace07413f96e2214f4bc0c40b)
-Resource group:   appdev-cloud-native
-
-SERVICE INSTANCE: 4dd3b774-ddce-4b20-bb12-fd01d84fb92f
-CRYPTO UNIT NUM   SELECTED   TYPE          LOCATION   
-1                 true       OPERATIONAL   [us-south].[AZ2-CS5].[02].[06]   
-2                 true       OPERATIONAL   [us-south].[AZ3-CS9].[01].[15]   
-3                 false      RECOVERY      [us-south].[AZ3-CS9].[01].[14]   
-4                 false      RECOVERY      [us-east].[AZ1-CS1].[01].[07]   
-
-Note: all operational crypto units in a service instance must be configured the same.
-Use 'ibmcloud tke cryptounit-compare' to check how crypto units are configured.
-
-Enter a list of CRYPTO UNIT NUM to add, separated by spaces:
-> 3 4
-OK
-
-API endpoint:     https://cloud.ibm.com
-Region:           us-south
-User:             john.smith@in.abc.com
-Account:          Cloud-Native Squad (0f0adc9ace07413f96e2214f4bc0c40b)
-Resource group:   appdev-cloud-native
-
-SERVICE INSTANCE: 4dd3b774-ddce-4b20-bb12-fd01d84fb92f
-CRYPTO UNIT NUM   SELECTED   TYPE          LOCATION   
-1                 true       OPERATIONAL   [us-south].[AZ2-CS5].[02].[06]   
-2                 true       OPERATIONAL   [us-south].[AZ3-CS9].[01].[15]   
-3                 true       RECOVERY      [us-south].[AZ3-CS9].[01].[14]   
-4                 true       RECOVERY      [us-east].[AZ1-CS1].[01].[07]   
-
-Note: all operational crypto units in a service instance must be configured the same.
-Use 'ibmcloud tke cryptounit-compare' to check how crypto units are configured.
-
-## You can compare the configuration settings of the selected crypto units with the following command:
-### ibmcloud tke cryptounit-compare
-
-
+```
+ibmcloud tke cryptounit-compare
+```
+Output
+```
 SIGNATURE THRESHOLDS
-SERVICE INSTANCE: 4dd3b774-ddce-4b20-bb12-fd01d84fb92f
+SERVICE INSTANCE: 7ba22c61-5cca-4045-953a-39c27aa1af05
 CRYPTO UNIT NUM   SIGNATURE THRESHOLD   REVOCATION THRESHOLD   
-1                 0                     0   
-2                 0                     0   
+1                 1                     1   
+2                 1                     1   
+3*                1                     1   
+4*                1                     1   
+
+* Indicates a recovery crypto unit used only to hold a backup master key value.
 
 ==> Crypto units with a signature threshold of 0 are in IMPRINT MODE. <==
 
 
 CRYPTO UNIT ADMINISTRATORS
-SERVICE INSTANCE: 4dd3b774-ddce-4b20-bb12-fd01d84fb92f
-CRYPTO UNIT NUM   ADMIN NAME          SUBJECT KEY IDENTIFIER   
-1                 No administrators      
-2                 No administrators      
+SERVICE INSTANCE: 7ba22c61-5cca-4045-953a-39c27aa1af05
+CRYPTO UNIT NUM   ADMIN NAME   SUBJECT KEY IDENTIFIER   
+1                 admin1       d153cf349e9aeb41d0ce84d8fb43a5...   
+2                 admin1       d153cf349e9aeb41d0ce84d8fb43a5...   
+3*                admin1       d153cf349e9aeb41d0ce84d8fb43a5...   
+4*                admin1       d153cf349e9aeb41d0ce84d8fb43a5...   
+
+* Indicates a recovery crypto unit used only to hold a backup master key value.
 
 
 NEW MASTER KEY REGISTER
-SERVICE INSTANCE: 4dd3b774-ddce-4b20-bb12-fd01d84fb92f
+SERVICE INSTANCE: 7ba22c61-5cca-4045-953a-39c27aa1af05
 CRYPTO UNIT NUM   STATUS   VERIFICATION PATTERN   
 1                 Empty    00000000000000000000000000000000   
                            00000000000000000000000000000000   
 2                 Empty    00000000000000000000000000000000   
+                           00000000000000000000000000000000   
+3*                Empty    00000000000000000000000000000000   
+                           00000000000000000000000000000000   
+4*                Empty    00000000000000000000000000000000   
                            00000000000000000000000000000000   
 
 
 CURRENT MASTER KEY REGISTER
-SERVICE INSTANCE: 4dd3b774-ddce-4b20-bb12-fd01d84fb92f
+SERVICE INSTANCE: 7ba22c61-5cca-4045-953a-39c27aa1af05
 CRYPTO UNIT NUM   STATUS   VERIFICATION PATTERN   
-1                 Empty    00000000000000000000000000000000   
-                           00000000000000000000000000000000   
-2                 Empty    00000000000000000000000000000000   
-                           00000000000000000000000000000000   
+1                 Valid    730ebf29e88df393ba3a0bdf491f3fe2   
+                           a107734db4221d7e0ad795b902abdd49   
+2                 Valid    730ebf29e88df393ba3a0bdf491f3fe2   
+                           a107734db4221d7e0ad795b902abdd49   
+3*                Valid    730ebf29e88df393ba3a0bdf491f3fe2   
+                           a107734db4221d7e0ad795b902abdd49   
+4*                Valid    730ebf29e88df393ba3a0bdf491f3fe2   
+                           a107734db4221d7e0ad795b902abdd49   
+
+* Indicates a recovery crypto unit used only to hold a backup master key value.
 
 
 CONTROL POINTS
-SERVICE INSTANCE: 4dd3b774-ddce-4b20-bb12-fd01d84fb92f
+SERVICE INSTANCE: 7ba22c61-5cca-4045-953a-39c27aa1af05
 CRYPTO UNIT NUM   XCP_CPB_ALG_EC_25519   XCP_CPB_BTC   XCP_CPB_ECDSA_OTHER   
 1                 Set                    Set           Set   
-2                 Set                    Not Set       Not Set   
+2                 Set                    Set           Set   
+3*                Set                    Set           Set   
+4*                Set                    Set           Set   
 
-==> WARNING: Crypto units are configured differently. <==
+* Indicates a recovery crypto unit used only to hold a backup master key value.
 
-## To display the existing signature keys on the workstation, use the following command:
-### ibmcloud tke sigkeys
+==> All crypto units are configured the same. <==
 
-No files containing a signature key were found.
+```
 
-To create a file containing a signature key, use the 'ibmcloud tke sigkey-add' command.
-## To create and save a new signature key on the workstation, use the following command:
-### ibmcloud tke sigkey-add
+[Use recovery crypto unit](https://cloud.ibm.com/docs/hs-crypto?topic=hs-crypto-initialize-hsm-recovery-crypto-unit)
 
+## Create root or standard key
 
-Enter an administrator name to be associated with the signature key:
-> john smith
-Enter a password to protect the signature key:
-> 
-Re-enter the password to confirm:
-> 
-OK
-A signature key was created.
-The available signature keys on this workstation are:
+![add-key](images/add-key.png)
 
-KEYNUM   DESCRIPTION   SUBJECT KEY IDENTIFIER   
-1        john smith    754adadbd731a5344c2e606b51993c...   
+1) From the IBM Cloud console, click Key management service keys > Add key.
+2) To create a new key, select Create a key.
+3) Provide keytype (Root or Standard).
+4) Provide KeyName.
+5) When you finish filling out the key's details, click Add key to confirm.
 
-No KEYNUM are selected as current signature keys.
-
-
-## To select the administrators to sign future commands, use the command:
-### ibmcloud tke sigkey-sel
-
-KEYNUM   DESCRIPTION   SUBJECT KEY IDENTIFIER   
-1        john smith    754adadbd731a5344c2e606b51993c...   
-
-No KEYNUM are selected as current signature keys.
-
-Enter the KEYNUM values to select as current signature keys, separated by spaces:
-> 1
-Enter the password for KEYNUM 1:
-> 
-OK
-KEYNUM 1 has been made the current signature key.
-❯ ibmcloud tke cryptounit-admins
-
-
-No crypto unit administrators for service instance 4dd3b774-ddce-4b20-bb12-fd01d84fb92f
-## To display the existing administrators for a crypto unit, use the following command:
-### ibmcloud tke cryptounit-admins
-
-No crypto unit administrators for service instance 4dd3b774-ddce-4b20-bb12-fd01d84fb92f
-## To add an administrator, use the following command:
-### ibmcloud tke cryptounit-admin-add
-
-KEYNUM   DESCRIPTION   SUBJECT KEY IDENTIFIER   
-1        john smith    754adadbd731a5344c2e606b51993c...   
-
-KEYNUM 1 is selected as the current signature key.
-
-Enter the KEYNUM of the administrator signature key you wish to load:
-> 1
-Enter the password for the administrator signature key file:
-> 
-OK
-The crypto unit administrator was added to the selected crypto units.
-## Set quorum authentication thresholds,After you add one or more crypto unit administrators, exit imprint mode by using the command: 
-### ibmcloud tke cryptounit-thrhld-set
-
-Enter the new signature threshold value:
-> 1
-
-Enter the new revocation signature threshold value:
-> 1
-Enter the password for the signature key identified by:
-john smith (754adadbd731a5344c2e606b51993c...)
-> 
-OK
-New signature threshold values have been set in the selected crypto units.
-
-SIGNATURE THRESHOLDS
-SERVICE INSTANCE: 4dd3b774-ddce-4b20-bb12-fd01d84fb92f
-CRYPTO UNIT NUM   SIGNATURE THRESHOLD   REVOCATION THRESHOLD   
-1                 1                     1   
-2                 1                     1   
-
-==> Crypto units with a signature threshold of 0 are in IMPRINT MODE. <==
-## To display the existing master key parts on the workstation, use the following command:
-### ibmcloud tke mks
-
-No files containing an EP11 master key part were found.
-## To create and save a random master key part on the workstation, use the command:
-### ibmcloud tke mk-add –random
-
-Enter a description for the key part:
-> First key
-Enter a password to protect the key part:
-> 
-Re-enter the password to confirm:
-> 
-OK
-A key part was created.
-The available EP11 master key parts on this workstation are:
-
-KEYNUM   DESCRIPTION   VERIFICATION PATTERN   
-1        First key     34c73048e81a08b69243dae23e8943bb   
-                       8874261d58bca67c4d308071ff2b6462
-## To create and save a second random master key part on the workstation:
-### ibmcloud tke mk-add –random
-
-Enter a description for the key part:
-> second key
-Enter a password to protect the key part:
-> 
-Re-enter the password to confirm:
-> 
-OK
-A key part was created.
-The available EP11 master key parts on this workstation are:
-
-KEYNUM   DESCRIPTION   VERIFICATION PATTERN   
-1        First key     34c73048e81a08b69243dae23e8943bb   
-                       8874261d58bca67c4d308071ff2b6462   
-2        second key    ce7b7d2198de8f46195667e725b593fc   
-                       cfbc10e9c211d9bf80b358c2513ac18c
-
-
-## To load the new master key register, use the following command:
-### ibmcloud tke cryptounit-mk-load
-
-
-KEYNUM   DESCRIPTION   VERIFICATION PATTERN   
-1        First key     34c73048e81a08b69243dae23e8943bb   
-                       8874261d58bca67c4d308071ff2b6462   
-2        second key    ce7b7d2198de8f46195667e725b593fc   
-                       cfbc10e9c211d9bf80b358c2513ac18c   
-
-Enter the KEYNUM values of the master key parts you wish to load.
-2 or 3 values must be specified, separated by spaces.
-> 1 2
-Enter the password for the signature key identified by:
-john smith (754adadbd731a5344c2e606b51993c...)
-> 
-Enter the password for key file 1
-> 
-Enter the password for key file 2
-> 
-OK
-The new master key register has been loaded in the selected crypto units.
-
-NEW MASTER KEY REGISTER
-SERVICE INSTANCE: 4dd3b774-ddce-4b20-bb12-fd01d84fb92f
-CRYPTO UNIT NUM   STATUS             VERIFICATION PATTERN   
-1                 Full Uncommitted   7a6ba030d18a0bc1c80abd5931bff8e3   
-                                     10154b88430968ee534ad01413dda886   
-2                 Full Uncommitted   7a6ba030d18a0bc1c80abd5931bff8e3   
-                                     10154b88430968ee534ad01413dda886  
-
-## To commit the new master key register, use the following command:
-### ibmcloud tke cryptounit-mk-commit
-
-Enter the password for the signature key identified by:
-john smith (754adadbd731a5344c2e606b51993c...)
-> 
-OK
-The new master key register has been committed in the selected crypto units.
-
-NEW MASTER KEY REGISTER
-SERVICE INSTANCE: 4dd3b774-ddce-4b20-bb12-fd01d84fb92f
-CRYPTO UNIT NUM   STATUS           VERIFICATION PATTERN   
-1                 Full Committed   7a6ba030d18a0bc1c80abd5931bff8e3   
-                                   10154b88430968ee534ad01413dda886   
-2                 Full Committed   7a6ba030d18a0bc1c80abd5931bff8e3   
-                                   10154b88430968ee534ad01413dda886
-
-## Activate the master key by moving the master key to the current master key register with the following command:
-### ibmcloud tke cryptounit-mk-setimm
-
-Warning!  Any key storage associated with the targeted service instance must be prepared to accept the new master key value before running this command.  Otherwise, key storage may become unusable.
-Do you want to continue?
-Answer [y/N]:
-> y
-Enter the password for the signature key identified by:
-john smith (754adadbd731a5344c2e606b51993c...)
-> 
-OK
-Set immediate completed successfully in the selected crypto units.
-
-NEW MASTER KEY REGISTER
-SERVICE INSTANCE: 4dd3b774-ddce-4b20-bb12-fd01d84fb92f
-CRYPTO UNIT NUM   STATUS   VERIFICATION PATTERN   
-1                 Empty    00000000000000000000000000000000   
-                           00000000000000000000000000000000   
-2                 Empty    00000000000000000000000000000000   
-                           00000000000000000000000000000000   
-
-
-CURRENT MASTER KEY REGISTER
-SERVICE INSTANCE: 4dd3b774-ddce-4b20-bb12-fd01d84fb92f
-CRYPTO UNIT NUM   STATUS   VERIFICATION PATTERN   
-1                 Valid    7a6ba030d18a0bc1c80abd5931bff8e3   
-                           10154b88430968ee534ad01413dda886   
-2                 Valid    7a6ba030d18a0bc1c80abd5931bff8e3   
-                           10154b88430968ee534ad01413dda886
-
-Please refer https://cloud.ibm.com/docs/hs-crypto?topic=hs-crypto-initialize-hsm for more detail:
-
+![key-added](images/key-added.png)
 
 ## **Hyper Protect DBaaS**
 
@@ -396,13 +236,39 @@ Built on IBM LinuxONE technology, Hyper Protect DBaaS for MongoDB helps you to a
 Hyper Protect DBaaS for MongoDB provides a reliable environment that allows you to become more agile in application development. You can quickly get started and move your mission-critical data to the highly available and managed database clusters, saving time and costs on operations. You can also flexibly adjust the amount of resources to meet your requirements.
 
 You can provision Hyper protect DBaaS for MongoDB using IBM cloud catelog or using terraform script mentioned below:
+
+![hpdbaas-1](images/hpdbaas-1.png)
+![hpdbaas-2](images/hpdbaas-2.png)
+
+[Provisioning Hyper protect DBaaS for MongoDB from the IBM Cloud console](https://cloud.ibm.com/docs/hyper-protect-dbaas-for-mongodb?topic=hyper-protect-dbaas-for-mongodb-create-service)
+
+
+
+or
+
 [Terraform module to provision Hyper protect DBaaS for MongoDB](https://github.com/cloud-native-toolkit/terraform-ibm-hpdbaas-mongodb)
 
-![Hyper protect DBAAS service instance](images/Hyper-protect-DBAAS-service-instance.png)
+```
+git clone https://github.com/cloud-native-toolkit/terraform-ibm-hpdbaas-mongodb.git
+cd terraform-ibm-hpdbaas-mongodb
+```
 
-## Hyper protect DBAAS service integration with Hyper protect crypto service
+```
+docker run -it --rm -v ${PWD}:/terraform quay.io/ibmgaragecloud/cli-tools:v0.12.0-lite
+```
 
-![HPCS-HPDBaaS](images/HPCS-HPDBaaS.png)
+```
+cd /terraform
+terraform init
+```
+
+```
+terraform plan
+```
+
+```
+terraform apply
+```
 
 ## **Hyper Protect Virtual Servers**
 
@@ -413,8 +279,37 @@ IBM Cloud Hyper Protect Virtual Servers grant you complete authority over your L
 - Prevention of unauthorized access
 
 You can provision Hyper protect Virtual Servers using IBM cloud catelog or using terraform script mentioned below:
+
+![hpvs-1](images/hpvs-1.png)
+![hpvs-2](images/hpvs-2.png)
+
+[Provisioning Hyper Protect Virtual Servers from the IBM Cloud console](https://cloud.ibm.com/docs/hp-virtual-servers?topic=hp-virtual-servers-provision)
+
+or
+
 [Terraform module to provision Hyper protect Virtual Servers](https://github.com/cloud-native-toolkit/terraform-ibm-vpc-vsi)
 
+```
+git clone https://github.com/cloud-native-toolkit/terraform-ibm-vpc-vsi.git
+cd terraform-ibm-vpc-vsi
+```
+
+```
+docker run -it --rm -v ${PWD}:/terraform quay.io/ibmgaragecloud/cli-tools:v0.12.0-lite
+```
+
+```
+cd /terraform
+terraform init
+```
+
+```
+terraform plan
+```
+
+```
+terraform apply
+```
 
 ## **Deploy application on Hyper Protect Virtual Server**
 
@@ -427,13 +322,20 @@ When you have completed this code pattern, you will understand how to:
 - Create an IBM Cloud IAM API key
 - Drive the IBM Cloud Key Protect REST API, offered by IBM Cloud Hyper Protect Crypto Services
 
-![Architecture](images/architecture.png)
 
-[Deploy application on Hyper Protect Virtual Server](https://github.com/yogendrasri/secured-microservices-writing-to-a-consolidated-database)
+![ui-frontpage](images/ui-frontpage.png)
+![ui-generatedek](images/ui-generatedek.png)
+![ui-custsubmitform](images/ui-custsubmitform.png)
+![ui-confirm](images/ui-confirm.png)
+![ui-retrieveinfo](images/ui-retrieveinfo.png)
+
+[code pattern](https://developer.ibm.com/patterns/create-a-secured-microservices-and-deploy-it-to-a-consolidated-database/)
+
+[application code](https://github.com/yogendrasri/secured-microservices-writing-to-a-consolidated-database)
 
 
 ### **Resources**
 - [Hyper Protect crypto services](https://cloud.ibm.com/docs/hs-crypto?topic=hs-crypto-get-started)
 - [Hyper Protect DBaaS for MongoDB](https://cloud.ibm.com/docs/hyper-protect-dbaas-for-mongodb?topic=hyper-protect-dbaas-for-mongodb-gettingstarted)
 - [yper Protect Virtual Servers](https://cloud.ibm.com/docs/hp-virtual-servers?topic=hp-virtual-servers-getting-started)
-
+- [Application](https://developer.ibm.com/patterns/create-a-secured-microservices-and-deploy-it-to-a-consolidated-database/)

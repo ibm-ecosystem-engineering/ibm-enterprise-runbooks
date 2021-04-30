@@ -11,7 +11,7 @@ import Globals from 'gatsby-theme-carbon/src/templates/Globals';
 
 ## **Overview**
 
-IBM Cloud® Hyper Protect Crypto Services (Hyper Protect Crypto Services for short) is a dedicated key management service and hardware security module (HSM)
+IBM Cloud® Hyper Protect Crypto Services (HPCS) is a dedicated key management service and hardware security module (HSM)
 based on IBM Cloud. With this service, you can take the ownership of the cloud HSM to fully manage your encryption keys and to perform cryptographic operations. Hyper Protect Crypto Services is also the only service in the cloud industry that is built on FIPS 140-2 Level 4-certified hardware
 
 
@@ -19,12 +19,12 @@ based on IBM Cloud. With this service, you can take the ownership of the cloud H
 
 Hyper Protect Crypto Services integrates with Key Protect application programming interface (API) to generate and manage keys. The Keep Your Own Key (KYOK) function is also enabled to provide access to cloud-based cryptographic HSMs. You can access the network addressable HSMs by making standard PKCS #11 API calls or Enterprise PKCS #11 over gRPC (GREP11) API calls to perform cryptographic operations.
 
-You can provision Hyper protect Crypto Services using IBM cloud catelog or using terraform script:
+You can provision Hyper protect Crypto Services using IBM cloud catalog or using terraform script:
 
 ![hpcs-1](images/hpcs-1.png)
 ![hpcs-2](images/hpcs-2.png)
 
-[Provisioning Hyper protect Crypto service from the IBM Cloud console and IBM Cloud CLI ](https://cloud.ibm.com/docs/hs-crypto?topic=hs-crypto-provision)
+[For more detail please refer - provisioning Hyper protect Crypto service from the IBM Cloud console and IBM Cloud CLI ](https://cloud.ibm.com/docs/hs-crypto?topic=hs-crypto-provision)
 
 or
 
@@ -56,17 +56,20 @@ terraform apply
 
 Once a Hyper Protect Crypto Service(HPCS) has been provisioned, it must be initialized before it can be used. Currently, the initialization process must be performed manually. 
 There are three ways to initialize HPCS:
+
 1) Use Smart card - For the highest level of security, choose this option. It uses smart cards to store signature keys and master key parts. Signature keys and master key parts never appear in the clear outside the smart card.
+
 2) Use recovery crypto unit - If one or more recovery crypto units are allocated for your service instance, you can choose this option. A random master key value is automatically generated in a recovery crypto unit and never appears in the clear outside of the HSMs.
+
 3) Use key part files - Initialize your service instance by using master key parts that you create and store in files on your local workstation. In this case, the workstation key files serve as a backup copy of your master key value.
 
-We are explaining step 2 in this tutorial. The following steps must be followed to complete the initialization 
+We are explaining method 2 in this tutorial. The following steps must be followed to complete the initialization 
 
 ## Key Ceremony
 
-## Prerequisite 
+### Prerequisites 
 
-## Install TKE CLI plun-in
+### Install TKE CLI plugin
 ```
 ibmcloud plugin install tke
 ```
@@ -77,7 +80,7 @@ On the Linux® operating system or MacOS, add the following line to the .bash_pr
 ```
 export CLOUDTKEFILES=[local-directory]
 ```
-## Here is the command to initialize(Key ceremony) HPCS using recovery crypto unit
+### The command to initialize HPCS using recovery crypto unit
 
 ```
 ibmcloud tke auto-init
@@ -142,7 +145,7 @@ The selected service instance has been initialized.
 To see what administrators are installed and what signature threshold and master key register values are set, use the 'ibmcloud tke cryptounit-compare' command.
 
 ```
-Verify initialization
+### Verify initialization
 
 ```
 ibmcloud tke cryptounit-compare
@@ -219,12 +222,14 @@ CRYPTO UNIT NUM   XCP_CPB_ALG_EC_25519   XCP_CPB_BTC   XCP_CPB_ECDSA_OTHER
 
 ## Create root or standard key
 
-![add-key](images/add-key.png)
-
 1) From the IBM Cloud console, click Key management service keys > Add key.
+
 2) To create a new key, select Create a key.
+
 3) Provide keytype (Root or Standard).
+
 4) Provide KeyName.
+
 5) When you finish filling out the key's details, click Add key to confirm.
 
 ![key-added](images/key-added.png)
@@ -240,7 +245,7 @@ You can provision Hyper protect DBaaS for MongoDB using IBM cloud catelog or usi
 ![hpdbaas-1](images/hpdbaas-1.png)
 ![hpdbaas-2](images/hpdbaas-2.png)
 
-[Provisioning Hyper protect DBaaS for MongoDB from the IBM Cloud console](https://cloud.ibm.com/docs/hyper-protect-dbaas-for-mongodb?topic=hyper-protect-dbaas-for-mongodb-create-service)
+[For more detail please refer - provisioning Hyper protect DBaaS for MongoDB from the IBM Cloud console](https://cloud.ibm.com/docs/hyper-protect-dbaas-for-mongodb?topic=hyper-protect-dbaas-for-mongodb-create-service)
 
 
 
@@ -283,7 +288,7 @@ You can provision Hyper protect Virtual Servers using IBM cloud catelog or using
 ![hpvs-1](images/hpvs-1.png)
 ![hpvs-2](images/hpvs-2.png)
 
-[Provisioning Hyper Protect Virtual Servers from the IBM Cloud console](https://cloud.ibm.com/docs/hp-virtual-servers?topic=hp-virtual-servers-provision)
+[For more detail please refer - provisioning Hyper Protect Virtual Servers from the IBM Cloud console](https://cloud.ibm.com/docs/hp-virtual-servers?topic=hp-virtual-servers-provision)
 
 or
 
@@ -322,6 +327,10 @@ When you have completed this code pattern, you will understand how to:
 - Create an IBM Cloud IAM API key
 - Drive the IBM Cloud Key Protect REST API, offered by IBM Cloud Hyper Protect Crypto Services
 
+[Code pattern](https://developer.ibm.com/patterns/create-a-secured-microservices-and-deploy-it-to-a-consolidated-database/)
+
+[Application code](https://github.com/yogendrasri/secured-microservices-writing-to-a-consolidated-database)
+
 
 ![ui-frontpage](images/ui-frontpage.png)
 ![ui-generatedek](images/ui-generatedek.png)
@@ -329,9 +338,13 @@ When you have completed this code pattern, you will understand how to:
 ![ui-confirm](images/ui-confirm.png)
 ![ui-retrieveinfo](images/ui-retrieveinfo.png)
 
-[code pattern](https://developer.ibm.com/patterns/create-a-secured-microservices-and-deploy-it-to-a-consolidated-database/)
+![ui-retrieveinfo](images/ui-retrieveinfo.png)
+![ui-retrieveinfo](images/ui-retrieveinfo.png)
 
-[application code](https://github.com/yogendrasri/secured-microservices-writing-to-a-consolidated-database)
+![ui-decryted-data](images/ui-decryted-data.png)
+![ui-encrypt-data](images/ui-encrypt-data.png)
+
+
 
 
 ### **Resources**

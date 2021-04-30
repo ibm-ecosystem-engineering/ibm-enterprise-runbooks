@@ -24,7 +24,7 @@ You can provision Hyper protect Crypto Services using IBM cloud catalog or using
 ![hpcs-1](images/hpcs-1.png)
 ![hpcs-2](images/hpcs-2.png)
 
-[For more detail please refer - provisioning Hyper protect Crypto service from the IBM Cloud console and IBM Cloud CLI ](https://cloud.ibm.com/docs/hs-crypto?topic=hs-crypto-provision)
+For more detail please refer https://cloud.ibm.com/docs/hs-crypto?topic=hs-crypto-provision
 
 or
 
@@ -245,9 +245,7 @@ You can provision Hyper protect DBaaS for MongoDB using IBM cloud catelog or usi
 ![hpdbaas-1](images/hpdbaas-1.png)
 ![hpdbaas-2](images/hpdbaas-2.png)
 
-[For more detail please refer - provisioning Hyper protect DBaaS for MongoDB from the IBM Cloud console](https://cloud.ibm.com/docs/hyper-protect-dbaas-for-mongodb?topic=hyper-protect-dbaas-for-mongodb-create-service)
-
-
+For more detail please refer https://cloud.ibm.com/docs/hyper-protect-dbaas-for-mongodb?topic=hyper-protect-dbaas-for-mongodb-create-service
 
 or
 
@@ -288,7 +286,7 @@ You can provision Hyper protect Virtual Servers using IBM cloud catelog or using
 ![hpvs-1](images/hpvs-1.png)
 ![hpvs-2](images/hpvs-2.png)
 
-[For more detail please refer - provisioning Hyper Protect Virtual Servers from the IBM Cloud console](https://cloud.ibm.com/docs/hp-virtual-servers?topic=hp-virtual-servers-provision)
+For more detail please refer https://cloud.ibm.com/docs/hp-virtual-servers?topic=hp-virtual-servers-provision
 
 or
 
@@ -331,17 +329,21 @@ When you have completed this code pattern, you will understand how to:
 
 [Application code](https://github.com/yogendrasri/secured-microservices-writing-to-a-consolidated-database)
 
+### Application output
 
+The main page of application that explain how HPCS, HPDBAAS works along with application deployed on HPVS:  
 ![ui-frontpage](images/ui-frontpage.png)
+Create a new team, and associated key provided by Crypto Services(HPCS):
 ![ui-generatedek](images/ui-generatedek.png)
+Fill the detail and submit the form, user can use auto generated deatil as well:
 ![ui-custsubmitform](images/ui-custsubmitform.png)
+Conformation of Data stored in MongoDB:
 ![ui-confirm](images/ui-confirm.png)
+Retrieve the information from MongoDB, all the data stored is encrypted:
 ![ui-retrieveinfo](images/ui-retrieveinfo.png)
-
-![ui-retrieveinfo](images/ui-retrieveinfo.png)
-![ui-retrieveinfo](images/ui-retrieveinfo.png)
-
+You can view encrpted data by select the row provided user belongs to the same team: 
 ![ui-decryted-data](images/ui-decryted-data.png)
+If user does not belongs to the same team data would be in ciphertext:
 ![ui-encrypt-data](images/ui-encrypt-data.png)
 
 

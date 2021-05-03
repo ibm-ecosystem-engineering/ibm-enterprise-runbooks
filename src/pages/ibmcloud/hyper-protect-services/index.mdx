@@ -12,7 +12,7 @@ import Globals from 'gatsby-theme-carbon/src/templates/Globals';
 ## **Overview**
 
 IBM Cloud® Hyper Protect Crypto Services (HPCS) is a dedicated key management service and hardware security module (HSM)
-based on IBM Cloud. With this service, you can take the ownership of the cloud HSM to fully manage your encryption keys and to perform cryptographic operations. Hyper Protect Crypto Services is also the only service in the cloud industry that is built on FIPS 140-2 Level 4-certified hardware
+based on IBM Cloud. With this service, you can take the ownership of the cloud HSM to fully manage your encryption keys and to perform cryptographic operations. Hyper Protect Crypto Services is also the only service in the cloud industry that is built on FIPS 140-2 Level 4-certified hardware.
 
 
 ## **Hyper Protect Crypto Services**
@@ -21,12 +21,17 @@ Hyper Protect Crypto Services integrates with Key Protect application programmin
 
 You can provision Hyper protect Crypto Services using IBM cloud catalog or using terraform script:
 
+<Tabs>
+
+<Tab label="Provision HPCS using IBM cloud" open="true">
+
 ![hpcs-1](images/hpcs-1.png)
 ![hpcs-2](images/hpcs-2.png)
 
-For more detail please refer https://cloud.ibm.com/docs/hs-crypto?topic=hs-crypto-provision
+For more details please refer https://cloud.ibm.com/docs/hs-crypto?topic=hs-crypto-provision
+</Tab>
 
-or
+<Tab label="Provision HPCS using terraform script" open="true">
 
 [Terraform module to provision Hyper protect Crypto service](https://github.com/cloud-native-toolkit/terraform-ibm-hpcs)
 
@@ -51,10 +56,12 @@ terraform plan
 ```
 terraform apply
 ```
+</Tab>
+</Tabs>
 
 ## **Post install steps**
 
-Once a Hyper Protect Crypto Service(HPCS) has been provisioned, it must be initialized before it can be used. Currently, the initialization process must be performed manually. 
+Once a Hyper Protect Crypto Service (HPCS) has been provisioned, it must be initialized before it can be used. Currently, the initialization process must be performed manually. 
 There are three ways to initialize HPCS:
 
 1) Use Smart card - For the highest level of security, choose this option. It uses smart cards to store signature keys and master key parts. Signature keys and master key parts never appear in the clear outside the smart card.
@@ -63,9 +70,9 @@ There are three ways to initialize HPCS:
 
 3) Use key part files - Initialize your service instance by using master key parts that you create and store in files on your local workstation. In this case, the workstation key files serve as a backup copy of your master key value.
 
-We are explaining method 2 in this tutorial. The following steps must be followed to complete the initialization 
+We are explaining method 2 in this tutorial. The following steps must be followed to complete the initialization: 
 
-## Key Ceremony
+### **Key Ceremony**
 
 ### Prerequisites 
 
@@ -80,7 +87,14 @@ On the Linux® operating system or MacOS, add the following line to the .bash_pr
 ```
 export CLOUDTKEFILES=[local-directory]
 ```
-### The command to initialize HPCS using recovery crypto unit
+
+Login to IBM Cloud
+
+```
+ibmcloud login  --apikey <apikey> -a cloud.ibm.com -r region -g <resource group>
+```
+
+### Initializing HPCS using recovery crypto unit
 
 ```
 ibmcloud tke auto-init
@@ -218,36 +232,40 @@ CRYPTO UNIT NUM   XCP_CPB_ALG_EC_25519   XCP_CPB_BTC   XCP_CPB_ECDSA_OTHER
 
 ```
 
-[Use recovery crypto unit](https://cloud.ibm.com/docs/hs-crypto?topic=hs-crypto-initialize-hsm-recovery-crypto-unit)
+For more details refer recovery crypto unit https://cloud.ibm.com/docs/hs-crypto?topic=hs-crypto-initialize-hsm-recovery-crypto-unit
 
-## Create root or standard key
+## **Create root or standard key**
 
-1) From the IBM Cloud console, click Key management service keys > Add key.
+1) From the IBM Cloud console open HPCS service, click Key management service keys > Add key.
 
-2) To create a new key, select Create a key.
+2) Provide key type (Root or Standard).
 
-3) Provide keytype (Root or Standard).
+3) Provide Key name.
 
-4) Provide KeyName.
-
-5) When you finish filling out the key's details, click Add key to confirm.
+4) When you finish filling out the key's details, click Create key to confirm.
 
 ![key-added](images/key-added.png)
 
 ## **Hyper Protect DBaaS**
 
-IBM Cloud® Hyper Protect DBaaS provides tamper-proof, enterprise cloud database environments with high availability for workloads with sensitive data. It offers a flexible platform that allows you to easily provision and manage your database of choice (MongoDB and PostgreSQL), without data security concerns.
+IBM Cloud® Hyper Protect DBaaS (HPDBaaS) provides tamper-proof, enterprise cloud database environments with high availability for workloads with sensitive data. It offers a flexible platform that allows you to easily provision and manage your database of choice (MongoDB and PostgreSQL), without data security concerns.
 Built on IBM LinuxONE technology, Hyper Protect DBaaS for MongoDB helps you to alleviate data security and compliance concerns with built-in encryption and tamper protection for data at rest and in flight. You can deploy your workloads with sensitive data and build compliant applications without having to be a security expert.
 Hyper Protect DBaaS for MongoDB provides a reliable environment that allows you to become more agile in application development. You can quickly get started and move your mission-critical data to the highly available and managed database clusters, saving time and costs on operations. You can also flexibly adjust the amount of resources to meet your requirements.
 
-You can provision Hyper protect DBaaS for MongoDB using IBM cloud catelog or using terraform script mentioned below:
+You can provision Hyper protect DBaaS for MongoDB using IBM cloud catalog or using terraform script mentioned below:
+
+<Tabs>
+
+<Tab label="Provision HPDBaaS for MongoDB using IBM cloud" open="true">
 
 ![hpdbaas-1](images/hpdbaas-1.png)
 ![hpdbaas-2](images/hpdbaas-2.png)
 
-For more detail please refer https://cloud.ibm.com/docs/hyper-protect-dbaas-for-mongodb?topic=hyper-protect-dbaas-for-mongodb-create-service
+For more details please refer https://cloud.ibm.com/docs/hyper-protect-dbaas-for-mongodb?topic=hyper-protect-dbaas-for-mongodb-create-service
 
-or
+</Tab>
+
+<Tab label="Provision HPDBaaS for MongoDB using terraform script" open="true">
 
 [Terraform module to provision Hyper protect DBaaS for MongoDB](https://github.com/cloud-native-toolkit/terraform-ibm-hpdbaas-mongodb)
 
@@ -273,22 +291,30 @@ terraform plan
 terraform apply
 ```
 
+</Tab>
+</Tabs>
+
 ## **Hyper Protect Virtual Servers**
 
-IBM Cloud Hyper Protect Virtual Servers grant you complete authority over your Linux-based virtual servers for workloads that contain sensitive data and business IP. They offer a confidential computing environment, addressing your top security concerns for peace of mind when building applications in the cloud and helping you with the following issues:
+IBM Cloud Hyper Protect Virtual Servers (HPVS) grant you complete authority over your Linux-based virtual servers for workloads that contain sensitive data and business IP. They offer a confidential computing environment, addressing your top security concerns for peace of mind when building applications in the cloud and helping you with the following issues:
 
 - Memory protection through a trusted execution environment
 - Data-at-rest and data-in-flight encryption
 - Prevention of unauthorized access
 
-You can provision Hyper protect Virtual Servers using IBM cloud catelog or using terraform script mentioned below:
+You can provision Hyper protect Virtual Servers using IBM cloud catalog or using terraform script mentioned below:
+
+<Tabs>
+
+<Tab label="Provision  HPVS using IBM cloud" open="true">
 
 ![hpvs-1](images/hpvs-1.png)
 ![hpvs-2](images/hpvs-2.png)
 
-For more detail please refer https://cloud.ibm.com/docs/hp-virtual-servers?topic=hp-virtual-servers-provision
+For more details please refer https://cloud.ibm.com/docs/hp-virtual-servers?topic=hp-virtual-servers-provision
 
-or
+</Tab>
+<Tab label="Provision HPVS using terraform script" open="true">
 
 [Terraform module to provision Hyper protect Virtual Servers](https://github.com/cloud-native-toolkit/terraform-ibm-vpc-vsi)
 
@@ -313,6 +339,8 @@ terraform plan
 ```
 terraform apply
 ```
+</Tab>
+</Tabs>
 
 ## **Deploy application on Hyper Protect Virtual Server**
 
@@ -327,22 +355,29 @@ When you have completed this code pattern, you will understand how to:
 
 [Code pattern](https://developer.ibm.com/patterns/create-a-secured-microservices-and-deploy-it-to-a-consolidated-database/)
 
+Git repo for the Application:
 [Application code](https://github.com/yogendrasri/secured-microservices-writing-to-a-consolidated-database)
 
 ### Application output
 
-The main page of application that explain how HPCS, HPDBAAS works along with application deployed on HPVS:  
+The main page of application that explains how HPCS, HPDBaaS works along with application deployed on HPVS:  
 ![ui-frontpage](images/ui-frontpage.png)
+
 Create a new team, and associated key provided by Crypto Services(HPCS):
 ![ui-generatedek](images/ui-generatedek.png)
-Fill the detail and submit the form, user can use auto generated deatil as well:
+
+Fill the details and submit the form, user can use auto generated deatils as well:
 ![ui-custsubmitform](images/ui-custsubmitform.png)
+
 Conformation of Data stored in MongoDB:
 ![ui-confirm](images/ui-confirm.png)
+
 Retrieve the information from MongoDB, all the data stored is encrypted:
 ![ui-retrieveinfo](images/ui-retrieveinfo.png)
-You can view encrpted data by select the row provided user belongs to the same team: 
+
+You can view encrpted data by selecting the row, provided user belongs to the same team: 
 ![ui-decryted-data](images/ui-decryted-data.png)
+
 If user does not belongs to the same team data would be in ciphertext:
 ![ui-encrypt-data](images/ui-encrypt-data.png)
 
@@ -352,5 +387,5 @@ If user does not belongs to the same team data would be in ciphertext:
 ### **Resources**
 - [Hyper Protect crypto services](https://cloud.ibm.com/docs/hs-crypto?topic=hs-crypto-get-started)
 - [Hyper Protect DBaaS for MongoDB](https://cloud.ibm.com/docs/hyper-protect-dbaas-for-mongodb?topic=hyper-protect-dbaas-for-mongodb-gettingstarted)
-- [yper Protect Virtual Servers](https://cloud.ibm.com/docs/hp-virtual-servers?topic=hp-virtual-servers-getting-started)
+- [Hyper Protect Virtual Servers](https://cloud.ibm.com/docs/hp-virtual-servers?topic=hp-virtual-servers-getting-started)
 - [Application](https://developer.ibm.com/patterns/create-a-secured-microservices-and-deploy-it-to-a-consolidated-database/)

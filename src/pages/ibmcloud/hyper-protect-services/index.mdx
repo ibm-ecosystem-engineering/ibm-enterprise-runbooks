@@ -28,7 +28,7 @@ You can provision Hyper protect Crypto Services using IBM cloud catalog or using
 ![hpcs-1](images/hpcs-1.png)
 ![hpcs-2](images/hpcs-2.png)
 
-For more detail please refer https://cloud.ibm.com/docs/hs-crypto?topic=hs-crypto-provision
+For more details please refer https://cloud.ibm.com/docs/hs-crypto?topic=hs-crypto-provision
 </Tab>
 
 <Tab label="Provision HPCS using terraform script" open="true">
@@ -94,7 +94,7 @@ Login to IBM Cloud
 ibmcloud login  --apikey <apikey> -a cloud.ibm.com -r region -g <resource group>
 ```
 
-### The command to initialize HPCS using recovery crypto unit
+### Initializing HPCS using recovery crypto unit
 
 ```
 ibmcloud tke auto-init
@@ -238,17 +238,17 @@ For more details refer recovery crypto unit https://cloud.ibm.com/docs/hs-crypto
 
 1) From the IBM Cloud console open HPCS service, click Key management service keys > Add key.
 
-2) Provide keytype (Root or Standard).
+2) Provide key type (Root or Standard).
 
-3) Provide KeyName.
+3) Provide Key name.
 
-4) When you finish filling out the key's details, click Add key to confirm.
+4) When you finish filling out the key's details, click Create key to confirm.
 
 ![key-added](images/key-added.png)
 
 ## **Hyper Protect DBaaS**
 
-IBM Cloud® Hyper Protect DBaaS (HPDBAAS) provides tamper-proof, enterprise cloud database environments with high availability for workloads with sensitive data. It offers a flexible platform that allows you to easily provision and manage your database of choice (MongoDB and PostgreSQL), without data security concerns.
+IBM Cloud® Hyper Protect DBaaS (HPDBaaS) provides tamper-proof, enterprise cloud database environments with high availability for workloads with sensitive data. It offers a flexible platform that allows you to easily provision and manage your database of choice (MongoDB and PostgreSQL), without data security concerns.
 Built on IBM LinuxONE technology, Hyper Protect DBaaS for MongoDB helps you to alleviate data security and compliance concerns with built-in encryption and tamper protection for data at rest and in flight. You can deploy your workloads with sensitive data and build compliant applications without having to be a security expert.
 Hyper Protect DBaaS for MongoDB provides a reliable environment that allows you to become more agile in application development. You can quickly get started and move your mission-critical data to the highly available and managed database clusters, saving time and costs on operations. You can also flexibly adjust the amount of resources to meet your requirements.
 
@@ -256,16 +256,16 @@ You can provision Hyper protect DBaaS for MongoDB using IBM cloud catelog or usi
 
 <Tabs>
 
-<Tab label="Provision HPDBAAS for MongoDB using IBM cloud" open="true">
+<Tab label="Provision HPDBaaS for MongoDB using IBM cloud" open="true">
 
 ![hpdbaas-1](images/hpdbaas-1.png)
 ![hpdbaas-2](images/hpdbaas-2.png)
 
-For more detail please refer https://cloud.ibm.com/docs/hyper-protect-dbaas-for-mongodb?topic=hyper-protect-dbaas-for-mongodb-create-service
+For more details please refer https://cloud.ibm.com/docs/hyper-protect-dbaas-for-mongodb?topic=hyper-protect-dbaas-for-mongodb-create-service
 
 </Tab>
 
-<Tab label="Provision HPDBAAS for MongoDB using terraform script" open="true">
+<Tab label="Provision HPDBaaS for MongoDB using terraform script" open="true">
 
 [Terraform module to provision Hyper protect DBaaS for MongoDB](https://github.com/cloud-native-toolkit/terraform-ibm-hpdbaas-mongodb)
 
@@ -296,13 +296,13 @@ terraform apply
 
 ## **Hyper Protect Virtual Servers**
 
-IBM Cloud Hyper Protect Virtual Servers(HPVS) grant you complete authority over your Linux-based virtual servers for workloads that contain sensitive data and business IP. They offer a confidential computing environment, addressing your top security concerns for peace of mind when building applications in the cloud and helping you with the following issues:
+IBM Cloud Hyper Protect Virtual Servers (HPVS) grant you complete authority over your Linux-based virtual servers for workloads that contain sensitive data and business IP. They offer a confidential computing environment, addressing your top security concerns for peace of mind when building applications in the cloud and helping you with the following issues:
 
 - Memory protection through a trusted execution environment
 - Data-at-rest and data-in-flight encryption
 - Prevention of unauthorized access
 
-You can provision Hyper protect Virtual Servers using IBM cloud catelog or using terraform script mentioned below:
+You can provision Hyper protect Virtual Servers using IBM cloud catalog or using terraform script mentioned below:
 
 <Tabs>
 
@@ -311,7 +311,7 @@ You can provision Hyper protect Virtual Servers using IBM cloud catelog or using
 ![hpvs-1](images/hpvs-1.png)
 ![hpvs-2](images/hpvs-2.png)
 
-For more detail please refer https://cloud.ibm.com/docs/hp-virtual-servers?topic=hp-virtual-servers-provision
+For more details please refer https://cloud.ibm.com/docs/hp-virtual-servers?topic=hp-virtual-servers-provision
 
 </Tab>
 <Tab label="Provision HPVS using terraform script" open="true">
@@ -355,22 +355,29 @@ When you have completed this code pattern, you will understand how to:
 
 [Code pattern](https://developer.ibm.com/patterns/create-a-secured-microservices-and-deploy-it-to-a-consolidated-database/)
 
+Git repo for the Application:
 [Application code](https://github.com/yogendrasri/secured-microservices-writing-to-a-consolidated-database)
 
 ### Application output
 
-The main page of application that explains how HPCS, HPDBAAS works along with application deployed on HPVS:  
+The main page of application that explains how HPCS, HPDBaaS works along with application deployed on HPVS:  
 ![ui-frontpage](images/ui-frontpage.png)
+
 Create a new team, and associated key provided by Crypto Services(HPCS):
 ![ui-generatedek](images/ui-generatedek.png)
+
 Fill the details and submit the form, user can use auto generated deatils as well:
 ![ui-custsubmitform](images/ui-custsubmitform.png)
+
 Conformation of Data stored in MongoDB:
 ![ui-confirm](images/ui-confirm.png)
+
 Retrieve the information from MongoDB, all the data stored is encrypted:
 ![ui-retrieveinfo](images/ui-retrieveinfo.png)
+
 You can view encrpted data by selecting the row, provided user belongs to the same team: 
 ![ui-decryted-data](images/ui-decryted-data.png)
+
 If user does not belongs to the same team data would be in ciphertext:
 ![ui-encrypt-data](images/ui-encrypt-data.png)
 
@@ -380,5 +387,5 @@ If user does not belongs to the same team data would be in ciphertext:
 ### **Resources**
 - [Hyper Protect crypto services](https://cloud.ibm.com/docs/hs-crypto?topic=hs-crypto-get-started)
 - [Hyper Protect DBaaS for MongoDB](https://cloud.ibm.com/docs/hyper-protect-dbaas-for-mongodb?topic=hyper-protect-dbaas-for-mongodb-gettingstarted)
-- [yper Protect Virtual Servers](https://cloud.ibm.com/docs/hp-virtual-servers?topic=hp-virtual-servers-getting-started)
+- [Hyper Protect Virtual Servers](https://cloud.ibm.com/docs/hp-virtual-servers?topic=hp-virtual-servers-getting-started)
 - [Application](https://developer.ibm.com/patterns/create-a-secured-microservices-and-deploy-it-to-a-consolidated-database/)

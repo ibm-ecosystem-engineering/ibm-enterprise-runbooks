@@ -102,7 +102,7 @@ The ACCESS_KEY_ID key and SECRET_ACCESS_KEY_ID can be found in bucket configurat
 
 Run chmod 600 .passwd-s3fs command on the file, else one would get a permission error on runing mount command.
 
-![keymanagement with openshift-1](images/permission_error.jpg)  -- Not Working
+![keymanagement with openshift-1](images/permission_error.jpg) 
 
 Create a directory where you would like to mount bucket which in my case is “/mycosbucket”. One can create this directory through mkdir command.
 
@@ -125,10 +125,10 @@ To make mount permanent even after VSI reboot, enter below entry in /etc/fstab d
 
 Reboot the machine to verify persistence of the mounted bucket. Finally the architecture would look like as below.
 
-![keymanagement with openshift-1](images/Arch_ver1.jpg) -- Not Working
+![keymanagement with openshift-1](images/Arch_ver1.jpg)
 
 ## Testing the Configuration
 Now we have mounted COS bucket in DC on VSI across availability zones and in DR VPC in single AZ, lets verify whether files are shared across consistently or not.
-![keymanagement with openshift-1](images/Testing1.jpg) -- Not Working
+![keymanagement with openshift-1](images/Testing1.jpg) 
 
 This shows data is synchronized across zones and regions which are participating in DC and DR in our solution.

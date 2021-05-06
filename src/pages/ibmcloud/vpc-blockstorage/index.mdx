@@ -104,7 +104,7 @@ a) /root/vs1-az2-mount – Availability Zone 2
 
 b) /root/vs1-az3-mount – Availability Zone 3
 
-# vs1-az2-instance
+### vs1-az2-instance
 ![keymanagement with openshift-1](images/Screenshot_18.jpg)
 
 Make mount permanent by making entry in /etc/fstab
@@ -127,3 +127,25 @@ Reboot machine and verify if mount still persists.
 ![keymanagement with openshift-1](images/Screenshot_22.jpg)
 
 We are now ready for testing the solution.
+
+## Testing the Solution
+The virtual servers and storage that we configured above are as below:
+
+![keymanagement with openshift-1](images/Screenshot_23.jpg)
+
+## Conclusion
+Using SSHFS is a no cost solution to synchronize the data across virtual servers located in different availability zones.
+
+## References
+
+a) https://www.redhat.com/sysadmin/sshfs
+
+b) https://stackoverflow.com/questions/19971811/sshfs-as-regular-user-through-fstab#:~:text=Using%20option%20allow_other%20in%20%2Fetc%2Ffstab%20allows%20other%20users,users%20than%20root%20can%20access%20to%20mount%20point.
+
+c) https://unix.stackexchange.com/questions/14143/what-is-a-better-way-to-deal-with-server-disconnects-of-sshfs-mounts
+
+d) https://linuxize.com/post/how-to-use-sshfs-to-mount-remote-directories-over-ssh/
+
+e) https://jamesnbr.wordpress.com/2019/10/24/install-sshfs-3-5-2-on-centos-8-rhel-8/
+
+

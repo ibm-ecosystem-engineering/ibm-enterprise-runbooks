@@ -86,6 +86,10 @@
       path: /ibmcloud/openvpn-vsi-vpc
     - title: VPC VPE with COS
       path: /ibmcloud/vpc-vpe
+    - title: Block Storage Share in VPC
+      path: /ibmcloud/vpc-blockstorage  
+    - title: Block Storage Share across VPC
+      path: /ibmcloud/vpc-blockstorage-dr
     - title: Hyper Protect Services
       path: /ibmcloud/hyper-protect-services
 

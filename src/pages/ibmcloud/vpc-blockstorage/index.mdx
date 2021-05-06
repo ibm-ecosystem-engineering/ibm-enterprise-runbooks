@@ -21,4 +21,11 @@ This recipe is based on Implementing below architecture where in block storage f
 ![keymanagement with openshift-1](images/Screenshot_1.jpg)
 
 
+## Pre-requisites
+To Implement this scenario one would need to establish passwordless authentication between secondary servers and primary server or master as shown in below diagram. IBM Cloud VPC comes with private key authentication mechanism by default and one can’t establish passwordless authentication that. Hence one would need to change SSH configuration from private key authentication to password based authentication. Install fuse-sshfs library on secondary servers by running below command :
 
+![keymanagement with openshift-1](images/Screenshot_2.jpg)
+
+Reboot the machine once after installing fuse-sshfs as many times it throws below error during mounting:
+
+![keymanagement with openshift-1](images/Screenshot_3.jpg)

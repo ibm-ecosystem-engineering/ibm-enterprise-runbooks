@@ -39,3 +39,32 @@ wget https://github.com/libfuse/sshfs/releases/download/sshfs-3.5.2/sshfs-3.5.2.
 The details of virtual Instances are mapped across availability zones as below:
 
 ![keymanagement with openshift-1](images/screenshot3.jpg)
+
+## Attach Block Storage Volume to Primary Server
+
+![keymanagement with openshift-1](images/Screenshot_5.jpg)
+
+![keymanagement with openshift-1](images/Screenshot_6.jpg)
+
+Verify in Instance that volume is attached.
+
+![keymanagement with openshift-1](images/Screenshot_7.jpg)
+
+## Create Volume on Attached Storage
+
+Verify that disk is mounted in OS
+
+![keymanagement with openshift-1](images/Screenshot_8.jpg)
+
+Create Volume that we will mount on other two Instances spread across zones.
+
+![keymanagement with openshift-1](images/Screenshot_9.jpg)
+
+![keymanagement with openshift-1](images/Screenshot_10.jpg)
+
+Set xfs file system on the partition.
+
+![keymanagement with openshift-1](images/Screenshot_11.jpg)
+
+
+

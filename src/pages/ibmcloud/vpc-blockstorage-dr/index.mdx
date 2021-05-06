@@ -49,5 +49,30 @@ Add Connections
 
 ![keymanagement with openshift-1](images/Screenshot_7.jpg)
 
+To configure gateway one would need to hook VPC from both the ends which in our case is Dallas and Washington.
 
+## Test Connectivity between Virtual Machines from Dallas VPC and Washington VPC
+
+Ping Washington server from Dallas VPC availability zone 3
+
+![keymanagement with openshift-1](images/Screenshot_8.jpg)
+
+Repeat the test with Virtual servers located in other zones. We are now ready to proceed further for mounting. Follow the steps mentioned in previous article to miunt the remote volume to local directory as shown below.
+
+![keymanagement with openshift-1](images/Screenshot_9.jpg)
+
+Make entry in **/etc/fstab**
+
+![keymanagement with openshift-1](images/Screenshot_10.jpg)
+
+Check whether files are available:
+
+![keymanagement with openshift-1](images/Screenshot_11.jpg)
+
+## References
+a) https://medium.com/@moreal70/how-to-integrate-securely-multiple-vpcs-on-ibm-cloud-1835438d5941
+
+b) https://cloud.ibm.com/docs/transit-gateway?topic=transit-gateway-about
+
+c) https://www.ibm.com/cloud/blog/announcements/ibm-cloud-transit-gateway
 

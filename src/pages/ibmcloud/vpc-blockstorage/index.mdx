@@ -1,5 +1,5 @@
 ---
-title: VPC VPE
+title: Sharing Block Storage Volumes Across Availability Zones in VPC in IBM Cloud
 ---
 
 import Globals from 'gatsby-theme-carbon/src/templates/Globals';
@@ -9,4 +9,16 @@ import Globals from 'gatsby-theme-carbon/src/templates/Globals';
 
 </PageDescription>
 
-## **Overview**
+## Introduction
+There might be situations where customer scenario would require sharing of tiered block storage volumes of varied IOPS to be shared across computes in different availability zones. This article leverages SSHFS to overcome this limitation using a very basic service of SSH which is availabile across operating systems flavours. This recipe is specific to IBM Cloud VPC network construct.
+
+Note: There currently is not NFS offering in VPC, but one can setup NFS servers and clients and manage them. In this article we are using sshfs instead of NFS to share the volume from one VSI to other VSIs in different regions.
+
+
+## Architecture
+This recipe is based on Implementing below architecture where in block storage for VPC is mounted on virtual server based out of Dallas 1 zone. This volume is then mounted on virtual servers in zones – Dallas2 and Dallas3. So whatever data is written to Dallas1 volume is replicated to Dallas2 and Dallas3. I will take virtual server hosted in Dallas1 data center as primary server or master, where as servers hosted on Dallas2 and Dallas3 as secondary servers or Slaves.
+
+![keymanagement with openshift-1](images/Arch_Plain.jpg)
+
+
+

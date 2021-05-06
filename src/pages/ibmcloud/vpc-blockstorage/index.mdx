@@ -111,6 +111,14 @@ Make mount permanent by making entry in /etc/fstab
 
 ### Note: To auto-remount on primary server reboot make below entries in your /etc/fstab.
 
+![keymanagement with openshift-1](images/Screenshot_19.jpg)
 
+### root@vs1-az1-instance:/shareddata /root/vs1-az2-mount fuse.sshfs allow_other,_netdev,noatime,reconnect,auto 0 0
+
+Which if not there would not remount the volume in case of primary server reboot and one would need to reboot secondary servers to make that happen.
+
+Reboot machine and verify if mount still persists.
+
+![keymanagement with openshift-1](images/Screenshot_20.jpg)
 
 

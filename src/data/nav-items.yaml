@@ -120,6 +120,8 @@
       path: /ibmcloud/openvpn-vsi-vpc
     - title: KMS integration with ROKS
       path: /ibmcloud/kms-roks
+    - title: Block Storage Share across VPC
+      path: /ibmcloud/vpc-blockstorage-dr
     - title: VPC VPE with COS
       path: /ibmcloud/vpc-vpe
     - title: VPC Block Storage 

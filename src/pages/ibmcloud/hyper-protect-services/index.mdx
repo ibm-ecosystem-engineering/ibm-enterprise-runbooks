@@ -33,10 +33,23 @@ For more details please refer https://cloud.ibm.com/docs/hs-crypto?topic=hs-cryp
 
 <Tab label="Provision HPCS using terraform script" open="true">
 
-[Terraform module to provision Hyper protect Crypto service](https://github.com/cloud-native-toolkit/terraform-ibm-hpcs)
+```
+Input parameters required:
+
+api key
+
+no. of crypto unit
+
+region
+
+resours group name
 
 ```
-git clone https://github.com/cloud-native-toolkit/terraform-ibm-hpcs.git
+
+[Terraform module to provision Hyper protect Crypto service](https://github.com/yogendrasri/terraform-ibm-hpcs)
+
+```
+git clone https://github.com/yogendrasri/terraform-ibm-hpcs.git
 cd terraform-ibm-hpcs
 ```
 
@@ -260,7 +273,9 @@ You can provision Hyper protect DBaaS for MongoDB using IBM cloud catalog or usi
 <Tab label="Provision HPDBaaS for MongoDB using IBM cloud" open="true">
 
 ![hpdbaas-1](images/hpdbaas-1.png)
-![hpdbaas-2](images/hpdbaas-2.png)
+![hpdbaas-3](images/hpdbaas-3.png)
+
+For security purpose, it is recomendded to have private endpoint.
 
 For more details please refer https://cloud.ibm.com/docs/hyper-protect-dbaas-for-mongodb?topic=hyper-protect-dbaas-for-mongodb-create-service
 
@@ -268,10 +283,42 @@ For more details please refer https://cloud.ibm.com/docs/hyper-protect-dbaas-for
 
 <Tab label="Provision HPDBaaS for MongoDB using terraform script" open="true">
 
-[Terraform module to provision Hyper protect DBaaS for MongoDB](https://github.com/cloud-native-toolkit/terraform-ibm-hpdbaas-mongodb)
+```
+Input parameters required:
+
+api key
+
+name of database admin
+
+cluster name
+
+password.  —   15 characters minimum, at least one uppercase character, one lowercase character and one number
+
+confirm password. —  15 characters minimum, at least one uppercase character, one lowercase character and one number
+
+HPCS name
+
+HPCS key
+
+HPCS region
+
+HPCS resources group
+
+name prefix
+
+plan
+
+resource group name 
+
+resource location
+
 
 ```
-git clone https://github.com/cloud-native-toolkit/terraform-ibm-hpdbaas-mongodb.git
+
+[Terraform module to provision Hyper protect DBaaS for MongoDB](https://github.com/yogendrasri/terraform-ibm-hpdbaas-mongodb)
+
+```
+git clone https://github.com/yogendrasri/terraform-ibm-hpdbaas-mongodb.git
 cd terraform-ibm-hpdbaas-mongodb
 ```
 
@@ -317,10 +364,25 @@ For more details please refer https://cloud.ibm.com/docs/hp-virtual-servers?topi
 </Tab>
 <Tab label="Provision HPVS using terraform script" open="true">
 
-[Terraform module to provision Hyper protect Virtual Servers](https://github.com/cloud-native-toolkit/terraform-ibm-vpc-vsi)
+```
+Input parameters required:
+
+api key
+
+sshPublicKey
+
+resource group name. 
+
+name prefix 
+
+resource location dal10, fra02, syd01
 
 ```
-git clone https://github.com/cloud-native-toolkit/terraform-ibm-vpc-vsi.git
+
+[Terraform module to provision Hyper protect Virtual Servers](https://github.com/yogendrasri/terraform-ibm-vpc-vsi)
+
+```
+git clone https://github.com/yogendrasri/terraform-ibm-vpc-vsi.git
 cd terraform-ibm-vpc-vsi
 ```
 
@@ -357,7 +419,28 @@ When you have completed this code pattern, you will understand how to:
 [Code pattern](https://developer.ibm.com/patterns/create-a-secured-microservices-and-deploy-it-to-a-consolidated-database/)
 
 You can refer the this git repo for the source code of this Application:
-https://github.com/yogendrasri/secured-microservices-writing-to-a-consolidated-database
+https://github.com/yogendrasri/secured-microservices-writing-to-a-consolidated-
+
+
+
+### **Command to start application**
+
+User can get HPCS parameters from HPCS service overview page and MongoDB parameters from HPDBBAS for MONGODB Service manage page.
+
+```
+docker run -e IBM_API_KEY=‘<API KEY>’ \
+           -e IAM_PATH='https://iam.cloud.ibm.com/identity/token' \
+           -e MONGO_USER=‘<username>’ \
+           -e MONGO_PASS=‘<password>’ \
+           -e ROOT_KEY_ID=‘<HPCS root Key ID>’ \
+           -e KP_URL=‘<HPCS PRIVATE URL>’ \
+           -e KP_PATH='/api/v2/keys' \
+           -e KP_INSTANCE=‘<HPCS Instance ID>’ \
+           -e MONGO_ENDPOINTS=‘<mongodb URL:port,mongodb URL:port>’ \
+           -e MONGO_CLUSTER_NAME=‘<mongodb cluster>’ \
+           -e MONGO_DB_NAME=‘<Mongo DB name>’ \
+           -dp 3000:3000 secure-microservice
+```
 
 ### Application output
 

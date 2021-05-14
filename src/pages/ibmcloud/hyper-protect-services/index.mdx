@@ -248,11 +248,11 @@ CRYPTO UNIT NUM   XCP_CPB_ALG_EC_25519   XCP_CPB_BTC   XCP_CPB_ECDSA_OTHER
 
 For more details refer recovery crypto unit https://cloud.ibm.com/docs/hs-crypto?topic=hs-crypto-initialize-hsm-recovery-crypto-unit
 
-## **Create root or standard key**
+## **Create root key**
 
 1) From the IBM Cloud console open HPCS service, click Key management service keys > Add key.
 
-2) Provide key type (Root or Standard).
+2) Provide key type (root).
 
 3) Provide Key name.
 
@@ -276,6 +276,8 @@ You can provision Hyper protect DBaaS for MongoDB using IBM cloud catalog or usi
 ![hpdbaas-3](images/hpdbaas-3.png)
 
 For security purpose, it is recomendded to have private endpoint.
+
+Location and HPCS region should be same.
 
 For more details please refer https://cloud.ibm.com/docs/hyper-protect-dbaas-for-mongodb?topic=hyper-protect-dbaas-for-mongodb-create-service
 
@@ -310,10 +312,11 @@ plan
 
 resource group name 
 
-resource location
+resource location - This resource location and HPCS region should be same
 
 
 ```
+By default private_endpoint is true in terraform script.
 
 [Terraform module to provision Hyper protect DBaaS for MongoDB](https://github.com/yogendrasri/terraform-ibm-hpdbaas-mongodb)
 
@@ -358,6 +361,7 @@ You can provision Hyper protect Virtual Servers using IBM cloud catalog or using
 
 ![hpvs-1](images/hpvs-1.png)
 ![hpvs-2](images/hpvs-2.png)
+For generating SSH key Please refer https://cloud.ibm.com/docs/hp-virtual-servers?topic=hp-virtual-servers-generate_ssh
 
 For more details please refer https://cloud.ibm.com/docs/hp-virtual-servers?topic=hp-virtual-servers-provision
 
@@ -369,7 +373,7 @@ Input parameters required:
 
 api key
 
-sshPublicKey
+sshPublicKey  -- For generating SSH key Please refer https://cloud.ibm.com/docs/hp-virtual-servers?topic=hp-virtual-servers-generate_ssh
 
 resource group name. 
 

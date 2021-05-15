@@ -11,7 +11,7 @@ import Globals from 'gatsby-theme-carbon/src/templates/Globals';
 
 # Reference Architecture
 ![Alt text](images/Screenshot_4_lat.jpg) 
-![keymanagement with openshift-1](images/Screenshot_4_lat.jpg)
+
 
 The current scenario discusses real-time replication between two computes, however this can be customized to work with multiple machines. The solution is tested on RHEL8 machine on IBM Cloud's VPC based network.
 
@@ -76,29 +76,29 @@ Once done, reload the OpenSSH daemon for the changes to come into effect.
 dnf install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm <br/>
 dnf install nload <br/>
 nload -m <br/>
-![Alt text](/images/Screenshot_1.jpg?raw=true "")
+![Alt text](images/Screenshot_1.jpg?raw=true "")
 # nload commands
-![Alt text](/images/Screenshot_2.jpg?raw=true "") <br/>
+![Alt text](images/Screenshot_2.jpg?raw=true "") <br/>
 # Where <br/>
-![Alt text](/images/Screenshot_3.jpg?raw=true "")
+![Alt text](images/Screenshot_3.jpg?raw=true "")
 
 # Example Scenario - File is externally uploaded to virtual server ftom WinSCP and this will is replicated to second virtual server through python code
 # Step1 - Uploading File 
 
 After file transfer is started one can verify download speed as below <br/>
-![Alt text](/images/Screenshot_1_lat.jpg?raw=true "") <br/>
+![Alt text](images/Screenshot_1_lat.jpg?raw=true "") <br/>
 
 One the upload is complete to first virtual server, python scheduler will replicate the data to second virtual server as shown below, one can not both outbound transfer rate on first server and inbound rate on second server  - <br/>
 
-![Alt text](/images/Screenshot_2_lat.jpg?raw=true "")
+![Alt text](images/Screenshot_2_lat.jpg?raw=true "")
 
 The schedule will not initiate transfer during downloading process <br/>
 
-![Alt text](/images/Screenshot_3_lat.jpg?raw=true "") <br/>
+![Alt text](images/Screenshot_3_lat.jpg?raw=true "") <br/>
 
 # Running Scheduler as Systemd Service
 Copy python-scheduler.service in /etc/systemd/system directory.
-![Alt text](/images/Screenshot_5_lat.jpg?raw=true "") <br/>
+![Alt text](images/Screenshot_5_lat.jpg?raw=true "") <br/>
 
 ### Note: Entry Environment=PYTHONUNBUFFERED=1 in systemd service file ensures that the logging is not buffered and is real time. The logging is generated in /var/log/messages file
 

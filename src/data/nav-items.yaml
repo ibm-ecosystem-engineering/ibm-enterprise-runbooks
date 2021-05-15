@@ -126,6 +126,8 @@
       path: /ibmcloud/vpc-vpe
     - title: VPC Block Storage 
       path: /ibmcloud/vpc-blockstorage
+    - title: Data Replication 
+      path: /ibmcloud/replication      
     - title: Hyper Protect Services
       path: /ibmcloud/hyper-protect-services
 

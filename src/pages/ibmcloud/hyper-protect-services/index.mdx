@@ -260,6 +260,25 @@ For more details refer recovery crypto unit https://cloud.ibm.com/docs/hs-crypto
 
 ![key-added](images/key-added.png)
 
+## **Authorize HPCS for use with HPDBaaS for MongoDB service instances:**
+
+1) Go to the IBM Cloud console.
+    
+2) From the menu bar, click Manage > Access (IAM).
+
+3) In the side navigation, click Authorizations.
+
+4) Click Create.
+    
+5) In the Source service menu, select Hyper Protect DBaaS for MongoDB.
+
+6) In the Target service menu, select Hyper Protect Crypto Services.
+   
+7) Enable the Reader role.
+
+8) Click Authorize.
+
+
 ## **Hyper Protect DBaaS**
 
 IBM Cloud® Hyper Protect DBaaS (HPDBaaS) provides tamper-proof, enterprise cloud database environments with high availability for workloads with sensitive data. It offers a flexible platform that allows you to easily provision and manage your database of choice (MongoDB and PostgreSQL), without data security concerns.
@@ -422,14 +441,19 @@ When you have completed this code pattern, you will understand how to:
 
 [Code pattern](https://developer.ibm.com/patterns/create-a-secured-microservices-and-deploy-it-to-a-consolidated-database/)
 
-You can refer the this git repo for the source code of this Application:
-https://github.com/yogendrasri/secured-microservices-writing-to-a-consolidated-
-
-
 
 ### **Command to start application**
 
-User can get HPCS parameters from HPCS service overview page and MongoDB parameters from HPDBBAS for MONGODB Service manage page.
+User can get HPCS parameters from HPCS service overview page.
+
+User can get MongoDB parameters from HPDBBAS for MONGODB Service manage page.
+
+User can get HPVS parameters like ip address from HPVS manage page.
+
+Provisioning of HPCS, HPDBBAS for MONGODB and HPVS is already done, user can start from the step Obtain an API Key provided in git repo mentioned below. 
+
+You can refer the this git repo for the source code of this Application:
+https://github.com/IBM/secured-microservices-writing-to-a-consolidated-database
 
 ```
 docker run -e IBM_API_KEY=‘<API KEY>’ \
